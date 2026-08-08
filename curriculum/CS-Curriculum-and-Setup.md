@@ -144,7 +144,7 @@ Goal: students learn how programmers think and start writing code immediately.
 - **W1: "What is a computer?"** Open with the brief computer-fluency intro (Course Intro guide) since there is no pre-course prep; run the readiness diagnostic here. Then: history and computational thinking; boot the Apple IIe and type `10 PRINT "HELLO" / 20 GOTO 10 / RUN`. Coding: Thonny setup, variables, print, input. Build: a name-and-greeting program. Resource: Crash Course CS Ep. 1. (If the intro runs long, the Python ramp slides into W2; that is fine.)
 - **W2: "Why only 1s and 0s?"** Binary, number systems, character encoding (ASCII, Unicode), compression (lossy vs lossless: ZIP, JPEG, MP3). Coding: integers, strings, arithmetic, type conversion. Build: a decimal-to-binary converter. Resource: Crash Course CS Ep. 4 to 5, plus Code.org Data unit (AP-tested material).
 - **W3: "How do we tell a computer what to do?"** Algorithms and problem decomposition. Coding: conditionals and boolean logic. Build: a number-guessing game. 
-- **W4:** Coding: loops (for, while). Build: a calculator and Rock Paper Scissors. Mystery Day: "Why do programming languages exist?"
+- **W4:** Coding: loops (for, while); introduce the idea of a library by importing `random` (AP 3.14 Libraries). Build: a calculator and Rock Paper Scissors. Mystery Day: "Why do programming languages exist?"
 - **W5:** Coding: functions and basic debugging. Build: Hangman. **Unit 1 checkpoint** (binary, basic Python).
 
 ### Unit 2: Inside the Computer (Weeks 6 to 10)
@@ -162,9 +162,9 @@ Goal: real programming muscle now that students know what the machine is. This i
 - **W11:** Dictionaries; modeling real data. Build: a contact manager.
 - **W12:** Objects and classes. Build: a simple inventory or pet/RPG class.
 - **W13:** Data structures by hand (array, stack, queue, linked list conceptually). Build: a to-do stack and a print queue.
-- **W14:** Searching and sorting; Big-O conceptually (why some programs are fast and others slow). Lab: race linear vs binary search; visualize bubble vs built-in sort. 
+- **W14:** Searching and sorting; Big-O conceptually (why some programs are fast and others slow); a brief note that some problems cannot be solved by any algorithm (the halting problem, AP 3.18 Undecidable Problems). Lab: race linear vs binary search; visualize bubble vs built-in sort. 
 - **W15:** Debugging and testing; reading tracebacks; writing simple tests. Build: Tic-Tac-Toe with a few tests.
-- **W16:** Build week: a text adventure that uses dictionaries, functions, and a class. **Unit 3 checkpoint.** Mystery Day: "Why does a computer get slower over time?"
+- **W16:** Build week: a text adventure that uses dictionaries, functions, and a class. Short simulation exercise: model dice rolls or a random walk and count the outcomes (AP 3.16 Simulations, building on random values). **Unit 3 checkpoint.** Mystery Day: "Why does a computer get slower over time?"
 
 ### Unit 4: Operating Systems and the Internet (Weeks 17 to 21)
 Goal: the course starts feeling "real." Transition students from Thonny to the terminal. Macs help here: macOS is Unix underneath, so the terminal (zsh), SSH, and standard Unix commands are already present with nothing to install. Windows students reach the same place through WSL2/Ubuntu.
@@ -181,7 +181,7 @@ Goal: connect everything into a working web app. Move to VS Code.
 - **W22:** Software engineering, SDLC, Agile basics, technical debt. Coding: VS Code setup; Python project structure.
 - **W23:** Git and version control. Lab: a collaborative Git project against the class server; branches, commits, code review.
 - **W24:** Web fundamentals: HTML, CSS, JavaScript, the DOM, the rendering pipeline. Build: a personal page from scratch.
-- **W25:** APIs and JSON. Build: a small Flask app that consumes a public API (weather or similar).
+- **W25:** APIs and JSON. Build: a small Flask app that consumes a public API (weather or similar). Data lab: load a small dataset (CSV), extract information from it (filter, count, find a pattern, read its metadata), and show a simple summary or chart. This covers AP Data topics 2.3 (Extracting Information from Data) and 2.4 (Using Programs with Data).
 - **W26:** **How mobile apps work** (high level, both platforms): native (Android/Kotlin, iOS/Swift), cross-platform (Flutter, React Native, .NET MAUI), and PWAs; app stores, permissions, sensors, GPS, push, offline storage, cloud sync. Discuss why companies pick each approach. Lab: convert their Flask/web app into a Progressive Web App. **Unit 5 checkpoint.**
 
 ### Unit 6: The Future of Computing (Weeks 27 to 32)
@@ -190,7 +190,7 @@ Goal: tour modern computing, then spend real time finishing a substantial progra
 - **W27:** AI and ML tour: history, search, neural networks, embeddings, transformers (conceptual), LLMs, inference vs training, hallucinations. Lab: build a tiny perceptron in Python, or call an LLM API. Begin or continue Create Task work. This unit also includes the "using AI as a coding tool" session that unlocks AI-assisted work for non-exam projects (see Section 10).
 - **W28:** Cybersecurity: passwords, hashing, MFA, encryption, public/private keys, certificates, phishing, malware, common web vulnerabilities (SQL injection, XSS) at a concept level. Lab: "How is our classroom network protected?" Trace internet to DNS filter to firewall to OS to browser to user; defense in depth.
 - **W29:** Single combined tour: cloud and infrastructure (servers, data centers, virtualization, containers and Docker overview, serverless, object storage, CDNs) plus blockchain, consensus, and distributed systems (CAP theorem, replication, eventual consistency). One lesson, mental model only.
-- **W30:** Ethics and society (AP Impact of Computing): privacy, surveillance, bias in AI, deepfakes, copyright and licensing, open source, the digital divide, automation, responsible AI. Dedicated Create Task work time.
+- **W30:** Ethics and society (AP Impact of Computing): privacy, surveillance, bias in AI, deepfakes, copyright and licensing, open source, the digital divide, crowdsourcing (AP 5.4), automation, responsible AI. Dedicated Create Task work time.
 - **W31 to W32:** **Final project / Create Performance Task** build, demo, video, and writeup. Submit to the AP Digital Portfolio if testing. Mystery Day options: "How does Face ID work?", "How does Netflix stream 4K?", "How do multiplayer games stay in sync?"
 
 ### Recurring "Mystery Day" bank
@@ -206,7 +206,7 @@ Use these to cut prep time and raise quality.
 |---|---|---|
 | Code.org CS Principles | AP-aligned lessons, assessments, standards spine | Free |
 | AP CSP Exam Reference Sheet (College Board) | Official, authoritative pseudocode spec used on exam day; link below | Free |
-| Crash Course Computer Science (40 eps) | Tier 2 guided-tour video for hardware/OS/networking | Free |
+| [Crash Course Computer Science (40 eps)](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) | Tier 2 guided-tour video for hardware/OS/networking | Free |
 | Turing Complete (Steam) | In-class NAND-to-CPU building, very engaging | Paid, low cost |
 | nand2tetris.org and "The Elements of Computing Systems" | Ambitious students: full build-the-stack | Free course |
 | Harvard CS50 and CS50 AP | Stretch material and problem sets | Free |
