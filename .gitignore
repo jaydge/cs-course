@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+.AppleDouble
+# Windows
+Thumbs.db
+Desktop.ini
+# Editors
+.vscode/
+.idea/
+*.swp
+# Temp
+*.tmp
+*~
