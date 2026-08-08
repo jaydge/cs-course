@@ -8,7 +8,7 @@ Verify current prices and syllabus links before relying on them; costs and cours
 
 | Program | Cost | Language | Structure | AP-endorsed | Best at |
 |---|---|---|---|---|---|
-| CompuScholar | About $225 per course per year (or $25 per month), as of August 2026 | Python, Java, C#, web | Video lessons, auto-graded, transcript-ready, self-paced | Yes (CSP) | Turn-key homeschool credit with grading done for you |
+| CompuScholar | About $195 per course per year (or $25 per month) for most courses; the Computer Science Foundations (AP CSP) course is $225 per year. Verified August 2026 | Python, Java, C#, web | Video lessons, auto-graded, transcript-ready, self-paced | Yes (CSP) | Turn-key homeschool credit with grading done for you |
 | CodeHS | Free tier; paid Pro for grading and tools | Python, JavaScript, Java | Browser IDE, auto-grading, 60+ courses | Yes (CSP and CSA) | One integrated platform: lessons, IDE, grading |
 | Project STEM | Free (sponsored) | Python (CSP), Java (CSA) | Video, auto-graded, teacher resources | Yes (CSP and CSA) | Free, rigorous, real AP prep with a proven track record |
 | UTeach CS Principles | Paid per student | Python and blocks | Project-based, College Board syllabus | Yes (CSP) | Engaging, project-driven AP CSP |
@@ -71,6 +71,6 @@ For balance, the things our course does that the paid and free platforms general
 Keep our course as the spine, since it fits your setting and goals in a way no off-the-shelf program does. Then bolt on the two things the endorsed programs do better, using free options:
 
 1. Use Code.org CS Principles (free) for AP-aligned concept lessons, the assessment bank, and Create Task scaffolding for any AP-track students.
-2. If a family wants an audit-backed transcript or a fully turn-key fallback, Project STEM (free) or CompuScholar (paid, about $225 per year) is the one to adopt for that student, run alongside our course.
+2. If a family wants an audit-backed transcript or a fully turn-key fallback, Project STEM (free) or CompuScholar (paid; the AP CSP course is about $225 per year, most other courses about $195) is the one to adopt for that student, run alongside our course.
 
 That gives you the depth and hands-on experience of what we built, with the AP safety net and grading convenience of the best platforms, at little or no added cost.
