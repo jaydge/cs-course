@@ -39,7 +39,7 @@ In two or three sentences: why do programming languages exist at all, if the com
 
 ## 4. Watch, if you want (optional)
 
-Crash Course Computer Science, Episode 11, "The First Programming Languages," goes with today's Mystery Day question: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episode 11, "Programming Languages," goes with today's Mystery Day question: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
 ## 5. Typing practice (optional)
 

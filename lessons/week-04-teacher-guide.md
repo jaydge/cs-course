@@ -140,6 +140,6 @@ Nothing here is required of non-AP students.
 
 - Optional loop round of the Human Robot Maze: if the tape grid is still down, add `REPEAT n TIMES` to the command set from Week 3 and have groups collapse a long path into a short program. Full progression in `teaching-activities/Unplugged-Logic-Activities.md`; the canonical source is CodeAI's My Robotic Friends, `https://curriculum.code.org/csf-18/coursee/1/`, teacher video `https://youtu.be/M_qD3hPXrVQ`.
 - Python `random` module documentation, for your own reference: `https://docs.python.org/3/library/random.html`
-- Crash Course Computer Science, Episode 11 ("The First Programming Languages"), which pairs directly with the Mystery Day segment. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- Crash Course Computer Science, Episode 11 ("Programming Languages"), which pairs directly with the Mystery Day segment. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - CodeAI CSP Unit 6 (AP-track reinforcement): `https://studio.code.org/courses/csp-2025/units/6`
 - AP pseudocode equivalents for loops and `RANDOM`: `ap-track/AP-Pseudocode-Bridge.md`

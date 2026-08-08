@@ -158,5 +158,5 @@ Nothing here is required of non-AP students.
 - Human Robot Maze: Segment 3 is complete on its own. The canonical version is CodeAI's My Robotic Friends unplugged lesson, with a symbol key and printables, at `https://curriculum.code.org/csf-18/coursee/1/` (newer edition under `https://curriculum.code.org/csf-current/`). The teacher video is at `https://youtu.be/M_qD3hPXrVQ`. Watch it during prep if you want to see the classroom management modeled; you do not need it to run Segment 3.
 - Robot Chef: fully inline in Segment 2. It is a performance, so rehearse the literal-failure bit during prep.
 - Full activity descriptions and the year's maze progression: `teaching-activities/Unplugged-Logic-Activities.md`.
-- Crash Course Computer Science, Episode 11 ("The First Programming Languages") or Episode 12 ("Programming Basics: Statements and Functions"), optional homework viewing. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- Crash Course Computer Science, Episode 11 ("Programming Languages") or Episode 12 ("Programming Basics: Statements and Functions"), optional homework viewing. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - CodeAI CSP Unit 4 (AP-track reinforcement): `https://studio.code.org/courses/csp-2025/units/4`
