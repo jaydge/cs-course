@@ -24,6 +24,9 @@ Start with the curriculum. Everything else is a companion it references.
 ### reference/
 - **Curriculum-Comparison.md** — how this course compares to paid and free programs (CompuScholar, CodeHS, Project STEM, CS50, Code.org), with syllabus links and a gap analysis.
 
+### syllabus/
+- **parent-syllabus.md** — the parent-facing syllabus: course overview, time commitment, unit schedule, grading, accounts and consent, devices, optional prep, and the opt-in AP track in plain language.
+
 ### lessons/
 - Per-week in-depth teacher guides. **week-01-teacher-guide.md** is the format prototype; the remaining weeks follow its structure.
 
