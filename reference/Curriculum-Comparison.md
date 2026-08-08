@@ -8,7 +8,7 @@ Verify current prices and syllabus links before relying on them; costs and cours
 
 | Program | Cost | Language | Structure | AP-endorsed | Best at |
 |---|---|---|---|---|---|
-| CompuScholar | About $120 to $199 per course per year | Python, Java, C#, web | Video lessons, auto-graded, transcript-ready, self-paced | Yes (CSP) | Turn-key homeschool credit with grading done for you |
+| CompuScholar | About $225 per course per year (or $25 per month), as of August 2026 | Python, Java, C#, web | Video lessons, auto-graded, transcript-ready, self-paced | Yes (CSP) | Turn-key homeschool credit with grading done for you |
 | CodeHS | Free tier; paid Pro for grading and tools | Python, JavaScript, Java | Browser IDE, auto-grading, 60+ courses | Yes (CSP and CSA) | One integrated platform: lessons, IDE, grading |
 | Project STEM | Free (sponsored) | Python (CSP), Java (CSA) | Video, auto-graded, teacher resources | Yes (CSP and CSA) | Free, rigorous, real AP prep with a proven track record |
 | UTeach CS Principles | Paid per student | Python and blocks | Project-based, College Board syllabus | Yes (CSP) | Engaging, project-driven AP CSP |
@@ -23,7 +23,7 @@ Verify current prices and syllabus links before relying on them; costs and cours
 - Project STEM AP CSP: `projectstem.org/high-school/ap-csp` and AP CSA at `projectstem.org`.
 - UTeach CS Principles, with the College Board-approved syllabus: `cs.uteach.utexas.edu/csp`.
 - Harvard CS50: `cs50.harvard.edu` (CS50x on edX is the free self-paced version).
-- Code.org CS Principles: `code.org/educate/csp`.
+- Code.org CS Principles: `https://code.org/en-US/curriculum/computer-science-principles` (Code.org now operates as CodeAI; older `code.org/educate/csp` links redirect here).
 - The authoritative reference for any AP CSP alignment is the College Board Course and Exam Description: `apcentral.collegeboard.org/courses/ap-computer-science-principles`.
 - Endorsed AP CSP providers list: `apcentral.collegeboard.org/courses/ap-computer-science-principles/classroom-resources/curricula-pedagogical-support`.
 
@@ -71,6 +71,6 @@ For balance, the things our course does that the paid and free platforms general
 Keep our course as the spine, since it fits your setting and goals in a way no off-the-shelf program does. Then bolt on the two things the endorsed programs do better, using free options:
 
 1. Use Code.org CS Principles (free) for AP-aligned concept lessons, the assessment bank, and Create Task scaffolding for any AP-track students.
-2. If a family wants an audit-backed transcript or a fully turn-key fallback, Project STEM (free) or CompuScholar (paid, about $120 to $199) is the one to adopt for that student, run alongside our course.
+2. If a family wants an audit-backed transcript or a fully turn-key fallback, Project STEM (free) or CompuScholar (paid, about $225 per year) is the one to adopt for that student, run alongside our course.
 
 That gives you the depth and hands-on experience of what we built, with the AP safety net and grading convenience of the best platforms, at little or no added cost.

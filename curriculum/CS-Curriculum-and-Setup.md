@@ -204,14 +204,16 @@ Use these to cut prep time and raise quality.
 
 | Resource | Use | Cost |
 |---|---|---|
-| Code.org CS Principles | AP-aligned lessons, assessments, standards spine | Free |
-| AP CSP Exam Reference Sheet (College Board) | Official, authoritative pseudocode spec used on exam day; link below | Free |
+| [Code.org CS Principles](https://code.org/en-US/curriculum/computer-science-principles) | AP-aligned lessons, assessments, standards spine | Free |
+| [AP CSP Exam Reference Sheet (College Board)](https://apcentral.collegeboard.org/media/pdf/ap-computer-science-principles-exam-reference-sheet.pdf) | Official, authoritative pseudocode spec used on exam day; also discussed below | Free |
 | [Crash Course Computer Science (40 eps)](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) | Tier 2 guided-tour video for hardware/OS/networking | Free |
-| Turing Complete (Steam) | In-class NAND-to-CPU building, very engaging | Paid, low cost |
-| nand2tetris.org and "The Elements of Computing Systems" | Ambitious students: full build-the-stack | Free course |
-| Harvard CS50 and CS50 AP | Stretch material and problem sets | Free |
-| picoCTF | Cybersecurity capture-the-flag track | Free |
-| Wireshark | Networking labs | Free |
+| [Turing Complete (Steam)](https://store.steampowered.com/app/1444480/Turing_Complete/) | In-class NAND-to-CPU building, very engaging | Paid, low cost (about $20) |
+| [nand2tetris.org](https://www.nand2tetris.org) and "The Elements of Computing Systems" | Ambitious students: full build-the-stack | Free course |
+| [Harvard CS50](https://cs50.harvard.edu/x) and [CS50 AP](https://cs50.harvard.edu/ap) | Stretch material and problem sets | Free |
+| [picoCTF](https://picoctf.org) | Cybersecurity capture-the-flag track | Free |
+| [Wireshark](https://www.wireshark.org) | Networking labs | Free |
+
+Two naming notes, verified August 2026 but worth re-checking before relying on them: Code.org now operates as CodeAI, and older `code.org/educate/csp` links redirect to the curriculum page linked above. picoCTF has joined Carnegie Mellon's CyLab Security Academy (`https://cylabacademy.org`); `picoctf.org` currently explains the transition, and existing picoCTF accounts carry over.
 
 **On Code.org and Python.** Code.org CSP is AP-endorsed and supplies the conceptual lessons (Data, Internet, Impact of Computing), AP pseudocode practice, an assessment bank, and Create Task scaffolds. Its built-in programming uses App Lab (JavaScript-flavored), not Python. Because AP CSP is language-agnostic, use Code.org for concepts and AP prep while keeping Python (Thonny, then VS Code) as the language where programming depth is built. Students complete the Create Task in Python.
 
@@ -398,7 +400,7 @@ Optional, ungraded-against-the-grade, available to interested students with extr
 - A retrieval-augmented "study assistant" over their own notes (Ambitious)
 
 ### Cybersecurity (Unit 6)
-- picoCTF beginner challenges (Starter)
+- picoCTF beginner challenges (Starter; picoCTF is now part of CyLab Security Academy, see Section 6)
 - Audit weak passwords and explain hashing (Intermediate)
 - Find and fix a vulnerability in a deliberately vulnerable app (Ambitious)
 - Analyze real phishing emails and document the tells (Intermediate)

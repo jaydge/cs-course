@@ -8,7 +8,7 @@ Free printable materials and known-good instructions for many of these are onlin
 
 Verify these links are live before class; sites reorganize.
 
-- Human Robot Maze (cup-stacking version): Code.org's My Robotic Friends unplugged lesson, which includes a symbol key and a teacher video, at `https://curriculum.code.org/csf-18/coursee/1/`. If that path moves, find the current version via Code.org CS Fundamentals.
+- Human Robot Maze (cup-stacking version): Code.org's My Robotic Friends unplugged lesson, which includes a symbol key and a teacher video, at `https://curriculum.code.org/csf-18/coursee/1/` (a newer edition of the same lesson lives under `https://curriculum.code.org/csf-current/`). If those paths move, find the current version via Code.org CS Fundamentals.
 - Sorting Network: CS Unplugged, `https://classic.csunplugged.org/activities/sorting-networks/` (a demonstration video is on the site).
 - Human Sorting (bubble and selection): CS Unplugged Sorting Algorithms, from the activities index at `https://classic.csunplugged.org/activities/`.
 - Binary Cards: CS Unplugged Binary Numbers, from the same activities index, with an updated version at `https://www.csunplugged.org`.

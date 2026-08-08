@@ -149,14 +149,14 @@ Curated, not exhaustive. Verify current availability before relying on any one o
 
 ### Binary, sorting, and algorithms
 - Khan Academy: binary and number systems at a calm pace.
-- Sorting visualizers: visualgo.net and similar, where students watch a sort happen step by step and control the speed.
+- Sorting visualizers: visualgo.net (`https://visualgo.net/en`) and similar, where students watch a sort happen step by step and control the speed.
 
 ### Networking
 - Code.org's internet film series: how data moves, in plain language.
 - Ben Eater's networking series and Computerphile: deeper but still accessible.
 
 ### Git
-- "Oh My Git!": a free open-source game that teaches version control visually. Excellent for younger students.
+- "Oh My Git!" (`https://ohmygit.org`): a free open-source game that teaches version control visually. Excellent for younger students.
 
 ### AI and cryptography
 - 3Blue1Brown's neural network series: the clearest visual explanation of how neural networks work, better suited to older students because of the math.
