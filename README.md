@@ -11,6 +11,7 @@ Start with the curriculum. Everything else is a companion it references.
 
 ### ap-track/
 - **AP-Layer-Project-STEM-Overlay.md** — how to run an audited, opt-in AP CSP track underneath the course using Project STEM, with no exam pressure on younger students.
+- **AP-CSP-Topic-Coverage.md** — a topic-by-topic map of all 35 AP CSP framework topics against where the course covers them, with a Covered, Strengthened, or Added status for each.
 - **AP-Pseudocode-Bridge.md** — a Python-to-AP-pseudocode reference and trace-practice sheet for AP-track students.
 
 ### student-prep/
@@ -18,17 +19,24 @@ Start with the curriculum. Everything else is a companion it references.
 - **Younger-Student-Readiness-and-Prep.md** — where younger students may get lost, a readiness diagnostic, optional supplemental videos, and recommended books.
 
 ### teaching-activities/
-- **Unplugged-Logic-Activities.md** — offline logic games (the human-robot maze and more) mapped to the units they reinforce.
+- **Unplugged-Logic-Activities.md** — offline logic games (the human-robot maze and more) mapped to the units they reinforce, with known-good online instructions and video links.
 
 ### reference/
 - **Curriculum-Comparison.md** — how this course compares to paid and free programs (CompuScholar, CodeHS, Project STEM, CS50, Code.org), with syllabus links and a gap analysis.
 
+### lessons/
+- Per-week in-depth teacher guides. **week-01-teacher-guide.md** is the format prototype; the remaining weeks follow its structure.
+
+### handouts/
+- Per-week student-facing homework handouts. **week-01-homework.md** is the prototype.
+
 ## How the pieces fit
 
-The curriculum drives day-to-day teaching. The AP overlay sits underneath as an opt-in layer for students who want the credential. The prep and activities support the first weeks and the mixed age range. The comparison and the pseudocode bridge are reference material.
+The curriculum drives day-to-day teaching. The AP overlay and coverage map sit underneath as an opt-in layer for students who want the credential. The prep and activities support the first weeks and the mixed age range. The comparison and the pseudocode bridge are reference material. The lessons and handouts are the week-by-week teaching materials produced from the curriculum.
 
-## Notes
+## Conventions
 
-- Prices, links, and third-party course details change over time. Verify anything time-sensitive (laptop costs, provider endorsements, AP dates and fees) before relying on it.
+- **Activities and labs must be runnable.** Every weekly teacher guide includes, for each activity or lab (especially offline ones like the maze and logic puzzles), either full inline instructions or a link to known-good online instructions or a video. The canonical link list lives in `teaching-activities/Unplugged-Logic-Activities.md`.
+- Prices, links, and third-party course details change over time. Verify anything time-sensitive (laptop costs, provider endorsements, AP dates and fees, activity URLs) before relying on it.
 - These are living documents. Edit freely.
 - This repository can double as the live example for the course's Git and version-control unit (Unit 5, Week 23).
