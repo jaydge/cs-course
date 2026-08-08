@@ -2,7 +2,21 @@
 
 Offline, physical activities that teach computer-science logic with no computers. They fit this class especially well: they need zero computer fluency, so they are ideal in the early weeks while iPad-only students are still learning the laptop, and they level up or down naturally across the 8th-to-11th-grade range. The pattern throughout is physical first, then code.
 
-Free printable materials for many of these are at `csunplugged.org` and in Code.org's unplugged lessons. The descriptions below are written so you can run each one without them.
+Free printable materials and known-good instructions for many of these are online, listed below. The descriptions in this document are written so you can run each one without them, but the weekly teacher guides should link to the specific instructions or a video for any activity they use.
+
+### Known-good instructions and videos
+
+Verify these links are live before class; sites reorganize.
+
+- Human Robot Maze (cup-stacking version): Code.org's My Robotic Friends unplugged lesson, which includes a symbol key and a teacher video, at `https://curriculum.code.org/csf-18/coursee/1/`. If that path moves, find the current version via Code.org CS Fundamentals.
+- Sorting Network: CS Unplugged, `https://classic.csunplugged.org/activities/sorting-networks/` (a demonstration video is on the site).
+- Human Sorting (bubble and selection): CS Unplugged Sorting Algorithms, from the activities index at `https://classic.csunplugged.org/activities/`.
+- Binary Cards: CS Unplugged Binary Numbers, from the same activities index, with an updated version at `https://www.csunplugged.org`.
+- Parity Magic (error detection): CS Unplugged, `https://classic.csunplugged.org/activities/error-detection/` and `https://www.csunplugged.org/en/topics/error-detection-and-correction/`.
+- Packet Routing: CS Unplugged Routing and Deadlock, and Network Protocols, from the activities index.
+- Caesar Cipher and the paint-mixing key exchange: CS Unplugged Cryptographic Protocols and Public Key Encryption, from the activities index. For a short video on key exchange, search Computerphile's Diffie-Hellman explainer.
+
+The CS Unplugged activity hub is `https://classic.csunplugged.org/activities/`, the current site is `https://www.csunplugged.org`, and Code.org's unplugged lessons live under `https://curriculum.code.org`.
 
 ## How to schedule them
 

@@ -13,6 +13,8 @@ Verify current audit steps, provider endorsement, and Project STEM enrollment de
 
 Your course is the course. Project STEM is an adopted resource inside it and the document that satisfies the AP Course Audit. Every student does the same base course. The AP track is opt-in: students who want the credential work through the Project STEM units and sit the exam; younger students and anyone not testing simply do the course and earn a strong "Computer Science I" credit. No exams are required of anyone for the course grade, so there is no exam pressure on the class as a whole.
 
+For a topic-by-topic view of how the base course already covers the AP CSP framework (all 35 topics, with a Covered, Strengthened, or Added status for each), see the AP CSP Topic Coverage Map at `ap-track/AP-CSP-Topic-Coverage.md`.
+
 ## Why this is low-effort to manage
 
 - College Board lets AP CSP teachers **adopt an endorsed provider's pre-approved syllabus** instead of writing one. You adopt Project STEM's; authorization is typically confirmed within about two weeks.
