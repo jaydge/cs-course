@@ -36,3 +36,19 @@ Write two or three sentences: what felt different about using a laptop compared 
 ---
 
 A note on getting help: do all of this yourself. Please do not use AI helpers like ChatGPT for any of it. We will learn how to use those later in the course, on purpose, once you have the basics down yourself. If you get stuck, that is completely normal. Try for a few minutes, write down your question, and ask at the start of next class.
+
+---
+
+## Extra Credit AP Track
+
+Optional. This section is for students on the AP track and for anyone who finds this stuff interesting, whether for fun or for AP preparation. It is extra credit only: never required, and it is not part of your base grade. Skipping it costs you nothing.
+
+If you are thinking about the AP track, this week is just about getting set up and looking around. There is no AP content to learn yet.
+
+**Your slice for this week.** Do only this much, not the whole course.
+
+- **Project STEM:** create your account and start Unit 1, Intro and Computational Thinking. The opening lessons are about what a program is and how programmers work together. Stop at the end of those introductory lessons.
+- **CodeAI, the free alternative:** Unit 1, Digital Information, at `https://studio.code.org/courses/csp-2025/units/1`. Just the first lesson or two this week; we cover this unit's real content next week.
+
+Talk to your instructor before signing up for either one, since account setup needs a parent.
+
