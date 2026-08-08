@@ -18,7 +18,7 @@ If you can do that without help, you have the most important skill of the whole 
 
 You will need a couple of accounts for class. Do this part with a parent, because these accounts have age and sign-up rules that a parent needs to handle with you.
 
-- With your parent, set up the accounts your teacher listed (a Google account and a Code.org account).
+- With your parent, set up the accounts your teacher listed (a Google account and a CodeAI account, formerly called Code.org).
 - Write down your usernames somewhere safe. Do not write down passwords on paper; your parent will help you keep those safe.
 
 ## 3. Typing practice (optional but really helps)

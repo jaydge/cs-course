@@ -47,7 +47,7 @@ Two tiers. The Essential tier is for any student new to computers and is the dif
 1. **Typing.** Use typing.com or keybr.com, about 15 minutes a day. A comfortable target is roughly 20 to 25 words per minute with reasonable accuracy. They do not need to be fast, just to stop hunting for every key, because all coding depends on it.
 2. **Computer basics.** Be able to: create a folder, save a file into it, close it, then find and reopen it; recognize a file extension and say what it means; have two windows open and switch between them; copy text from one place to another; take a screenshot.
 3. **Internet basics.** Open a browser, use tabs, run a search and judge results, understand what a link and a URL are, and set a bookmark. Important for students new to the internet.
-4. **First account and password.** With a parent, set up a Code.org account and create one strong password. This previews both account setup later in the course and the password ideas in the cybersecurity unit.
+4. **First account and password.** With a parent, set up a CodeAI account (formerly Code.org) and create one strong password. This previews both account setup later in the course and the password ideas in the cybersecurity unit.
 5. **Block-coding on-ramp (the highest-value item).** Work through Code.org's Express Course or CS Fundamentals, or build in Scratch. The goal is not Python; it is to internalize sequence, loops, conditionals, and events in a friendly, drag-and-drop setting. When Python arrives in Unit 1, the ideas are already familiar and only the typing of syntax is new.
 
 ### Bonus

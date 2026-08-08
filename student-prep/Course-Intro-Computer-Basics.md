@@ -29,7 +29,7 @@ Windows note: same block in File Explorer; shortcuts are Ctrl instead of Command
 
 ### Block B: Browser and accounts (about 40 minutes)
 - Open a browser; tabs; what a URL is; searching and judging results.
-- Log in to the accounts the course uses (Google, Code.org). Do this together so nobody is stuck on Day 2.
+- Log in to the accounts the course uses (Google, CodeAI, formerly Code.org). Do this together so nobody is stuck on Day 2.
 - What a strong password is, and using the password manager (Bitwarden).
 
 ### Block C: First look at the real tools (about 40 minutes)

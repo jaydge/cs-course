@@ -473,10 +473,10 @@ Get written parental consent before creating any account for a minor. Each stude
 
 | Platform | Account per student? | Purpose | Notes |
 |---|---|---|---|
-| Email address | Yes (prerequisite) | Needed to register for GitHub, Code.org, and Google | Set up or use a parent-supervised address for students who lack one |
+| Email address | Yes (prerequisite) | Needed to register for GitHub, CodeAI, and Google | Set up or use a parent-supervised address for students who lack one |
 | Google account (Docs and Drive) | Yes | The shared, cross-platform document layer: collaboration, submissions, and handouts | Introduce after file-system fundamentals are solid, not before. Standard Google accounts have a minimum age (13 in the US); for younger students use a parent-managed account via Family Link. Verify current age terms |
 | GitHub (plus GitHub Classroom for you) | Yes | Version control, collaboration, the Git unit, and final project repos | GitHub requires users to be at least 13; get parental consent. GitHub Classroom lets you distribute assignments and collect student repos |
-| Code.org | Yes | AP-aligned concept lessons, pseudocode practice, assessments | You create a class section and students join; designed for school use including middle grades |
+| CodeAI (formerly Code.org) | Yes | AP-aligned concept lessons, pseudocode practice, assessments | You create a class section and students join; designed for school use including middle grades |
 | LLM API access (Anthropic or OpenAI) | No (instructor-owned) | The AI unit and in-class AI demos | API keys cost money and provider terms generally restrict minors; you own the key and mediate access |
 | College Board / My AP | Only for exam-takers | AP CSP registration and Digital Portfolio | Defer until a student commits to the exam |
 | Cloud free-tier (a PaaS host) | Optional, extra-credit only | The cloud deployment track | Often needs a payment method; keep parent-managed |
