@@ -230,6 +230,8 @@ Three genuine AP connections do exist and are worth naming:
 
 The real AP value of this week is momentum on the Create Performance Task, which begins now.
 
+**Announce the standing AP hour today.** College Board requires nine hours of supervised in-class time for the Create Task, and the regular sessions contain only about two hours forty minutes of it (the count is in the Week 31 guide, Section 3). The course covers the rest with a scheduled, supervised hour immediately after class each week from this week through submission, plus office hours by arrangement. Attendance is required only for students submitting the Create Task, is logged with dates, and costs everyone else nothing. Say this out loud when the proposal form goes home, so families can plan for the extra hour on class days.
+
 **AP-track self-study for this week, and only this week's slice.** One matching slice below, not the whole course, and extra credit rather than required work:
 
 - **Project STEM (the AP spine):** Unit 6, Innovative Technologies, is the nearest match, and its lessons on emerging technology and computing innovations line up with today. Work only that portion. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.

@@ -89,6 +89,8 @@ What today does do for AP is start the clock on the Create Performance Task, whi
 - The rest of your coursework is now AI-permitted. Your Create Task is not. Keep those two things separate in your head, and if you are ever unsure, do not use it.
 - Verify the current year's rules yourself on AP Central at `https://apcentral.collegeboard.org/courses/ap-computer-science-principles`. College Board updates this policy and the version that counts is the one in force when you submit.
 
+**The nine hours, and the standing AP hour.** College Board requires that a course give Create Task students at least nine hours of supervised, in-class time for the task. Our regular sessions contain about two hours forty minutes of it. The rest is offered as a standing AP hour: a scheduled, supervised hour right after class each week from this week until you submit, plus office hours with the instructor by arrangement if you miss one. If you are submitting the Create Task, plan to attend; these hours are how you meet the requirement, and each one is logged with the date. If you are not submitting, none of this applies to you and the hour costs you nothing. Verify the current hour requirement on AP Central, since it has changed before.
+
 **Create Task milestone for this week.**
 
 Your proposal above is your Create Task proposal. Two additions if you are on the AP track:

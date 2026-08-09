@@ -78,6 +78,8 @@ Optional. This section is for students on the AP track and for anyone who finds 
 
 **If you are taking the exam, you are not finished.** The course ends today; the AP exam does not. Here is what is left.
 
+**One record to close out.** Before or at final submission, confirm with the instructor that your logged supervised hours total at least nine. The log is the course's evidence that the College Board time requirement was met, and it closes when you submit.
+
 **What is already done.** The Create Performance Task, submitted through the AP Digital Portfolio. That is 30 percent of your score and it is behind you. It is also the only place the exam assesses Practice 6, Responsible Computing, so that whole strand is now complete.
 
 **What is left.** The end-of-course exam: multiple choice plus two written responses, taken in the Bluebook app. The written responses are about your own Create Task, in AP pseudocode, which is why you print your Personalized Project Reference and take it into the room with you. Know where that printout is.

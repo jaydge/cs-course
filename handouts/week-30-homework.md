@@ -82,6 +82,8 @@ The topics and what the exam wants from each:
 
 **Take stock of the whole framework.** With today's five topics plus 5.6 from Week 28, every topic in the AP CSP framework has now been touched by this course. Open `ap-track/AP-CSP-Topic-Coverage.md`, read all five tables, and mark each of the 35 topics as solid, shaky, or not yet. Bring the shaky ones to class. There are two weeks of course left and this is the last useful moment to find a gap.
 
+**The AP hour.** The supervised Create Task hour runs right after class again this week, with office hours by arrangement. If you are submitting the task, attend and get it logged; check with the instructor that your logged total is on track, since you need nine supervised hours by submission.
+
 **Create Task milestones for this week.** Your Create Task remains entirely your own work with no AI at any stage.
 
 - Your program should now run and do the main thing it is meant to do, even if roughly.

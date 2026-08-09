@@ -79,6 +79,8 @@ What 4.3 expects of you:
 - **Project STEM (the AP spine):** Unit 6, Innovative Technologies, and specifically its parallel and distributed computing lessons. That portion only. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
 - **CodeAI, formerly Code.org (free alternative):** there is no cloud or distributed-systems unit, so this week does not map cleanly and it is better to say so than to send you somewhere wrong. The nearest useful thing is Unit 2, The Internet, at `https://studio.code.org/courses/csp-2025/units/2`, and specifically its redundancy and fault-tolerance lessons, which are the same idea underneath today's replication material. If you already did Unit 2 in the fall, reread those lessons rather than starting something new.
 
+**The AP hour.** The supervised Create Task hour runs right after class again this week, with office hours by arrangement. If you are submitting the task, attend and get it logged.
+
 **Create Task reminder.** Still entirely your own work, still no AI at any stage. Milestone for this week: your program should run and do one real thing. Also decide now, and write it down, which procedure you are going to screen-capture for your Personalized Project Reference. It needs to be one you wrote yourself, it needs at least one parameter, and it needs both an if and a loop inside it. If your program does not have a procedure like that yet, that is what to build next.
 
 **Extra practice if you want it.**

@@ -83,6 +83,8 @@ Things the exam expects you to be able to do, all of which you did today:
 - **Project STEM (the AP spine):** Unit 6, Innovative Technologies, and specifically its cybersecurity and safe-computing lessons. Stop before the impact and ethics material; that is Week 30's slice and you will want it then. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
 - **CodeAI, formerly Code.org (free alternative):** Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`. Do the cybersecurity half of the unit and stop. Save the global-impacts half for Week 30.
 
+**The AP hour.** The supervised Create Task hour runs right after class again this week, with office hours by arrangement if you cannot stay. If you are submitting the task, attend and get it logged; you need nine supervised hours in total and the regular sessions supply well under three.
+
 **Create Task reminder.** Your Create Task remains entirely your own work with no AI at any stage, including planning and debugging. This week's milestone: have a file that runs, even if it barely does anything yet. A program that runs and does one small thing on Week 28 becomes a finished project on Week 31. A program that does not exist yet on Week 28 usually does not.
 
 **Extra practice if you want it.**

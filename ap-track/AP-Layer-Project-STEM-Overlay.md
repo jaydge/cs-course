@@ -74,6 +74,7 @@ The one place to watch alignment: Project STEM teaches programming in Python, wh
 
 - One-time: the audit setup above, roughly an hour or two of forms.
 - Ongoing: little. AP-track students self-pace Project STEM on their MacBooks and it auto-grades itself. Your main added job is a periodic check that AP-track students are keeping pace toward the Create Task deadline, and helping them submit through the Digital Portfolio in the spring.
+- Spring only: the standing AP hour. College Board requires nine hours of supervised in-class time for the Create Task, and the regular sessions supply under three, so from Week 27 through submission you run a supervised hour after class each week for Create Task students, plus office hours by arrangement, logged with dates. Only students submitting the task attend. The weekly guides and handouts from Week 27 onward carry this.
 - You are not grading AP work by hand, and you are not teaching a separate class. The AP layer rides underneath the course you were already going to teach.
 
 ## Before you commit

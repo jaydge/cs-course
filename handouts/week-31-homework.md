@@ -85,6 +85,8 @@ Except that if you are taking the AP exam, this section is not really extra cred
 - **Project STEM (the AP spine):** the Create Performance Task materials, including the mock task, the checklist, and the template. Work their checklist against your own project. If the placement on your account does not match what your instructor described, ask; the numbering is being confirmed.
 - **CodeAI, formerly Code.org (free alternative):** Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`. You have been taking this unit a slice at a time since Week 26. This week's slice is the planning and project-development lessons, worked against your own project rather than the unit's example. Do not redo the requirements lessons from Week 27 or the written-response lessons from Week 30. Leave the final review and submission lessons for next week.
 
+**The AP hour.** The supervised hour after class runs this week and next, plus office hours by arrangement. If your logged total is short of nine hours, tell the instructor today so the remaining sessions can be scheduled before you submit.
+
 **Create Task submission checklist.**
 
 - [ ] **Program code.** Complete, as a PDF, in whatever format the current specification requires.
