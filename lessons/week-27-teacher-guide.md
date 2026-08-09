@@ -41,8 +41,8 @@ The single most important thing to get right today is the carve-out. AI becomes 
 - **Read Section 10 of `curriculum/CS-Curriculum-and-Setup.md` end to end, and write out the three sentences you will say when you unlock AI and the three sentences you will say when you carve out the Create Task.** Do not improvise this part. (15 min)
 - **Read the current College Board policy on plagiarism and AI use for the AP CSP Create Performance Task on AP Central.** This changes, and you are about to make a binding statement to students about it. Verify it this year rather than trusting anything printed here. (20 min)
 - Type and run the perceptron code from Segment 3 yourself, including the XOR failure, so you know exactly what the printed output looks like at each epoch. (15 min)
-- If running the API demo: install the provider SDK on your machine only, set the key as an environment variable, and run the script in Segment 5 once. Confirm your account has credit and note the per-call cost so you can state it honestly. Provider SDKs, model names, and pricing change frequently; verify all three the week you teach this. (20 min)
-- Prepare one deliberately hallucinated code sample for Segment 6. The easiest reliable method is to write it yourself: take real Python and invent a plausible method that does not exist, for example `my_list.sort_descending()` or `requests.get_json(url)`. You want it to look completely reasonable. (10 min)
+- If running the API demo: install the provider SDK on your machine only, set the key as an environment variable, and run the script in Segment 5 once. **Look up the current model identifier on the provider's model list and write it into the placeholder in the Segment 5 script, then print your filled-in copy and teach from that.** Confirm your account has credit and note the per-call cost so you can state it honestly. Provider SDKs, model names, and pricing change frequently; verify all three the week you teach this. (20 min)
+- Prepare one deliberately hallucinated code sample for Segment 6. The easiest reliable method is to write it yourself: take real Python and invent a plausible method that does not exist, for example `my_list.sort_descending()` or `requests.get_json(url)`. You want it to look completely reasonable. Print several spare copies on paper: the same sample is the non-AI alternative for homework item 4, for any student whose family has not cleared AI use. See Section 11. (10 min)
 - Print the homework handout, the policy card, and the Create Task proposal form. (10 min)
 
 ## 6. Minute-by-minute class flow
@@ -125,15 +125,23 @@ The single most important thing to get right today is the carve-out. AI becomes 
 
    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
-   message = client.messages.create(
-       model="claude-sonnet-4-5",
-       max_tokens=200,
-       messages=[{"role": "user", "content": "Explain a perceptron in two sentences."}],
-   )
-   print(message.content[0].text)
+   # Placeholder, not a real model name. During prep, either set CLASS_MODEL_ID
+   # in your environment or type the current identifier in on the line below.
+   model_id = os.environ.get("CLASS_MODEL_ID", "PUT-THE-CURRENT-MODEL-ID-HERE")
+
+   try:
+       message = client.messages.create(
+           model=model_id,
+           max_tokens=200,
+           messages=[{"role": "user", "content": "Explain a perceptron in two sentences."}],
+       )
+       print(message.content[0].text)
+   except Exception as error:
+       print("The call failed. Check the model identifier first:", model_id)
+       print(error)
    ```
 
-   Point at the shape of it and connect it to Week 25: this is an HTTP POST with a JSON body and a JSON response. The API key is the same idea as the API keys from the weather app. The only new thing is what is on the other end. Verify the SDK name, the model name, and the pricing before class; all three change.
+   **The model line is deliberately a placeholder rather than a real identifier, and the call is wrapped so that a wrong one fails readably.** Model names are retired on short notice, and a stale one printed in a guide fails live in front of the class with an unhelpful error. Get the current identifier from the provider's model list during prep, put it in the environment variable or type it in, and run the filled-in script once before class. If it does fail in front of the class, the printed identifier and error message are the demonstration: read them out loud, which is exactly the habit Segment 6 is about to ask of them. Point at the shape of it and connect it to Week 25: this is an HTTP POST with a JSON body and a JSON response. The API key is the same idea as the API keys from the weather app. The only new thing is what is on the other end. Verify the SDK name, the model name, and the pricing before class; all three change.
 9. **Return to the board from Segment 1** and mark each of the students' opening theories as right, wrong, or partly right. This takes ninety seconds and is the highest-retention move of the session.
 
 ### Segment 6: Using AI as a coding tool, and the policy change (1:35 to 1:55)
@@ -194,7 +202,7 @@ Hand out the policy card at the start of this segment and work through it with t
 
 ## 10. Homework
 
-Full details in `handouts/week-27-homework.md`. In summary: get the perceptron learning AND and OR, run the XOR case and explain the failure in writing; a short written piece on training versus inference and on hallucinations; the Create Task or final project proposal, which is the real deliverable this week; and an optional supervised exercise in catching an AI-generated error. The handout's help-policy footer changes this week, and the Extra Credit AP Track section carries the Create Task rules in full.
+Full details in `handouts/week-27-homework.md`. In summary: get the perceptron learning AND and OR, run the XOR case and explain the failure in writing; a short written piece on training versus inference and on hallucinations; the Create Task or final project proposal, which is the real deliverable this week; and an optional supervised exercise in catching an AI-generated error, which carries an equivalent non-AI version on the printed sample for families who have not cleared AI use. The handout's help-policy footer changes this week, and the Extra Credit AP Track section carries the Create Task rules in full.
 
 ## 11. Assessment
 
@@ -203,6 +211,8 @@ Observational and one written artifact.
 The perceptron is assessed against the weekly-labs rubric, with the "works and can explain" level requiring the student to point at a weight and say what it does. Do not accept "it learns" as an explanation.
 
 The written homework piece is where you check the two ideas most likely to be misremembered: that training and inference are different events, and that a hallucination is a predictable consequence of the design rather than a malfunction.
+
+**The AI-using exercise, homework item 4, is optional and is never required of any student.** Some families will decline, and some services have an age floor, so plan for it rather than improvising. The equivalent non-AI version is the printed hallucinated sample from Segment 6: hand it to the student on paper and have them work steps 1 to 3 of item 4 against it unchanged, checking every function and method in the Python documentation, then running it and testing an empty list, a zero, and a negative number. Assess both versions identically, against the same thing: did the student check the claims against documentation, and did they test the edges rather than accepting that it ran. Nothing in the grade turns on whether a student prompted a model, and do not record the difference anywhere that reads as a deficit.
 
 **The proposal is the graded item that matters.** It is the first component of the final project, which is 20 percent of the course grade. Read every proposal before Week 28 and return it with a scope judgment: too big, too small, or right. Most first proposals are too big. Sending a student into Week 31 with an unfinishable idea is the single most avoidable failure of the last six weeks.
 
@@ -223,7 +233,7 @@ The real AP value of this week is momentum on the Create Performance Task, which
 **AP-track self-study for this week, and only this week's slice.** One matching slice below, not the whole course, and extra credit rather than required work:
 
 - **Project STEM (the AP spine):** Unit 6, Innovative Technologies, is the nearest match, and its lessons on emerging technology and computing innovations line up with today. Work only that portion. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
-- **CodeAI, formerly Code.org (verified free alternative):** there is no AI unit in the CSP course, so do not pretend one matches. The useful slice this week is Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, started properly rather than skimmed. Students who want the impact framing early can look at Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`, whose innovation and bias lessons return in Week 30.
+- **CodeAI, formerly Code.org (verified free alternative):** there is no AI unit in the CSP course, so do not pretend one matches. Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, was unlocked in Week 26 and students may already be inside it, so this week continues that work rather than starting it. This week's slice is one specific piece of the unit and no more: the opening lessons that set out the task overview, what the finished submission must contain, and how it is scored. That is the piece that shapes a good proposal, which is this week's deliverable. **Stop before the planning and project-development lessons.** Unit 9 is spread deliberately across four weeks so that no single week becomes "work on Unit 9": the written-response and Personalized Project Reference lessons are Week 30's slice, the planning and build lessons are Week 31's, and whatever remains is finished in Week 32. Lesson names and ordering inside the unit change between course versions, so check the unit's lesson list and take only the portion described.
 
 Nothing here is required of non-AP students.
 
@@ -235,6 +245,6 @@ Nothing here is required of non-AP students.
 - TensorFlow Playground, for the younger-student alternate and for a good visual of hidden layers: `https://playground.tensorflow.org`. Teachable Machine, for a no-code training demo: `https://teachablemachine.withgoogle.com`. Both are free and need no account.
 - LLM API documentation, for the Segment 5 demo: Anthropic at `https://docs.anthropic.com` or OpenAI at `https://platform.openai.com/docs`. Verify SDK names, model names, and current pricing the week you teach this; all three change often. The key is instructor-owned per Section 12 of the curriculum.
 - Claude Code, the agentic example mentioned in Segment 6: `https://docs.anthropic.com/en/docs/claude-code`. Only demonstrate it if you have used it yourself; a fumbled agentic demo teaches the wrong lesson.
-- Crash Course Computer Science, Episodes 34 ("Machine Learning and Artificial Intelligence") and 35 ("Computer Vision"), optional homework viewing. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- Crash Course Computer Science, Episodes 34 ("Machine Learning and Artificial Intelligence") and 36 ("Natural Language Processing"), optional homework viewing. Episode 36 is the better pairing for the language-model half of this session than Episode 35, "Computer Vision," which this course does not assign. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - Younger-student neural-network alternate: Section 11 of `curriculum/CS-Curriculum-and-Setup.md`.
 - AI and machine learning extra-credit track: Section 9 of `curriculum/CS-Curriculum-and-Setup.md`.

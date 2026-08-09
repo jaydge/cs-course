@@ -1,6 +1,6 @@
 # Week 17 Homework: The Machine Underneath
 
-This week you met the operating system and opened a terminal for the first time. None of the ideas are hard; the terminal is just picky about spelling. Keep your command card next to you. Plan on about 40 minutes.
+This week you met the operating system and opened a terminal for the first time. None of the ideas are hard; the terminal is just picky about spelling. Keep your command card next to you. Plan on about 45 minutes.
 
 ## 1. Navigate, and write down what you see
 
@@ -13,11 +13,13 @@ pwd
 whoami
 cd ~
 ls
-cd ~/cs-sandbox
+cd ~/Documents/"CS Class"
 ls -la
 cd ..
 pwd
 ```
+
+That fifth line is the folder you have been saving work into since Week 1, seen from the terminal instead of from Finder. The quotation marks are there because `CS Class` has a space in it; without them the shell reads it as two separate things and cannot find either.
 
 Then answer these in a sentence each:
 
@@ -28,7 +30,7 @@ Then answer these in a sentence each:
 
 ## 2. Read a permission line
 
-Run `ls -l` inside `cs-sandbox` and copy one line exactly as it appears. Then explain it piece by piece:
+Run `ls -l` inside your CS Class folder and copy one line exactly as it appears. Then explain it piece by piece:
 
 1. What does the very first character tell you?
 2. What may the owner of this file do to it?
@@ -37,27 +39,20 @@ Run `ls -l` inside `cs-sandbox` and copy one line exactly as it appears. Then ex
 
 Then find a folder in the listing (or run `ls -ld ~`) and say what is different about the first character on that line.
 
-## 3. Count what is running
-
-Open Activity Monitor on a Mac, or Task Manager on Windows.
-
-1. How many processes are running right now?
-2. How many of those did you personally start?
-3. Pick one process you do not recognize and write down its name. Do not quit it. We will talk about a few of these in class.
-
-Then do the same thing from the terminal with `ps aux | head -20` and write down one line from the output.
-
-## 4. Extend the directory lister
+## 3. Extend the directory lister
 
 Open Thonny and start from the program we wrote in class:
 
 ```python
 from pathlib import Path
 
-folder = Path.home() / "cs-sandbox"
+folder = Path.home() / "Documents" / "CS Class"
 
 for item in sorted(folder.iterdir()):
-    kind = "dir " if item.is_dir() else "file"
+    if item.is_dir():
+        kind = "dir "
+    else:
+        kind = "file"
     print(kind, item.name, item.stat().st_size)
 ```
 
@@ -69,11 +64,11 @@ Change it so that it does one of the following. Pick whichever you like; one, do
 
 Save it into your CS Class folder as `list_folder.py`.
 
-## 5. One paragraph
+## 4. One paragraph
 
-In your own words, three or four sentences: what is a process, and why can your computer appear to run twenty programs at once when it only has a handful of cores?
+Open Activity Monitor on a Mac, or Task Manager on Windows, and look at how many processes are running. Then, in your own words, three or four sentences: what is a process, and why can your computer appear to run all of those at once when it only has a handful of cores?
 
-## 6. Watch, if you want (optional)
+## 5. Watch, if you want (optional)
 
 Crash Course Computer Science, Episode 18 covers operating systems and Episode 20 covers files and file systems. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
@@ -107,4 +102,4 @@ Optional. This section is for students on the AP track and for anyone who finds 
 
 - The one real AP idea in today's session is abstraction: the exam asks what an abstraction hides and why hiding it helps. Write one paragraph on this: your Python program never touches the disk, it asks the operating system to. What does that hide from you, and name one thing that becomes possible because it is hidden.
 - Find out what your machine's total memory is from the terminal (`vm_stat` on a Mac, `free -h` on Ubuntu) and compare it to what Activity Monitor or Task Manager says. They will not agree exactly. Work out why.
-- Rewrite your directory lister so that it searches every folder inside `cs-sandbox` too, not just the top level. Look up `rglob` in the `pathlib` documentation at `https://docs.python.org/3/library/pathlib.html`.
+- Rewrite your directory lister so that it searches every folder inside `~/Documents/CS Class` too, not just the top level. Look up `rglob` in the `pathlib` documentation at `https://docs.python.org/3/library/pathlib.html`.

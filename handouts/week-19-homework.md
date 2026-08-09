@@ -1,10 +1,10 @@
 # Week 19 Homework: Finding One Machine Out of Billions
 
-This week the room became a network. You passed packets by hand, plugged the real thing together, and found out what all those acronyms actually name. Keep your acronym card next to you. Plan on about 40 minutes.
+This week the room became a network. You passed packets by hand, plugged the real thing together, and found out what all those acronyms actually name. Keep your acronym card next to you. Plan on about 45 minutes.
 
 Everything below runs on your home network, which is a different network from the classroom one. That is the point of several of the questions.
 
-## 1. Six commands on your own network
+## 1. Five commands on your own network
 
 Run each of these and write down what it prints. Mac users use the first version, Windows users the second, in PowerShell (not Ubuntu, for the reason we talked about in class).
 
@@ -15,35 +15,21 @@ Run each of these and write down what it prints. Mac users use the first version
 | Your default gateway | `netstat -rn \| grep default` | `ipconfig` |
 | Ping your own router | `ping -c 4 <gateway>` | `ping <gateway>` |
 | Ping something far away | `ping -c 4 1.1.1.1` | `ping 1.1.1.1` |
-| Look up a name | `dig example.com +short` | `nslookup example.com` |
 
-Write down:
+Write down your IP address, your MAC address, your default gateway, and the two round-trip times. Which time is bigger, and roughly by how many times?
 
-1. Your IP address at home.
-2. Your MAC address.
-3. Your default gateway.
-4. The round-trip time to your own router, and the round-trip time to `1.1.1.1`. Which is bigger, and by roughly how many times?
+## 2. Trace a route
 
-## 2. Two addresses, two questions
-
-1. Your IP address at home is different from the one you had in class. Your MAC address is the same. Explain why, in two or three sentences. Use the words DHCP and MAC.
-2. Everyone in your house who is online right now shares one public address on the internet, even though each device has its own address inside the house. What is the name for the thing the router is doing, and roughly how does it keep the replies straight?
-
-## 3. Trace a route
-
-Pick any website you like, ideally one you think is far away. Run:
-
-```bash
-traceroute thesitename.com
-```
-
-Windows: `tracert thesitename.com`
-
-Copy down the first three lines and the last three lines of the output. Then answer:
+Pick a website you think is a long way away, and run `traceroute thesitename.com` (Windows: `tracert thesitename.com`). Copy down the first three lines and the last three, then answer:
 
 1. How many hops did it take in total?
 2. What was the very first hop, and what is that device in your house?
 3. Some lines show `* * *` instead of a name and a time. Does that mean the connection is broken? Explain what it actually means.
+
+## 3. Two addresses, two questions
+
+1. Your IP address at home is different from the one you had in class. Your MAC address is the same. Explain why, in two or three sentences. Use the words DHCP and MAC.
+2. Everyone in your house who is online right now shares one public address on the internet, even though each device has its own address inside the house. What is the name for the thing the router is doing, and roughly how does it keep the replies straight?
 
 ## 4. Extend the lookup program
 
@@ -55,11 +41,11 @@ import socket
 print(socket.gethostbyname("example.com"))
 ```
 
-Make a list of five websites you use. Write a program that loops through the list and prints each name next to its IP address, lined up.
+Make a list of five websites you use, loop through the list, and print each name next to its IP address. Then look up the same name twice in a row, time both lookups with `time.time()`, and write one sentence saying which was faster and why.
 
-Then add one thing: look up the same name twice in a row and time both lookups with `time.time()`. Print both times. Write one sentence saying which was faster and why.
+If a name will not resolve, your program will stop with an error naming it. That is a real result, not a bug in your code: check the spelling, and drop the name if it is genuinely gone.
 
-Save it into your CS Class folder as `lookup.py`. Run it from the terminal with `python3 lookup.py`.
+Save it into your CS Class folder as `lookup.py` and run it from the terminal with `python3 lookup.py`.
 
 ## 5. Explain it in your own words
 
@@ -69,7 +55,7 @@ You send a message across the internet. No single computer along the way knows t
 
 ## 6. Watch, if you want (optional)
 
-Crash Course Computer Science, Episode 28 covers computer networks and Episode 29 covers the internet. Between them they are about twenty minutes and they cover exactly this week: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episode 28, "Computer Networks," is about ten minutes and covers exactly this week. Episode 29 is next week's, so save it: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
 ---
 
@@ -104,4 +90,4 @@ One thing to keep straight, because the exam does: topic 4.3, Parallel and Distr
 
 - Work out how many machines could fit on a network written as `192.168.1.0/24`, on paper, and then confirm it in Python with `ipaddress.ip_network("192.168.1.0/24").num_addresses`. Explain the `/24` in one sentence.
 - The first three bytes of a MAC address identify the manufacturer of the network hardware. Look yours up in any public OUI lookup and see whose chip is in your laptop.
-- Run `traceroute` to a site you know is on another continent and to a site hosted near you. Compare the hop counts and the times, and write two sentences on what accounts for the difference. Hint: it is not mostly the speed of light.
+- Run `traceroute` to a site you know is on another continent and to a site hosted near you. Compare the hop counts and the times. Then estimate the floor: light in a fibre travels about 200 kilometres every millisecond, so work out roughly how long the round trip has to take for the distance alone, and compare that to what `traceroute` actually reported. Write two sentences on how much of the difference is distance and how much is everything the routers add on top.

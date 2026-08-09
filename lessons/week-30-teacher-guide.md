@@ -27,7 +27,7 @@ It is also the week most likely to go wrong, in a way none of the other 31 weeks
 
 Week 27 previewed the bias topic by showing that a model's behavior comes from its training data. Today asks where the data came from. That is the load-bearing connection of the unit, so make it explicitly.
 
-Twenty-five minutes of protected project time closes the session. Do not sacrifice it; it is part of the nine-hour Create Task allocation and Week 31 depends on students arriving with working code.
+Fifteen minutes of protected project time closes the session, in Segment 8, from 1:42 to 1:57. Do not sacrifice it; Week 31 depends on students arriving with working code. Be clear-eyed about what it is worth, though: fifteen minutes is a contribution to the Create Task hour requirement, not a substitute for it. The honest running total across Weeks 27 to 32, and what you have to schedule on top of it, is in Section 3 of the Week 31 guide.
 
 ## 4. Materials and setup
 
@@ -154,7 +154,7 @@ Pick two of the four questions below. Run each for about ten minutes with the pr
 - **You do:** Before anyone opens a laptop, restate the Create Task rule for the third time this unit: for students submitting a Create Performance Task, no AI at any stage, including planning, code, and debugging, and including today. Everyone else works under the rule you set in Week 27.
 - **Students do:** Work. Silently, on the project, for the full fifteen minutes.
 - **You do:** Circulate with your list of who is behind and conference with them first, thirty seconds each. The single question that helps most: what is the next thing you are going to type? A student who cannot answer that is stuck on scope, not on code, and needs the project cut down today rather than in Week 31.
-- **You do:** Log this time. It counts toward the AP Create Task's nine protected hours, and you will need the total.
+- **You do:** Log this time, fifteen minutes, with the date. It counts toward the AP Create Task's protected hours and you will need the total, but see the Week 31 guide for how far short the scheduled sessions fall and how much you must add outside the normal slot.
 
 ### Segment 9: Wrap (1:57 to 2:00)
 
@@ -221,10 +221,12 @@ Specific things the exam expects, by topic:
 
 One structural note for your own planning: **Practice 6, Responsible Computing, is assessed only through the Create Performance Task, not on the multiple-choice exam.** Today's discussion work is therefore practice for the Create Task and for life, while the exam-facing part of the week is the factual content above. Both matter; they are assessed in different places.
 
-**AP-track self-study for this week, and only this week's slice.** One matching slice below, not the whole course, and extra credit rather than required work:
+**AP-track self-study for this week, and only this week's slice.** One matching slice below, not the whole course, and extra credit rather than required work. The running Create Task thread is separate and is noted after it, also as one bounded piece:
 
 - **Project STEM (the AP spine):** Unit 6, Innovative Technologies, and specifically its impact-of-computing lessons, which cover beneficial and harmful effects, the digital divide, bias, crowdsourcing, and legal and ethical concerns. Students who did the cybersecurity portion in Week 28 now finish the unit. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
 - **CodeAI, formerly Code.org (verified free alternative):** Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`. Do the global-impacts half of the unit, which was deliberately left for this week. Its innovation, bias, and digital divide lessons are the closest match in the free curriculum to today's session.
+
+**Unit 9 continues alongside that, one bounded piece.** Students have been inside Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, since Week 26, and took the requirements and scoring lessons in Week 27. This week's Unit 9 slice is the written-response and Personalized Project Reference lessons, the ones about explaining your own program in writing, which is the same skill the steelman and bias writing exercised today. Stop there. The planning and build lessons are Week 31's slice and the unit is finished in Week 32. Lesson names and ordering inside the unit change between course versions, so check the lesson list and take only that portion.
 
 This is also the week to point AP-track students at the whole of `ap-track/AP-CSP-Topic-Coverage.md`, since with today's five topics plus Week 28's 5.6, the framework is complete.
 
@@ -237,6 +239,7 @@ Nothing here is required of non-AP students.
 - Official AP CSP Exam Reference Sheet, for AP-track students: `https://apcentral.collegeboard.org/media/pdf/ap-computer-science-principles-exam-reference-sheet.pdf`
 - Open-source license texts, for the licensing segment and the advanced extension: `https://choosealicense.com` gives plain-language summaries of MIT, GPL, and Apache side by side, and links the full texts. Creative Commons license chooser: `https://creativecommons.org/choose/`. Both are worth two minutes of prep so you can answer the "which one should I use?" question that Week 31 will produce.
 - The classroom's own DNS logging and filtering, used as the privacy example: Section 8 of `curriculum/CS-Curriculum-and-Setup.md`, and the Week 28 demonstration.
-- Crash Course Computer Science, Episode 39 ("Educational Technology") and Episode 40 ("The Singularity, Skynet, and the Future of Computing"), optional homework viewing and a reasonable closing pair for the unit. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- **No Crash Course episode is assigned this week and the handout asks for no viewing.** The series has no episode on the impact-of-computing material, and Episodes 39 ("Educational Technology") and 40 ("The Singularity, Skynet, and the Future of Computing") are the course's closing pair and are assigned in Week 32, where they belong. Do not set them here as well; a repeat reads to students as new work. Series playlist, for reference: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- CodeAI CSP Unit 9, Create PT Prep (the written-response slice for this week): `https://studio.code.org/courses/csp-2025/units/9`
 - CodeAI CSP Unit 8, Cybersecurity and Global Impacts (AP-track reinforcement, global-impacts half): `https://studio.code.org/courses/csp-2025/units/8`
 - AP Create Performance Task rules and the current year's deadline: AP Central, `https://apcentral.collegeboard.org/courses/ap-computer-science-principles`. Verify before relying on any date or requirement stated in these guides; College Board changes both.

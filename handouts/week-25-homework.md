@@ -4,10 +4,10 @@ Today you wrote a program that is a web server, and you pulled answers out of a 
 
 Keep the `weather` project working. Next week it becomes something you can install on a phone.
 
-Before you start anything, activate your virtual environment. If your terminal prompt does not show `.venv`, nothing you install will end up where you think it did.
+Start by activating your virtual environment. If your prompt does not show `.venv`, nothing you install lands where you think it did. The quotation marks are the Week 17 rule, because `CS Class` has a space in it.
 
 ```bash
-cd ~/cs-sandbox/weather
+cd ~/Documents/"CS Class"/weather
 source .venv/bin/activate
 ```
 
@@ -18,10 +18,11 @@ Your app is done when all of these are true:
 - Running `python3 app.py` starts it, and `http://127.0.0.1:5000` shows your page.
 - The temperature shown is for a place you chose, not the one from the demo.
 - Your Week 24 styling is applied, through `static/style.css`.
+- Your Week 24 fact button still works, which means `static/script.js` came across into this project too. Check it. Next week's lab will not run without that file.
 - It shows the observation time, and the page says somewhere that the time is UTC.
 - When the API cannot be reached, the page still loads and says so instead of crashing.
 
-Test that last one properly. Turn off your Wi-Fi and reload the page. If you get a wall of error text, your `try` and `except` are not doing their job.
+Test that last one properly. Turn off your Wi-Fi and reload the page. If you get a wall of error text, your `try` and `except` are not doing their job. If instead you get a page saying "Internal Server Error", your `home()` function reached the end without returning anything, which usually means the successful `return render_template(...)` ended up indented inside the `try` block. It belongs after it.
 
 Then commit:
 
@@ -40,40 +41,29 @@ Use the earthquake CSV in your `data/` folder. Write the code in `explore.py`. P
 3. Which five regions appear most often? Print them with their counts.
 4. Make one text chart. Either the count by hour from class, or a count by rounded magnitude, which is more interesting than it sounds.
 
-Watch out for two things you met in class. Everything read out of a CSV is a string, so `float()` it before comparing. And some rows have an empty magnitude, so check for that before converting or your program will crash on row 400 of 600.
+Two traps from class. Everything read out of a CSV is a string, so `float()` it before comparing, and some rows have an empty magnitude, so check for that before converting.
 
 ## 3. Describe the data before you trust it
 
-Write this out. Six short answers, one or two sentences each.
+Write this out. Five short answers, one or two sentences each.
 
 1. Who published this data, and when was this copy of it made?
 2. What does one row represent? Be precise. It is not one place and it is not one day.
 3. What are the units for the `depth` column and the `mag` column?
 4. What time zone are the timestamps in, and what would go wrong if you assumed otherwise?
-5. Name three things that are in the file.
-6. Name three things that are **not** in the file, and one question people would obviously want answered that this data therefore cannot answer.
+5. Name three things that are **not** in the file, and one question people would obviously want answered that this data therefore cannot answer.
 
-Question 6 is the important one. Most of the mistakes people make with data are answering a question the data was never able to answer.
+Question 5 is the important one. Most of the mistakes people make with data are answering a question the data was never able to answer.
 
 ## 4. One paragraph on bias
 
 Regions with a lot of seismometers record far more small earthquakes than regions with almost none.
 
-So when you counted events by region in question 3, what were you actually measuring? Write a paragraph.
-
-Then name one other kind of data where the same trap applies. Some to think about: reported crime, restaurant reviews, app store ratings, hospital diagnoses, potholes reported to a city.
-
-## 5. Optional: keep going
-
-Any one of these, if you have time and want it.
-
-- Add a second page to your Flask app at `/about`, with its own template.
-- Add a form so someone can type coordinates and see the weather for that place.
-- Compute the average and the median magnitude in your dataset. Then say which of the two describes this data more honestly, and why.
+So when you counted events by region in section 2, what were you actually measuring? Write a paragraph, and name one other kind of data where the same trap applies. Reported crime, restaurant reviews, and potholes reported to a city are all worth thinking about.
 
 ---
 
-A reminder on getting help: do this yourself, without AI helpers like ChatGPT. We will learn to use those tools properly starting in Week 27, which is two weeks away. If you get stuck, the official documentation for Flask and for Python's `csv` module is genuinely good, and bringing a written-down question to class is always allowed. Stuck is normal; it is where the learning is.
+A reminder on getting help: do this yourself, without AI helpers like ChatGPT. We will learn to use those tools properly starting in Week 27. The official Flask and `csv` documentation is genuinely good, and bringing a written-down question to class is always allowed. Stuck is normal; it is where the learning is.
 
 One more thing specific to this week: when your program talks to somebody else's server, that server will sometimes be slow, wrong, or down. That is not your bug. Handling it is your job.
 
@@ -118,5 +108,5 @@ One rule that will not change: the Create Task must be your own work, and the Co
 **Extra practice if you want it.**
 
 - Write, in AP pseudocode, the loop that counts your earthquakes by region. Pseudocode has no dictionary, so you will have to solve it with lists, which is genuinely good practice at working inside the exam's limits. Use `ap-track/AP-Pseudocode-Bridge.md`.
-- Find a second dataset that interests you, from a government or university source, and answer the six metadata questions about it before writing a single line of code.
+- Find a second dataset that interests you, from a government or university source, and answer the same metadata questions about it before writing a single line of code.
 - Read the Big Idea 2 section of `ap-track/AP-CSP-Topic-Coverage.md` and mark 2.1 through 2.4 as solid, shaky, or not yet. This week was the course's main coverage of 2.3 and 2.4, so be honest about it.

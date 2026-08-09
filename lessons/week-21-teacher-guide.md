@@ -48,6 +48,13 @@ The SSH lab is the practical send-off for Unit 4 and the bridge to Unit 5. It is
   2. Decide on accounts. One account per student is better, because it makes the permissions lesson real and lets you show `who` with several people logged in. A single shared account is acceptable if time is short. Create the accounts as standard, non-admin users with simple passwords you will write on the board; nothing sensitive lives on this machine.
   3. Under Remote Login's settings, confirm which users are allowed to connect and that your student accounts are included.
   4. From your own machine, on the same network, test the connection before class: `ssh studentname@csserver.local`. If the `.local` name does not resolve, use the IP address instead and write that on the board rather than the name.
+- **Set the default branch name on the server before you create anything.** Git's own default was `master` for years and is `main` in current versions, but the setting is per machine and an older installation or an inherited config will still say `master`. If the clone in the next step lands on `master` and you then push `main`, the push fails with "src refspec main does not match any" and you will lose ten minutes of prep to it. Set it explicitly:
+
+  ```bash
+  git config --global init.defaultBranch main
+  git config --global --get init.defaultBranch
+  ```
+  The second line should print `main`. (2 min)
 - **Create and seed the class Git repository on the server.** (20 min)
 
   ```bash
@@ -70,13 +77,21 @@ The SSH lab is the practical send-off for Unit 4 and the bridge to Unit 5. It is
   git push origin main
   ```
 
+  **If that last line is rejected,** the branch you are standing on is not called `main`. Run `git branch --show-current` to see what it is actually called. If it says `master`, rename it and push again:
+
+  ```bash
+  git branch -m master main
+  git push origin main
+  ```
+  If it prints nothing at all, the commit did not happen; check the output of `git commit` before going further.
+
   Then make sure students can read it:
 
   ```bash
   chmod -R a+rX /Users/Shared/repos
   ```
 
-  Verify by cloning it from a different machine as a student user before class. Note that `git init -b` requires a reasonably current Git; if your version rejects it, drop the flag and check which branch name you end up with, then adjust the seeding steps to match.
+  Verify by cloning it from a different machine as a student user before class. Note that `git init -b` also requires a reasonably current Git; if your version rejects the flag, drop it, then use `git branch --show-current` and the rename above to get to `main`.
 - **Check the client side on the Windows machines.** The OpenSSH client ships with Windows and also exists in WSL Ubuntu; either works, but Git may need installing inside Ubuntu (`sudo apt install git`). Confirm from a student account that both `ssh` and `git` run. Also confirm whether `.local` names resolve from the Windows machines; often they do not, in which case those students use the IP address. (20 min)
 - **Write and print the mid-year trace assessment sheet and the Unit 4 concept check,** using the contents specified in Section 11. Write both answer keys at the same time. This is the largest prep item of the week and it is the one that matters most. (60 min)
 - **Read the full expected trace in Section 7 out loud, once, start to finish, before class.** It takes about four minutes. You are going to build it in front of students and you want the ordering automatic. (10 min)
@@ -153,7 +168,7 @@ Run this from the steps below. The server addresses and the account names should
 8. **Now clone the repository, from their own machine, not from the server.** Make sure everyone has exited first.
 
    ```bash
-   cd ~/cs-sandbox
+   cd ~/Documents/"CS Class"/sandbox
    git clone yourname@csserver.local:/Users/Shared/repos/hello-class.git
    cd hello-class
    ls
@@ -268,7 +283,7 @@ Twenty-two stages in five acts. A student is not expected to produce all of thes
 
 ## 10. Homework
 
-Full details in `handouts/week-21-homework.md`. It is deliberately light, because two assessments happened in class and the orals are still to come. In summary: prepare for the oral by telling the trace out loud to somebody at home and writing down the two stages that were hardest to explain; one short written comparison of the SSH fingerprint prompt and the browser padlock; explore the cloned repository and answer three questions about it; a half-year reflection naming three things they can now explain that they could not in September; optional Crash Course episodes. The handout closes with an Extra Credit AP Track section that finishes the CodeAI internet unit and includes a Big Idea 4 self-audit.
+Full details in `handouts/week-21-homework.md`. It is deliberately light, because two assessments happened in class and the orals are still to come. In summary: prepare for the oral by telling the trace out loud to somebody at home and writing down the two stages that were hardest to explain; one short written comparison of the SSH fingerprint prompt and the browser padlock; explore the cloned repository and answer three questions about it; a half-year reflection naming three things they can now explain that they could not in September; the optional Crash Course episode on the World Wide Web. The handout closes with an Extra Credit AP Track section that finishes the CodeAI internet unit and includes a Big Idea 4 self-audit.
 
 ## 11. Assessment
 
@@ -366,7 +381,7 @@ Nothing here is required of non-AP students.
 - The SSH and clone lab: Segment 3 is complete on its own, provided the Section 5 server setup is done in advance. The one model-specific thing to confirm is where Remote Login lives in your macOS version's System Settings, since Apple reorganizes that pane regularly.
 - Apple's documentation on Remote Login and SSH access to a Mac, worth checking against your current macOS version during prep: `https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac`
 - Git documentation for `git clone` and `git init --bare`, for your reference while setting up the server repository: `https://git-scm.com/docs`
-- Crash Course Computer Science, Episode 29 ("The Internet") and Episode 30 ("The World Wide Web"), optional homework viewing and a good revision pairing for the trace. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- Crash Course Computer Science, Episode 30 ("The World Wide Web"), optional homework viewing and the last new episode of the unit. It draws the internet-versus-web distinction the AP exam tests, which is exactly the distinction the trace makes concrete. Episodes 28 and 29 were assigned in Weeks 19 and 20; a student preparing for the oral may find them useful again, but say plainly that those are a re-watch and not new work. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - CodeAI CSP Unit 2, The Internet (AP-track reinforcement, completed this week): `https://studio.code.org/courses/csp-2025/units/2`
 - The mid-year milestone definition and the grading weights discussed in Section 11: Section 3 of `curriculum/CS-Curriculum-and-Setup.md`.
 - The AI-use policy and the "explain your work" enforcement mechanism the oral implements: Section 10 of `curriculum/CS-Curriculum-and-Setup.md`.

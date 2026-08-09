@@ -4,7 +4,7 @@ This week you moved from Thonny to VS Code and learned how software actually get
 
 ## 1. Finish the project layout
 
-Your `adventure` folder should end up looking like this:
+Your `adventure` folder lives inside your `CS Class` folder in Documents, the same folder you have been saving work into since Week 1. It should end up looking like this:
 
 ```
 adventure/
@@ -22,8 +22,11 @@ adventure/
 Get it running. Open the `adventure` folder in VS Code, open the terminal with Control and backtick, and from the project root type:
 
 ```bash
+cd ~/Documents/"CS Class"/adventure
 python3 main.py
 ```
+
+The quotation marks are there because `CS Class` has a space in it, which is the Week 17 rule.
 
 If you get `ModuleNotFoundError: No module named 'game'`, you are almost certainly in the wrong folder. Type `pwd` and check that you are in `adventure`, not in `adventure/game`.
 
@@ -69,9 +72,7 @@ You do not have to fix it. Noticing it is the assignment.
 
 Next week is Git and version control, which confuses adults, so we are getting a head start.
 
-Install and play "Oh My Git!" (`https://ohmygit.org`). It is free and open source. Get through at least the first few levels, far enough that you have seen a commit and a branch drawn as a picture.
-
-You do not have to understand it. You just need to have seen the shapes once, so that next week they are familiar instead of new.
+Install and play "Oh My Git!" (`https://ohmygit.org`), which is free and open source. Get through at least the first few levels, far enough that you have seen a commit and a branch drawn as a picture. You do not have to understand it; you just need the shapes to be familiar rather than new.
 
 ## 5. Check your GitHub sign-in
 

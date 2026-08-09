@@ -26,7 +26,14 @@ The final project is 20 percent of the course grade, per Section 3 of the curric
 
 The writeup deserves a note, because it is the piece that makes this a capstone rather than just a program. It asks students to explain what their project sits on: the Python they wrote, the interpreter from Unit 1, the OS and filesystem from Unit 4, the network and HTTP from Units 4 and 5, the hardware from Unit 2. That is the mid-year "trace the button press" milestone from Week 21, aimed at their own code. It is the closing of the course's central question and it is worth as much of your attention as the code.
 
-**A planning note on the nine hours.** College Board requires that Create Task students get nine hours of in-class time for the task. Two class sessions is four hours, and even counting the project blocks in Weeks 27 and 30 you land near four and a half. Plan additional protected sessions outside the normal slot for AP-track students, and log every one of them with dates and durations. Verify the current requirement, since College Board has changed the hour count and the rules around it before.
+**A planning note on the nine hours.** College Board requires that Create Task students get nine hours of in-class time for the task. Count what these guides actually schedule, rather than what it feels like:
+
+- **Week 27:** about five minutes, in Segment 7, and it is handing out the proposal form and framing it. There is no project work block in Week 27 at all.
+- **Week 30:** fifteen minutes, Segment 8, from 1:42 to 1:57.
+- **Week 31, today:** the whole two hours belongs to the project apart from the five-minute stretch, so one hour fifty-five.
+- **Week 32:** twenty-five minutes, the polish and submission block in Segment 2. The demo blocks are presentation rather than task work and should not be counted; the fifteen-minute triage and cold-run block at the top of that session is a judgment call, and counting it is defensible.
+
+That is roughly two hours and forty minutes in total, or just under three if you count the Week 32 triage. It is nowhere near nine, and no amount of recounting the normal sessions will get it there. **You must schedule additional protected sessions outside the normal slot for AP-track students, on the order of six more hours,** and log every one of them with dates and durations. Verify the current required hours before relying on that figure, since College Board has changed the hour count and the rules around it before.
 
 ## 4. Materials and setup
 
@@ -97,7 +104,7 @@ Work from the current official requirements you printed during prep, not from th
 4. **Rehearse the run before recording.** A one-minute video of a program that works is easy; a one-minute video of a program that needed three attempts is not.
 5. **The Personalized Project Reference** is the written companion: screen captures of one list or other collection being used to manage complexity, and one student-developed procedure that takes at least one parameter and contains both selection and iteration, together with a call to that procedure. Both captures come from their own program code.
 6. **Have them produce both today, in class.** Not the polished final version, but a complete draft of each. A student who has recorded one video already will record a better one next week; a student who has never recorded one will discover the problems on the last day.
-7. **Log this time** against the nine protected hours.
+7. **Log this time** against the protected Create Task hours, and see the count in Section 3 for how much still has to be scheduled outside the normal slot.
 
 **Group B, everyone else: the one-page writeup.**
 
@@ -142,7 +149,7 @@ Both groups should also do the repository housekeeping in the last five minutes:
 - **The writeup describing features instead of layers.** Very common, and it hollows out the capstone. Read over shoulders during Segment 5 and redirect early.
 - **The video recorded with narration.** If the current specification forbids narration, and it has, a narrated video is a compliance problem rather than a style problem. Check the current rule during prep and tell students explicitly.
 - **The Digital Portfolio not set up.** A student can have a perfect Create Task and no way to submit it. Confirm enrollment and the join code this week, not next.
-- **Nine hours not logged.** You must be able to attest to the in-class time. Keep a dated log from Week 27 onward and update it today.
+- **Nine hours not logged, or assumed to be covered by the normal sessions.** They are not: the scheduled blocks come to under three hours in total, per Section 3. You must be able to attest to the in-class time, so keep a dated log from Week 27 onward, update it today, and book the extra sessions rather than discovering the shortfall in April.
 - **A student whose code you cannot follow.** Handle it privately in Segment 2. It is either a student who copied something, or a student who is further ahead than you assumed, and both need a conversation rather than a public surprise.
 - **Time slipping from Segment 5.** The workshop is not optional padding. A student who leaves without a draft video or a draft writeup will not produce a good one at home.
 
@@ -191,7 +198,7 @@ Verify each item against the current official requirements before relying on thi
 - [ ] All items uploaded to the AP Digital Portfolio through the hosting school's exam-only section
 - [ ] Final submit button pressed in the portfolio, which is a separate action from uploading
 - [ ] Attestation of original work completed honestly
-- [ ] Nine hours of in-class time logged by the instructor
+- [ ] The required in-class hours logged by the instructor, dated, including the sessions scheduled outside the normal slot
 
 **Verify current AP deadlines and portfolio requirements before relying on any of this.** The submission deadline is in late April but the exact date, the file specifications, the video rules, and the portfolio workflow change from year to year. Read the current version on AP Central and treat this checklist as a prompt, not as an authority.
 
@@ -204,7 +211,7 @@ The artifact requirements themselves map onto Big Idea 3 topics students have he
 **AP-track self-study for this week, and only this week's slice.** One matching slice below, not the whole course, and extra credit rather than required work:
 
 - **Project STEM (the AP spine):** its Create Performance Task materials, which sit alongside the Digital Media Processing unit in the long-standing structure, including the mock Create Task, the checklist, and the template. Work the checklist against their own project. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
-- **CodeAI, formerly Code.org (verified free alternative):** Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`. This is the whole point of that unit and this is the week for it.
+- **CodeAI, formerly Code.org (verified free alternative):** Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, which students have been working in bounded slices since Week 26. This week's slice is the planning and project-development lessons, worked against their own project rather than against the unit's example. They took the requirements and scoring lessons in Week 27 and the written-response lessons in Week 30, so those are not to be redone. Leave the final review and submission lessons for Week 32. Lesson names and ordering inside the unit change between course versions, so check the lesson list and take only that portion.
 
 Also point them at the official AP CSP Exam Reference Sheet, `https://apcentral.collegeboard.org/media/pdf/ap-computer-science-principles-exam-reference-sheet.pdf`, since the written-response portion of the end-of-course exam asks about their own Create Task using this notation.
 
@@ -218,4 +225,4 @@ Nothing here is required of non-AP students, who have a final project rather tha
 - License selection, from the Week 30 decision: `https://choosealicense.com`
 - The final project requirements and its 20 percent weight: Section 3 of `curriculum/CS-Curriculum-and-Setup.md`.
 - The extra-credit project tracks, useful for students whose project finished early and who want somewhere to put the energy: Section 9 of the same document.
-- CodeAI CSP Unit 9, Create PT Prep (AP-track): `https://studio.code.org/courses/csp-2025/units/9`
+- CodeAI CSP Unit 9, Create PT Prep (AP-track, this week's slice is the planning and project-development lessons only): `https://studio.code.org/courses/csp-2025/units/9`

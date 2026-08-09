@@ -45,7 +45,7 @@ Give the checkpoint fifteen protected minutes at the end. It is the last checkpo
 - **Do the entire PWA conversion yourself, on the demo machine, and install it.** Then delete the service worker and cache, and do it again from scratch, because you will need to un-stick at least one student's cached service worker during class and the unregister flow is worth having in your fingers. (30 min)
 - **Decide the phone story before class, because this is where the lab bites.** Service workers only run over HTTPS or on `localhost`. Flask on `http://127.0.0.1:5000` qualifies, so the whole lab works on the laptop. A phone reaching the laptop over the classroom network at `http://192.168.x.x:5000` does not qualify, and the service worker will silently refuse to register. Pick one: do the install demonstration on laptops only, which is the recommended default; or run a single instructor-led phone demonstration using Chrome's remote-debugging port forwarding from `chrome://inspect`, which does make the phone treat the address as localhost. Do not attempt twelve phones. (20 min)
 - Prepare the two placeholder icons and get them onto every machine. (10 min)
-- Confirm every student's Week 25 Flask app still runs. Fix broken ones before class if you can; a student with no working app cannot do the lab. (15 min)
+- Confirm every student's Week 25 Flask app still runs, and confirm the project actually contains `templates/index.html`, `static/style.css`, and `static/script.js`. That third file is the one that goes missing, because a page renders perfectly well without it, and today's service worker precaches it by name and fails its whole install if it is absent. If a student's project has no `static/script.js`, copy theirs across from their Week 24 `personal-page` folder now and add the `<script src="{{ url_for('static', filename='script.js') }}"></script>` line to the template. Fix broken apps before class if you can; a student with no working app cannot do the lab. (20 min)
 - Refresh yourself on the current state of PWA support, which genuinely changes year to year, particularly on iOS. Verify anything you plan to state as fact about what a PWA can and cannot do on each platform. (15 min)
 - Print the checkpoint and homework handouts. (10 min)
 
@@ -98,7 +98,9 @@ Give the checkpoint fifteen protected minutes at the end. It is the last checkpo
 
 ### Segment 5: Convert the app to a PWA (1:00 to 1:35), Coding strand
 
-Students work in their Week 25 `weather` project. Everything runs against `http://127.0.0.1:5000`, which counts as a secure context, so service workers will register.
+Students work in their Week 25 `weather` project at `~/Documents/"CS Class"/weather`. Everything runs against `http://127.0.0.1:5000`, which counts as a secure context, so service workers will register.
+
+Before anyone types anything, have every student run `ls static templates` in the project and read the result out. They should see `index.html` in `templates/`, and `style.css` and `script.js` in `static/`. All three came across from Week 24 during last week's Segment 3. The service worker written in step 6 names two of those files by path and will refuse to install if either is missing, so spending thirty seconds here saves the lab.
 
 1. **State the definition first.** Three things turn a web page into an installable app: it must be served over HTTPS or localhost, it must have a manifest describing it, and it must register a service worker. Nothing else is required.
 2. **Say what a service worker is, before writing one,** because the mental model is the hard part. It is a JavaScript file the browser keeps running in the background, separately from any page, and it sits between the page and the network. Every request the page makes goes through it first, and it decides whether to answer from a local cache or go out to the network. Draw it on the board as a box between the page and the internet. Add the two rules that explain every confusing thing about them: it has no access to the page's DOM, and it keeps running after the tab is closed.
@@ -126,11 +128,15 @@ Students work in their Week 25 `weather` project. Everything runs against `http:
    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
    <meta name="theme-color" content="#1b4965">
    ```
-5. **Serve the service worker from the root, and explain why.** A service worker can only control pages at or below its own path, which is called its scope. Served from `/static/sw.js` it would control only `/static/`, which is useless. Add a route to `app.py`:
+5. **Serve the service worker from the root, and explain why.** A service worker can only control pages at or below its own path, which is called its scope. Served from `/static/sw.js` it would control only `/static/`, which is useless. Add `send_from_directory` to the import line already at the top of `app.py`, so it reads:
 
    ```python
-   from flask import send_from_directory
+   from flask import Flask, render_template, send_from_directory
+   ```
 
+   Then add a second route, below the existing `home()` route:
+
+   ```python
    @app.route("/sw.js")
    def service_worker():
        return send_from_directory("static", "sw.js", mimetype="application/javascript")
@@ -186,10 +192,12 @@ Students work in their Week 25 `weather` project. Everything runs against `http:
    });
    ```
 
+   Before running it, read the `PRECACHE` list against the project on screen and account for all four entries: `/` is the Flask home route, `/static/style.css` and `/static/script.js` came over from Week 24, and `/static/offline.html` gets written in step 8. If any one of those four is missing or misspelled, `cache.addAll` rejects and the entire service worker fails to install, silently.
+
    Read the three event handlers out loud as three jobs. **Install** runs once when the service worker is new, and it fills the cache with the files the app needs to exist at all. **Activate** runs when a new version takes over, and it deletes the old caches, which is why the cache name has a version number in it. **Fetch** runs on every single request the page makes: try the network first, save a copy of whatever comes back, and if the network fails, serve the saved copy, or the offline page if there is no saved copy.
 7. **Say why this app is network-first rather than cache-first.** It shows live weather. A cache-first app would be faster and would show yesterday's temperature confidently, which is worse than being slow. The caching strategy is a design decision that depends on what the data is, and that is the real lesson of the file.
 8. **Create `static/offline.html`**, a plain page with a heading saying the app is offline and a line explaining that any weather shown may be old. Two sentences is enough.
-9. **Register it** by adding this to the bottom of `static/script.js`:
+9. **Register it** by adding this to the bottom of `static/script.js`, the same file that holds their Week 24 fact button:
 
    ```javascript
    if ("serviceWorker" in navigator) {
@@ -254,7 +262,7 @@ Students work in their Week 25 `weather` project. Everything runs against `http:
 ## 9. Common pitfalls
 
 - **The service worker is served from `/static/` and controls nothing.** The scope trap. The Flask route in step 5 exists for this. If a student skipped it, the registration succeeds and the caching silently never applies to the page.
-- **`cache.addAll` fails if any one URL in the list 404s,** and it fails the entire install with an unhelpful message. If a student's `script.js` or `offline.html` is named differently, the whole service worker never installs. Check the file list against the `PRECACHE` array first when debugging.
+- **`cache.addAll` fails if any one URL in the list 404s,** and it fails the entire install with an unhelpful message. The usual culprits are a missing `static/script.js`, which should have come across from Week 24 during Week 25's Segment 3, and an `offline.html` saved under a different name. Check the file list against the `PRECACHE` array first when debugging, and check it for the whole room before starting rather than one student at a time.
 - **A stale service worker.** The old one stays in control until every tab is closed, so students change the file and see no effect. Teach the fix once and put it on the board: in the Application panel, tick Update on reload while developing, and use Unregister to start clean.
 - **Testing over `http://192.168.x.x`.** No secure context, no service worker, no install prompt, and no obvious error. Anticipate it; a student will try it with their phone.
 - **Opening the file directly instead of through Flask.** A `file://` address is not a secure context either, and this is why Week 24 insisted on serving the page.
@@ -267,7 +275,7 @@ Students work in their Week 25 `weather` project. Everything runs against `http:
 
 ## 10. Homework
 
-Full details in `handouts/week-26-homework.md`. In summary: finish the PWA so it installs and loads offline, with an honest staleness message; a short written comparison choosing an approach for three described products with reasons; a permissions audit on their own phone or a family device; one paragraph on what their app does and does not do when offline. The handout closes with an Extra Credit AP Track section, which this week is mostly Create Task planning, since Unit 6 and the February window open next week.
+Full details in `handouts/week-26-homework.md`. In summary: finish the PWA so it installs and loads offline, with an honest staleness message and a short written defence of the network-first caching choice; a written comparison choosing an approach for three described products with reasons; a permissions audit on their own phone or a family device. The handout closes with an Extra Credit AP Track section, which this week is mostly Create Task planning, since Unit 6 and the February window open next week.
 
 ## 11. Assessment
 

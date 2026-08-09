@@ -1,6 +1,6 @@
 # Week 23 Homework: Your Own Repository
 
-In class you worked in the class book with everyone else. This week you do it alone, on your own project, on GitHub, and you break it on purpose one more time. Plan on about 45 minutes.
+In class you worked in the class book with everyone else. This week you do it alone, on your own project, on GitHub, and you break it on purpose one more time. Plan on about 50 minutes.
 
 Keep your Git cheat sheet next to you. Nobody memorizes these commands in one week.
 
@@ -8,42 +8,36 @@ Keep your Git cheat sheet next to you. Nobody memorizes these commands in one we
 
 Your `adventure` project is already a repository on your laptop from Segment 3 in class. Now give it a home on the internet.
 
-1. On `github.com`, signed in, create a new repository named `adventure`. Do not let GitHub add a README, a `.gitignore`, or a license; you already have those, and adding them creates a mess on the first push.
-2. GitHub shows you a page of setup commands. The ones you want are the "push an existing repository" ones. In your terminal, from inside your `adventure` folder:
+1. On `github.com`, signed in, create a new repository named `adventure`. Do not let GitHub add a README, a `.gitignore`, or a license; you already have those, and adding them makes a mess on the first push.
+2. From the page of setup commands GitHub shows you, use the "push an existing repository" ones:
 
    ```bash
+   cd ~/Documents/"CS Class"/adventure
    git remote add origin <the URL GitHub gave you>
    git branch -M main
    git push -u origin main
    ```
 3. Reload the GitHub page. Your files are there.
 
-Then check one thing, and this is the actual point of the exercise: is there a `.venv` folder in the file list on GitHub? There should not be. If there is, your `.gitignore` is not doing its job. Come to class with that and we will fix it.
+Then check one thing, which is the actual point of the exercise: is there a `.venv` folder in the file list? There should not be. If there is, your `.gitignore` is not doing its job, so bring it to class.
 
-## 2. Make two real commits
-
-Change something in your game. Anything: a new room, a better description, a bug fix.
-
-Commit it with a message that says what changed and why, in one line. Then change something else and commit that too.
-
-```bash
-git add .
-git commit -m "Add the cellar's locked door"
-git push
-```
-
-Rule for the messages: someone reading your log a year from now, with no memory of today, should be able to tell whether the change they are hunting for is in that commit. "stuff" and "update" fail that test.
-
-## 3. Branch, change, merge
+## 2. Branch, change, merge
 
 1. Make a branch: `git switch -c experiment`
 2. On that branch, change something you are not sure about. Make it genuinely risky if you like; that is what branches are for.
-3. Commit it.
+3. Commit it, with a message that says what changed and why, in one line:
+
+   ```bash
+   git add .
+   git commit -m "Add the cellar's locked door"
+   ```
+
+   Rule for the message: someone reading your log a year from now should be able to tell whether the change they are hunting for is in that commit. "stuff" and "update" fail that test.
 4. Run `git switch main` and look at your files. Your change is gone. It is not lost, it is on the other branch. Sit with that for a second; that is the whole idea.
 5. Run `git log --oneline --graph --all` and find both branches in the picture.
 6. Merge it in: `git merge experiment`, then `git push`.
 
-## 4. Cause a conflict, alone
+## 3. Cause a conflict, alone
 
 You need two branches that change the same line. Here is the recipe:
 
@@ -53,32 +47,24 @@ You need two branches that change the same line. Here is the recipe:
 4. `git switch main`. Change that same line again, to `Status: playable`. Commit it.
 5. `git merge cleanup`.
 
-You should get `CONFLICT (content): Merge conflict in README.md`.
+You should get `CONFLICT (content): Merge conflict in README.md`. Take a screenshot of it before you touch anything, save the screenshot in your `CS Class` folder, and bring it to class.
 
-Now finish it:
-
-- Run `git status` and read what it tells you.
-- Open the file and find the `<<<<<<<`, `=======`, and `>>>>>>>` lines.
-- Edit the file so it has exactly one status line, the one you actually want, with all three marker lines deleted.
-- `git add README.md`, then `git commit`, then `git push`.
-
-Take a screenshot of the conflict as it appeared, before you resolved it, and save it in your `cs-sandbox` folder. Bring it to class.
+Now finish it. Run `git status` and read it. Open the file, find the `<<<<<<<`, `=======`, and `>>>>>>>` lines, and edit it so it has exactly one status line, the one you actually want, with all three marker lines deleted. Then `git add README.md`, `git commit`, and `git push`.
 
 If you get lost at any point, `git merge --abort` puts everything back exactly as it was. Using it is not failing.
 
-## 5. Explain it in your own words
+## 4. Explain it in your own words
 
-Three short answers, a few sentences each. Write them in a file or on paper.
+Two short answers, a few sentences each. Write them in a file or on paper.
 
 1. What is a commit, and what does it contain? Say why "a list of the lines I changed" is not quite right.
-2. What is a branch, and why is working on one safer than working directly on `main`?
-3. A merge conflict happens. Is anything broken? What is Git actually asking you for, and how do you answer it?
+2. A merge conflict happens. Is anything broken? What is Git actually asking you for, and how do you answer it?
 
 ---
 
 A reminder on getting help: do this yourself, without AI helpers like ChatGPT. We will learn to use those tools properly later in the course, starting in Week 27. If you get stuck, try for a few minutes, write down your question, and bring it to class. Stuck is normal; it is where the learning is.
 
-One extra thing about Git specifically: when a command produces an error, read the error. Git's messages are unusually good and they usually tell you the exact next command to run. That habit is worth more this week than any memorized command.
+One extra thing about Git: when a command fails, read the error. Git's messages usually name the exact next command to run.
 
 ---
 

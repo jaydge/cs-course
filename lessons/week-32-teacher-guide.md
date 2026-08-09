@@ -63,6 +63,7 @@ For AP-track students, submission is the hard deadline of the day. Everything el
 
 ### Segment 2: Final polish and AP submission block (0:15 to 0:40), protected
 
+- **You do:** State the Create Task rule one final time before anyone opens a laptop, because this is the last chance it can be broken. For students submitting a Create Performance Task, the task is AI-free at every stage, including today, including the last-minute fixes, including the written pieces, right up to the moment they press final submit. It is a College Board rule, they sign an attestation to it, and nothing said in this room can waive it. Everyone else works under the rule you set in Week 27 and still needs the disclosure comment on any AI-assisted code.
 - **Students do:** Last fixes only. State the rule again: nothing new, only repairs and rehearsal. Students who are finished rehearse their five minutes quietly or help someone who is not finished.
 - **AP-track students do:** Submit. Walk each one through it individually rather than announcing instructions to the room:
   1. Program code as a PDF, per the current specification.
@@ -71,7 +72,7 @@ For AP-track students, submission is the hard deadline of the day. Everything el
   4. Upload all items to the AP Digital Portfolio through the hosting school's exam-only section.
   5. **Press final submit.** This is a separate action from uploading and it is the step people miss. Have the student show you the confirmation on screen before you walk away.
   6. Complete the attestation honestly.
-- **You do:** Finalize the nine-hour log with the time from today. Keep it; you may need to attest to it.
+- **You do:** Finalize the protected-hours log with the twenty-five minutes from this block. Keep it; you may need to attest to it. The scheduled sessions across Weeks 27 to 32 come to under three hours in total, so most of the logged time should be the extra sessions booked per Section 3 of the Week 31 guide.
 - **Verify all of the above against the current official requirements.** The specifications and the workflow change annually and this guide is not the authority.
 
 ### Segment 3: Demo Day, round one (0:40 to 1:10)
@@ -137,7 +138,7 @@ Three minutes, and worth planning rather than improvising.
 
 1. **Ask the opening question one last time,** pointing at the board: how does a button press become something useful? Take one answer from the youngest student in the room. Thirty-two weeks ago nobody could have answered it.
 2. **Name what changed, concretely rather than warmly.** They can write a program, read an error, choose a data structure, use a terminal, use version control, ship a web app, explain a network, explain a CPU, explain a neural network, and argue both sides of a hard question about all of it. Say it as a list; the list is the evidence.
-3. **Hand out the Week 32 sheet** and point at the "where to go next" section rather than at homework. Note the extra-credit tracks in Section 9 of the curriculum are still open all summer, and that the ambitious ones, the Build the Stack track especially, are genuinely a summer project.
+3. **Hand out the Week 32 sheet** and point at the "where to go next" section rather than at homework. Note the extra-credit tracks in Section 9 of the curriculum are still open all summer, that the ambitious ones, the Build the Stack track especially, are genuinely a summer project, and that the sheet carries the last two Crash Course episodes as an optional send-off rather than as work.
 4. **Say the last thing.** Everything they used this year was built by people, most of it is readable, and none of it is magic. That was the whole argument of the course and today they demonstrated their own contribution to it.
 
 ## 7. Key scripts and analogies
@@ -172,7 +173,7 @@ Three minutes, and worth planning rather than improvising.
 
 ## 10. Homework
 
-There is none. `handouts/week-32-homework.md` is the course wrap-up sheet: the submission checklist one final time, what happens to their work now, the summer paths through the extra-credit tracks, and the AP exam timeline for anyone testing. Its Extra Credit AP Track section covers what remains between now and the exam, since the end-of-course exam falls after this course finishes.
+There is none. `handouts/week-32-homework.md` is the course wrap-up sheet: the submission checklist one final time, what happens to their work now, the summer paths through the extra-credit tracks, the last two Crash Course episodes as an optional send-off, and the AP exam timeline for anyone testing. Its Extra Credit AP Track section covers what remains between now and the exam, since the end-of-course exam falls after this course finishes.
 
 ## 11. Assessment
 
@@ -205,7 +206,7 @@ Course-wide, with today's session the AP CSP framework is complete: all 35 topic
 **AP-track self-study for this week, and only this week's slice.** One matching slice below, not the whole course, and extra credit rather than required work:
 
 - **Project STEM (the AP spine):** the AP Exam Review unit, which is the last one in the long-standing structure. This is the first week it is the right thing to work on, and it is now the only thing on the AP path that remains. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
-- **CodeAI, formerly Code.org (verified free alternative):** finish Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, then work back through the assessment banks in the units matching their weakest big ideas. Unit 5, Data, at `https://studio.code.org/courses/csp-2025/units/5`, and Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`, are the usual two.
+- **CodeAI, formerly Code.org (verified free alternative):** finish Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`. This is the last of four bounded slices, so what remains is the final review and submission lessons: the requirements and scoring lessons were Week 27, the written-response lessons Week 30, and the planning and build lessons Week 31. Then work back through the assessment banks in the units matching their weakest big ideas. Unit 5, Data, at `https://studio.code.org/courses/csp-2025/units/5`, and Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`, are the usual two.
 
 Also, one last time: the official AP CSP Exam Reference Sheet at `https://apcentral.collegeboard.org/media/pdf/ap-computer-science-principles-exam-reference-sheet.pdf` is the pseudocode they get on exam day. Students who are comfortable with it lose no time on the exam translating.
 
@@ -220,5 +221,6 @@ Also, one last time: the official AP CSP Exam Reference Sheet at `https://apcent
 - The grading weights and the portfolio-of-work argument for the credit: Sections 2 and 3 of `curriculum/CS-Curriculum-and-Setup.md`.
 - Extra-credit project tracks for the summer, including the Build the Stack capstone path: Section 9 of the same document. nandgame at `https://nandgame.com`, Turing Complete on Steam, and nand2tetris at `https://www.nand2tetris.org`.
 - All three Mystery Day options are complete in Segment 6; nothing external is needed to run them. For your own background on the multiplayer option, Gabriel Gambetta's "Fast-Paced Multiplayer" articles at `https://www.gabrielgambetta.com/client-server-game-architecture.html` are the clearest free treatment of prediction and reconciliation, with interactive demonstrations. Review it during prep if you pick Option C.
+- Crash Course Computer Science, Episodes 39 ("Educational Technology") and 40 ("The Singularity, Skynet, and the Future of Computing"), on the Week 32 sheet as an optional send-off rather than as homework. These two close the series and this is the only week the course assigns them; they were previously misplaced in Week 30. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - The Mystery Day bank, if you want a different question: Section 5 of `curriculum/CS-Curriculum-and-Setup.md`.
 - CodeAI CSP Unit 9, Create PT Prep, and the units for remaining exam review: `https://studio.code.org/courses/csp-2025/units/9`, `https://studio.code.org/courses/csp-2025/units/5`, `https://studio.code.org/courses/csp-2025/units/8`

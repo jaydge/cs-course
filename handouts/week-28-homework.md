@@ -52,7 +52,7 @@ Your proposal came back with a scope note. Do the thing it says. If it said "too
 
 ## 6. Watch, if you want (optional)
 
-Crash Course Computer Science, Episodes 31 and 32, cover cybersecurity and cyber attacks: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episodes 31, 32, and 33, cover cybersecurity, cyber attacks, and cryptography. Episode 33 is the one that matches the cipher and key-exchange work directly: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
 ---
 
@@ -87,6 +87,6 @@ Things the exam expects you to be able to do, all of which you did today:
 
 **Extra practice if you want it.**
 
-- Write a Caesar cipher in Python: one function to encrypt with a given shift, one to decrypt, and one that prints all 25 possible decryptions of a message so you can eyeball the right one. The `ord` and `chr` functions and the modulo operator are all you need. This is allowed to use AI help, since it is not Create Task work, but you will learn more if it does not.
-- Do the real Diffie-Hellman arithmetic with small numbers. Public base 5, public modulus 23. You pick a secret exponent, a partner picks theirs. Each of you computes base to the power of your secret, modulo 23, and sends the result. Then each raises what you received to the power of your own secret, modulo 23. Confirm you both got the same number, and then look at what an eavesdropper would have to solve.
-- Try the beginner challenges at picoCTF, `https://picoctf.org`. It is a legal, deliberately vulnerable playground built for exactly this. It has moved under Carnegie Mellon's CyLab Security Academy, so check the current sign-up route. This is the Starter tier of the cybersecurity extra-credit track.
+- Write a Caesar cipher in Python: one function to encrypt with a given shift, one to decrypt, and one that prints all 25 possible decryptions so you can eyeball the right one. `ord`, `chr`, and the modulo operator are all you need.
+- Do the real Diffie-Hellman arithmetic with small numbers. Public base 5, public modulus 23. You and a partner each pick a secret exponent, compute base to the power of your secret modulo 23, and swap the results. Then each of you raises what you received to your own secret, modulo 23. You should land on the same number. Then work out what an eavesdropper would have to solve.
+- Try the beginner challenges at picoCTF, `https://picoctf.org`, now under Carnegie Mellon's CyLab Security Academy, so check the current sign-up route. It is a legal, deliberately vulnerable playground and it is the Starter tier of the cybersecurity extra-credit track.

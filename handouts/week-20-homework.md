@@ -1,48 +1,35 @@
 # Week 20 Homework: Reading the Wire
 
-This week you became a web server, read a real HTTP request byte by byte, and then found out you could not read the next one because it was encrypted. Plan on about 40 minutes.
+This week you became a web server, read a real HTTP request byte by byte, and then found out you could not read the next one because it was encrypted. Plan on about 45 minutes.
 
 **One thing that is deliberately not in this homework: Wireshark.** Packet capture stays in class, on the classroom network, with the rules we agreed on. Do not run captures at home, on anyone else's network, or on traffic that is not yours. Everything below works without it.
 
 ## 1. Be a server at home
 
-Make a folder somewhere in your home directory, put two or three files in it (a text file and anything else), and serve it:
+Put two or three files (a text file and anything else) into the `sandbox/site` folder inside your CS Class folder, and serve it:
 
 ```bash
-cd ~/wherever/your/folder/is
-python3 -m http.server 8000
+cd ~/Documents/"CS Class"/sandbox/site
+python3 -m http.server 8080
 ```
 
 Then:
 
-1. Visit `http://localhost:8000` in a browser on the same machine. Write down what you see.
-2. Find your machine's IP address on your home network (you did this last week). From a phone, tablet, or another computer on the same Wi-Fi, visit `http://<that address>:8000`. Write down whether it worked.
-3. Look at the terminal where the server is running. Copy down two lines of the log it printed.
-4. Request a file that does not exist, for example `http://localhost:8000/nope.txt`. What does the browser show, and what does the server's log say?
+1. Visit `http://localhost:8080` in a browser on the same machine. Write down what you see.
+2. Find your machine's IP address on your home network (you did this last week). From a phone, tablet, or another computer on the same Wi-Fi, visit `http://<that address>:8080`. Write down whether it worked. If it does not work, do not spend more than five minutes on it: a firewall refusing an incoming connection is a real and correct answer.
+3. Copy down two lines of the log printed by the terminal the server is running in.
+4. Request a file that does not exist, for example `http://localhost:8080/nope.txt`. What does the browser show, and what does the server's log say?
 
 Press Control-C in the terminal to stop the server when you are done.
 
-If step 2 does not work, do not spend more than five minutes on it. Write down what happened instead; a firewall refusing an incoming connection is a real and correct answer and we will talk about it.
-
-## 2. Write an HTTP request by hand
-
-From memory as much as you can, write out a complete HTTP request for the file `/hello.txt` from a server at `192.168.1.42:8000`. Then label these four things on what you wrote:
-
-- The method
-- The path
-- One header, and say what information it gives the server
-- The blank line, and say what it separates
-
-Then write out a plausible response to it, and label the status code.
-
-## 3. Four short questions
+## 2. Four short questions
 
 1. Name one thing TCP guarantees that UDP does not. Then name one situation where you would deliberately choose UDP anyway, and say why.
 2. What are the three messages of the TCP handshake, in order, and what does the exchange accomplish?
 3. An IP address gets a message to the right machine. What does a port number add, and why is the address alone not enough?
 4. What do these status codes mean: 200, 404, 500?
 
-## 4. Fetch with Python
+## 3. Fetch with Python
 
 Start your server again. Then write a program `fetch.py` that:
 
@@ -54,21 +41,21 @@ Use `requests` if it is installed, or `urllib.request` if it is not. Run it from
 
 While it runs, watch your server's terminal. Write down what appeared in the log.
 
-## 5. What HTTPS does and does not do
+## 4. What HTTPS does and does not do
 
 Someone tells you: "The padlock means nobody can see anything I do on that site."
 
 Write four or five sentences correcting them. Be specific. Say what is genuinely hidden, name at least two things that are still visible to someone watching the network, and say what the padlock does and does not tell you about the site itself.
 
-## 6. Watch, if you want (optional)
+## 5. Watch, if you want (optional)
 
-Crash Course Computer Science, Episode 29 is about the internet and Episode 30 is about the World Wide Web. Episode 30 is worth it for one thing especially: the internet and the web are not the same thing, and it explains why: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episode 29, "The Internet." Episode 30 is next week's, so save it: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
 ## Looking ahead to next week
 
-Next week is the whole thing end to end: what actually happens when you open google.com, from your finger to the pixels and back. It is also the mid-year assessment and the Unit 4 checkpoint.
+Next week is the whole thing end to end: what happens when you open google.com, from your finger to the pixels and back. It is also the mid-year assessment and the Unit 4 checkpoint.
 
-It is not a memory test and there is nothing to cram. The best preparation is to be able to tell the story out loud. Try explaining one piece of it to somebody at home this week: how a name becomes an address, or why a message gets split into packets, or what the padlock means. If you can explain it to someone who does not know, you are ready.
+It is not a memory test and there is nothing to cram. The best preparation is to be able to tell the story out loud, so try explaining one piece of it to somebody at home this week: how a name becomes an address, or why a message gets split into packets, or what the padlock means.
 
 ---
 

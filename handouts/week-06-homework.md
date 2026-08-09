@@ -82,7 +82,7 @@ Worth knowing what does and does not count here. The breadboard, the transistors
 
 **Your unit for this week.** Do only the slice below, not the whole course.
 
-- **Project STEM (the AP spine):** Unit 2, Programming. Work the lists lessons, continuing the unit you have been in since Week 3. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
+- **Project STEM (the AP spine):** Unit 2, Programming, and one topic within it: making a list, reading and changing an element by index, and list length. Stop when the lessons turn to traversing a list; that is next week's slice. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
 - **CodeAI, formerly Code.org (free alternative):** Unit 6, Lists, Loops, and Traversals, at `https://studio.code.org/courses/csp-2025/units/6`. Back in Week 4 you were told to stop when this unit turned from loops to lists. This is the week to pick it back up. Do the lists lessons and stop before traversals, which are next week's slice.
 
 **Extra practice if you want it.**

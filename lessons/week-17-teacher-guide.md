@@ -41,13 +41,14 @@ Week 18 lives entirely in the shell and adds pipes, searching, and scripts. Week
 
 - **Verify WSL2 and Ubuntu actually work on every Windows machine, from the student account, not yours.** This is the item most likely to sink the session. Open Windows Terminal, choose the Ubuntu profile, and confirm you reach a `$` prompt without a first-run setup wizard. If Ubuntu has never been launched it will ask for a new UNIX username and password on first run, which eats ten minutes per machine; do that during prep. (20 min, more the first time)
 - On each Mac, open Terminal once from the student account and confirm a `%` prompt appears. Raise the profile font size on the demo machine. (10 min)
-- Create the same sandbox folder on every machine so the whole class has a common starting point: a folder named `cs-sandbox` inside the student's home directory, containing three empty files and one subfolder. You can do this from the terminal in ten seconds per machine:
+- Give every machine the same starting point inside the folder students have already used since Week 1, the `CS Class` folder in Documents. Add three empty files and one subfolder so there is something worth listing. You can do this from the terminal in ten seconds per machine:
 
   ```bash
-  mkdir -p ~/cs-sandbox/notes
-  touch ~/cs-sandbox/alpha.txt ~/cs-sandbox/beta.txt ~/cs-sandbox/gamma.txt
+  mkdir -p ~/Documents/"CS Class"/notes
+  cd ~/Documents/"CS Class"
+  touch alpha.txt beta.txt gamma.txt
   ```
-  (10 min)
+  Note the quotation marks. `CS Class` has a space in it, and without them the shell reads it as two separate arguments. Segment 3 teaches that explicitly, so type it the same way here. Do not invent a separate practice folder; the point of Segment 5 is that the folder they already know and the path the terminal prints are the same thing. (10 min)
 - **Write the command reference card and print it.** Keep it to one page, two columns: `pwd`, `ls`, `ls -l`, `ls -la`, `cd <folder>`, `cd ..`, `cd ~`, `cd -`, `mkdir`, `touch`, `cat`, `clear`, `whoami`, `open .` (macOS) and `explorer.exe .` (WSL), plus the four navigation facts: Tab completes, Up-arrow recalls, Control-C stops, and `~` means your home folder. Add a line saying that the shell is case sensitive and that spaces in filenames need quotes. (20 min)
 - Run the Segment 6 Python program on the classroom Python and confirm the output. Check whether Thonny on your machines is using the same Python you get from `python3` in the terminal; if they differ, say so out loud in class rather than letting a student discover it alone. (10 min)
 - Decide pairings. Pair any student flagged on the readiness diagnostic with a confident typist for Segment 3. (5 min)
@@ -94,11 +95,11 @@ This is the protected segment of the day. Go slowly and let nobody fall behind.
    whoami
    ```
    Read the `pwd` output aloud slowly, one slash at a time: `/Users/student` on macOS, `/home/student` on Ubuntu. Say what a path is: a set of directions from the top of the filesystem down to one place, with the slashes as the turns.
-4. **Draw the tree on the board and leave it up.** Root at the top as a single `/`. Under it, `Users` on macOS or `home` on Ubuntu, then the student's own folder, then `cs-sandbox`, then `notes`. Mark the student's home folder with `~` and say the shorthand out loud: the tilde means "my home folder," and it saves typing every time.
+4. **Draw the tree on the board and leave it up.** Root at the top as a single `/`. Under it, `Users` on macOS or `home` on Ubuntu, then the student's own folder, then `Documents`, then `CS Class`, then `notes`. Mark the student's home folder with `~` and say the shorthand out loud: the tilde means "my home folder," and it saves typing every time. Point at `CS Class` on the tree and say, without dwelling on it yet, that this is the folder they have been saving work into since Week 1; Segment 5 comes back to it properly.
 5. **Navigate the tree physically.** Have students run these in order, checking the tree on the board after each:
 
    ```bash
-   cd ~/cs-sandbox
+   cd ~/Documents/"CS Class"
    pwd
    ls
    cd notes
@@ -108,9 +109,9 @@ This is the protected segment of the day. Go slowly and let nobody fall behind.
    cd ~
    pwd
    ```
-   Say the two navigation words as they use them: `..` is the folder above this one, `~` is home.
-6. **Teach Tab completion right now, not later.** Have them type `cd ~/cs-sa` and press Tab. It finishes. Say why this matters more than it looks: it is the cure for the number one terminal frustration, which is typos in long names, and it also proves the thing exists before you press Return. Then teach Up-arrow to recall the last command and Control-C to abandon whatever is running.
-7. **Show `ls` with flags and name the grammar.** Run `ls`, then `ls -l`, then `ls -la` in the sandbox. Say the general shape of every command they will meet this year: the command name, then options starting with a dash, then the things to act on. Point out that `-la` is just `-l` and `-a` written together, and that `-a` reveals the dotfiles the graphical browser hides.
+   Say the two navigation words as they use them: `..` is the folder above this one, `~` is home. Then say the third thing, because it is the first place the shell's literalness bites: `CS Class` has a space in it, so it goes inside quotation marks. Without them the shell reads the space as a separator, sees two arguments, and tries to enter a folder called `CS`. The quotes are how you tell the shell that a space is part of a name rather than a gap between things.
+6. **Teach Tab completion right now, not later.** Have them type `cd ~/Documents/CS` and press Tab. It finishes the name and handles the space for them. Say why this matters more than it looks: it is the cure for the number one terminal frustration, which is typos in long names, and it also proves the thing exists before you press Return. Then teach Up-arrow to recall the last command and Control-C to abandon whatever is running.
+7. **Show `ls` with flags and name the grammar.** Run `ls`, then `ls -l`, then `ls -la` in the CS Class folder. Say the general shape of every command they will meet this year: the command name, then options starting with a dash, then the things to act on. Point out that `-la` is just `-l` and `-a` written together, and that `-a` reveals the dotfiles the graphical browser hides.
 8. **Split the room for five minutes.** Mac students and Windows students each run steps 3 through 7 on their own machine, then physically walk over and look at a machine of the other kind. Ask them to find one thing that is different. Answers: the prompt symbol, `/Users` versus `/home`, and the color scheme. That is nearly the whole list, and that is the point.
 9. **Show the one WSL fact Windows students need.** From inside Ubuntu, the Windows C: drive is mounted at `/mnt/c`. Have them run:
 
@@ -125,30 +126,37 @@ This is the protected segment of the day. Go slowly and let nobody fall behind.
 
 ### Segment 5: One folder, three views, and who is allowed (1:05 to 1:25), Systems strand
 
-1. **Put the same folder on screen twice.** On the demo Mac, with the terminal in `~/cs-sandbox`, run:
+1. **Name the folder they already have, in terminal terms.** Do this before opening anything. Say it plainly: the `CS Class` folder they have been saving work into since Week 1 is the folder the terminal calls `~/Documents/CS Class`. Not a copy of it, not a second folder that looks like it. Finder shows it as an icon with a name; the terminal shows it as a path; there is one folder on the disk. Have them prove it themselves rather than take it from you:
+
+   ```bash
+   cd ~/Documents/"CS Class"
+   ls
+   ```
+   Their own work from earlier in the year is listed. Give it a beat. For most students this is the moment the terminal stops being a strange new place and becomes a second window onto a familiar one, which is the whole argument of this segment.
+2. **Put the same folder on screen twice.** With the terminal still in `~/Documents/"CS Class"`, run:
 
    ```bash
    open .
    ```
    A Finder window opens on exactly that folder. Windows students run `explorer.exe .` from Ubuntu and get File Explorer. Arrange the two windows side by side and say the sentence out loud: this is not two folders, it is one folder and two windows onto it.
-2. **Prove it in both directions.** Create a file in the terminal with `touch delta.txt` and watch it appear in the graphical window without anyone clicking refresh. Then create a folder in the graphical window and run `ls` in the terminal.
-3. **Show the path in the graphical tool.** On macOS, View, Show Path Bar puts the same path along the bottom of the Finder window. On Windows, File Explorer's address bar shows it if you click into it. Say the honest thing: the graphical browser has been hiding the path from you on purpose, because most people do not want it, and from now on you do.
-4. **Teach the drag trick, which students love.** Drag any folder from Finder onto a Terminal window and its full path is typed for you. This is the fastest way out of a "where am I" problem all year.
-5. **Now permissions.** Run `ls -l` in the sandbox and put one line on the board, character by character:
+3. **Prove it in both directions.** Create a file in the terminal with `touch delta.txt` and watch it appear in the graphical window without anyone clicking refresh. Then create a folder in the graphical window and run `ls` in the terminal.
+4. **Show the path in the graphical tool.** On macOS, View, Show Path Bar puts the same path along the bottom of the Finder window. On Windows, File Explorer's address bar shows it if you click into it. Say the honest thing: the graphical browser has been hiding the path from you on purpose, because most people do not want it, and from now on you do.
+5. **Teach the drag trick, which students love.** Drag any folder from Finder onto a Terminal window and its full path is typed for you. Drag the CS Class folder specifically, and point out that Finder puts in the escaping for the space without being asked. This is the fastest way out of a "where am I" problem all year.
+6. **Now permissions.** Run `ls -l` in the CS Class folder and put one line on the board, character by character:
 
    ```
    -rw-r--r--  1 student  staff  0  Jan  5 10:00  alpha.txt
    ```
    Read it left to right. The first character is the type: a dash for an ordinary file, a `d` for a directory. Then three groups of three: what the owner may do, what the group may do, and what everyone else may do. In each group, `r` is read, `w` is write, `x` is execute, and a dash means not allowed. Then the owner name and the group name.
-6. **Make them predict, then check.** Ask what `-rw-r--r--` means for a classmate on the same machine. Answer: they can read it and cannot change it. Then run `ls -ld ~` and ask why a directory needs an `x` bit at all. Answer: on a directory, execute means "you may enter it," which is a genuinely surprising and memorable detail.
-7. **Change one and watch it change.** In the sandbox:
+7. **Make them predict, then check.** Ask what `-rw-r--r--` means for a classmate on the same machine. Answer: they can read it and cannot change it. Then run `ls -ld ~` and ask why a directory needs an `x` bit at all. Answer: on a directory, execute means "you may enter it," which is a genuinely surprising and memorable detail.
+8. **Change one and watch it change.** In the CS Class folder:
 
    ```bash
    chmod 600 alpha.txt
    ls -l alpha.txt
    ```
    Then put it back with `chmod 644 alpha.txt`. Explain the three digits as owner, group, other, with read worth 4, write worth 2, and execute worth 1. Two numbers cover almost everything: 644 for a normal file, 755 for something runnable. Week 18 needs 755 for their script, so this is not trivia.
-8. **Connect it to their own laptop, honestly.** Their student account is deliberately a standard, non-admin account. That is the same permission system, one level up. Ask what `sudo` does and answer it plainly: it asks the OS to run one command as the administrator, and it asks for a password because otherwise the whole system would be pointless. Tell them they will not need `sudo` in this course except where a lab explicitly says so, and that a stranger telling them to paste a `sudo` command they do not understand is one of the oldest attacks there is.
+9. **Connect it to their own laptop, honestly.** Their student account is deliberately a standard, non-admin account. That is the same permission system, one level up. Ask what `sudo` does and answer it plainly: it asks the OS to run one command as the administrator, and it asks for a password because otherwise the whole system would be pointless. Tell them they will not need `sudo` in this course except where a lab explicitly says so, and that a stranger telling them to paste a `sudo` command they do not understand is one of the oldest attacks there is.
 
 ### Segment 6: Files and paths in Python (1:25 to 1:45), Coding strand
 
@@ -158,18 +166,21 @@ This is the protected segment of the day. Go slowly and let nobody fall behind.
   ```python
   from pathlib import Path
 
-  folder = Path.home() / "cs-sandbox"
+  folder = Path.home() / "Documents" / "CS Class"
   print(folder)
 
   for item in folder.iterdir():
       print(item.name)
   ```
-  Name the two new ideas: `Path.home()` is the same thing as `~`, and the slash operator joins path pieces without you having to worry about whether the separator is `/` or `\`. Say why that matters: this exact program runs unchanged on both fleets, which is the whole reason `pathlib` exists.
+  Name the two new ideas: `Path.home()` is the same thing as `~`, and the slash operator joins path pieces without you having to worry about whether the separator is `/` or `\`. Say why that matters: this exact program runs unchanged on both fleets, which is the whole reason `pathlib` exists. Point at `"CS Class"` and note the contrast worth ten seconds: the space needs no quoting trick here, because it is already inside a Python string. Quoting in the shell and quoting in Python are solving the same problem in two different places.
 - **You do:** Add the parts that make it useful:
 
   ```python
   for item in sorted(folder.iterdir()):
-      kind = "dir " if item.is_dir() else "file"
+      if item.is_dir():
+          kind = "dir "
+      else:
+          kind = "file"
       print(kind, item.name, item.stat().st_size)
   ```
 - **Students do:** Run it, then extend it in one of three ways of their choosing: print only the files whose name ends in `.txt`, print the total size of everything in the folder, or count how many items are directories. Every one of those is a loop with a condition, which is Unit 1 material, so this is a systems topic riding on skills they already have.
@@ -205,14 +216,14 @@ Ten tight minutes. It is a history question with a technical payoff.
 
 ## 8. Differentiation
 
-- **Younger or newer students:** The barrier here is typing accuracy, not the ideas. Pair them with a confident typist and have them each type every command themselves rather than watching. Insist on Tab completion from the first minute, because it removes most of the failures. It is a complete success for these students if they can reach a prompt, run `pwd`, `ls`, and `cd`, and find their sandbox folder; permissions can stay at "these letters say who is allowed to do what" without the numeric `chmod`. In Segment 6, give them the working program and have them change only the folder name and run it.
+- **Younger or newer students:** The barrier here is typing accuracy, not the ideas. Pair them with a confident typist and have them each type every command themselves rather than watching. Insist on Tab completion from the first minute, because it removes most of the failures. It is a complete success for these students if they can reach a prompt, run `pwd`, `ls`, and `cd`, and find their CS Class folder from the terminal; permissions can stay at "these letters say who is allowed to do what" without the numeric `chmod`. In Segment 6, give them the working program and have them change only the folder name and run it.
 - **Extensions for advanced or AP-track students:** Have them find their machine's total RAM and current free memory from the terminal (`vm_stat` on macOS, `free -h` on Ubuntu) and reconcile it with what Activity Monitor or Task Manager reports. Have them run `ls -la ~` and work out what three of the dotfiles are for. In Python, have them write a recursive version of the directory lister using `folder.rglob("*")` and report the largest file under their home folder. AP-track students should read this week's Extra Credit AP Track section for the honest note that this material is off-syllabus.
 
 ## 9. Common pitfalls
 
 - **WSL not initialized on a Windows machine.** First launch demands a new UNIX username and password and can take several minutes. Do it in prep. If it happens in class anyway, move that student to a Mac and sort the machine out afterwards.
 - **Typing errors read as conceptual failure.** A student who types `Cd` or `ls -1` and gets an error concludes they do not understand the terminal. They understand it fine. Say early and repeatedly that the shell is case sensitive and completely literal, that this is the same lesson as the Week 1 robot maze, and that Tab completion exists precisely because everyone mistypes.
-- **Spaces in filenames.** A student with a folder called `My Stuff` runs `cd My Stuff` and gets a confusing error. Teach `cd "My Stuff"` or, better, Tab completion, which quotes it for them.
+- **Spaces in filenames.** This bites on the very first `cd`, because the class folder is called `CS Class`. A student who types `cd ~/Documents/CS Class` without quotes gets a confusing error, because the shell reads it as two arguments. Teach `cd ~/Documents/"CS Class"` or, better, Tab completion, which handles the space for them.
 - **Getting lost.** Students will end up somewhere unexpected and panic. Give them the reset before they need it: `cd ~` always goes home, and `pwd` always answers "where am I." Write both on the board.
 - **The demo font is too small.** Nobody will tell you. Fix it in prep.
 - **Confusing the Thonny shell with the system shell.** They look similar and are not the same thing. Thonny's shell runs Python; the terminal runs shell commands. Say it explicitly and show what happens when you type `ls` into Thonny.
@@ -221,11 +232,11 @@ Ten tight minutes. It is a history question with a technical payoff.
 
 ## 10. Homework
 
-Full details in `handouts/week-17-homework.md`. In summary: a short terminal navigation exercise done on their own machine with the answers written down; read one `ls -l` line and explain every character; find and count the processes on their own computer; extend the `pathlib` directory lister; a short written answer on what a process is; optional Crash Course episodes on operating systems and files. The handout closes with an Extra Credit AP Track section, which for this week states plainly that operating systems are not AP CSP content and gives AP students a useful alternative.
+Full details in `handouts/week-17-homework.md`. In summary: a short terminal navigation exercise done on their own machine with the answers written down; read one `ls -l` line and explain every character; extend the `pathlib` directory lister; a short written answer on what a process is, prompted by a look at Activity Monitor or Task Manager; optional Crash Course episodes on operating systems and files. The handout closes with an Extra Credit AP Track section, which for this week states plainly that operating systems are not AP CSP content and gives AP students a useful alternative.
 
 ## 11. Assessment
 
-Observational and low-stakes. The one thing to actually check, student by student, during Segment 3 is whether each student reached a prompt and navigated to their sandbox unaided. Keep a list. Anyone who did not needs deliberate pairing in Week 18, when the shell is the entire session.
+Observational and low-stakes. The one thing to actually check, student by student, during Segment 3 is whether each student reached a prompt and navigated to their CS Class folder unaided. Keep a list. Anyone who did not needs deliberate pairing in Week 18, when the shell is the entire session.
 
 The exit question (`cd ..`) is the second check. The homework is scored for completion against the weekly-labs rubric, with the `ls -l` interpretation item being the one worth reading carefully, since permissions reappear in Week 18's script and Week 21's SSH lab.
 

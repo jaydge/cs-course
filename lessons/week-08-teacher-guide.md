@@ -16,7 +16,7 @@ By the end of the session, each student can:
 - Order the memory hierarchy from fastest to slowest (registers, cache, RAM, SSD, hard drive) and say what gets bigger as it gets slower.
 - State the difference between RAM and storage in terms of what survives a power cut.
 - Physically identify the CPU, heatsink, RAM, storage drive, power supply, GPU, and motherboard in a real desktop PC.
-- Follow the three teardown safety rules: unplug and discharge, wear the antistatic strap, and respect sharp edges.
+- Follow the six teardown safety rules: the machine stays unplugged, drain the residual charge with the power button, wear the antistatic strap clipped to bare metal, hold boards by their edges, watch for sharp case edges, and never open the power supply.
 - Index and slice a Python string, get its length, and loop over its characters.
 - Use `.upper()`, `.lower()`, `.split()`, and `in` on strings, and explain why strings cannot be changed in place.
 
@@ -179,7 +179,7 @@ This session covers AP CSP topic 3.4 Strings in the coding strand, and that is t
 
 **AP-track self-study for this week, and only this week's slice.** One matching unit below, not the whole course, and extra credit rather than required work:
 
-- **Project STEM (the AP spine):** Unit 2, Programming. Stay in the programming unit and work the strings lessons. As with last week, the correct instruction is to keep working the programming unit because this week's systems content is not AP-tested. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
+- **Project STEM (the AP spine):** Unit 2, Programming, and one topic within it: strings, meaning building them by concatenation, comparing them, and taking them apart with a loop. That is a distinct cluster from last week's list-traversal slice and it is the only genuinely new AP material this week. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
 - **CodeAI, formerly Code.org (verified free alternative):** there is no dedicated strings unit in the csp-2025 edition, so this is a poor fit rather than a clean one. The nearest useful material is the string handling inside Unit 4, Variables, Conditionals, and Functions, at `https://studio.code.org/courses/csp-2025/units/4`, and the traversal lessons in Unit 6, at `https://studio.code.org/courses/csp-2025/units/6`, since traversing a string works the same way as traversing a list. If a student has already finished both, the better use of this week is the AP practice below rather than hunting for a matching unit.
 
 Nothing here is required of non-AP students.

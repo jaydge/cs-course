@@ -141,7 +141,9 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
                   items[j], items[j + 1] = items[j + 1], items[j]
       return items
 
-  nums = [random.randint(1, 1000) for _ in range(2000)]
+  nums = []
+  for i in range(2000):
+      nums.append(random.randint(1, 1000))
   copy = list(nums)
 
   start = time.time()

@@ -134,7 +134,7 @@ Hand out the acronym cards at the start of this segment.
    ```bash
    ping -c 4 1.1.1.1
    ```
-   Ten to a hundred times slower. Ask why. Physical distance and the number of hops. Then say the fact that lands it: the electrical and optical signals travel near the speed of light, so most of the delay is not distance, it is the queue at each router along the way.
+   Ten to a hundred times slower. Ask why, and give the answer in two parts, in this order, because students get it backwards otherwise. First, distance. Signals travel fast but not instantly: light in glass fibre moves at roughly two thirds of its speed in a vacuum, about 200,000 kilometres per second, which works out at about 10 milliseconds of round trip for every 1,000 kilometres of cable. Do the arithmetic on the board for somewhere they know. That number is a floor. No amount of money, better hardware, or clever software gets a packet there faster than the distance allows. Second, everything else adds on top of the floor: each router along the way has to receive the packet, look up where to send it, and put it back on a wire, and if a link is busy the packet waits in a queue first. On a healthy uncongested path those additions are small next to the distance. On a congested one they can dominate, which is exactly what a network engineer is looking for when the ping time is far above the floor the map says it should be.
 3. **Show `arp` and connect it to Segment 2.**
 
    ```bash
@@ -189,7 +189,7 @@ Hand out the acronym cards at the start of this segment.
   print(a in network, b in network, c in network)
   ```
   Explain `/24` in one sentence: the first 24 bits identify the network and the rest identify the machine, which is exactly the "same first three groups" observation from the board in Segment 3. Then say why this matters: this is the actual decision every machine makes for every packet. If the destination is in my network, send it directly to that machine. If it is not, send it to the gateway. Two lines of logic, running billions of times a second across the world.
-- **Students do:** Write a program that takes a list of five or six site names, looks up each one, and prints the name and address side by side. Some will fail with `socket.gaierror`; that is a real outcome and worth catching with a `try` block if they want to.
+- **Students do:** Write a program that takes a list of five or six site names, looks up each one, and prints the name and address side by side. A list and a `for` loop is all this needs; it is Week 6 and Week 7 material pointed at a new problem. If a name does not resolve, the program stops with a `socket.gaierror` and prints nothing after that point. Treat that as a result rather than a bug: have them read the error, check the spelling of the name, and drop or correct it. Python does have a way to catch an error and carry on, and we meet it later in the course; today the useful lesson is that a failed lookup is a real thing that happens and the error message says which name caused it.
 - **Students do, if time allows:** Have them look up the same name twice and time both with `time.time()`. The second is dramatically faster. Ask why, and get "caching" back from them rather than saying it.
 - **Purpose:** DNS and subnetting stop being diagram words and become two things a program does in a handful of lines. This also sets up Week 20, where `requests` will do the same lookup silently as step one of every call.
 
@@ -210,6 +210,7 @@ Hand out the acronym cards at the start of this segment.
 - **DNS:** "The phone book of the internet, except the phone book is spread across thousands of machines and there is no complete copy of it anywhere."
 - **Why DNS breaks everything:** "A name that will not resolve looks exactly like a site that does not exist. That is why 'the internet is down' is so often just DNS."
 - **NAT:** "One street address for the whole building, and a receptionist keeping a list of who is expecting a delivery. That list is the whole trick."
+- **Why far away is slow:** "Distance sets a floor you cannot argue with. Light in a fibre covers about 200 kilometres every millisecond, so a server 1,000 kilometres away costs you about 10 milliseconds there and back before anybody has done any work. Every router along the way then adds a little on top, looking up where to send it and sometimes making it wait in a queue. The distance is the floor; the routers are the extra."
 - **The default gateway:** "If I do not know where this goes, I hand it to the router and it is their problem now. Every machine in this room says that about almost every packet it sends."
 - **Scale:** "Hundreds of thousands of separate networks run by organizations that agree on almost nothing, except how to pass a packet. Nobody is in charge of the internet. That still sounds wrong and it is still true."
 
@@ -233,7 +234,7 @@ Hand out the acronym cards at the start of this segment.
 
 ## 10. Homework
 
-Full details in `handouts/week-19-homework.md`. In summary: run six network commands on their home network and record the output; compare their home IP address to the one they had in class and explain why it differs; a traceroute to a site of their choice with three questions about the output; extend the Python DNS lookup program; a short written explanation of routing and fault tolerance in their own words; optional internet film series. The handout closes with an Extra Credit AP Track section carrying a real AP unit for the first time in three weeks.
+Full details in `handouts/week-19-homework.md`. In summary: run five network commands on their home network and record the output; a traceroute to a site of their choice with three questions about the output; compare their home IP address to the one they had in class and explain why it differs; extend the Python DNS lookup program; a short written explanation of routing and fault tolerance in their own words; the optional Crash Course episode on computer networks. The handout closes with an Extra Credit AP Track section carrying a real AP unit for the first time in three weeks.
 
 ## 11. Assessment
 
@@ -263,7 +264,7 @@ Nothing here is required of non-AP students.
 - Packet Routing unplugged: Segment 2 is complete on its own. The canonical versions are CS Unplugged's Routing and Deadlock and Network Protocols activities, from the activities index at `https://classic.csunplugged.org/activities/`. Review during prep only if you want additional variants of the congestion round. The activity description and its place in the course are in `teaching-activities/Unplugged-Logic-Activities.md`.
 - The physical network build and the command work: Segments 3 and 5 are complete on their own. The one thing to look up in advance is your specific router's admin address and DHCP client list page, which is model-specific and usually printed on the device.
 - CodeAI internet film series, "How the Internet Works," short films of a few minutes each. Worth assigning the week before to any student flagged on the readiness diagnostic, per Section 4 of `student-prep/Younger-Student-Readiness-and-Prep.md`. Find the current series from `https://code.org`; the hosting of these films has moved more than once, so verify the link before assigning it.
-- Crash Course Computer Science, Episode 28 ("Computer Networks") and Episode 29 ("The Internet"), optional homework viewing and a good match for this session. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- Crash Course Computer Science, Episode 28 ("Computer Networks"), optional homework viewing and a close match for this session. Episode 29 ("The Internet") is Week 20's assignment and Episode 30 ("The World Wide Web") is Week 21's; do not assign them early, or students will meet them twice and read the second showing as new work. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - Python `socket` and `ipaddress` documentation, for your reference: `https://docs.python.org/3/library/socket.html` and `https://docs.python.org/3/library/ipaddress.html`
 - CodeAI CSP Unit 2, The Internet (AP-track reinforcement): `https://studio.code.org/courses/csp-2025/units/2`
 - AP topics 4.1 and 4.2 and where the course covers them: `ap-track/AP-CSP-Topic-Coverage.md`.

@@ -1,15 +1,12 @@
 # Week 30 Homework: Who Does This Help, and Who Does It Hurt?
 
-Today was the one class this year with no right answer at the end of it. The homework is mostly writing, and one part of it asks you to argue for something you do not believe. Plan on about 50 minutes, and leave time for your project, which is now the priority.
+Today was the one class this year with no right answer at the end of it. The homework is mostly writing, and one part of it asks you to argue for something you do not believe. Plan on about 50 minutes for items 1 to 4, with your project on top of that rather than inside it, and the project is now the priority.
 
 ## 1. One innovation, both sides
 
-Pick a computing innovation you use regularly. Not one from class; pick your own.
+Pick a computing innovation you use regularly. Not one from class; pick your own. Write three short things:
 
-Write:
-
-- Two ways it clearly makes things better, and who for.
-- Two ways it makes something worse, and who for.
+- Two ways it makes something better and two ways it makes something worse, naming who for in each case.
 - One effect that is good for one group and bad for another **at the same time**. Name both groups.
 - One sentence on whether the harmful effects look like something the designers intended or something nobody saw coming.
 
@@ -37,11 +34,10 @@ Answer:
 
 ## 4. License your project
 
-Open your project repository on GitHub.
+Open your project repository on GitHub and find out what license it currently has. For most of you the answer is none.
 
-1. Find out what license it currently has. For most of you the answer is none.
-2. Write down what "no license" legally means for someone who finds your code and wants to use it. The answer is not "they can use it."
-3. Decide what you want. Look at `https://choosealicense.com` and pick between MIT, GPL, and keeping it private. Write two sentences saying which you chose and why.
+1. Write down what "no license" legally means for someone who finds your code and wants to use it. The answer is not "they can use it."
+2. Look at `https://choosealicense.com`, pick between MIT, GPL, and keeping it private, and write two sentences saying which you chose and why.
 
 You will add the license file in Week 31. This week just decide.
 
@@ -51,9 +47,7 @@ This is now the biggest thing in your week. By next Wednesday you should have so
 
 If you are not there, cut something out of the plan today rather than next week.
 
-## 6. Watch, if you want (optional)
-
-Crash Course Computer Science, Episodes 39 and 40, close out the series and cover roughly where this course is going: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+There is no video this week. The last two Crash Course episodes are the closing pair for the whole course and they are set in Week 32.
 
 ---
 
@@ -79,10 +73,12 @@ The topics and what the exam wants from each:
 - **5.4 Crowdsourcing.** Obtaining input from a large number of people, often online. Citizen science is the standard example. It makes possible things no single organization could fund.
 - **5.5 Legal and Ethical Concerns.** Copyright is automatic and the default is all rights reserved. Licenses grant permission in advance. Open source and Creative Commons are license families. Personal data is collected constantly, often in exchange for free services, and aggregating harmless-looking data can identify a person.
 
-**Your unit for this week.** Do only the slice below, not the whole course.
+**Your unit for this week.** Do only the slice below, not the whole course. The Create PT Prep thread you have been working since Week 26 is separate, and it is one bounded piece too; it is noted after the bullets.
 
 - **Project STEM (the AP spine):** Unit 6, Innovative Technologies, and specifically its impact-of-computing lessons. If you did the cybersecurity portion in Week 28, this finishes the unit. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
 - **CodeAI, formerly Code.org (free alternative):** Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`. Do the global-impacts half of the unit, which you deliberately left alone in Week 28. This is the best match in the free curriculum to today's session.
+
+**And one bounded piece of Unit 9.** You have been in Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, since Week 26, and you took the requirements and scoring lessons in Week 27. This week's Unit 9 slice is the written-response and Personalized Project Reference lessons, the ones about explaining your own program in writing. Stop there. Planning and build lessons are Week 31, and you finish the unit in Week 32.
 
 **Take stock of the whole framework.** With today's five topics plus 5.6 from Week 28, every topic in the AP CSP framework has now been touched by this course. Open `ap-track/AP-CSP-Topic-Coverage.md`, read all five tables, and mark each of the 35 topics as solid, shaky, or not yet. Bring the shaky ones to class. There are two weeks of course left and this is the last useful moment to find a gap.
 

@@ -36,7 +36,7 @@ Write three or four sentences on this: what does it mean for each layer to hide 
 
 ## 5. Watch, if you want (optional)
 
-Crash Course Computer Science, Episode 8 ("Instructions and Programs"), Episode 22 ("Keyboards and Command Line Interfaces"), and Episode 23 ("Screens and 2D Graphics"). Episode 22 covers today directly. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episode 8 ("Instructions and Programs"), Episode 22 ("Keyboards and Command Line Interfaces"), and Episode 23 ("Screens and 2D Graphics"). The first half of Episode 22 covers today directly; its command-line half comes back in Week 18. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
 ## 6. Looking ahead
 

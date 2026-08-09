@@ -6,9 +6,9 @@ This week you built an adder out of nothing but NAND gates, and you learned how 
 
 If you did not reach the adder level in nandgame during class, finish it at home at `https://nandgame.com`. It is free, needs no account, and runs in a browser.
 
-Important: the game saves your progress in the browser on the machine you played on. If you played on a school laptop, your progress is on that laptop. Starting over at home is fine and honestly goes fast the second time.
+Important: the game saves progress in the browser you played in, so if you used a school laptop your progress is on that laptop. Starting over at home is fine and goes fast the second time.
 
-If you already finished the adder, replay any one level and write down two things: which parts you had built earlier and reused, and what that level would have taken if you had to build everything from raw NAND gates every time.
+If you already finished the adder, replay any one level and write down which earlier parts you reused, and what that level would have cost you if you had to start from raw NAND every time.
 
 ## 2. One written answer
 
@@ -41,9 +41,7 @@ Given this list:
 readings = [12, 45, 7, 88, 23, 61]
 ```
 
-Write a loop that finds the largest number and prints it. Do not use `max()`. The trick is to keep a variable holding the best value you have seen so far, and update it whenever you find something bigger.
-
-When it works, change the list to some other numbers and run it again to be sure it was not a fluke.
+Write a loop that finds the largest number and prints it. Do not use `max()`. The trick is to keep a variable holding the best value you have seen so far, and update it whenever you find something bigger. When it works, change the numbers and run it again to be sure it was not a fluke.
 
 ## 5. Watch, if you want (optional)
 
@@ -59,15 +57,14 @@ A reminder on getting help: do this yourself, without AI helpers like ChatGPT. W
 
 Optional. This section is for students on the AP track and for anyone who finds this stuff interesting, whether for fun or for AP preparation. It is extra credit only: never required, and it is not part of your base grade. Skipping it costs you nothing.
 
-Being honest about this week: the systems half is not AP material. Latches, registers, the ALU, and the fetch-decode-execute cycle are not tested on the AP CSP exam, and neither is anything you did in nandgame. Do it because it is one of the best things in the course, not for exam points. The AP value this week is entirely in the coding half, and list traversal is one of the most heavily tested things on the whole exam.
+Being honest about this week: the systems half is not AP material. Latches, registers, the ALU, the fetch-decode-execute cycle, and everything you did in nandgame are untested. Do that work because it is one of the best things in the course, not for exam points. The AP value this week is all in the coding half, and list traversal is heavily tested.
 
 **Your unit for this week.** Do only the slice below, not the whole course.
 
-- **Project STEM (the AP spine):** Unit 2, Programming. Keep going in the same unit and work the list-traversal and iteration lessons that follow the lists material from last week. This week the instruction is simply to keep working the programming unit, since our systems content is not on the exam. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
+- **Project STEM (the AP spine):** Unit 2, Programming, and one topic within it: list traversal, walking a list item by item and doing something with each. That is a different set of lessons from last week's index-and-length work. Strings come next week, so stop when you reach them. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
 - **CodeAI, formerly Code.org (free alternative):** Unit 6, Lists, Loops, and Traversals, at `https://studio.code.org/courses/csp-2025/units/6`. Do the traversal lessons, which finish the unit you started back in Week 4.
 
 **Extra practice if you want it.**
 
-- Rewrite your question 4 largest-number loop in AP pseudocode, using `FOR EACH item IN list`. The tables are in `ap-track/AP-Pseudocode-Bridge.md`. Then compare yours with trace problem 11 in that sheet, which is the same algorithm.
-- Work trace problems 6, 7, and 8 in the bridge sheet. They cover `APPEND`, `REMOVE`, and `INSERT`, and every one of them is designed to punish a Python habit. Watch the 1-indexing.
-- On the exam, "traverse a list and count how many items meet a condition" is a question shape you will see more than once. Write it once yourself: loop through `readings` from question 4 and print how many values are above 20.
+- Rewrite your question 4 largest-number loop in AP pseudocode using `FOR EACH item IN list`, with the tables in `ap-track/AP-Pseudocode-Bridge.md`. Then work trace problems 6, 7, and 8 in that sheet, which cover `APPEND`, `REMOVE`, and `INSERT` and are all designed to punish a Python habit. Watch the 1-indexing.
+- "Traverse a list and count how many items meet a condition" is a question shape you will see more than once. Write it yourself: loop through `readings` from question 4 and print how many values are above 20.

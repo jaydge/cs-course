@@ -1,10 +1,10 @@
 # Week 24 Homework: Finish Your Page
 
-You built a web page out of three files today. This finishes it. You will use this same page again in Week 25, when a Python program starts serving it, and again in Week 26, when it becomes something you can install on a phone. So make it one you do not mind looking at for three weeks. Plan on about 45 minutes.
+You built a web page out of three files today. This finishes it. You will use the same page in Week 25, when a Python program starts serving it, and in Week 26, when it becomes installable, so make it one you do not mind looking at for three weeks. Plan on about 50 minutes.
 
 Two rules that do not change:
 
-- Serve the page, do not open the file. From your `personal-page` folder, run `python3 -m http.server 8000` and visit `http://localhost:8000`. If your address bar says `file://`, you are doing it the way that breaks in two weeks.
+- Serve the page, do not open the file. From `~/Documents/"CS Class"/personal-page`, run `python3 -m http.server 8000` and visit `http://localhost:8000`. If your address bar says `file://`, you are doing it the way that breaks in two weeks.
 - First names only. No last name, no address, no school name, no photos of people. This page is not going on the public internet, and it still follows that rule.
 
 ## 1. Finish the page
@@ -14,7 +14,7 @@ Your page is done when all of these are true:
 - It has a `<header>`, a `<main>`, and a `<footer>`.
 - It has one `<h1>`, at least two `<h2>` headings, and at least two paragraphs.
 - It has a list of at least three things with `<ul>` and `<li>`.
-- The stylesheet is attached and the page clearly looks styled: a font that is not the default, a `max-width` so the text does not stretch across the whole screen, and two colors that are readable together.
+- The stylesheet is attached and the page clearly looks styled: a font that is not the default, a `max-width` so the text does not stretch across the screen, and two colors that are readable together.
 - The button works.
 
 Commit each piece as you finish it, with a real message. You should end up with at least three commits.
@@ -26,9 +26,7 @@ git commit -m "Add the projects section"
 
 ## 2. Learn one new CSS property on your own
 
-Go to MDN (`https://developer.mozilla.org`) and find one CSS property we did not use in class. Some good ones to look up: `border-radius`, `box-shadow`, `text-align`, `letter-spacing`, `background-image`, `opacity`.
-
-Use it on your page. Then add a comment above the rule in your stylesheet saying what it does, in your own words:
+Go to MDN (`https://developer.mozilla.org`) and find one CSS property we did not use in class. `border-radius`, `box-shadow`, `letter-spacing`, and `opacity` are all good ones. Use it on your page, and add a comment above the rule saying what it does, in your own words:
 
 ```css
 /* border-radius rounds the corners of the box */
@@ -37,7 +35,7 @@ Use it on your page. Then add a comment above the rule in your stylesheet saying
 }
 ```
 
-The skill being practiced here is looking something up in the documentation, not the property itself. You will do this for the rest of your life.
+The skill being practiced is looking something up in the documentation, not the property itself. You will do that for the rest of your life.
 
 ## 3. Make the page do one more thing
 
@@ -48,7 +46,7 @@ Pick one:
 
 Either is fine. One that works beats two that half-work.
 
-When it does not work, and it will not on the first try, open the browser console before you do anything else. Right-click, Inspect, Console tab. In JavaScript, a broken button does not shout at you like Python does; it just quietly does nothing, and the explanation is sitting in the console.
+When it does not work on the first try, open the browser console before anything else: right-click, Inspect, Console tab. A broken button in JavaScript does not shout at you the way Python does; it quietly does nothing, and the explanation is sitting in the console.
 
 ## 4. Walk the pipeline in your own words
 
@@ -58,16 +56,7 @@ Use these words correctly: DOM, render tree, layout, paint.
 
 Then answer one more question in two sentences: when your button changes the text on the page, which part of that pipeline has to run again, and why does the page not reload?
 
-## 5. Inspect a real site
-
-Open any website you use. Right-click something on it and choose Inspect.
-
-1. In the Elements panel, find the element you clicked and look at what is wrapped around it. How many levels deep is it?
-2. Double-click some text in the Elements panel and change it. Take a screenshot of the changed page.
-3. Reload. Write one sentence explaining why your change disappeared.
-4. Open the Network panel and reload again. How many separate requests did that one page make? Write the number down.
-
-Bring the number to class. We will compare.
+Finally, open any website you use, right-click something, choose Inspect, open the Network panel, and reload. Write down how many separate requests that one page made. Bring the number to class; we will compare.
 
 ---
 

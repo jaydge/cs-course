@@ -1,6 +1,6 @@
 # Week 32: The Last Sheet
 
-There is no homework. This is the wrap-up: what to hand in, what happens to your work now, and where to go next if you want to keep going.
+There is no homework. This is the wrap-up: what to hand in, what happens to your work now, and where to go next if you want to keep going. Plan on about 15 minutes to read it and work the hand-in checklist in Section 1, which is the only part with a deadline. If you are taking the AP exam, the last section adds review work that runs between now and exam day rather than this week.
 
 ## 1. Hand-in checklist, one last time
 
@@ -19,6 +19,8 @@ If you are submitting an AP Create Performance Task:
 - [ ] **Final submit pressed**, which is a different button from uploading
 - [ ] Attestation completed
 - [ ] You know where your printed Personalized Project Reference is, because you need it in the exam room
+
+**Until you press final submit, the Create Task rule still holds in full.** No AI at any stage of it: not the code, not the last-minute fix, not the written pieces, not today. It is College Board's rule, you are signing a statement that the work is yours, and nobody here can waive it.
 
 ## 2. Keep your work
 
@@ -60,6 +62,10 @@ Not required, not graded, just good.
 - *But How Do It Know?*, J. Clark Scott. Shorter, and covers the CPU beautifully.
 - *The Pragmatic Programmer*, Hunt and Thomas. About how to work, not about a language.
 
+## 6. Two last episodes, if you want them
+
+Crash Course Computer Science, Episodes 39 ("Educational Technology") and 40 ("The Singularity, Skynet, and the Future of Computing"), close out the series. They are a send-off rather than an assignment, and they are the last two you have not been set: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+
 ---
 
 **On AI, going forward.** The rules you learned in Week 27 are not classroom rules, they are how this actually works: verify everything, never ship code you do not understand, and say when you used it. The people who get the most out of these tools are the ones who could do the work without them. That is why the first twenty-six weeks were what they were.
@@ -79,7 +85,7 @@ Optional. This section is for students on the AP track and for anyone who finds 
 **Your unit from here.** Only one thing left, and it is review.
 
 - **Project STEM (the AP spine):** the AP Exam Review unit. This is now the whole of your remaining AP path. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
-- **CodeAI, formerly Code.org (free alternative):** finish Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, then use the assessment banks in the units covering your weakest big ideas. For most students that is Unit 5, Data, at `https://studio.code.org/courses/csp-2025/units/5`, and Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`.
+- **CodeAI, formerly Code.org (free alternative):** finish Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`. This is the last of the four slices you have been taking since Week 26, so what is left is the final review and submission lessons. You did the requirements and scoring lessons in Week 27, the written-response lessons in Week 30, and the planning and build lessons in Week 31. After that, use the assessment banks in the units covering your weakest big ideas. For most students that is Unit 5, Data, at `https://studio.code.org/courses/csp-2025/units/5`, and Unit 8, Cybersecurity and Global Impacts, at `https://studio.code.org/courses/csp-2025/units/8`.
 
 **Where to spend your remaining study time.** This course went past exam depth on Big Idea 3, Algorithms and Programming, because programming was the point of it. It covered Big Idea 2, Data, and Big Idea 5, Impact of Computing, more lightly. Those two are 17 to 22 percent and 21 to 26 percent of the multiple-choice exam respectively, which is nearly half of it between them. That is where your review time belongs, not in Big Idea 3 where you are already strong.
 

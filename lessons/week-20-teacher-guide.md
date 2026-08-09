@@ -50,8 +50,8 @@ Week 21 assembles this and everything before it into the end-to-end trace and th
   - Verify the exact installer wording and permission mechanism against the current Wireshark documentation before your first run; the details have changed across versions and across macOS releases. (45 min the first time, 10 min in later years)
 - **Pre-approve Python in the macOS firewall, as an administrator.** The first time `python3 -m http.server` listens on a port, macOS asks whether to allow incoming connections, and a standard student account may not be able to approve that dialog. Either approve it in prep from the admin account, or plan to walk around with the admin password, or turn the firewall off for the lab period on the isolated classroom network and back on afterwards. Decide which and note it. (15 min)
 - **Confirm `requests` is available.** It is not in the Python standard library. Check whether the terminal's `python3` can `import requests`, and whether Thonny's Python can too, because they may be different installations. If it is missing, install it during prep (`python3 -m pip install requests`, or in Thonny via Tools, Manage Packages). If installing is awkward on your fleet, use the `urllib.request` fallback given in Segment 7 instead; it needs no installation. (15 min)
-- **Create the folder to be served on every machine,** with an `index.html`, a `hello.txt`, and a small image, at `~/cs-sandbox/site`. (10 min)
-- **Do a full dry run of the capture yourself:** start a server, capture from another machine, filter with `http`, follow the stream, and read the request. Note the exact interface name to select on your fleet, because guessing it in front of the class wastes five minutes. (20 min)
+- **Create the folder to be served on every machine,** with an `index.html`, a `hello.txt`, and a small image, at `~/Documents/"CS Class"/sandbox/site`. Same folder students have used since Week 1, same `sandbox` subfolder as Week 18, same quoting rule for the space. (10 min)
+- **Do a full dry run of the capture yourself:** start a server on port 8080, capture from another machine, filter with `http`, follow the stream, and read the request. Note the exact interface name to select on your fleet, because guessing it in front of the class wastes five minutes. **Use 8080 and not some other spare port.** Wireshark decides whether to dissect a TCP conversation as HTTP by looking at the port number against a built-in list, and 8080 is on that list while 8000 is not. Serve on a port Wireshark does not recognize and the packets appear as plain TCP, the `http` display filter matches nothing, and the pivot of the whole session quietly fails. Confirm during your dry run that the `http` filter actually returns your `GET` line before you rely on it in front of the room. (20 min)
 - **Choose the HTTPS comparison target for Segment 6** and confirm the capture looks the way you expect. Any ordinary public site works. (5 min)
 - **Prepare the privacy conversation.** Read Segment 1 step 3 and decide how you will phrase the rule for your group. Consider whether parents should be told in advance that the class uses a packet analyzer; it is a reasonable thing to mention proactively. (10 min)
 - Rebuild the classroom network and print handouts. (15 min)
@@ -79,14 +79,14 @@ Doing this first gives the capture in Segment 4 something readable to look at.
 2. **Run it, on the projector first:**
 
    ```bash
-   cd ~/cs-sandbox/site
-   python3 -m http.server 8000
+   cd ~/Documents/"CS Class"/sandbox/site
+   python3 -m http.server 8080
    ```
-   Read the output line it prints: it is serving the current directory on port 8000. Note that the terminal is now busy and will not give a prompt back until you press Control-C, because the program is still running. That surprises students and is worth naming.
-3. **Visit it from the same machine.** Open a browser to `http://localhost:8000`. The folder listing appears, or `index.html` if there is one. Then watch the terminal: a log line appeared for the request. Point at it and say that this is a real web server log, the same shape as the `access.log` they pipelined in Week 18.
-4. **Explain `localhost` and the port in one move.** `localhost` always means this machine, and it maps to the address `127.0.0.1`, which never leaves the computer. The `:8000` is a port number. Then teach the port properly, because it is a genuinely new idea: an IP address gets you to the right machine, and a port gets you to the right program on it. Use the apartment building analogy in Section 7. Mention that some ports are conventional, notably 80 for HTTP and 443 for HTTPS, which is why browsers do not make you type them, and that 8000 is just a number we picked because nothing else was using it.
+   Read the output line it prints: it is serving the current directory on port 8080. Note that the terminal is now busy and will not give a prompt back until you press Control-C, because the program is still running. That surprises students and is worth naming.
+3. **Visit it from the same machine.** Open a browser to `http://localhost:8080`. The folder listing appears, or `index.html` if there is one. Then watch the terminal: a log line appeared for the request. Point at it and say that this is a real web server log, the same shape as the `access.log` they pipelined in Week 18.
+4. **Explain `localhost` and the port in one move.** `localhost` always means this machine, and it maps to the address `127.0.0.1`, which never leaves the computer. The `:8080` is a port number. Then teach the port properly, because it is a genuinely new idea: an IP address gets you to the right machine, and a port gets you to the right program on it. Use the apartment building analogy in Section 7. Mention that some ports are conventional, notably 80 for HTTP and 443 for HTTPS, which is why browsers do not make you type them. Say why we chose 8080 specifically: it is the long-established stand-in for port 80 when you are not allowed to use 80 itself, and because it is conventional, tools recognize it as HTTP without being told. That matters in forty minutes, when Wireshark has to decide what these packets are.
 5. **Students do:** Each student starts their own server in their own `site` folder. Have each write their IP address and port on the board next to their name if it is not already there.
-6. **Now visit somebody else's.** Have each student open `http://<a classmate's IP>:8000` in a browser. This is the moment the room becomes the internet in miniature: their laptop is now a server that other machines are fetching files from. Let it land.
+6. **Now visit somebody else's.** Have each student open `http://<a classmate's IP>:8080` in a browser. This is the moment the room becomes the internet in miniature: their laptop is now a server that other machines are fetching files from. Let it land.
 7. **Watch your own log fill up.** Each student's terminal now shows requests from other people's machines, with real addresses and real paths. Ask them to find, in their own log, the moment a specific classmate visited.
 8. **If a machine refuses connections,** it is almost certainly the firewall, which is the prep item above. Say what is happening rather than just fixing it: the OS is declining to accept incoming connections for that program, which is a security feature doing its job.
 
@@ -119,17 +119,17 @@ Everyone keeps their `http.server` running. Restate the rule from Segment 1 befo
 4. **Generate exactly one thing to look at.** Each student, in a browser, requests one specific file from their partner's server:
 
    ```
-   http://192.168.1.42:8000/hello.txt
+   http://192.168.1.42:8080/hello.txt
    ```
 5. **Stop the capture immediately** with the red square. Say why: a capture left running becomes thousands of lines and finding anything in it is miserable. Capture briefly, around one action.
 6. **Apply a display filter.** In the filter bar at the top of the main window, type `http` and press Return. Explain the difference from step 2 in one sentence: a capture filter controls what gets recorded, a display filter controls what you are shown from what was recorded.
-7. **Find the request.** There should be a line whose Info column reads something like `GET /hello.txt HTTP/1.1`. Have every student find theirs before moving on.
+7. **Find the request.** There should be a line whose Info column reads something like `GET /hello.txt HTTP/1.1`. Have every student find theirs before moving on. If a machine's filter comes back completely empty, see the note in Section 9; it is almost always the port, and it is a two-click fix.
 8. **Follow the stream, which is the payoff.** Right-click that packet, choose Follow, then TCP Stream. A window opens showing the entire conversation as text, with the request in one color and the response in the other. Give the room thirty seconds of silence to just read it.
 9. **Dissect the request together on the board:**
 
    ```
    GET /hello.txt HTTP/1.1
-   Host: 192.168.1.42:8000
+   Host: 192.168.1.42:8080
    User-Agent: Mozilla/5.0 ...
    Accept: text/html,...
    Connection: keep-alive
@@ -141,11 +141,11 @@ Everyone keeps their `http.server` running. Restate the rule from Segment 1 befo
     HTTP/1.0 200 OK
     Server: SimpleHTTP/0.6 Python/3.12
     Content-type: text/plain
-    Content-Length: 24
+    Content-Length: 20
 
     hello from my server
     ```
-    Name the status code and give the four families in one line each: 200 means it worked, 301 and 302 mean it moved, 404 means no such thing here, 500 means the server broke. Point at the blank line and say what it is: the boundary between the headers and the content, and the only thing separating them.
+    Name the status code and give the four families in one line each: 200 means it worked, 301 and 302 mean it moved, 404 means no such thing here, 500 means the server broke. Point at the blank line and say what it is: the boundary between the headers and the content, and the only thing separating them. Then have somebody count the characters in the body and check it against `Content-Length`. Twenty characters, twenty bytes. Say what that header is for: the receiver needs to know where the content ends, and this is how it is told. Their own capture will show whatever their own file actually contains, and a file that ends with a newline counts that newline, so expect their number to be one more than the visible characters.
 11. **Now clear the display filter and look at the handshake.** Change the filter to `tcp` and scroll to the top of the conversation. The first three packets are labeled `[SYN]`, `[SYN, ACK]`, and `[ACK]`. Point at each and connect them to the two volunteers from Segment 3. This is the single most satisfying moment of the session: a thing they acted out ten minutes ago, in the actual data, with timestamps.
 12. **Count the packets for one small file.** Ask how many packets were involved in fetching one short text file. It is more than they expect: three for the handshake, the request, the response, acknowledgements, and a teardown at the end. Say the consequence out loud: a real web page requests dozens or hundreds of files, so a single page load is thousands of packets.
 13. **Save one capture.** Have each student save their capture file with File, Save As, into their sandbox, and remind them that this file contains only their own traffic to their partner's server, which is exactly what the capture filter guaranteed.
@@ -182,7 +182,7 @@ This is the reveal the whole session was built for. Do not spoil it early.
   ```python
   import requests
 
-  response = requests.get("http://192.168.1.42:8000/hello.txt")
+  response = requests.get("http://192.168.1.42:8080/hello.txt")
   print(response.status_code)
   print(response.headers["Content-Type"])
   print(response.text)
@@ -199,7 +199,7 @@ This is the reveal the whole session was built for. Do not spoil it early.
   ```python
   from urllib.request import urlopen
 
-  with urlopen("http://192.168.1.42:8000/hello.txt") as response:
+  with urlopen("http://192.168.1.42:8080/hello.txt") as response:
       print(response.status)
       print(response.read().decode())
   ```
@@ -235,6 +235,7 @@ This is the reveal the whole session was built for. Do not spoil it early.
 - **Capturing inside WSL.** Windows students who run a capture in Ubuntu see the wrong network. Say it before it happens.
 - **The macOS firewall blocking the server.** Handle it in prep. If it appears in class, name what is happening rather than clicking through it.
 - **Captures too large to navigate.** Students who leave a capture running for five minutes will have tens of thousands of packets and will give up. Enforce the pattern: start, do one thing, stop.
+- **The `http` display filter comes back empty.** The traffic is there but Wireshark has not recognized it as HTTP, which happens when the server is on a port that is not in Wireshark's built-in HTTP port list. Check the server is actually on 8080. If a student has started theirs on some other port, the fix takes ten seconds: clear the filter, right-click any packet in the conversation, choose Decode As, set the TCP port to HTTP, and apply. Then reapply the `http` filter and the `GET` line is there. Worth knowing before class rather than discovering it at 1:05, because this filter is the pivot of the session.
 - **Capture filter versus display filter confusion.** They use different syntax, which is a genuine and unhelpful quirk of the tool. `host 192.168.1.42` is a capture filter; `ip.addr == 192.168.1.42` is the display filter equivalent. Say this once, clearly, and put both on the printed sheet.
 - **Someone else's traffic appearing.** Broadcast traffic and stray packets will show up. Treat it exactly as you said you would in Segment 1: do not read it, do not save it, move on. How you handle this the first time sets the tone.
 - **"So I can read everyone's passwords."** Somebody will say it. Answer it directly rather than deflecting: on a switched network you mostly see only your own traffic, nearly everything worth reading is encrypted now, and attempting it on a network you do not own is a serious matter with real consequences. Then point out that the reason those two facts are true is the twenty years of work Segment 6 described.
@@ -244,7 +245,7 @@ This is the reveal the whole session was built for. Do not spoil it early.
 
 ## 10. Homework
 
-Full details in `handouts/week-20-homework.md`. In summary: serve a folder at home and fetch it from a phone or a second device on the same network; write out an HTTP request by hand from memory and label its parts; four short questions comparing TCP and UDP and reading status codes; a Python program that fetches three paths from their own server and reports the status codes; a written answer on exactly what TLS hides and what it does not, using the two-column table from class; optional Crash Course episodes. Wireshark work is deliberately not assigned as homework, for the privacy reasons discussed in class, and the handout says so. The handout closes with an Extra Credit AP Track section continuing the CodeAI internet unit.
+Full details in `handouts/week-20-homework.md`. In summary: serve a folder at home on port 8080 and fetch it from a phone or a second device on the same network; four short questions comparing TCP and UDP, explaining ports, and reading status codes; a Python program that fetches three paths from their own server and reports the status codes; a written answer on exactly what TLS hides and what it does not, using the two-column table from class; the optional Crash Course episode on the internet. Wireshark work is deliberately not assigned as homework, for the privacy reasons discussed in class, and the handout says so. The handout closes with an Extra Credit AP Track section continuing the CodeAI internet unit.
 
 ## 11. Assessment
 
@@ -275,7 +276,7 @@ Nothing here is required of non-AP students.
 - **Wireshark, and this one genuinely needs reviewing in advance.** The macOS capture-permission mechanism (the ChmodBPF helper installed by the Wireshark package) and the Windows Npcap requirement are both administrator-level setup steps that change between releases. Read the current installation and permission notes before your first run: `https://www.wireshark.org` and the user guide linked from it. Verify against your actual macOS version rather than trusting a remembered procedure.
 - Python `http.server`, for your reference and for the security note in its own documentation about not using it in production: `https://docs.python.org/3/library/http.server.html`
 - The `requests` library documentation: `https://requests.readthedocs.io`. Standard-library fallback: `https://docs.python.org/3/library/urllib.request.html`
-- Crash Course Computer Science, Episode 29 ("The Internet") and Episode 30 ("The World Wide Web"), optional homework viewing. Episode 30 in particular draws the internet-versus-web distinction that the AP exam tests. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- Crash Course Computer Science, Episode 29 ("The Internet"), optional homework viewing. Episode 28 was Week 19's and Episode 30 ("The World Wide Web") is Week 21's, where it lands better because that session is about the web sitting on top of everything else. One episode per week, no repeats. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - CodeAI CSP Unit 2, The Internet (AP-track reinforcement): `https://studio.code.org/courses/csp-2025/units/2`
 - Wireshark's place in the lab equipment and software stack: Sections 6 and 8 of `curriculum/CS-Curriculum-and-Setup.md`.
 - Why Wireshark is a flagged difficulty spike for newer students: Section 1 of `student-prep/Younger-Student-Readiness-and-Prep.md`.

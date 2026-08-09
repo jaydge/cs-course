@@ -26,7 +26,7 @@ This is the payoff week of Unit 5 and the strongest AP week in it. Everything th
 
 Two AP topics are covered properly here and nowhere else in the course: 2.3 Extracting Information from Data and 2.4 Using Programs with Data. The coverage map lists the Week 25 data lab as the sole source for 2.3. That is why the data lab gets a protected thirty-five minutes and must not be cut for more Flask time. If the session is running behind, shorten the Flask styling, never the data lab.
 
-Week 26 converts today's Flask app into an installable Progressive Web App, so what students build today needs to still run next week. Tell them.
+Week 26 converts today's Flask app into an installable Progressive Web App, so what students build today needs to still run next week. Tell them. One concrete handoff to get right: next week's service worker precaches `static/style.css` and `static/script.js` by name, so all three of Week 24's files have to come across into this project today, not two of them.
 
 This is also the week AP-track students should start letting a Create Task idea form. The Create Task window opens in February, in Unit 6, and needs nine protected hours. The Extra Credit AP Track section of the handout carries the orientation; mention it out loud rather than leaving it in print.
 
@@ -43,7 +43,7 @@ This is also the week AP-track students should start letting a Create Task idea 
 
 - **Run the API call yourself and save the response.** In a browser, open the endpoint in Segment 2 and confirm it returns JSON. Then save one response to `data/sample_weather.json` for the offline fallback. Public API terms, parameters, response field names, and rate limits change without notice; verify the endpoint works and re-read the current terms of use before relying on any of this in class. (20 min)
 - **Download the CSV dataset** and save a copy for the fallback. The USGS earthquake feed described in Section 13 is the one the lab is written around. Open it and confirm the column names still match what Segment 5 expects; feed formats do change. (15 min)
-- **Install the libraries on one machine and time it.** Inside an activated virtual environment: `pip install flask requests`. If the classroom network is slow or filtered, pre-download the wheels or pre-install on the fleet during prep. Twelve students running `pip install` simultaneously on a school connection is a real risk. (20 min)
+- **Pre-install the libraries on the fleet. Do not do this live with the whole class.** Week 20 already warned about twelve laptops hitting the same school connection at once, and this is the week it bites hardest, because Flask and its dependencies are a much bigger download than anything so far. Two ways to prevent it, and either is fine. The simple one: on each machine during prep, make a throwaway virtual environment, run `pip install flask requests` in it, and delete it. The download stays in pip's local cache at `~/.cache/pip`, so the install students run in class comes off the disk in a few seconds. The robust one, if the network is filtered as well as slow: on one machine run `pip download flask requests -d ~/wheelhouse`, copy that folder to every machine, and have students install with `pip install --no-index --find-links ~/wheelhouse flask requests`. Whichever you choose, write the exact command students will type on the board, and time it once yourself. (25 min)
 - Build and run the complete Flask app yourself, including the template, and leave it open in a second window during class. (25 min)
 - Write and run the whole data lab yourself against the real file, and note the actual numbers you get so you can tell whether a student's answer is plausible. (20 min)
 - Print the reference sheet and homework handouts. (10 min)
@@ -109,7 +109,7 @@ This is also the week AP-track students should start letting a Create Task idea 
 2. **Create the project with the Week 22 layout:**
 
    ```bash
-   cd ~/cs-sandbox
+   cd ~/Documents/"CS Class"
    mkdir weather
    cd weather
    git init
@@ -119,6 +119,8 @@ This is also the week AP-track students should start letting a Create Task idea 
    mkdir templates static
    code .
    ```
+
+   The quotation marks around `CS Class` are the Week 17 rule: the name has a space in it. The `pip install` line should finish in seconds, because the packages were cached on every machine during prep. If you set up a wheelhouse instead, put that version of the command on the board and have students type that one.
 
    Add the same four-line `.gitignore` from Week 22 before the first commit. Say why the `.venv` matters here more than it did then: it now contains hundreds of installed library files.
 3. **Write `app.py` at the projector, in three stages, running after each.** Stage one, the smallest thing that works:
@@ -172,13 +174,31 @@ This is also the week AP-track students should start letting a Create Task idea 
    ```
 
    Have students set the latitude and longitude to their own town, which they can find from any maps application. Note the `timeout=10`: without it, a slow API hangs the whole server, and that is a real lesson about depending on somebody else's computer.
-5. **Stage three, the template.** Copy last week's `index.html` into `templates/` and `style.css` into `static/`, then change two things. The stylesheet link becomes:
+5. **Stage three, the template.** Bring all three of last week's files across, not two. The HTML becomes the template; the stylesheet and the script become static files:
+
+   ```bash
+   cp ../personal-page/index.html templates/
+   cp ../personal-page/style.css static/
+   cp ../personal-page/script.js static/
+   ```
+
+   Say why `script.js` comes too, because it is easy to leave behind and it is not optional: the fact button is part of their page, it stops working the moment the script is missing, and Week 26 adds the service worker registration to the bottom of this exact file. A `weather` project with no `static/script.js` in it cannot do next week's lab.
+
+   Then change three things in `templates/index.html`. The stylesheet link becomes:
 
    ```html
    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
    ```
 
-   And add a weather section using the placeholders:
+   The script tag at the bottom of the body becomes:
+
+   ```html
+   <script src="{{ url_for('static', filename='script.js') }}"></script>
+   ```
+
+   Both changes are the same idea: the file is no longer sitting next to the page, so Flask has to be asked where it went. Have students confirm both in the browser's Network panel, and check that the fact button still works before moving on; a 404 on either file is silent in the page itself.
+
+   And third, add a weather section using the placeholders:
 
    ```html
    <section>
@@ -189,7 +209,11 @@ This is also the week AP-track students should start letting a Create Task idea 
    ```
 
    Explain the double braces in one line: Flask fills them in before sending the page, so by the time the browser sees it, it is ordinary HTML with numbers in it. Prove it with View Page Source in the browser: the braces are gone. That single demonstration is what separates server-side rendering from client-side JavaScript in students' heads, and it costs thirty seconds.
-6. **Break it on purpose, twice, and fix it.** First, unplug the network or change the host name to something invalid and reload. The page dies with a connection error. Second, misspell a key in the dictionary lookup and reload to get a `KeyError`. Then add the handling:
+6. **Break it on purpose, twice, and fix it.** First, unplug the network or change the host name to something invalid and reload. The page dies with a connection error. Second, misspell a key in the dictionary lookup and reload to get a `KeyError`.
+
+   **Introduce `try` and `except` here, explicitly, because it is new.** Say it in two sentences and write them on the board: Python runs the lines indented under `try`, and if any of them raises an error, it stops there and jumps straight to the matching `except` block instead of crashing the whole program. Naming a specific error after `except`, as below, means "catch only this kind of failure," which matters because catching everything would also swallow their own typos and make the program harder to debug rather than easier.
+
+   Then add the handling:
 
    ```python
    @app.route("/")
@@ -201,10 +225,65 @@ This is also the week AP-track students should start letting a Create Task idea 
        except requests.RequestException:
            return render_template("index.html", temperature="unavailable",
                                   temp_unit="", wind="unknown", observed="never")
+
+       now = data["current"]
+       units = data["current_units"]
+       return render_template(
+           "index.html",
+           temperature=now["temperature_2m"],
+           temp_unit=units["temperature_2m"],
+           wind=now["wind_speed_10m"],
+           observed=now["time"],
+       )
    ```
 
+   Point at the shape, because students get this wrong the first time: there are two `return` statements and the function must hit exactly one of them. The one inside `except` runs when the call failed. The one after the `try` block runs when it succeeded. A function that falls off the end without returning anything hands Flask `None`, and Flask answers that with a 500 error page, which looks like a bug in Flask and is not.
+
    Say the principle: any time your program depends on another computer, that computer will be down at some point, and deciding what your program does then is part of writing it, not an extra.
-7. **Students do:** Get it running with their own location, then commit:
+7. **Put the finished file on screen in one piece.** Students have now watched `app.py` change three times, and several of them will have a half-merged version. Show the whole thing, and tell them this is the version to match:
+
+   ```python
+   from flask import Flask, render_template
+   import requests
+
+   app = Flask(__name__)
+
+   URL = "https://api.open-meteo.com/v1/forecast"
+   PARAMS = {
+       "latitude": 40.71,
+       "longitude": -74.01,
+       "current": "temperature_2m,wind_speed_10m",
+       "temperature_unit": "fahrenheit",
+   }
+
+
+   @app.route("/")
+   def home():
+       try:
+           response = requests.get(URL, params=PARAMS, timeout=10)
+           response.raise_for_status()
+           data = response.json()
+       except requests.RequestException:
+           return render_template("index.html", temperature="unavailable",
+                                  temp_unit="", wind="unknown", observed="never")
+
+       now = data["current"]
+       units = data["current_units"]
+       return render_template(
+           "index.html",
+           temperature=now["temperature_2m"],
+           temp_unit=units["temperature_2m"],
+           wind=now["wind_speed_10m"],
+           observed=now["time"],
+       )
+
+
+   if __name__ == "__main__":
+       app.run(debug=True, port=5000)
+   ```
+
+   That is the complete file. Nothing else is hiding anywhere, and a student who has lost the thread can retype this and be caught up. Alongside it the project holds `templates/index.html`, `static/style.css`, and `static/script.js`, all three brought over in step 5.
+8. **Students do:** Get it running with their own location, then commit:
 
    ```bash
    pip freeze > requirements.txt
@@ -271,7 +350,7 @@ Protect this segment. It carries AP topics 2.3 and 2.4 for the whole course. Stu
        print(n, region)
    ```
 
-   If `lambda` is unfamiliar to the group, give it as a one-line recipe rather than teaching it: it says sort by the second thing in each pair.
+   The course has not taught `lambda` and does not need to today. Say so out loud and give it as a one-line recipe rather than a lesson: that line says sort by the second thing in each pair, largest first. Students should copy it and move on.
 7. **Find a pattern that was invisible in the file:**
 
    ```python
@@ -282,10 +361,13 @@ Protect this segment. It carries AP topics 2.3 and 2.4 for the whole course. Stu
 
    for hour in range(24):
        n = by_hour.get(hour, 0)
-       print(f"{hour:02d} " + "*" * n)
+       label = str(hour)
+       if len(label) == 1:
+           label = "0" + label
+       print(label + " " + "*" * n)
    ```
 
-   The text bar chart is the same asterisk histogram from the Week 16 dice simulation, deliberately. Ask what shape they expected and what they got.
+   Nothing in that block is new. `row["time"][11:13]` is string slicing from Week 8, pulling the two hour characters out of a timestamp that looks like `2026-01-14T10:32:07`. The three lines that build `label` pad a single-digit hour with a leading zero so the bars line up, using only `str()`, `len()`, and an `if`. The text bar chart is the same asterisk histogram from the Week 16 dice simulation, deliberately. Ask what shape they expected and what they got.
 8. **Now do the hard part, which is the actual AP skill: interpret it honestly.** Earthquakes should be roughly uniform across the hours of a day. If the chart is not flat, the candidate explanations are worth arguing about: too few rows for the noise to average out, detection differing by time of day, or the window not being a clean twenty-four hours. Push students to say which explanations the data itself can settle and which it cannot. Then land the general rule: a pattern in a chart is a question, not an answer.
 9. **Name the collection bias explicitly,** because it is the most exam-relevant idea in the segment. Regions with dense sensor networks record many more small events than regions with few sensors. So a count by region measures where the sensors are at least as much as where the earthquakes are. Ask for one other dataset where the same trap would apply. Reported crime and app-store ratings both work well.
 10. **Students do:** Answer three questions of their own from the file and print the results. One filter, one count, one chart. Then commit.
@@ -328,6 +410,8 @@ Protect this segment. It carries AP topics 2.3 and 2.4 for the whole course. Stu
 - **A `KeyError` on the response.** Almost always a changed or misspelled field name. Teach the diagnosis: `print(data)` and look at what actually came back, rather than guessing.
 - **Port 5000 already in use.** Something else on macOS may hold it. Change to `port=5001` and move on; do not spend class time on it.
 - **Editing `index.html` in the old `personal-page` folder** instead of the new `templates/` folder, then wondering why nothing changes. Check which file is open.
+- **Only two of the three files copied across.** `script.js` is the one that gets forgotten, because the page still renders without it and the only visible symptom is that the fact button stops working. Walk the room during step 5 and confirm `static/style.css` and `static/script.js` both exist. Next week's service worker precaches `/static/script.js` by name and refuses to install at all if it is missing, so a student who leaves today without it loses next week's lab as well.
+- **A `home()` that returns on only one path.** If a student's `try` and `except` are typed correctly but the successful `render_template` ends up indented inside the `try`, or missing altogether, the function returns `None` and Flask shows a 500. The diagnosis to teach: count the `return` statements and check that every route through the function reaches one.
 - **Everything from a CSV is a string.** `row["mag"] > 3` compares strings and gives nonsense without raising an error, which is worse than crashing. Show it once.
 - **Empty fields in real data.** Deliberately crashed in step 5 so it is a lesson rather than a mystery.
 - **Time zones.** The timestamps are UTC. A student who treats them as local time will confidently report a false pattern. Say it twice.
@@ -372,7 +456,7 @@ Nothing here is required of non-AP students.
 
 ## 13. Resources used this week
 
-- The Flask app and the data lab: complete inline in Segments 3 and 5, including the template changes and the error handling. Nothing external needs to be open during class.
+- The Flask app and the data lab: complete inline in Segments 3 and 5, including the template changes, the error handling, and the whole finished `app.py` in one piece at step 7. Nothing external needs to be open during class, and nothing in the lab requires a file that is not printed here.
 - **Prep note:** actually run the API call and download the CSV during prep, and save both to local files as the offline fallback. This is the one week where an external service can take the session down, and the fallback is what prevents that.
 - **Weather API, no key required:** Open-Meteo, `https://open-meteo.com`. The forecast endpoint used in class is `https://api.open-meteo.com/v1/forecast` with `latitude`, `longitude`, and `current` parameters. Chosen because it needs no account, no key, and no payment method, which matters when the users are minors. Free-tier terms, rate limits, and response field names change; verify the current terms and the response shape before class each year. If it becomes unsuitable, any keyless JSON endpoint works with the same code, and if you switch to a keyed service the key stays instructor-owned per Section 12 of the curriculum.
 - **Dataset for the data lab:** the USGS earthquake feeds, `https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php`. The lab is written around the past-day, all-magnitudes CSV. It is public domain, small, genuinely messy in useful ways, and it has real metadata worth reading. Verify the column names before class; feed formats change. Any small CSV with a date column, a numeric column, and a category column will support the same lab.

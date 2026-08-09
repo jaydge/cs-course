@@ -76,12 +76,14 @@ One deliberate omission: no frameworks, no build tools, no `npm`. Three files an
 1. **Set up the project, with Git from the first minute:**
 
    ```bash
-   cd ~/cs-sandbox
+   cd ~/Documents/"CS Class"
    mkdir personal-page
    cd personal-page
    git init
    code .
    ```
+
+   The quotation marks are the Week 17 rule again: `CS Class` has a space in it, so the shell needs to be told the space is part of the name. `~/Documents/CS\ Class` is the same thing written a different way.
 
    Create three empty files in the Explorer: `index.html`, `style.css`, `script.js`. Say why `index.html` has that exact name: a web server hands out `index.html` when someone asks for a folder, and that convention is older than most of the internet.
 2. **State the content boundary out loud, before anyone writes a word.** First names only. No last names, no address, no school name, no photographs of people, no anything they would not read out to a stranger. This page runs on their laptop today and is not being published. Do not skip this.
@@ -272,7 +274,7 @@ Keep this light and complete rather than broad. One button that works beats five
 
 ## 10. Homework
 
-Full details in `handouts/week-24-homework.md`. In summary: finish the personal page to a stated definition of done and commit each piece separately; add one CSS rule they did not use in class and say what it does; add a second button or a counter; a short written walk of the rendering pipeline in their own words; a DevTools exercise on a real site. The handout closes with an Extra Credit AP Track section, which is deliberately light this week.
+Full details in `handouts/week-24-homework.md`. In summary: finish the personal page to a stated definition of done and commit each piece separately; add one CSS rule they did not use in class and say what it does; add a second button or a counter; a short written walk of the rendering pipeline in their own words, ending with a count of how many requests one real page makes. The handout closes with an Extra Credit AP Track section, which is deliberately light this week.
 
 ## 11. Assessment
 

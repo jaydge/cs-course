@@ -2,24 +2,22 @@
 
 This week you did real work at the prompt: making and finding files, piping tools together, and running Python without pressing a Run button. The homework practices all of it. Plan on about 45 minutes.
 
-Everything below happens inside `~/cs-sandbox`. Stay in the sandbox, and remember the rule: `rm` does not use the Trash.
+Everything below happens inside `~/Documents/"CS Class"/sandbox`. Stay in the sandbox, and remember the rule: `rm` does not use the Trash. Remember the quotation marks too, or use Tab completion, which puts them in for you.
 
 ## 1. Shell tasks
 
 Do each of these and write down both the command you used and what it printed. If you get an error, write the error down too; that is a real answer and we will look at it in class.
 
-1. Make a folder called `homework18` inside `cs-sandbox` and move into it.
+1. Make a folder called `homework18` inside the sandbox and move into it.
 2. Create a file called `list.txt` containing the line `apples` (use `echo` and `>`).
 3. Add three more lines to it, one at a time, without erasing what is already there. Then show the whole file.
-4. Copy `list.txt` to `backup.txt`.
-5. Rename `backup.txt` to `list-old.txt`.
-6. Show only the first two lines of `list.txt`.
-7. Count how many lines are in `list.txt`.
-8. From your home folder, find every file anywhere in `cs-sandbox` whose name ends in `.txt`.
+4. Copy `list.txt` to `backup.txt`, then rename the copy to `list-old.txt`.
+5. Count how many lines are in `list.txt`.
+6. From your home folder, find every file anywhere in the sandbox whose name ends in `.txt`.
 
 ## 2. Build two pipelines
 
-Use the `access.log` file in `~/cs-sandbox/logs`. Each of these is one line with at least one `|` in it. Write down the command and the answer.
+Use the `access.log` file in the sandbox's `logs` folder. Each of these is one line with at least one `|` in it. Write down the command and the answer.
 
 1. How many lines in the log mention `404`?
 2. How many different users appear in the log? (The username is the fifth field on each line. You will need `awk '{print $5}'`, then something to remove duplicates, then something to count.)
@@ -28,23 +26,17 @@ Then answer in a sentence: in your own words, what does the `|` character actual
 
 ## 3. Improve your script
 
-Open `~/cs-sandbox/logs/report.sh` in Thonny (as a text editor, not to run it). Add one new line that reports something the script does not report yet. Some ideas, or invent your own:
+Open `report.sh` from the sandbox's `logs` folder in Thonny (as a text editor, not to run it). Add one new line that reports something the script does not report yet: how many requests returned 404, how many different users there were, or the very first line of the log.
 
-- How many requests returned 404.
-- How many different users there were.
-- The very first line of the log.
-
-Save it, then run it from the terminal with `./report.sh` and write down the output.
-
-If it says "permission denied," you know what to do and why.
+Save it, then run it from the terminal with `./report.sh` and write down the output. If it says "permission denied," you know what to do and why.
 
 ## 4. Python, from the terminal
 
-Write a program called `find_lines.py` and save it in `~/cs-sandbox/homework18`.
+Write a program called `find_lines.py` and save it in the `homework18` folder you made in task 1.
 
 It should:
 
-1. Read `~/cs-sandbox/logs/access.log`.
+1. Read `access.log` from the sandbox's `logs` folder.
 2. Print every line that contains the text `404`, without the extra blank line between them.
 3. Write those same lines into a new file called `errors.txt`.
 4. At the end, print how many it found.

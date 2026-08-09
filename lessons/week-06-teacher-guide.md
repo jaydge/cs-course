@@ -14,7 +14,7 @@ By the end of the session, each student can:
 - Describe a transistor in one sentence as a switch that is operated by electricity instead of by a finger.
 - Complete the truth tables for AND, OR, and NOT from memory, and read a two-gate combination.
 - Build a working AND gate, OR gate, and NOT gate on a breadboard with switches and LEDs, and explain which part is the input and which is the output.
-- State the two electrical safety rules that govern the lab: low-voltage battery power only, and every LED gets a series resistor.
+- State the four electrical safety rules that govern the lab: low-voltage battery power only, a series resistor on every LED, never connect the positive rail straight to ground, and disconnect the battery before rewiring or if anything gets warm.
 - Create a Python list, read an element by index, change an element, and get the length with `len()`.
 - Explain that Python list indexes start at 0, and predict what `IndexError` means.
 
@@ -85,7 +85,7 @@ Students work in pairs. Steps below are complete; do not open a tutorial mid-cla
 4. **Name what they built.** Two switches in a row means the current has to get through both. That is AND, and it is series wiring.
 5. **Build the OR gate.** Disconnect the battery. Rewire so both switches sit side by side: each switch has one side on the positive rail and the other side on a shared row. From that shared row, go through the 220 ohm resistor to the LED, then to ground. Reconnect and test all four combinations. Either switch alone lights it. That is OR, and it is parallel wiring.
 6. **Build the NOT gate, which needs the transistor.** Disconnect the battery. Place the NPN transistor across the center channel and identify its three legs using the pinout card you posted. Wire it as follows: emitter to the ground rail; collector to an empty row, call it row X; a 470 ohm resistor from the positive rail to row X; the LED long leg in row X, then the LED short leg through a 220 ohm resistor to the ground rail; and a 1k ohm resistor from the transistor base to one side of a switch, with the other side of that switch going to the positive rail.
-7. **Test the NOT gate.** Reconnect the battery. With the switch open (input 0), the LED is lit (output 1). Press or close the switch (input 1) and the LED goes out (output 0). That is inversion, built out of one transistor. Tell them the LED will be visibly dimmer than in the previous two circuits, because the current is now shared between the LED path and the transistor path, and that this is expected rather than a fault.
+7. **Test the NOT gate.** Reconnect the battery. With the switch open (input 0), the LED is lit (output 1). Press or close the switch (input 1) and the LED goes out (output 0). That is inversion, built out of one transistor. Tell them the LED will be visibly dimmer than in the previous two circuits, and give them the real reason, because a student will ask. When the LED is lit the transistor is off, so nothing is being shared with it; instead the current now has to pass through the 470 ohm pull-up as well as the LED's own 220 ohm resistor, roughly 690 ohms in series where the AND and OR circuits had only 220. Less current, dimmer LED. This is expected rather than a fault.
 8. **Debug the predictable failures as you circulate.** Nothing lights: check LED direction first, then the battery leads, then whether both rail wires are actually in the rails. Always on regardless of the switch: the switch is wired across the wrong pair of pins, which is common with four-pin tactile switches, so have them rotate the switch ninety degrees and retry. Transistor circuit dead in both states: the pinout is reversed, so swap collector and emitter.
 9. **Tear down.** Disconnect batteries first, then return parts to the trays sorted. Budget three minutes for this or you will lose the kit piece by piece across the unit.
 
@@ -170,7 +170,7 @@ This session covers AP CSP topic 3.5 Boolean Expressions through the gates and t
 
 **AP-track self-study for this week, and only this week's slice.** One matching unit below, not the whole course, and extra credit rather than required work:
 
-- **Project STEM (the AP spine):** Unit 2, Programming. Work the lists lessons, which continue the unit worked in Weeks 3 through 5. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
+- **Project STEM (the AP spine):** Unit 2, Programming, and within it one topic only: creating a list, reading and writing an element by index, and list length. Stop when the lessons turn to traversing a list, which is next week's slice. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
 - **CodeAI, formerly Code.org (verified free alternative):** Unit 6, Lists, Loops, and Traversals, at `https://studio.code.org/courses/csp-2025/units/6`. In Week 4 students were told to stop when that unit turned from loops to lists. This is the week to resume. Do the lists lessons and stop before traversals, which are next week.
 
 Nothing here is required of non-AP students.

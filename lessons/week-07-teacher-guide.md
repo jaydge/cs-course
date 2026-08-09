@@ -171,7 +171,7 @@ The coding strand is where the AP value is this week: list methods and list trav
 
 **AP-track self-study for this week, and only this week's slice.** One matching unit below, not the whole course, and extra credit rather than required work:
 
-- **Project STEM (the AP spine):** Unit 2, Programming. Keep working the same unit; do the list-traversal and iteration-over-list lessons that follow the lists material from Week 6. The right instruction this week is simply to keep going in the programming unit, since the systems content is not AP-tested. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
+- **Project STEM (the AP spine):** Unit 2, Programming, and one topic within it: list traversal, meaning walking a list item by item and doing something with each. That is a genuinely different cluster of lessons from last week's index-and-length material, and it is the only part of the unit to work this week. Strings are next week and nested iteration is the week after. Verify this unit numbering against the live course when you enroll; see the provider unit reference in the README.
 - **CodeAI, formerly Code.org (verified free alternative):** Unit 6, Lists, Loops, and Traversals, at `https://studio.code.org/courses/csp-2025/units/6`. Do the traversal lessons, which finish the unit begun in Week 4 and continued in Week 6.
 
 Nothing here is required of non-AP students.

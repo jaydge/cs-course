@@ -2,24 +2,19 @@
 
 That is Unit 4 finished, and the first half of the course with it. You wrote the trace, you took the concept check, and you have a five-minute oral coming up on the slip you were handed.
 
-This homework is deliberately short. Plan on about 30 minutes.
+This homework is deliberately short. Plan on about 35 minutes.
 
 ## 1. Prepare for your oral by telling it to someone
 
 This is the most useful thing in this handout, and it takes ten minutes.
 
-Find someone at home, a parent, a sibling, anyone who is not in this class, and tell them what happens when you open google.com. Start at your finger and end at your eyes. Do not read from anything. Let them ask questions.
-
-Then write down:
-
-1. The two stages you found hardest to explain out loud.
-2. One question they asked that you could not answer.
+Find someone at home who is not in this class and tell them what happens when you open google.com, from your finger to your eyes. Do not read from anything. Let them ask questions. Then write down the two stages you found hardest to explain out loud, and one question they asked that you could not answer.
 
 Bring both to your oral. Being able to say "I know I am shaky on DNS" is worth more than pretending otherwise, and it is one of the things the oral actually asks you.
 
 ## 2. Two ways of answering the same question
 
-When you ran `ssh` for the first time, your computer stopped and asked whether you were sure, and showed you a fingerprint. When you visit an HTTPS site, your browser does not ask you anything; it just shows a padlock.
+When you ran `ssh` for the first time, your computer stopped, showed you a fingerprint, and asked whether you were sure. When you visit an HTTPS site, your browser does not ask you anything; it just shows a padlock.
 
 Both are solving the same problem. In four or five sentences:
 
@@ -38,19 +33,17 @@ Open a terminal, go to the repository you cloned from the class server, and answ
 
 ## 4. Half a year in
 
-Write a short reflection, five or six sentences. Not a summary of what we covered, but an honest answer to this:
-
-Name three things you can now explain to somebody that you could not explain in September. For each one, say who you would most like to explain it to and why.
+Write a short reflection, five or six sentences. Not a summary of what we covered, but an honest answer to this: name three things you can now explain to somebody that you could not explain in September, and for each one say who you would most like to explain it to and why.
 
 Then name one thing that is still fuzzy. That one is genuinely useful to me, so be honest.
 
 ## 5. Watch, if you want (optional)
 
-Crash Course Computer Science, Episodes 29 and 30, cover the internet and the World Wide Web and are good revision for the oral: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episode 30, "The World Wide Web," is the new one this week, and it makes the point that the internet and the web are not the same thing. If you want more revision for the oral, Episodes 28 and 29 from the last two weeks are worth a second look, but that is a re-watch and not new homework: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
 ## What is coming
 
-Next week we leave Thonny and move to VS Code, and we start building software the way it actually gets built: real project structure, real tools, and the week after that, Git properly. Everything you learned in the terminal over the last five weeks is about to become the thing you use every day rather than a lab exercise.
+Next week we leave Thonny for VS Code and start building software the way it actually gets built: real project structure, real tools, and the week after that, Git properly. Everything you learned in the terminal over the last five weeks becomes the thing you use every day rather than a lab exercise.
 
 ---
 

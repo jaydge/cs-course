@@ -1,8 +1,8 @@
 # Week 31 Homework: Finish It
 
-This is the last homework of the course that produces something. Next week you demonstrate it. Everything here is aimed at showing up on demo day with a program that works and a story about it that you can tell.
+This is the last homework of the course that produces something. Next week you demonstrate it. Everything here is aimed at showing up on demo day with a program that works and a story about it that you can tell. Plan on about two to three hours across the week: roughly 60 to 90 minutes finishing the artifact, 30 on the writeup, 20 rehearsing the demo twice, and 15 on the repository.
 
-Plan on two to three hours across the week. Do not do it all the night before, because the one thing that always goes wrong is the thing you find on the first clean run.
+Do not do it all the night before, because the one thing that always goes wrong is the thing you find on the first clean run.
 
 ## 1. Finish the artifact
 
@@ -83,7 +83,7 @@ Except that if you are taking the AP exam, this section is not really extra cred
 **Your unit for this week.** Do only the slice below, not the whole course.
 
 - **Project STEM (the AP spine):** the Create Performance Task materials, including the mock task, the checklist, and the template. Work their checklist against your own project. If the placement on your account does not match what your instructor described, ask; the numbering is being confirmed.
-- **CodeAI, formerly Code.org (free alternative):** Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`. This unit exists for exactly this week.
+- **CodeAI, formerly Code.org (free alternative):** Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`. You have been taking this unit a slice at a time since Week 26. This week's slice is the planning and project-development lessons, worked against your own project rather than the unit's example. Do not redo the requirements lessons from Week 27 or the written-response lessons from Week 30. Leave the final review and submission lessons for next week.
 
 **Create Task submission checklist.**
 

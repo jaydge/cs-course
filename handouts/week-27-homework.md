@@ -1,6 +1,6 @@
 # Week 27 Homework: A Machine That Learns, and a New Rule
 
-This week you built something that taught itself, and the class rule about AI changed for the first time all year. Read the help policy at the bottom carefully; it is different from every other handout you have been given. Plan on about 60 minutes, most of it on the proposal.
+This week you built something that taught itself, and the class rule about AI changed for the first time all year. Read the help policy at the bottom carefully; it is different from every other handout you have been given. Plan on about 75 minutes, most of it on the proposal, plus another 20 if you do the optional item 4.
 
 ## 1. Finish the perceptron
 
@@ -32,15 +32,11 @@ This is the start of your final project, which is 20 percent of your course grad
 - **One procedure you will write yourself,** with a name, what goes in, and what comes out.
 - **Your definition of done.** The smallest version that would count as finished and be worth demonstrating.
 
-Two pieces of advice, from watching this go wrong before:
-
-**Make it smaller than you think it should be.** Almost every first proposal is too big. You have Week 31 and part of Week 32 in class, plus whatever you do at home. A small finished program beats an ambitious unfinished one every single time, and it always will.
-
-**Pick something you actually want to exist.** You are going to look at this for six weeks.
+Two pieces of advice, from watching this go wrong before. **Make it smaller than you think it should be**, because almost every first proposal is too big and a small finished program beats an ambitious unfinished one every time. And **pick something you actually want to exist**, because you are going to look at it for six weeks.
 
 ## 4. Optional: catch it being wrong
 
-Only if your family allows you to use an AI assistant, and only with a parent knowing you are doing it. Some services require you to be 13 or older, so check before you sign up for anything.
+This one is optional and is never required. Do it only if your family allows you to use an AI assistant, and only with a parent knowing. Some services require you to be 13 or older, so check before signing up for anything.
 
 Ask an AI assistant to write a short Python function for something you already know how to do. Then, without running it:
 
@@ -48,11 +44,13 @@ Ask an AI assistant to write a short Python function for something you already k
 2. Now run it. Does it do the right thing at the edges? Try an empty list, a zero, a negative number.
 3. Write down what you found, whether it was correct or not. "It was fine" is a legitimate answer, and so is "it invented a method."
 
-Bring what you found to class.
+**If you are not using an AI assistant, do this version instead.** It counts exactly the same and is marked the same way. Ask your instructor for the printed sample function; it is the one from class, and it has the same kind of invented method hidden in it. Work steps 1 to 3 above against it, unchanged.
+
+Either way, bring what you found to class.
 
 ## 5. Watch, if you want (optional)
 
-Crash Course Computer Science, Episodes 34 and 35, cover machine learning and computer vision: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episodes 34 and 36, cover machine learning and natural language processing: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 
 ---
 
@@ -81,7 +79,7 @@ What today does do for AP is start the clock on the Create Performance Task, whi
 **Your unit for this week.** Do only the slice below, not the whole course.
 
 - **Project STEM (the AP spine):** Unit 6, Innovative Technologies, is the closest match to today's material. Work only its lessons on computing innovations and emerging technology. If the unit numbering on your account does not match, ask your instructor; the numbering is being confirmed.
-- **CodeAI, formerly Code.org (free alternative):** there is no AI unit, so do not go hunting for one. Start Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, properly this time rather than skimming it as you did in Week 16. It will tell you exactly what the finished submission has to contain.
+- **CodeAI, formerly Code.org (free alternative):** there is no AI unit, so do not go hunting for one. You were cleared to start Unit 9, Create PT Prep, at `https://studio.code.org/courses/csp-2025/units/9`, in Week 26, so this week you are continuing it, not starting it. Do one slice and stop: the opening lessons covering the task overview, what the finished submission has to contain, and how it is scored. That is what makes a good proposal. **Stop before the planning and project-development lessons.** The unit is split across four weeks on purpose, so you are not being asked to swallow it in one: the written-response lessons come in Week 30, the planning and build lessons in Week 31, and you finish the unit in Week 32.
 
 **The Create Task rules, in full, because this is where they start mattering.**
 
@@ -98,7 +96,4 @@ Your proposal above is your Create Task proposal. Two additions if you are on th
 - Name specifically what list or collection your program uses **to manage complexity**. The exam wants a collection that makes the program simpler than it would be without one, not a list that happens to be there. Write one sentence explaining what your program would look like without it.
 - Name a **student-developed procedure that takes at least one parameter** and contains selection (an if) and iteration (a loop). You will be screen-capturing this later, so decide now what it is.
 
-**Extra practice if you want it.**
-
-- Write your perceptron's `predict` function in AP pseudocode using `ap-track/AP-Pseudocode-Bridge.md`. Watch the indexing: AP lists start at 1 and Python lists start at 0.
-- Read the official AP CSP Exam Reference Sheet at `https://apcentral.collegeboard.org/media/pdf/ap-computer-science-principles-exam-reference-sheet.pdf`. This is the pseudocode you get on exam day. Twenty minutes with it now is worth an hour in April.
+**Extra practice if you want it.** Write your perceptron's `predict` function in AP pseudocode, using `ap-track/AP-Pseudocode-Bridge.md` alongside the official AP CSP Exam Reference Sheet at `https://apcentral.collegeboard.org/media/pdf/ap-computer-science-principles-exam-reference-sheet.pdf`. That sheet is the pseudocode you get on exam day. Watch the indexing: AP lists start at 1 and Python lists start at 0.

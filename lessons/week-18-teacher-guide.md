@@ -39,11 +39,16 @@ The Coding strand leaves Thonny's Run button for the first time. Students discov
 
 ## 5. Pre-class prep checklist
 
-- **Create the practice data on every machine.** The pipe segment needs something with enough lines to be interesting. Put a folder `~/cs-sandbox/logs` on each machine containing a file `access.log` of roughly 200 lines, each line looking like `2026-01-14 10:32:07 GET /index.html 200 alice`, with a mix of four or five usernames, a mix of paths, and a mix of status codes including some 404s. Generate it once with a five-line Python script and copy the file to every machine. (20 min the first time)
+- **Create the practice data on every machine.** The pipe segment needs something with enough lines to be interesting. Put a folder `~/Documents/"CS Class"/sandbox/logs` on each machine containing a file `access.log` of roughly 200 lines, each line looking like `2026-01-14 10:32:07 GET /index.html 200 alice`, with a mix of four or five usernames, a mix of paths, and a mix of status codes including some 404s. Generate it once with a five-line Python script and copy the file to every machine. From the terminal, the folder is made with:
+
+  ```bash
+  mkdir -p ~/Documents/"CS Class"/sandbox/logs
+  ```
+  Note the quotation marks again. Everything this week lives inside the same `CS Class` folder students have used since Week 1, in a new `sandbox` subfolder, so that the destructive commands in Segment 3 have somewhere safe to happen. Do not create a separate practice folder elsewhere; Week 17's whole argument was that there is one folder and the terminal is just another window onto it. (20 min the first time)
 - Run every command in Segment 3 yourself, on both a Mac and a WSL Ubuntu machine, and confirm the output matches what the challenge sheet claims. Small differences exist; `grep --color` behavior and `find` argument order are the usual culprits. (20 min)
 - Write and print the challenge sheet. It is the numbered list from Segment 3, nothing more, with a blank line under each for the answer. (15 min)
 - Write and test the shell script from Segment 5 and the two Python programs from Segment 6 on the classroom machines. Confirm `python3` works from the terminal on both fleets and note which version it reports, since Thonny may be using a different one. (15 min)
-- Decide the sandbox rule and be ready to state it: all destructive commands happen inside `~/cs-sandbox` and nowhere else. Consider making a fresh copy of the sandbox on each machine so a mistake costs nothing. (5 min)
+- Decide the sandbox rule and be ready to state it: all destructive commands happen inside `~/Documents/"CS Class"/sandbox` and nowhere else. Consider making a fresh copy of the sandbox folder on each machine so a mistake costs nothing. (5 min)
 - Print homework handouts and challenge sheets. (10 min)
 
 ## 6. Minute-by-minute class flow
@@ -57,23 +62,24 @@ The Coding strand leaves Thonny's Run button for the first time. Students discov
 ### Segment 2: The grammar of a command (0:10 to 0:25), Systems strand
 
 1. **Write the shape on the board and leave it there:** `command  -options  arguments`. Every command they meet this year fits it.
-2. **Demonstrate with one they know.** `ls` alone. `ls -l` adds an option. `ls -l ~/cs-sandbox` adds an argument. Three forms, same command.
+2. **Demonstrate with one they know.** `ls` alone. `ls -l` adds an option. `ls -l ~/Documents/"CS Class"` adds an argument. Three forms, same command.
 3. **Teach `man`, and teach how to leave it.** Run `man ls`. Say that this is the manual page, that it is dense on purpose, and that nobody reads it top to bottom. Show scrolling with the space bar and, critically, quitting with `q`. Students who cannot get out of `man` or `less` will close their whole terminal. Have every student open `man ls` and press `q` right now.
 4. **Show that reading a manual page is a skill.** Find the `-l` line in `man ls` together. Say the honest thing: you will look up flags for the rest of your life, and remembering that the manual exists matters far more than memorizing any flag.
 5. **Name the five survival keys** and write them on the board: Tab completes, Up-arrow recalls, Control-C stops a running command, Control-L or `clear` clears the screen, and `q` leaves a pager.
-6. **Set the sandbox rule, firmly.** Everything today happens inside `~/cs-sandbox`. Say why in one sentence: you are about to learn a delete command that does not use the Trash, and a sandbox means a mistake costs you nothing.
+6. **Set the sandbox rule, firmly.** Everything today happens inside `~/Documents/"CS Class"/sandbox`. Say why in one sentence: you are about to learn a delete command that does not use the Trash, and a sandbox means a mistake costs you nothing. Say the quoting point once more while the path is on the projector, because it is the thing that will trip them all morning: `CS Class` has a space in it, so it goes in quotation marks, or the shell reads it as two separate arguments and looks for a folder called `CS`. Tab completion puts the quoting in for them, which is the better habit.
 
 ### Segment 3: The challenge course (0:25 to 1:00), Systems strand
 
 Hand out the printed challenge sheet. Students work through it at their own pace, in pairs where you decided to pair. You demonstrate challenges 1, 5, and 8 on the projector before anyone starts; the rest they do from the sheet while you circulate. Announce that reaching challenge 10 is a full result and that 11 and 12 are for anyone who gets there.
 
-1. **Make a workspace.** From your home folder, create a folder `~/cs-sandbox/week18`, move into it, and confirm with `pwd`.
+1. **Make a workspace.** From your home folder, create a folder `week18` inside the sandbox, move into it, and confirm with `pwd`.
 
    ```bash
-   mkdir ~/cs-sandbox/week18
-   cd ~/cs-sandbox/week18
+   mkdir ~/Documents/"CS Class"/sandbox/week18
+   cd ~/Documents/"CS Class"/sandbox/week18
    pwd
    ```
+   Read the `pwd` output aloud. It ends `.../Documents/CS Class/sandbox/week18`, which is the folder they could open in Finder right now if they wanted to.
 2. **Make files three ways.** Create an empty file with `touch first.txt`. Create a file with content in it using redirection: `echo "hello from the shell" > second.txt`. Then look at what you made with `cat second.txt`.
 3. **Copy and rename.** Copy `second.txt` to `third.txt` with `cp second.txt third.txt`. Rename `first.txt` to `notes.txt` with `mv first.txt notes.txt`. Note the surprising fact: renaming and moving are the same command, because a name is just where a file sits.
 4. **Move something into a folder.** Make a folder `archive` and move `third.txt` into it. Confirm with `ls` and `ls archive`.
@@ -83,7 +89,7 @@ Hand out the printed challenge sheet. Students work through it at their own pace
    rm archive/third.txt
    ```
    Stop the room here and say it once, clearly: there is no Trash, no undo, and no confirmation. Then say the two rules. First, always `ls` before you `rm` so you know what is actually there. Second, never run a delete you do not fully understand, especially one someone else handed you. Do not demonstrate recursive deletion at all.
-6. **Look inside a big file three ways.** Move to `~/cs-sandbox/logs`. Run `cat access.log` and watch it fly past uselessly. Then run `head access.log`, then `tail access.log`, then `less access.log` and quit with `q`. Ask which of the four they would actually use on a file this size.
+6. **Look inside a big file three ways.** Move to `~/Documents/"CS Class"/sandbox/logs`. Run `cat access.log` and watch it fly past uselessly. Then run `head access.log`, then `tail access.log`, then `less access.log` and quit with `q`. Ask which of the four they would actually use on a file this size.
 7. **Count.** How many lines are in `access.log`?
 
    ```bash
@@ -98,7 +104,7 @@ Hand out the printed challenge sheet. Students work through it at their own pace
 9. **Search for files, not inside them.** From your home folder, find every file whose name ends in `.txt`:
 
    ```bash
-   find ~/cs-sandbox -name "*.txt"
+   find ~/Documents/"CS Class"/sandbox -name "*.txt"
    ```
    Name the difference out loud, because students conflate these constantly: `grep` looks inside files, `find` looks for files.
 10. **Build a pipe.** How many times did alice appear in the log?
@@ -121,14 +127,14 @@ Hand out the printed challenge sheet. Students work through it at their own pace
     ```
     Then run it again with `>>` instead of `>` and `cat` it again. Ask what changed. Name it: `>` replaces the file, `>>` adds to the end. Getting these backwards destroys work, so it is worth ten seconds.
 
-Return to the theme question at the end: the "find every file mentioning binary" problem from Segment 1 is now `grep -r binary ~/cs-sandbox`, and everyone in the room can read that line.
+Return to the theme question at the end: the "find every file mentioning binary" problem from Segment 1 is now `grep -r binary ~/Documents/"CS Class"`, and everyone in the room can read that line.
 
 ### Segment 4: Stretch (1:00 to 1:05)
 
 ### Segment 5: Write a tiny shell script (1:05 to 1:25), Systems strand
 
 1. **Motivate it in one sentence.** They just typed a four-stage pipeline. Nobody wants to type that twice. A script is a file full of commands, and running the file runs the commands.
-2. **Create the file.** Say up front that they can use Thonny as a plain text editor for this, which avoids teaching a terminal editor today. In Thonny, File, New, then save as `~/cs-sandbox/logs/report.sh`. Tell them explicitly that Thonny will not run it and that this is fine; it is just a text editor here.
+2. **Create the file.** Say up front that they can use Thonny as a plain text editor for this, which avoids teaching a terminal editor today. In Thonny, File, New, then save it into the `sandbox/logs` folder inside `CS Class` as `report.sh`. Tell them explicitly that Thonny will not run it and that this is fine; it is just a text editor here.
 3. **Type the script together, line by line:**
 
    ```bash
@@ -163,7 +169,7 @@ Return to the theme question at the end: the "find every file mentioning binary"
 - **You do:** Frame the reveal. All year, Thonny's Run button has been doing one thing: handing your file to Python. Today you do it yourself. In the terminal:
 
   ```bash
-  cd ~/cs-sandbox/week18
+  cd ~/Documents/"CS Class"/sandbox/week18
   python3 --version
   ```
   Note the version out loud and compare it to what Thonny reports at the top of its shell. If they differ, say so plainly rather than hiding it; a machine can have several Pythons, and knowing which one you are talking to is a real skill that returns in Week 22.

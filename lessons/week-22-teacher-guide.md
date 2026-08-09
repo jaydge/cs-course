@@ -33,7 +33,7 @@ The process material is not filler. AP topics 1.1 Collaboration and 1.3 Program 
 - Whiteboard with the theme question written large, and a clear column for the SDLC phase list.
 - Index cards, roughly twenty per team, and markers, for the sprint simulation.
 - A prepared "messy" program and a prepared "clean" version of the same program, on the demo machine (see Section 5).
-- Each student's Week 16 text adventure, findable on their machine. Confirm this in the warm-up; the coding strand restructures it.
+- Each student's Week 16 text adventure, findable on their machine. It was saved into the `CS Class` folder in Documents, which is where every piece of student work has lived since Week 1 and where today's project goes too. Confirm this in the warm-up; the coding strand restructures it.
 - Printed Week 22 homework handout, one per student.
 
 ## 5. Pre-class prep checklist
@@ -50,7 +50,7 @@ The process material is not filler. AP topics 1.1 Collaboration and 1.3 Program 
 ### Segment 1: Warm-up and framing (0:00 to 0:10)
 
 - **You do:** Pose the theme question. Then ask a concrete version of it: your text adventure is one file that only you have ever opened. What breaks first if four people have to work on it and it has to still work in two years?
-- **Students do:** Locate their Week 16 text adventure file on their machine and leave it open. Anyone who cannot find it gets paired now, not later.
+- **Students do:** Locate their Week 16 text adventure file in the `CS Class` folder in Documents and leave it open. Anyone who cannot find it gets paired now, not later.
 - **You do:** Set the shape of the day out loud: an hour on how software actually gets built, then a new editor and a real project layout.
 
 ### Segment 2: The software development life cycle (0:10 to 0:25), Systems strand
@@ -95,17 +95,19 @@ Run this entirely from the steps below. No materials beyond index cards and mark
 Do every step on the projector first, then have students repeat it. Go slowly. This is the tool for the rest of the course.
 
 1. **Say why we are leaving Thonny.** Thonny was right because it hid everything: one file, one run button, a visible shell. From here we need many files at once, a terminal in the same window, and a Git panel. That is what VS Code is. Add that Thonny stays installed and is still the better tool for a quick one-file experiment.
-2. **Open a folder, not a file.** This is the single most important idea of the segment. In VS Code choose File, then Open Folder, and open their `cs-sandbox` folder, the one they have worked in from the terminal since Unit 4. Say plainly: VS Code works on a folder, and the folder is the project. Opening a lone file gives up half the tool.
+2. **Open a folder, not a file.** This is the single most important idea of the segment. In VS Code choose File, then Open Folder, and open their `CS Class` folder inside Documents, the one they have saved work into since Week 1 and navigated to from the terminal since Week 17. Say plainly: VS Code works on a folder, and the folder is the project. Opening a lone file gives up half the tool. There is one student folder for the whole course and this is it; nobody needs a second one.
 3. **Tour four things and nothing more.** The Explorer sidebar on the left is the folder. The editor area holds tabs. The integrated terminal opens with Control and backtick, and it is the same zsh or Ubuntu shell they have used since Week 18, just living in the editor. The Command Palette opens with Shift, Command, P on a Mac or Shift, Control, P on Windows, and it can reach every command by name. Resist the urge to show anything else today.
 4. **Install the Python extension** if the provisioning did not. Extensions view in the sidebar, search Python, install the Microsoft one. Verify the publisher; marketplace listings change.
 5. **Create the virtual environment in the terminal, live:**
 
    ```bash
-   mkdir -p ~/cs-sandbox/adventure
-   cd ~/cs-sandbox/adventure
+   mkdir -p ~/Documents/"CS Class"/adventure
+   cd ~/Documents/"CS Class"/adventure
    python3 -m venv .venv
    source .venv/bin/activate
    ```
+
+   Point at the quotation marks and say why they are there, because this is the same rule from Week 17: `CS Class` has a space in it, and without the quotes the shell reads it as two separate arguments. `~/Documents/CS\ Class/adventure` works just as well, and Tab completion writes the escaping for them.
 
    On the Windows fleet inside WSL2 Ubuntu the commands are identical. In PowerShell it is `python -m venv .venv` then `.venv\Scripts\Activate.ps1`.
 6. **Explain what it isolates, briefly.** A virtual environment is a private box of installed libraries belonging to this project. Without it, every project on the machine shares one pile of libraries and two projects that need different versions of the same library cannot both work. Point at the changed shell prompt as the visible evidence it is active.
@@ -132,7 +134,14 @@ Do every step on the projector first, then have students repeat it. Go slowly. T
        test_player.py
    ```
 3. **Say what each thing is, one line each.** `main.py` is the entry point, the file you run. `game/` is a package, a folder of related modules, and `__init__.py` is the empty file that tells Python the folder is one. `world.py` holds the rooms dictionary. `player.py` holds the `Player` class. `README.md` says what the project is and how to run it. `requirements.txt` lists the libraries this project needs. `.gitignore` lists files that should never be saved into version control.
-4. **Students do the move.** Cut the rooms dictionary into `game/world.py` and the `Player` class into `game/player.py`, then make `main.py` import them:
+4. **Students do the move.** First bring the game in. Their Week 16 text adventure is a single file sitting in `CS Class`, one level above the new `adventure` folder, so copy it in and rename the copy `main.py`:
+
+   ```bash
+   cd ~/Documents/"CS Class"/adventure
+   cp ../adventure.py main.py
+   ```
+
+   Substitute whatever they actually called the file in Week 16. Copy rather than move, so a broken refactor never costs them the working original. Then cut the rooms dictionary into `game/world.py` and the `Player` class into `game/player.py`, and make `main.py` import them:
 
    ```python
    from game.world import rooms

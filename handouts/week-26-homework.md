@@ -1,12 +1,12 @@
 # Week 26 Homework: Make It an App
 
-This finishes Unit 5. Five weeks ago your code was a single Python file in Thonny. It is now a versioned project, served by a web server you wrote, pulling live data off the internet, and installable with an icon. Plan on about 45 minutes.
+This finishes Unit 5. Five weeks ago your code was a single Python file in Thonny. It is now a versioned project, served by a web server you wrote, pulling live data off the internet, and installable with an icon. Plan on about 50 minutes.
 
 ## 1. Finish the PWA
 
 Your app is done when all of these are true:
 
-- `python3 app.py` runs it and `http://127.0.0.1:5000` loads.
+- From `~/Documents/"CS Class"/weather`, `python3 app.py` runs it and `http://127.0.0.1:5000` loads.
 - The Application panel in Chrome shows your manifest with no errors.
 - The Application panel shows a service worker that is activated and running.
 - Cache Storage contains your files.
@@ -15,8 +15,8 @@ Your app is done when all of these are true:
 
 Two things that catch nearly everyone:
 
-- If nothing seems to change when you edit `sw.js`, the old service worker is still in charge. In the Application panel, tick "Update on reload," or click Unregister and reload to start clean.
-- If the service worker never installs at all, check that every single file listed in `PRECACHE` actually exists at that exact path. One wrong filename fails the whole thing, quietly.
+- If nothing changes when you edit `sw.js`, the old service worker is still in charge. In the Application panel, tick "Update on reload," or click Unregister and reload.
+- If the service worker never installs, check that every file listed in `PRECACHE` exists at that exact path. One wrong filename fails the whole thing, quietly.
 
 Commit when it works:
 
@@ -27,46 +27,32 @@ git commit -m "Finish the PWA conversion"
 
 ## 2. Make it honest about being offline
 
-Your app loads with the network off, which is the good news. It also shows a temperature, which is old, with nothing telling the user that.
+Your app loads with the network off, which is the good news. It also shows an old temperature with nothing telling the user that. Fix it: add a line to your offline page, or to the main page, saying clearly that the reading may be out of date, and give the time it was taken. Software that quietly presents stale information as current is software that lies.
 
-Fix that. Add a line to your offline page, or to the main page, that says clearly that the reading may be out of date and gives the time it was taken.
-
-This is a small change and it is the most professional thing you will do all week. Software that quietly presents stale information as current is software that lies.
+Then write two or three sentences on the design decision underneath it. Your service worker tries the network first and falls back to the cache only when that fails. Why is that the right way round for a weather app, and what kind of app would be better off the other way round?
 
 ## 3. Choose the approach, with reasons
 
-For each of these, say whether you would build it native, cross-platform, or as a PWA. One or two sentences of reasoning each. There is more than one defensible answer; the reasoning is the whole assignment.
+For each of these, say whether you would build it native, cross-platform, or as a PWA, in one or two sentences, and name the single constraint that decided it: budget, performance, hardware access, distribution, or update speed. There is more than one defensible answer; the reasoning is the whole assignment.
 
-1. A local library wants people to be able to search the catalog and see whether a book is on the shelf.
+1. A local library wants people to search the catalog and see whether a book is on the shelf.
 2. A company is building a video editing app that has to handle 4K footage smoothly on a phone.
-3. Two people with a small budget are building a habit tracker that syncs across a user's devices and needs to send a daily reminder.
-
-For each one, also name the single constraint that decided it for you. Budget, performance, hardware access, distribution, or update speed.
+3. Two people with a small budget are building a habit tracker that syncs across devices and sends a daily reminder.
 
 ## 4. Audit the permissions on a real device
 
 On your own phone, or a family device with permission from whoever owns it, open the settings screen that lists app permissions.
 
-1. Pick three apps. Write down what each one is allowed to access.
-2. Find one permission that surprised you, where you cannot immediately explain why that app needs that thing.
-3. Write two or three sentences on it: what is it allowed to do, what is the most generous explanation for why, and what is the least generous one?
+1. Pick two apps. Write down what each one is allowed to access.
+2. Find one permission that surprised you, where you cannot immediately explain why that app needs that thing. Write two or three sentences on it: what is it allowed to do, what is the most generous explanation for why, and what is the least generous one?
 
 Do not change anyone else's settings without asking them.
 
-## 5. Describe what your app does with no network
-
-A short paragraph. Answer all four:
-
-1. What loads when the network is off, and where does it come from?
-2. What does not work?
-3. What would be misleading to a user, if you had not fixed it in question 2?
-4. Your service worker tries the network first and uses the cache only if that fails. For a weather app, why is that the right way round? Name one kind of app where the opposite would be better.
-
 ---
 
-A reminder on getting help: do this yourself, without AI helpers like ChatGPT. That changes next week. Week 27 covers AI properly, including how to use it on code without letting it do your thinking for you, and after that lesson it is permitted on non-exam work. One more week unaided. If you get stuck, MDN is the right reference for service workers, and bringing a written question to class is always allowed.
+A reminder on getting help: do this yourself, without AI helpers like ChatGPT. That changes next week, when Week 27 covers AI properly and it becomes permitted on non-exam work. One more week unaided. MDN is the right reference for service workers, and bringing a written question to class is always allowed.
 
-Unit 5 is finished, so this matters more than usual: be ready to point at your fetch handler and say, out loud, what happens to a request when the network is down. If you can explain it, you own it.
+Unit 5 is finished, so this matters more than usual: be ready to point at your fetch handler and say out loud what happens to a request when the network is down. If you can explain it, you own it.
 
 ---
 

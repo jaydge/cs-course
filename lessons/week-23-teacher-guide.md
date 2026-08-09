@@ -42,16 +42,29 @@ Worth using in class: this course's own repository is a real repository with rea
 
 ## 5. Pre-class prep checklist
 
-- **Set up the class server repository.** On the server, as an admin:
+- **Make a group for the class, once per server.** Do this before creating any repository. Do not use `staff`: on macOS every local account is put in `staff` by default, so granting the group write access grants it to every account on the machine, including any account that has nothing to do with this class. Create a group that contains only the student accounts:
 
   ```bash
-  cd /Users/Shared/repos
-  sudo git init --bare -b main --shared=group classbook.git
-  sudo chgrp -R staff classbook.git
-  sudo chmod -R g+rwX classbook.git
+  sudo dseditgroup -o create csclass
+  sudo dseditgroup -o edit -a ada -t user csclass
   ```
 
-  This is the same `/Users/Shared/repos` folder used for the Week 21 `hello-class.git` taste, so the path and the SSH accounts are already familiar. Three things matter here. The `-b main` flag avoids a version-dependent surprise where a bare repository defaults to `master`. The `--shared=group` flag plus the group ownership is what allows several students, each on their own SSH account, to push to one repository without permission errors; substitute whatever group your student accounts actually belong to. And if `.local` names did not resolve on the fleet in Week 21, use the server's IP address everywhere below and write it on the board. (25 min)
+  Repeat the second line once per student account, and once for your own. Check the result with `dseditgroup -o checkmember -m ada csclass`. (10 min)
+- **Set up the class server repository, and do not create it with `sudo`.** Running `sudo git init` leaves every file inside the repository owned by `root`, and no student can then push into it; the whole lab dies at 1:10 with permission errors nobody can read. Use `sudo` only to make the shared parent folder, then create the repository as yourself:
+
+  ```bash
+  sudo mkdir -p /Users/Shared/repos
+  sudo chown "$USER":csclass /Users/Shared/repos
+  chmod 2775 /Users/Shared/repos
+  cd /Users/Shared/repos
+  git init --bare -b main --shared=group classbook.git
+  chgrp -R csclass classbook.git
+  chmod -R g+rwX classbook.git
+  ```
+
+  This is the same `/Users/Shared/repos` folder used for the Week 21 `hello-class.git` taste, so the path and the SSH accounts are already familiar. If that repository was created with `sudo` last time, fix it now with the same `chgrp` and `chmod` pair, because it will fail in exactly the same way.
+
+  Four things matter here. The `-b main` flag avoids a version-dependent surprise where a bare repository defaults to `master`. The `--shared=group` flag plus the `csclass` group ownership is what allows several students, each on their own SSH account, to push to one repository without permission errors. The `2` in `chmod 2775` is the setgid bit, which makes anything created inside the folder inherit the `csclass` group rather than the creator's own; `--shared=group` sets the same bit on the directories inside the repository, which is why new objects pushed by students stay group-writable. And if `.local` names did not resolve on the fleet in Week 21, use the server's IP address everywhere below and write it on the board. (25 min)
 - **Seed the repository** from your own laptop, so students clone something that already has history:
 
   ```bash
@@ -110,7 +123,7 @@ Students work in their own `adventure` project from last week. Type every comman
 2. **Initialize and look:**
 
    ```bash
-   cd ~/cs-sandbox/adventure
+   cd ~/Documents/"CS Class"/adventure
    git init
    git status
    ```
@@ -150,7 +163,7 @@ Everyone works in the same class-server repository at the same time. Put the clo
 1. **Clone:**
 
    ```bash
-   cd ~/cs-sandbox
+   cd ~/Documents/"CS Class"
    git clone yourname@csserver.local:/Users/Shared/repos/classbook.git
    cd classbook
    ls
@@ -334,7 +347,7 @@ This is the segment that makes Git stick. Everybody causes a conflict deliberate
 
 - **Accounts and SSH not working.** This is the whole-lab killer, which is why it is checked the week before. If a student is still blocked at 1:00, pair them at a working machine as a co-driver rather than losing them to troubleshooting.
 - **The default branch is `master` on some machines.** Mixed branch names in one repository produce baffling push errors. The prep checklist sets `init.defaultBranch` fleet-wide; verify it.
-- **Permission denied on push to the class server.** Almost always the bare repository was not created with `--shared=group` or the group ownership is wrong. Fix it during prep, not during class.
+- **Permission denied on push to the class server.** Three causes, in order of likelihood: the bare repository was created with `sudo` and is owned by `root`, it was not created with `--shared=group`, or the group ownership is wrong. All three are prep problems, not class problems. Run `ls -l /Users/Shared/repos` during prep and confirm nothing there is owned by `root`.
 - **Committing the `.venv` folder.** If a student's `.gitignore` is missing or misspelled, they will commit thousands of files. Catch it at `git status` before the first `git add .`, which is why step 4 of Segment 3 has them look first.
 - **`git add` without `git commit`.** The student swears they saved their work and the log shows nothing. Point at the three-places diagram.
 - **Editing a file while on the wrong branch.** Have them check with `git status`, which names the branch on its first line, before they start typing. Say it out loud as a habit: status first, always.
@@ -345,7 +358,7 @@ This is the segment that makes Git stick. Everybody causes a conflict deliberate
 
 ## 10. Homework
 
-Full details in `handouts/week-23-homework.md`. In summary: push their `adventure` project to a new GitHub repository; make two commits with real messages; create a branch, make a change on it, and merge it; deliberately create and resolve one merge conflict in their own repository; a short written piece explaining a commit, a branch, and a conflict in their own words. The handout closes with an Extra Credit AP Track section carrying this week's AP self-study slice.
+Full details in `handouts/week-23-homework.md`. In summary: push their `adventure` project to a new GitHub repository; create a branch, make a change on it with a real commit message, and merge it; deliberately create and resolve one merge conflict in their own repository, with a screenshot of it; a short written piece explaining a commit and a conflict in their own words. The handout closes with an Extra Credit AP Track section carrying this week's AP self-study slice.
 
 ## 11. Assessment
 

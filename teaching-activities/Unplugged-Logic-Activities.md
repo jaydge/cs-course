@@ -22,16 +22,23 @@ The CS Unplugged activity hub is `https://classic.csunplugged.org/activities/`, 
 
 Run one aligned activity at the launch of each major concept, roughly one every two to three weeks, for 20 to 45 minutes, before the on-screen version. They also make excellent first-day activities and warm-ups. A suggested mapping to the course:
 
-| Weeks | Activity | Reinforces |
+This table reflects the weeks as actually written in `lessons/`. If you move an activity, update both places.
+
+| Week | Activity | Reinforces |
 |---|---|---|
-| 1 to 3 | Human Robot Maze (sequence stage), Robot Chef, Barrier Drawing | Algorithms, sequencing, precision |
+| 1 | Robot Chef (optional energizer) | Precision, decomposition |
 | 2 | Binary Cards, Pixel Grid | Binary, data representation, compression |
-| 6 to 7 | Human Logic Gates | Boolean logic |
-| 11 to 16 | Human Robot Maze (conditionals, loops, functions stages) | Selection, iteration, procedures |
+| 3 | Robot Chef (if not run in Week 1), Human Robot Maze (sequence stage) | Algorithms, sequencing, precision |
+| 6 | Human Logic Gates | Boolean logic |
+| 11 | Human Robot Maze (conditionals stage) | Selection |
+| 12 | Human Robot Maze (loops stage) | Iteration |
 | 13 | Human Stack, Queue, and Linked List | Data structures |
 | 14 | Human Sorting, Sorting Network, Guess My Number | Sorting, searching, Big-O intuition |
-| 19 to 20 | Packet Routing | Networking, fault tolerance |
-| 27 to 28 | Caesar Cipher, Paint-Mixing Key Exchange, Parity Magic | Cryptography, error detection |
+| 15 | Human Robot Maze (functions stage, run as a bug hunt) | Procedures, debugging |
+| 19 | Packet Routing | Networking, fault tolerance |
+| 28 | Caesar Cipher, Paint-Mixing Key Exchange, Parity Magic | Cryptography, error detection |
+
+Barrier Drawing is not scheduled into a specific week; keep it as a spare warm-up for any session that needs one, and as an alternate for Robot Chef.
 
 ---
 

@@ -97,7 +97,7 @@ Run this entirely from the steps below. The canonical description is in Section 
 6. **Drill it once, out loud.** Give the list `["a", "b", "c", "d"]` and ask, in alternating order: Python index of "c"? Pseudocode index of "c"? Python last index? Pseudocode last index? Do six of these fast. Speed is the point; the goal is a reflex, not a discussion.
 7. **Tell them why you are making a fuss.** This is the most common wrong answer on the AP exam, and it is entirely avoidable. Non-AP students should still know it exists, because most languages do it Python's way and a few do not, and mixing them up is a career-long source of off-by-one bugs.
 
-**Purpose:** The belief that indexing starts at 0 is now seven weeks old and unquestioned. Breaking it here, in a dedicated segment, is worth more than mentioning it repeatedly later.
+**Purpose:** The belief that indexing starts at 0 has gone unquestioned since lists arrived in Week 6. Breaking it here, in a dedicated segment, is worth more than mentioning it repeatedly later.
 
 ### Segment 4: Stretch (1:00 to 1:05)
 
