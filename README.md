@@ -26,6 +26,7 @@ Start with the curriculum. Everything else is a companion it references.
 
 ### syllabus/
 - **parent-syllabus.md** — the parent-facing syllabus: course overview, time commitment, unit schedule, grading, accounts and consent, devices, optional prep, and the opt-in AP track in plain language.
+- **course-vs-ap-at-a-glance.html** — a printable one-page visual for parents: two swim lanes showing the complete AP CSP core on the left and everything the course layers on top of it on the right, unit by unit, with the real-local-machine differentiator called out. Open in any browser; prints to letter.
 
 ### lessons/
 - Per-week in-depth teacher guides. **week-01-teacher-guide.md** is the format prototype; the remaining weeks follow its structure.

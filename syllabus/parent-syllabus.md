@@ -55,6 +55,10 @@ The course covers the material of AP Computer Science Principles, a college-leve
 
 The important part: this is opt-in per student and completely exam-free for everyone else. No student takes an AP exam as a course requirement, no AP work affects the regular course grade, and younger students are never under exam pressure. A student who skips the AP track still earns a full Computer Science I credit and learns everything the course teaches.
 
+## The course at a glance, visually
+
+A one-page companion to this syllabus, `course-vs-ap-at-a-glance.html` in this folder, shows the whole year in two side-by-side lanes: the complete AP CSP core on one side and everything this course adds on top of it on the other. It is the fastest way to see what makes this course different. Open it in any browser or ask the instructor for a printed copy.
+
 ## Questions
 
 Details in this syllabus that involve outside services (account age rules, AP fees and dates) can change; the instructor verifies them each year, and you should feel free to ask. Reach out any time with questions about your student's placement, workload, or the AP decision.

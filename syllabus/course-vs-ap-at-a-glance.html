@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What This Course Covers: AP CSP Core plus Everything We Layer on Top</title>
+<style>
+  :root {
+    --ap: #1f4e79;        /* left lane, AP blue */
+    --ap-bg: #eef3f9;
+    --add: #7a4f16;       /* right lane, workshop amber */
+    --add-bg: #fdf6ec;
+    --ink: #1d1d1f;
+    --muted: #5f6368;
+    --rule: #d8dbe0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    margin: 0;
+    background: #fff;
+    line-height: 1.45;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 28px 24px 40px; }
+
+  header h1 {
+    font-size: 26px; margin: 0 0 6px;
+    letter-spacing: 0.2px;
+  }
+  header p.sub { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+
+  .stats {
+    display: flex; flex-wrap: wrap; gap: 8px 22px;
+    border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule);
+    padding: 10px 2px; margin-bottom: 18px;
+    font-family: Helvetica, Arial, sans-serif; font-size: 12.5px;
+  }
+  .stats b { font-size: 14px; }
+
+  .lane-heads {
+    display: grid; grid-template-columns: 92px 1fr 1fr; gap: 0 14px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-bottom: 6px;
+  }
+  .lane-heads .h {
+    padding: 8px 12px; border-radius: 6px 6px 0 0;
+    font-weight: bold; font-size: 14px; color: #fff;
+  }
+  .h.ap  { background: var(--ap); }
+  .h.add { background: var(--add); }
+  .lane-heads .spacer { }
+  .lane-heads .tag { font-weight: normal; font-size: 11px; opacity: 0.85; display: block; }
+
+  .row {
+    display: grid; grid-template-columns: 92px 1fr 1fr; gap: 0 14px;
+    page-break-inside: avoid;
+  }
+  .unit {
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 14px 4px 8px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .unit .wk { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+  .unit .name { font-size: 13px; font-weight: bold; line-height: 1.25; margin-top: 2px; }
+  .cell {
+    padding: 12px 14px; border-top: 1px solid var(--rule);
+    font-size: 13px;
+  }
+  .cell.ap  { background: var(--ap-bg); }
+  .cell.add { background: var(--add-bg); }
+  .cell ul { margin: 0; padding-left: 16px; }
+  .cell li { margin: 0 0 5px; }
+  .cell .bi {
+    display: inline-block; font-family: Helvetica, Arial, sans-serif;
+    font-size: 10.5px; font-weight: bold; color: var(--ap);
+    border: 1px solid var(--ap); border-radius: 3px;
+    padding: 0 5px; margin: 0 4px 4px 0; background: #fff;
+  }
+  .cell.add .lead {
+    font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: bold;
+    color: var(--add); text-transform: uppercase; letter-spacing: 0.6px;
+    margin: 0 0 5px;
+  }
+  .lightnote { color: var(--muted); font-style: italic; }
+
+  .banner {
+    margin: 20px 0 14px; padding: 14px 16px;
+    background: var(--ink); color: #fff; border-radius: 6px;
+    font-family: Helvetica, Arial, sans-serif;
+    page-break-inside: avoid;
+  }
+  .banner b { font-size: 15px; }
+  .banner p { margin: 4px 0 0; font-size: 12.5px; color: #d9d9de; }
+
+  footer {
+    font-size: 11.5px; color: var(--muted);
+    border-top: 1px solid var(--rule); padding-top: 10px;
+  }
+  footer p { margin: 0 0 6px; }
+
+  @media print {
+    .page { max-width: none; padding: 0.25in 0.35in; }
+    body { font-size: 12px; }
+    .banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cell, .h, .bi { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 640px) {
+    .lane-heads, .row { grid-template-columns: 1fr; }
+    .unit { border-top: 2px solid var(--ink); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>One Course, Two Layers</h1>
+  <p class="sub">The left lane is the complete AP Computer Science Principles core. The right lane is everything this course builds on top of it. Students get both, together, all year.</p>
+</header>
+
+<div class="stats">
+  <span><b>35 of 35</b> AP CSP framework topics covered</span>
+  <span><b>32</b> weeks, <b>6</b> units</span>
+  <span><b>Python</b> for real programming depth</span>
+  <span><b>15+</b> hands-on hardware and floor-game labs</span>
+  <span><b>Exam-free</b> unless a student opts in</span>
+</div>
+
+<div class="lane-heads">
+  <div class="spacer"></div>
+  <div class="h ap">The AP CSP core<span class="tag">College Board framework, all five Big Ideas</span></div>
+  <div class="h add">What we layer on top<span class="tag">the systems story AP does not tell</span></div>
+</div>
+
+<!-- Unit 1 -->
+<div class="row">
+  <div class="unit"><div class="wk">WEEKS 1 TO 5</div><div class="name">Thinking Like a Computer Scientist</div></div>
+  <div class="cell ap">
+    <span class="bi">BIG IDEA 2 DATA</span><span class="bi">BIG IDEA 3 PROGRAMMING</span>
+    <ul>
+      <li>Binary numbers and data compression</li>
+      <li>Variables, expressions, conditionals, loops</li>
+      <li>Procedures, libraries, random values</li>
+      <li>Finding and fixing errors</li>
+    </ul>
+  </div>
+  <div class="cell add">
+    <p class="lead">Wonder first, then fundamentals</p>
+    <ul>
+      <li>Day one on a working 1980s Apple IIe</li>
+      <li>Computer fluency from zero: real files and folders, not an iPad</li>
+      <li>Logic games on the classroom floor before any screen: binary cards, the human robot maze</li>
+      <li>Python installed on the student's own machine from week one</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Unit 2 -->
+<div class="row">
+  <div class="unit"><div class="wk">WEEKS 6 TO 10</div><div class="name">Inside the Computer</div></div>
+  <div class="cell ap">
+    <span class="bi">BIG IDEA 3 PROGRAMMING</span>
+    <ul>
+      <li>Boolean logic; lists and strings in code</li>
+      <li class="lightnote">AP treats hardware as a black box. We keep the AP programming topics moving while we open it.</li>
+    </ul>
+  </div>
+  <div class="cell add">
+    <p class="lead">The box, opened</p>
+    <ul>
+      <li>Real logic gates built from transistors on a breadboard</li>
+      <li>Build a CPU from NAND gates in a puzzle game</li>
+      <li>Take apart an actual PC; tour a bare motherboard and a Raspberry Pi</li>
+      <li>Trace one keystroke from the key to the screen</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Unit 3 -->
+<div class="row">
+  <div class="unit"><div class="wk">WEEKS 11 TO 16</div><div class="name">Programming Like a Professional</div></div>
+  <div class="cell ap">
+    <span class="bi">BIG IDEA 1 CREATIVE DEV</span><span class="bi">BIG IDEA 3 PROGRAMMING</span>
+    <ul>
+      <li>Data abstraction and lists</li>
+      <li>Binary search, algorithmic efficiency, undecidable problems</li>
+      <li>Simulations; testing and debugging</li>
+      <li>AP pseudocode practice begins</li>
+    </ul>
+  </div>
+  <div class="cell add">
+    <p class="lead">Depth beyond the exam</p>
+    <ul>
+      <li>Dictionaries, objects, and classes, which AP never reaches</li>
+      <li>Data structures acted out: human stacks, queues, and a sorting network taped to the floor</li>
+      <li>A testing habit, taught, not assumed</li>
+      <li>A text-adventure build week pulling it all together</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Unit 4 -->
+<div class="row">
+  <div class="unit"><div class="wk">WEEKS 17 TO 21</div><div class="name">Operating Systems and the Internet</div></div>
+  <div class="cell ap">
+    <span class="bi">BIG IDEA 4 SYSTEMS &amp; NETWORKS</span>
+    <ul>
+      <li>How the internet works: addressing, routing, protocols</li>
+      <li>Fault tolerance and redundancy</li>
+    </ul>
+  </div>
+  <div class="cell add">
+    <p class="lead">Not a diagram. The real thing.</p>
+    <ul>
+      <li>The real terminal: macOS Unix shell, and Linux on Windows machines</li>
+      <li>Build a physical network with an actual switch and router</li>
+      <li>Watch live packets in Wireshark; see what HTTPS hides</li>
+      <li>SSH into the classroom's own server</li>
+      <li>Mid-year milestone: trace a button press end to end, out loud</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Unit 5 -->
+<div class="row">
+  <div class="unit"><div class="wk">WEEKS 22 TO 26</div><div class="name">Building Modern Software</div></div>
+  <div class="cell ap">
+    <span class="bi">BIG IDEA 1 CREATIVE DEV</span><span class="bi">BIG IDEA 2 DATA</span>
+    <ul>
+      <li>Collaboration and program design</li>
+      <li>Extracting information from data; using programs with data</li>
+      <li>Libraries in real use</li>
+    </ul>
+  </div>
+  <div class="cell add">
+    <p class="lead">The professional toolchain</p>
+    <ul>
+      <li>VS Code, and Git with real merge conflicts on the class server</li>
+      <li>A web page from scratch: HTML, CSS, JavaScript</li>
+      <li>A Python web app calling a live weather API</li>
+      <li>A real public dataset, analyzed; the app turned into a phone-installable PWA</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Unit 6 -->
+<div class="row">
+  <div class="unit"><div class="wk">WEEKS 27 TO 32</div><div class="name">The Future of Computing</div></div>
+  <div class="cell ap">
+    <span class="bi">BIG IDEA 5 IMPACT</span><span class="bi">BIG IDEA 4 SYSTEMS &amp; NETWORKS</span>
+    <ul>
+      <li>Safe computing and cybersecurity concepts</li>
+      <li>All six Impact of Computing topics: benefit and harm, bias, the digital divide, crowdsourcing, law and ethics</li>
+      <li>Parallel and distributed computing</li>
+      <li>The AP Create Performance Task, with its nine supervised hours, for opted-in students</li>
+    </ul>
+  </div>
+  <div class="cell add">
+    <p class="lead">The world they are walking into</p>
+    <ul>
+      <li>AI from a hand-built perceptron to how LLMs actually work</li>
+      <li>AI tools taught deliberately, then unlocked; until then, every line is the student's own</li>
+      <li>Cryptography as floor games: cipher wheels, paint-mixing key exchange</li>
+      <li>Cloud, containers, and blockchain demystified in one tour</li>
+      <li>A final project of the student's own design, demoed live</li>
+    </ul>
+  </div>
+</div>
+
+<div class="banner">
+  <b>All of it on a real, local machine.</b>
+  <p>Most CS courses run in a browser sandbox. Here, students install Python, manage real files, use the real terminal, capture real network traffic, and version their own code with Git, on the same laptop all year. The computer itself is part of the curriculum.</p>
+</div>
+
+<footer>
+  <p><b>About the AP track:</b> the AP layer is opt-in per student and exam-free by default. Students who opt in prepare through a free, College Board-endorsed online curriculum alongside class and may sit the AP CSP exam in May; everyone else takes the same course and earns a full Computer Science I credit with no exam. AP topic coverage is documented topic by topic in the course's coverage map.</p>
+  <p>Details of outside services, AP requirements, fees, and dates change; verify current specifics with the instructor.</p>
+</footer>
+
+</div>
+</body>
+</html>
