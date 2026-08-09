@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What This Course Covers: AP CSP Core plus Everything We Layer on Top</title>
+<title>What This Course Covers: the AP CSP Core and What Is Added Beyond It</title>
 <style>
   :root {
     --ap: #1f4e79;        /* left lane, AP blue */
@@ -77,21 +77,16 @@
     border: 1px solid var(--ap); border-radius: 3px;
     padding: 0 5px; margin: 0 4px 4px 0; background: #fff;
   }
-  .cell.add .lead {
-    font-family: Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: bold;
-    color: var(--add); text-transform: uppercase; letter-spacing: 0.6px;
-    margin: 0 0 5px;
-  }
   .lightnote { color: var(--muted); font-style: italic; }
 
-  .banner {
-    margin: 20px 0 14px; padding: 14px 16px;
-    background: var(--ink); color: #fff; border-radius: 6px;
+  .note {
+    margin: 20px 0 14px; padding: 12px 16px;
+    border: 1px solid var(--rule); border-left: 4px solid var(--ink);
+    border-radius: 4px;
     font-family: Helvetica, Arial, sans-serif;
     page-break-inside: avoid;
   }
-  .banner b { font-size: 15px; }
-  .banner p { margin: 4px 0 0; font-size: 12.5px; color: #d9d9de; }
+  .note p { margin: 0; font-size: 12.5px; }
 
   footer {
     font-size: 11.5px; color: var(--muted);
@@ -102,7 +97,7 @@
   @media print {
     .page { max-width: none; padding: 0.25in 0.35in; }
     body { font-size: 12px; }
-    .banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .note { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .cell, .h, .bi { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
   @media (max-width: 640px) {
@@ -115,22 +110,22 @@
 <div class="page">
 
 <header>
-  <h1>One Course, Two Layers</h1>
-  <p class="sub">The left lane is the complete AP Computer Science Principles core. The right lane is everything this course builds on top of it. Students get both, together, all year.</p>
+  <h1>What This Course Covers</h1>
+  <p class="sub">The left column lists the AP Computer Science Principles framework material each unit covers. The right column lists what this course adds beyond that framework. The base course touches every AP topic at a high level; students on the optional AP track reach exam depth through a self-paced College Board-endorsed curriculum alongside class.</p>
 </header>
 
 <div class="stats">
-  <span><b>35 of 35</b> AP CSP framework topics covered</span>
+  <span>Touches all <b>35</b> AP CSP framework topics</span>
   <span><b>32</b> weeks, <b>6</b> units</span>
-  <span><b>Python</b> for real programming depth</span>
-  <span><b>15+</b> hands-on hardware and floor-game labs</span>
+  <span>Programming depth in <b>Python</b></span>
+  <span>Hardware and unplugged labs throughout</span>
   <span><b>Exam-free</b> unless a student opts in</span>
 </div>
 
 <div class="lane-heads">
   <div class="spacer"></div>
   <div class="h ap">The AP CSP core<span class="tag">College Board framework, all five Big Ideas</span></div>
-  <div class="h add">What we layer on top<span class="tag">the systems story AP does not tell</span></div>
+  <div class="h add">What the course adds<span class="tag">material beyond the AP framework</span></div>
 </div>
 
 <!-- Unit 1 -->
@@ -146,11 +141,10 @@
     </ul>
   </div>
   <div class="cell add">
-    <p class="lead">Wonder first, then fundamentals</p>
     <ul>
       <li>Day one on a working 1980s Apple IIe</li>
-      <li>Computer fluency from zero: real files and folders, not an iPad</li>
-      <li>Logic games on the classroom floor before any screen: binary cards, the human robot maze</li>
+      <li>Computer fluency taught from zero: files, folders, and saving on a laptop, for students coming from tablets</li>
+      <li>Offline logic activities before screen work: binary cards, the human robot maze</li>
       <li>Python installed on the student's own machine from week one</li>
     </ul>
   </div>
@@ -167,12 +161,11 @@
     </ul>
   </div>
   <div class="cell add">
-    <p class="lead">The box, opened</p>
     <ul>
-      <li>Real logic gates built from transistors on a breadboard</li>
-      <li>Build a CPU from NAND gates in a puzzle game</li>
-      <li>Take apart an actual PC; tour a bare motherboard and a Raspberry Pi</li>
-      <li>Trace one keystroke from the key to the screen</li>
+      <li>Logic gates built from transistors on a breadboard</li>
+      <li>A CPU built up from NAND gates in a puzzle game</li>
+      <li>A PC disassembled in class; a bare motherboard and a Raspberry Pi examined</li>
+      <li>One keystroke traced from the key to the screen</li>
     </ul>
   </div>
 </div>
@@ -190,12 +183,11 @@
     </ul>
   </div>
   <div class="cell add">
-    <p class="lead">Depth beyond the exam</p>
     <ul>
-      <li>Dictionaries, objects, and classes, which AP never reaches</li>
-      <li>Data structures acted out: human stacks, queues, and a sorting network taped to the floor</li>
-      <li>A testing habit, taught, not assumed</li>
-      <li>A text-adventure build week pulling it all together</li>
+      <li>Dictionaries, objects, and classes, which the AP framework does not include</li>
+      <li>Data structures acted out physically: human stacks, queues, and a floor sorting network</li>
+      <li>Writing tests for one's own code</li>
+      <li>A text-adventure build week combining the unit's material</li>
     </ul>
   </div>
 </div>
@@ -211,13 +203,12 @@
     </ul>
   </div>
   <div class="cell add">
-    <p class="lead">Not a diagram. The real thing.</p>
     <ul>
-      <li>The real terminal: macOS Unix shell, and Linux on Windows machines</li>
-      <li>Build a physical network with an actual switch and router</li>
-      <li>Watch live packets in Wireshark; see what HTTPS hides</li>
+      <li>The terminal: the macOS Unix shell, and Linux on the Windows machines</li>
+      <li>A physical network built in class with a switch and router</li>
+      <li>Live packet captures in Wireshark, including what HTTPS encrypts</li>
       <li>SSH into the classroom's own server</li>
-      <li>Mid-year milestone: trace a button press end to end, out loud</li>
+      <li>Mid-year milestone: tracing a button press end to end, orally</li>
     </ul>
   </div>
 </div>
@@ -234,12 +225,11 @@
     </ul>
   </div>
   <div class="cell add">
-    <p class="lead">The professional toolchain</p>
     <ul>
-      <li>VS Code, and Git with real merge conflicts on the class server</li>
-      <li>A web page from scratch: HTML, CSS, JavaScript</li>
+      <li>VS Code, and Git with merge conflicts resolved on the class server</li>
+      <li>A web page written from scratch: HTML, CSS, JavaScript</li>
       <li>A Python web app calling a live weather API</li>
-      <li>A real public dataset, analyzed; the app turned into a phone-installable PWA</li>
+      <li>A public dataset analyzed; the app converted to an installable PWA</li>
     </ul>
   </div>
 </div>
@@ -257,24 +247,22 @@
     </ul>
   </div>
   <div class="cell add">
-    <p class="lead">The world they are walking into</p>
     <ul>
-      <li>AI from a hand-built perceptron to how LLMs actually work</li>
-      <li>AI tools taught deliberately, then unlocked; until then, every line is the student's own</li>
-      <li>Cryptography as floor games: cipher wheels, paint-mixing key exchange</li>
-      <li>Cloud, containers, and blockchain demystified in one tour</li>
-      <li>A final project of the student's own design, demoed live</li>
+      <li>AI from a hand-built perceptron to how large language models work</li>
+      <li>Responsible AI use taught explicitly, then permitted; until that unit, students write every line themselves</li>
+      <li>Cryptography through physical activities: cipher wheels, paint-mixing key exchange</li>
+      <li>Cloud, containers, and blockchain covered in a single overview lesson</li>
+      <li>A final project of the student's own design, demonstrated to the class</li>
     </ul>
   </div>
 </div>
 
-<div class="banner">
-  <b>All of it on a real, local machine.</b>
-  <p>Most CS courses run in a browser sandbox. Here, students install Python, manage real files, use the real terminal, capture real network traffic, and version their own code with Git, on the same laptop all year. The computer itself is part of the curriculum.</p>
+<div class="note">
+  <p>Students work on a real local computer, not a browser sandbox: they install Python, manage files, use the terminal, capture network traffic, and version their code with Git on the same laptop all year. The computer itself is part of the curriculum.</p>
 </div>
 
 <footer>
-  <p><b>About the AP track:</b> the AP layer is opt-in per student and exam-free by default. Students who opt in prepare through a free, College Board-endorsed online curriculum alongside class and may sit the AP CSP exam in May; everyone else takes the same course and earns a full Computer Science I credit with no exam. AP topic coverage is documented topic by topic in the course's coverage map.</p>
+  <p><b>About the AP track:</b> the AP layer is opt-in per student and exam-free by default. Students who opt in prepare through a free, College Board-endorsed online curriculum alongside class and may sit the AP CSP exam in May; everyone else takes the same course and earns a full Computer Science I credit with no exam. The base course touches every AP topic at a high level; touching a topic is not the same as teaching it to exam depth, and exam depth is what the AP track's self-paced curriculum provides. Coverage is documented topic by topic in the course's coverage map.</p>
   <p>Details of outside services, AP requirements, fees, and dates change; verify current specifics with the instructor.</p>
 </footer>
 
