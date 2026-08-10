@@ -176,6 +176,12 @@ def main():
         action="store_true",
         help="Also create a short-answer Question for each {{question: ...}} in the handout",
     )
+    parser.add_argument(
+        "--reverse",
+        action="store_true",
+        help="Create highest week first. Classroom sorts each topic newest-first and "
+             "exposes no ordering field, so creating in reverse is what puts Week 01 on top.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="List what would happen, change nothing")
     args = parser.parse_args()
 
@@ -198,6 +204,8 @@ def main():
     if not weeks:
         print("No matching weeks found. Check --repo and --weeks.")
         return
+    if args.reverse:
+        weeks = list(reversed(weeks))
 
     topics = get_or_create_topics(classroom, args.course_id, args.dry_run)
     state = "PUBLISHED" if args.publish else "DRAFT"
@@ -208,6 +216,33 @@ def main():
         title = f"Week {week:02d} - Homework"
         topic_name = unit_topic_for_week(week)
         topic_id = topics.get(topic_name)
+
+        # Questions go in before the week's assignment so that the
+        # assignment, being newer, sorts above its own reflection.
+        if args.questions:
+            for n, prompt in enumerate(questions_for_week(handouts_dir, week), start=1):
+                q_title = f"Week {week:02d} - Reflection"
+                if n > 1:
+                    q_title += f" {n}"
+                if args.dry_run:
+                    print(f"[dry run] would create question: {q_title}  "
+                          f"(topic: {topic_name}, state: {state})")
+                    continue
+                if q_title in existing_titles:
+                    print(f"Skip (already exists): {q_title}")
+                    continue
+                classroom.courses().courseWork().create(
+                    courseId=args.course_id,
+                    body={
+                        "title": q_title,
+                        "description": prompt,
+                        "workType": "SHORT_ANSWER_QUESTION",
+                        "state": state,
+                        "topicId": topic_id,
+                    },
+                ).execute()
+                existing_titles.add(q_title)
+                print(f"Created ({state}) question: {q_title}  -> topic '{topic_name}'")
 
         if title in existing_titles:
             print(f"Skip (already exists): {title}")
@@ -240,33 +275,6 @@ def main():
         classroom.courses().courseWork().create(courseId=args.course_id, body=body).execute()
         existing_titles.add(title)
         print(f"Created ({state}): {title}  -> topic '{topic_name}'")
-
-    if args.questions:
-        for week in weeks:
-            topic_name = unit_topic_for_week(week)
-            for n, prompt in enumerate(questions_for_week(handouts_dir, week), start=1):
-                q_title = f"Week {week:02d} - Reflection"
-                if n > 1:
-                    q_title += f" {n}"
-                if args.dry_run:
-                    print(f"[dry run] would create question: {q_title}  "
-                          f"(topic: {topic_name}, state: {state})")
-                    continue
-                if q_title in existing_titles:
-                    print(f"Skip (already exists): {q_title}")
-                    continue
-                classroom.courses().courseWork().create(
-                    courseId=args.course_id,
-                    body={
-                        "title": q_title,
-                        "description": prompt,
-                        "workType": "SHORT_ANSWER_QUESTION",
-                        "state": state,
-                        "topicId": topics.get(topic_name),
-                    },
-                ).execute()
-                existing_titles.add(q_title)
-                print(f"Created ({state}) question: {q_title}  -> topic '{topic_name}'")
 
     print("\nDone. Review in Classroom > Classwork before publishing any drafts.")
 
