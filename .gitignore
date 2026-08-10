@@ -12,3 +12,9 @@ Desktop.ini
 *.tmp
 *~
 cs-course.code-workspace
+# Google Classroom credentials (never commit)
+credentials.json
+tools/token.json
+# Python
+venv/
+__pycache__/

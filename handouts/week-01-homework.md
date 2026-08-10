@@ -18,26 +18,26 @@ If you can do that without help, you have the most important skill of the whole 
 
 You will need a couple of accounts for class. Do this part with a parent, because these accounts have age and sign-up rules that a parent needs to handle with you.
 
-- With your parent, set up the accounts your teacher listed (a Google account and a CodeAI account, formerly called Code.org).
+- With your parent, set up the accounts Mr. Smith listed (a Google account and a CodeAI account, formerly called Code.org).
 - Write down your usernames somewhere safe. Do not write down passwords on paper; your parent will help you keep those safe.
 
 ## 3. Typing practice (optional but really helps)
 
-Spend about 15 minutes at `typing.com` or `keybr.com`. The more comfortable you are with the keyboard, the easier everything else in this course becomes. Even a little practice adds up.
+- Spend about 15 minutes at [typing.com](https://typing.com) or [keybr.com](https://keybr.com). The more comfortable you are with the keyboard, the easier everything else in this course becomes. Even a little practice adds up.
 
 ## 4. Watch, if you want (optional)
 
-Crash Course Computer Science, Episode 1, is a fun twelve-minute tour of where computers came from. Watch it here: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+- Crash Course Computer Science, Episode 1, is a fun twelve-minute tour of where computers came from. [Watch it here](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo).
 
 ## 5. Quick reflection
 
-Write two or three sentences: what felt different about using a laptop compared to an iPad or a phone? Save it as a file in your "CS Class" folder, which also gives you extra practice from step 1. Bring your thoughts to next class.
+- Write two or three sentences: what felt different about using a laptop compared to an iPad or a phone? Save it as a file in your "CS Class" folder, which also gives you extra practice from step 1.
 
----
+{{writing-space}}
 
-A note on getting help: do all of this yourself. Please do not use AI helpers like ChatGPT for any of it. We will learn how to use those later in the course, on purpose, once you have the basics down yourself. If you get stuck, that is completely normal. Try for a few minutes, write down your question, and ask at the start of next class.
+{{question: What felt different about using a laptop compared to an iPad or a phone? Write two or three sentences.}}
 
----
+> A note on getting help: do all of this yourself. Please do not use AI helpers like ChatGPT for any of it. We will learn how to use those later in the course, on purpose, once you have the basics down yourself. If you get stuck, that is completely normal. Try for a few minutes, write down your question, and ask at the start of next class.
 
 ## Extra Credit AP Track
 
@@ -48,7 +48,6 @@ If you are thinking about the AP track, this week is just about getting set up a
 **Your slice for this week.** Do only this much, not the whole course.
 
 - **Project STEM:** create your account and start Unit 1, Intro and Computational Thinking. The opening lessons are about what a program is and how programmers work together. Stop at the end of those introductory lessons.
-- **CodeAI, the free alternative:** Unit 1, Digital Information, at `https://studio.code.org/courses/csp-2025/units/1`. Just the first lesson or two this week; we cover this unit's real content next week.
+- **CodeAI, the free alternative:** Unit 1, Digital Information, at [https://studio.code.org/courses/csp-2025/units/1](https://studio.code.org/courses/csp-2025/units/1). Just the first lesson or two this week; we cover this unit's real content next week.
 
-Talk to your instructor before signing up for either one, since account setup needs a parent.
-
+Talk to Mr. Smith before signing up for either one, since account setup needs a parent.

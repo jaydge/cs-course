@@ -34,6 +34,9 @@ Start with the curriculum. Everything else is a companion it references.
 ### handouts/
 - Per-week student-facing homework handouts. **week-01-homework.md** is the prototype.
 
+### tools/
+- Scripts that push the handouts into Google Classroom, since Classroom has no bulk import. **publish_handouts_to_docs.py** turns each `handouts/week-NN-homework.md` into a formatted Google Doc, and **sync_classroom.py** creates the unit topics and one draft assignment per week with that week's Doc attached as a per-student copy. Teacher guides in `lessons/` are never uploaded. Start with **tools/README.md** for setup and the run order.
+
 ## How the pieces fit
 
 The curriculum drives day-to-day teaching. The AP overlay and coverage map sit underneath as an opt-in layer for students who want the credential. The prep and activities support the first weeks and the mixed age range. The comparison and the pseudocode bridge are reference material. The lessons and handouts are the week-by-week teaching materials produced from the curriculum.
