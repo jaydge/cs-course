@@ -41,7 +41,21 @@ import re
 from pathlib import Path
 
 from classroom_auth import get_services
-from publish_handouts_to_docs import QUESTION_RE
+from publish_handouts_to_docs import QUESTION_RE, handout_intro
+
+# Matches the rubric shorthand in the curriculum (4 = works and can
+# explain, 3 = works, 2 = partly, ...), so the Classroom grade is the
+# rubric score with no conversion while marking.
+RUBRIC_POINTS = 4
+
+# Appended to every assignment description. Much of the week's work
+# happens outside the Doc -- Python written in Thonny, mainly -- and
+# nothing else tells students to attach it.
+TURN_IN_NOTE = (
+    "Your own copy of this week's handout is attached. Work in it and tick the "
+    "checkboxes as you go. Use + Add or create to attach any Python files or "
+    "screenshots, then click Turn in."
+)
 
 # Week ranges per unit. Update this if the curriculum's unit
 # boundaries ever change; everything else derives from it.
@@ -104,9 +118,9 @@ def get_or_create_topics(classroom, course_id: str, dry_run: bool) -> dict:
     return by_name
 
 
-def existing_coursework_titles(classroom, course_id: str) -> set:
+def existing_coursework(classroom, course_id: str) -> dict:
     """
-    Titles of every assignment and question already in the course.
+    Every assignment and question already in the course, keyed by title.
 
     Both arguments matter. courseWork.list defaults to PUBLISHED only and
     to one short page, so without them this tool cannot see the drafts it
@@ -114,7 +128,7 @@ def existing_coursework_titles(classroom, course_id: str) -> set:
     of skipping, which is exactly what the module docstring promises it
     will not do.
     """
-    titles = set()
+    found = {}
     page_token = None
     while True:
         response = classroom.courses().courseWork().list(
@@ -123,10 +137,10 @@ def existing_coursework_titles(classroom, course_id: str) -> set:
             pageSize=100,
             pageToken=page_token,
         ).execute()
-        titles.update(cw.get("title") for cw in response.get("courseWork", []))
+        found.update({cw.get("title"): cw for cw in response.get("courseWork", [])})
         page_token = response.get("nextPageToken")
         if not page_token:
-            return titles
+            return found
 
 
 def find_doc_id(drive, folder_name: str, title: str):
@@ -144,6 +158,12 @@ def find_doc_id(drive, folder_name: str, title: str):
     )
     docs = drive.files().list(q=doc_q, fields="files(id)").execute().get("files", [])
     return docs[0]["id"] if docs else None
+
+
+def assignment_description(handouts_dir: Path, week: int) -> str:
+    path = handouts_dir / f"week-{week:02d}-homework.md"
+    intro = handout_intro(path.read_text(encoding="utf-8")) if path.is_file() else ""
+    return f"{intro}\n\n{TURN_IN_NOTE}".strip()
 
 
 def questions_for_week(handouts_dir: Path, week: int):
@@ -182,6 +202,12 @@ def main():
         help="Create highest week first. Classroom sorts each topic newest-first and "
              "exposes no ordering field, so creating in reverse is what puts Week 01 on top.",
     )
+    parser.add_argument(
+        "--refresh",
+        action="store_true",
+        help="Update description and points on items that already exist, "
+             "instead of skipping them. Leaves title, topic and attachments alone.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="List what would happen, change nothing")
     args = parser.parse_args()
 
@@ -209,8 +235,7 @@ def main():
 
     topics = get_or_create_topics(classroom, args.course_id, args.dry_run)
     state = "PUBLISHED" if args.publish else "DRAFT"
-    existing_titles = set() if args.dry_run else existing_coursework_titles(
-        classroom, args.course_id)
+    existing = {} if args.dry_run else existing_coursework(classroom, args.course_id)
 
     for week in weeks:
         title = f"Week {week:02d} - Homework"
@@ -228,8 +253,17 @@ def main():
                     print(f"[dry run] would create question: {q_title}  "
                           f"(topic: {topic_name}, state: {state})")
                     continue
-                if q_title in existing_titles:
-                    print(f"Skip (already exists): {q_title}")
+                if q_title in existing:
+                    if args.refresh:
+                        classroom.courses().courseWork().patch(
+                            courseId=args.course_id,
+                            id=existing[q_title]["id"],
+                            updateMask="description,maxPoints",
+                            body={"description": prompt, "maxPoints": RUBRIC_POINTS},
+                        ).execute()
+                        print(f"Refreshed: {q_title}")
+                    else:
+                        print(f"Skip (already exists): {q_title}")
                     continue
                 classroom.courses().courseWork().create(
                     courseId=args.course_id,
@@ -239,13 +273,26 @@ def main():
                         "workType": "SHORT_ANSWER_QUESTION",
                         "state": state,
                         "topicId": topic_id,
+                        "maxPoints": RUBRIC_POINTS,
                     },
                 ).execute()
-                existing_titles.add(q_title)
+                existing[q_title] = {"title": q_title}
                 print(f"Created ({state}) question: {q_title}  -> topic '{topic_name}'")
 
-        if title in existing_titles:
-            print(f"Skip (already exists): {title}")
+        if title in existing:
+            if args.refresh:
+                classroom.courses().courseWork().patch(
+                    courseId=args.course_id,
+                    id=existing[title]["id"],
+                    updateMask="description,maxPoints",
+                    body={
+                        "description": assignment_description(handouts_dir, week),
+                        "maxPoints": RUBRIC_POINTS,
+                    },
+                ).execute()
+                print(f"Refreshed: {title}")
+            else:
+                print(f"Skip (already exists): {title}")
             continue
 
         doc_id = None if args.dry_run else find_doc_id(drive, args.folder_name, title)
@@ -260,9 +307,11 @@ def main():
 
         body = {
             "title": title,
+            "description": assignment_description(handouts_dir, week),
             "workType": "ASSIGNMENT",
             "state": state,
             "topicId": topic_id,
+            "maxPoints": RUBRIC_POINTS,
             "materials": [
                 {
                     "driveFile": {
@@ -273,7 +322,7 @@ def main():
             ],
         }
         classroom.courses().courseWork().create(courseId=args.course_id, body=body).execute()
-        existing_titles.add(title)
+        existing[title] = {"title": title}
         print(f"Created ({state}): {title}  -> topic '{topic_name}'")
 
     print("\nDone. Review in Classroom > Classwork before publishing any drafts.")

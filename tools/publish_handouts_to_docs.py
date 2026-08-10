@@ -248,6 +248,18 @@ def _render_mdtable(rows) -> str:
     return "".join(out)
 
 
+def handout_intro(md_text: str) -> str:
+    """
+    The handout's opening paragraph -- the text between the title and the
+    first "## " section. Used as the Classroom assignment description, so
+    students see what the week is about without opening the Doc.
+    """
+    for kind, payload in _parse_blocks(md_text):
+        if kind == "paragraph":
+            return payload
+    return ""
+
+
 def _render_section(section: dict) -> str:
     """
     Two-column table: a narrow checkbox column and the content. The
