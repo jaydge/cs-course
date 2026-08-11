@@ -30,7 +30,7 @@ The Human Robot Maze also returns today at its conditionals stage. Students last
 ## 4. Materials and setup
 
 - The taped floor maze: masking tape, about 6 by 6 squares, with a marked start square, a marked goal square, and three or four wall squares. Tape it before students arrive.
-- Index cards for writing maze programs, several per team.
+- Index cards for the short sequence programs in Round 1, several per team, plus one full sheet of paper per team for Round 2, which is too long for a card.
 - A blindfold or a scarf, optional, for the last maze round.
 - Each student's laptop with Thonny; projector for live coding.
 - Whiteboard with the theme question written large.
@@ -75,7 +75,7 @@ Run this entirely from the steps below. The canonical source is in Section 13 fo
    ```
 
    Read it aloud as one rule: if you can go forward, go; otherwise turn right.
-6. **Round 2.** Each team writes that block out twelve times on their card, in order, as their entire program. No loops yet, on purpose. Hand the card to the robot and run it. Most teams reach the goal on a maze they could not fully plan for.
+6. **Round 2.** Each team writes that block out twelve times, in order, as their entire program. No loops yet, on purpose. Give them a full sheet of paper rather than an index card, since the block as written on the board is eight lines and twelve copies of it run to about ninety-six, and have the three team members split the copying rather than putting one scribe through all twelve. Copying should take about four minutes; if a team is still writing after five, let them run the copies they have. Hand the sheet to the robot and run it. Most teams reach the goal on a maze they could not fully plan for.
 7. **Blind round, optional if time holds.** Have the robot face away between steps or wear the blindfold so the programmers cannot rely on the robot quietly correcting course.
 8. **Debrief in two lines.** First, a conditional lets one program handle situations the programmer did not know in advance. Second, ask how they felt writing the same block twelve times, and tell them that next week they get to collapse it.
 
@@ -128,6 +128,8 @@ Run this entirely from the steps below. The canonical source is in Section 13 fo
 - **Students do:** Model one real thing of their own choosing as a nested dictionary: a game character with stats, a recipe with ingredients and times, or a playlist entry. One record only, printed once.
 
 ### Segment 5: Stretch (1:10 to 1:15)
+
+- A short break. Collect the maze sheets and index cards before they scatter.
 
 ### Segment 6: Build the contact manager (1:15 to 1:50), Coding strand part 3
 
