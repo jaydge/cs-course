@@ -38,7 +38,9 @@ Requires: pip install -r requirements.txt
 
 import argparse
 import re
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from classroom_auth import get_services
 from publish_handouts_to_docs import QUESTION_RE, handout_intro
@@ -160,6 +162,31 @@ def find_doc_id(drive, folder_name: str, title: str):
     return docs[0]["id"] if docs else None
 
 
+def due_fields(start_date: date, week: int, due_time: str, tz_name: str) -> dict:
+    """
+    dueDate/dueTime for a week, given the date of the *first class*.
+
+    Each week's homework is due on the same weekday one week after that
+    week's class, so week N is due start + 7N days.
+
+    Classroom stores both fields in UTC, and a late-evening local due
+    time lands on the following UTC day -- so the date has to come from
+    the converted timestamp, not from the local calendar, or everything
+    ends up due a day early.
+    """
+    hours, minutes = (int(part) for part in due_time.split(":"))
+    local = datetime.combine(
+        start_date + timedelta(days=7 * week),
+        time(hours, minutes),
+        tzinfo=ZoneInfo(tz_name),
+    )
+    moment = local.astimezone(timezone.utc)
+    return {
+        "dueDate": {"year": moment.year, "month": moment.month, "day": moment.day},
+        "dueTime": {"hours": moment.hour, "minutes": moment.minute},
+    }
+
+
 def assignment_description(handouts_dir: Path, week: int) -> str:
     path = handouts_dir / f"week-{week:02d}-homework.md"
     intro = handout_intro(path.read_text(encoding="utf-8")) if path.is_file() else ""
@@ -203,6 +230,13 @@ def main():
              "exposes no ordering field, so creating in reverse is what puts Week 01 on top.",
     )
     parser.add_argument(
+        "--start-date",
+        help="Date of the WEEK 1 CLASS, as YYYY-MM-DD. Week N homework is then due "
+             "7N days later. Without this, no due dates are set or changed.",
+    )
+    parser.add_argument("--due-time", default="23:59", help="Local due time, HH:MM (default 23:59)")
+    parser.add_argument("--timezone", default="America/New_York", help="Timezone for --due-time")
+    parser.add_argument(
         "--refresh",
         action="store_true",
         help="Update description and points on items that already exist, "
@@ -233,6 +267,8 @@ def main():
     if args.reverse:
         weeks = list(reversed(weeks))
 
+    start_date = date.fromisoformat(args.start_date) if args.start_date else None
+
     topics = get_or_create_topics(classroom, args.course_id, args.dry_run)
     state = "PUBLISHED" if args.publish else "DRAFT"
     existing = {} if args.dry_run else existing_coursework(classroom, args.course_id)
@@ -256,6 +292,8 @@ def main():
                 if q_title in existing:
                     if args.refresh:
                         fields = {"description": prompt, "maxPoints": RUBRIC_POINTS}
+                        if start_date:
+                            fields.update(due_fields(start_date, week, args.due_time, args.timezone))
                         if args.publish:
                             fields["state"] = "PUBLISHED"
                         classroom.courses().courseWork().patch(
@@ -277,6 +315,8 @@ def main():
                         "state": state,
                         "topicId": topic_id,
                         "maxPoints": RUBRIC_POINTS,
+                        **(due_fields(start_date, week, args.due_time, args.timezone)
+                           if start_date else {}),
                     },
                 ).execute()
                 existing[q_title] = {"title": q_title}
@@ -288,6 +328,8 @@ def main():
                     "description": assignment_description(handouts_dir, week),
                     "maxPoints": RUBRIC_POINTS,
                 }
+                if start_date:
+                    fields.update(due_fields(start_date, week, args.due_time, args.timezone))
                 if args.publish:
                     fields["state"] = "PUBLISHED"
                 classroom.courses().courseWork().patch(
@@ -318,6 +360,8 @@ def main():
             "state": state,
             "topicId": topic_id,
             "maxPoints": RUBRIC_POINTS,
+            **(due_fields(start_date, week, args.due_time, args.timezone)
+               if start_date else {}),
             "materials": [
                 {
                     "driveFile": {
