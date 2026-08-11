@@ -255,13 +255,16 @@ def main():
                     continue
                 if q_title in existing:
                     if args.refresh:
+                        fields = {"description": prompt, "maxPoints": RUBRIC_POINTS}
+                        if args.publish:
+                            fields["state"] = "PUBLISHED"
                         classroom.courses().courseWork().patch(
                             courseId=args.course_id,
                             id=existing[q_title]["id"],
-                            updateMask="description,maxPoints",
-                            body={"description": prompt, "maxPoints": RUBRIC_POINTS},
+                            updateMask=",".join(fields),
+                            body=fields,
                         ).execute()
-                        print(f"Refreshed: {q_title}")
+                        print(f"{'Published' if args.publish else 'Refreshed'}: {q_title}")
                     else:
                         print(f"Skip (already exists): {q_title}")
                     continue
@@ -281,16 +284,19 @@ def main():
 
         if title in existing:
             if args.refresh:
+                fields = {
+                    "description": assignment_description(handouts_dir, week),
+                    "maxPoints": RUBRIC_POINTS,
+                }
+                if args.publish:
+                    fields["state"] = "PUBLISHED"
                 classroom.courses().courseWork().patch(
                     courseId=args.course_id,
                     id=existing[title]["id"],
-                    updateMask="description,maxPoints",
-                    body={
-                        "description": assignment_description(handouts_dir, week),
-                        "maxPoints": RUBRIC_POINTS,
-                    },
+                    updateMask=",".join(fields),
+                    body=fields,
                 ).execute()
-                print(f"Refreshed: {title}")
+                print(f"{'Published' if args.publish else 'Refreshed'}: {title}")
             else:
                 print(f"Skip (already exists): {title}")
             continue
