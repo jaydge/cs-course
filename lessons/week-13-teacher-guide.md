@@ -101,6 +101,8 @@ Run this entirely from the steps below. The canonical description is in Section 
 
 ### Segment 4: Stretch (1:00 to 1:05)
 
+- A short break. Collect the plates and the value cards now, since the rest of the session is at the laptops.
+
 ### Segment 5: Build the to-do stack and the print queue (1:05 to 1:35), Coding strand part 1
 
 - **You do:** Show that both structures are an ordinary Python list plus a rule about which end you touch:
@@ -164,7 +166,8 @@ Run this entirely from the steps below. The canonical description is in Section 
   ```
 - **You do:** Point at `self.next = None` and say that this is the student pointing at nothing. Point at the traversal loop and say this is you walking the room. Point at `current = current.next` and say that this single line is the whole idea: move your finger to whoever the current one points at.
 - **You do:** Do the insertion live. Make a fourth node and splice it between `first` and `second` with two assignments. Re-run the traversal. Nothing else changed, exactly as in the unplugged round.
-- **Students do:** Type it, add a fourth node, and perform one insertion and one deletion by reassigning pointers.
+- **Students do:** Type the three nodes and the traversal loop, then splice a fourth node into the middle and re-run. Insertion only. Deletion is the extension in Section 8 for anyone who gets there.
+- **Note on the clock:** Fifteen minutes is enough for the live build plus typing and one insertion, and it is not enough for more. The objective for the linked list is explanation, not implementation, so if the segment is running short, cut the student typing entirely and finish at the projector with the class calling out the pointer changes. Nothing later in the course depends on a student having typed this.
 - **Note for you:** Do not build a full `LinkedList` class with methods this year. The conceptual model is the objective; the implementation is a data structures course.
 
 ### Segment 7: Wrap and homework (1:50 to 2:00)
@@ -184,7 +187,7 @@ Run this entirely from the steps below. The canonical description is in Section 
 ## 8. Differentiation
 
 - **Younger or newer students:** Stack and queue only, and skip the linked list in code; the physical round is enough for them to carry the idea. Give them the menu loop and have them write only `push_task` and `pop_task`. For the indexing segment, give them the two-ruler drawing on paper to keep.
-- **Extensions for advanced or AP-track students:** Add a `peek` operation that returns the top or front item without removing it, and a `size` function. Implement the print queue so that each job is an object from a small `Job` class with a name and a page count, and have the queue report total pages waiting. For the linked list, write a function that takes the head node and returns its length by walking it.
+- **Extensions for advanced or AP-track students:** Add a `peek` operation that returns the top or front item without removing it, and a `size` function. Implement the print queue so that each job is an object from a small `Job` class with a name and a page count, and have the queue report total pages waiting. For the linked list, delete a node by pointing its predecessor at its successor, and write a function that takes the head node and returns its length by walking it.
 
 ## 9. Common pitfalls
 
