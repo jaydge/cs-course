@@ -28,7 +28,7 @@ From this week on, hand out the AP pseudocode bridge sheet and use two of its tr
 
 ## 4. Materials and setup
 
-- Number cards, one per student, for Human Sorting. Playing cards work; numbers 1 to 20 on index cards work better because the ordering is unambiguous.
+- Number cards, one per participant, up to six, for Human Sorting. Playing cards work; numbers 1 to 20 on index cards work better because the ordering is unambiguous. With five students, both Segment 2 and Segment 3 need a sixth participant; recruit one person for the day and use them in both.
 - A roll of masking tape for the sorting network, and floor space roughly 3 metres by 3 metres.
 - A whiteboard with the theme question written large, and space for a comparison-count tally that stays up all session.
 - Each student's laptop with Thonny; projector for live coding and timing.
@@ -61,20 +61,20 @@ From this week on, hand out the AP pseudocode bridge sheet and use two of its tr
 
 Run this from the steps below. The canonical source is in Section 13 for prep.
 
-1. **Line up eight students** facing the class, each holding a number card so the room can see it. Shuffle so the order is genuinely bad.
+1. **Line up six participants** facing the class, each holding a number card so the room can see it. Shuffle so the order is genuinely bad. With five students, this is the same recruited sixth person named in Section 4; bring them in now and keep them for Segment 3 as well.
 2. **Run bubble sort out loud.** The rule: compare the leftmost pair; if the left is bigger, the two students swap places; then move one position right and repeat to the end of the line. That is one pass. Repeat passes until a full pass happens with no swaps.
 3. **Tally every comparison on the board** as it happens, with a student keeping count. Do not skip this; the number is the entire point of the segment.
 4. **Ask what they notice after the first pass.** The largest number has travelled to the end. Name it: that is why it is called bubble sort, and it is why each pass can be one shorter than the last.
-5. **Record the total.** Eight cards costs somewhere near 28 comparisons. Write it up and leave it.
+5. **Record the total.** Six cards costs somewhere near 15 comparisons. Write it up and leave it.
 6. **Reshuffle and run selection sort.** The rule: scan the whole line for the smallest card, swap it into position 1, then scan the remaining line for the next smallest, and so on. Tally again.
-7. **Compare the two totals.** They will be close. Land the point that matters: neither one is a small improvement over the other, because both grow the same way. Ask what would happen with 16 students instead of 8, and take a prediction. The answer is roughly four times the work, not twice.
+7. **Compare the two totals.** They will be close. Land the point that matters: neither one is a small improvement over the other, because both grow the same way. Ask what would happen with 12 participants instead of 6, and take a prediction. The answer is roughly four times the work, not twice.
 8. **Ask the killer question.** How many comparisons for the whole school, a thousand students? Let them estimate. Half a million is close enough. This is where n squared stops being notation and becomes a feeling.
 
 **Purpose:** Students execute a sorting algorithm as a physical procedure, and the comparison counts they generate are the data that Segment 6 turns into Big-O.
 
 ### Segment 3: Sorting Network (0:35 to 0:50), Systems strand
 
-1. **Give six students a number card each** and stand them at the six numbered lanes at the entry end.
+1. **Give the same six participants a number card each** and stand them at the six numbered lanes at the entry end.
 2. **State the single rule.** Walk forward along your lane. When you reach a rung, wait for the person at the other end of that rung. Compare cards. The smaller number leaves on the lane nearer lane 1; the larger leaves on the lane nearer lane 6. Then keep walking.
 3. **Send them in all at once.** Do not stagger them.
 4. **Read the exit order aloud.** They come out sorted, every time, which reliably gets a reaction.
@@ -163,7 +163,7 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
 
 ### Segment 6: Big-O, conceptually (1:20 to 1:35), Systems strand
 
-1. **Start from their own numbers,** not from notation. Point at the board: 8 cards cost about 28 comparisons, 1000 students cost about half a million, a million-item binary search costs 20 steps.
+1. **Start from their own numbers,** not from notation. Point at the board: 6 cards cost about 15 comparisons, 1000 students would cost about half a million, a million-item binary search costs 20 steps.
 2. **Draw the table** and fill it with the class:
 
    | Items | O(1) | O(log n) | O(n) | O(n squared) |
@@ -211,7 +211,7 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
 - **Linear versus binary search:** "Looking for a name in the phone book by starting at page one, versus opening the middle. Both work. One of them ends before lunch."
 - **The precondition:** "Binary search buys its speed with an assumption. If the list is not sorted, 'higher' and 'lower' are lies, and the algorithm walks confidently to the wrong place."
 - **On logarithms without saying logarithm:** "Every time you double the data, binary search costs you one more step. One. That is the whole reason computers can search things the size of the internet."
-- **n squared:** "Eight students took about 28 comparisons. A thousand students take about half a million. You made the problem 125 times bigger and the work almost 18,000 times bigger."
+- **n squared:** "Six participants took about 15 comparisons. A thousand students would take about half a million. You made the problem about 167 times bigger and the work 33,300 times bigger."
 - **Big-O ignores constants:** "Big-O is not a stopwatch. It is a prediction about what happens when the data grows. It answers 'will this still work next year when we have a hundred times more users.'"
 - **Why write bubble sort at all:** "So that you know what you are buying when you call `.sort()`. Professionals do not write sorting algorithms. Professionals know what sorting costs."
 - **The halting problem:** "This is not a gap in our knowledge that a smarter person will close. It is a proof that the thing cannot exist. Computing has a hard edge, and Turing found it before the first computer was built."
