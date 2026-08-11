@@ -54,6 +54,12 @@ COURSE_NAME = "Computer Science"
 SYLLABUS_SOURCE = "syllabus/parent-syllabus.md"
 SYLLABUS_TITLE = "Course Syllabus"
 
+# The parent one-pager is a self-contained web page whose layout is CSS,
+# so it is uploaded as-is rather than converted to a Doc, which would
+# flatten the swim lanes it depends on.
+ONEPAGER_SOURCE = "syllabus/course-vs-ap-at-a-glance.html"
+ONEPAGER_TITLE = "Course vs AP at a Glance"
+
 # Sections whose heading matches this get the "optional/bonus" palette
 # instead of the default one, so the AP work reads as clearly separate.
 EXTRA_CREDIT_RE = re.compile(r"extra credit|ap track", re.IGNORECASE)
@@ -597,6 +603,32 @@ def find_existing_doc(drive, folder_id: str, title: str):
     return files[0]["id"] if files else None
 
 
+def find_existing_file(drive, folder_id: str, title: str):
+    """Any file with this title in the folder, whatever its type."""
+    query = f"name = '{title}' and '{folder_id}' in parents and trashed = false"
+    files = drive.files().list(q=query, fields="files(id, name)").execute().get("files", [])
+    return files[0]["id"] if files else None
+
+
+def upload_raw_file(drive, folder_id: str, title: str, data: bytes,
+                    mimetype: str, existing_id: str = None) -> str:
+    """
+    Upload a file without converting it to a Google format.
+
+    Omitting the Docs mimeType on create is the whole point: it keeps the
+    file as-is instead of importing it.
+    """
+    media = MediaInMemoryUpload(data, mimetype=mimetype, resumable=True)
+    if existing_id:
+        drive.files().update(fileId=existing_id, media_body=media).execute()
+        return existing_id
+    return drive.files().create(
+        body={"name": title, "parents": [folder_id]},
+        media_body=media,
+        fields="id",
+    ).execute()["id"]
+
+
 def upload_doc(drive, folder_id: str, title: str, html: str, existing_id: str = None) -> str:
     media = MediaInMemoryUpload(html.encode("utf-8"), mimetype="text/html", resumable=True)
     if existing_id:
@@ -684,6 +716,18 @@ def main():
             apply_doc_formatting(docs, doc_id)
             print(f"{'Updated' if existing_id else 'Created'}: {SYLLABUS_TITLE}  "
                   f"(fileId {doc_id})")
+
+        onepager = Path(args.repo) / ONEPAGER_SOURCE
+        if not onepager.is_file():
+            print(f"WARNING: no one-pager at {onepager}. Skipping.")
+        elif args.dry_run:
+            print(f"[dry run] would upload file: {ONEPAGER_TITLE}")
+        else:
+            existing_id = find_existing_file(drive, folder_id, ONEPAGER_TITLE)
+            file_id = upload_raw_file(drive, folder_id, ONEPAGER_TITLE,
+                                      onepager.read_bytes(), "text/html", existing_id)
+            print(f"{'Updated' if existing_id else 'Created'}: {ONEPAGER_TITLE}  "
+                  f"(fileId {file_id})")
 
     print("\nDone. Run sync_classroom.py next to attach these to assignments.")
 

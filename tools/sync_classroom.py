@@ -43,7 +43,9 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from classroom_auth import get_services
-from publish_handouts_to_docs import QUESTION_RE, SYLLABUS_TITLE, handout_intro
+from publish_handouts_to_docs import (
+    ONEPAGER_TITLE, QUESTION_RE, SYLLABUS_TITLE, handout_intro,
+)
 
 # Matches the rubric shorthand in the curriculum (4 = works and can
 # explain, 3 = works, 2 = partly, ...), so the Classroom grade is the
@@ -146,6 +148,20 @@ def existing_coursework(classroom, course_id: str) -> dict:
             return found
 
 
+def find_file_id(drive, folder_name: str, title: str):
+    """Any file with this title in the folder, whatever its type."""
+    folder_q = (
+        f"name = '{folder_name}' and mimeType = 'application/vnd.google-apps.folder' "
+        "and trashed = false"
+    )
+    folders = drive.files().list(q=folder_q, fields="files(id)").execute().get("files", [])
+    if not folders:
+        return None
+    q = f"name = '{title}' and '{folders[0]['id']}' in parents and trashed = false"
+    files = drive.files().list(q=q, fields="files(id)").execute().get("files", [])
+    return files[0]["id"] if files else None
+
+
 def find_doc_id(drive, folder_name: str, title: str):
     folder_q = (
         f"name = '{folder_name}' and mimeType = 'application/vnd.google-apps.folder' "
@@ -194,47 +210,73 @@ def assignment_description(handouts_dir: Path, week: int) -> str:
     return f"{intro}\n\n{TURN_IN_NOTE}".strip()
 
 
-def sync_syllabus(classroom, drive, course_id: str, folder_name: str,
-                  topic_id: str, state: str, dry_run: bool):
-    """
-    Attach the syllabus Doc as a Classroom Material.
+INFO_MATERIALS = [
+    (SYLLABUS_TITLE,
+     "Course overview, time commitment, grading, accounts and devices. "
+     "Read this first."),
+    (ONEPAGER_TITLE,
+     "One-page visual for parents: what the course covers against the AP CSP "
+     "core, unit by unit. Download and open in any browser; prints to letter."),
+]
 
-    A Material, not coursework: there is nothing to hand in or grade. It
+
+def sync_info_materials(classroom, drive, course_id: str, folder_name: str,
+                        topic_id: str, state: str, dry_run: bool, refresh: bool):
+    """
+    Attach the Course Information items as Classroom Materials.
+
+    Materials, not coursework: there is nothing to hand in or grade. Each
     is shared read-only (shareMode VIEW) rather than copied per student,
-    so that editing the one Doc updates what everyone sees.
+    so editing the one file updates what everyone sees.
     """
-    if dry_run:
-        print(f"[dry run] would add material: {SYLLABUS_TITLE}  "
-              f"(topic: {INFO_TOPIC_NAME}, state: {state})")
-        return
+    existing = {}
+    if not dry_run:
+        existing = {
+            m.get("title"): m
+            for m in classroom.courses().courseWorkMaterials().list(
+                courseId=course_id,
+                courseWorkMaterialStates=["PUBLISHED", "DRAFT"],
+            ).execute().get("courseWorkMaterial", [])
+        }
 
-    doc_id = find_doc_id(drive, folder_name, SYLLABUS_TITLE)
-    if not doc_id:
-        print(f"WARNING: no '{SYLLABUS_TITLE}' Doc in '{folder_name}'. "
-              f"Run publish_handouts_to_docs.py --syllabus first. Skipping.")
-        return
+    for title, description in INFO_MATERIALS:
+        if dry_run:
+            print(f"[dry run] would add material: {title}  "
+                  f"(topic: {INFO_TOPIC_NAME}, state: {state})")
+            continue
 
-    for material in classroom.courses().courseWorkMaterials().list(
+        if title in existing:
+            if refresh:
+                classroom.courses().courseWorkMaterials().patch(
+                    courseId=course_id,
+                    id=existing[title]["id"],
+                    updateMask="description,state",
+                    body={"description": description, "state": state},
+                ).execute()
+                print(f"{'Published' if state == 'PUBLISHED' else 'Refreshed'}"
+                      f" material: {title}")
+            else:
+                print(f"Skip (already exists): {title}")
+            continue
+
+        file_id = find_file_id(drive, folder_name, title)
+        if not file_id:
+            print(f"WARNING: no '{title}' in '{folder_name}'. "
+                  f"Run publish_handouts_to_docs.py --syllabus first. Skipping.")
+            continue
+
+        classroom.courses().courseWorkMaterials().create(
             courseId=course_id,
-            courseWorkMaterialStates=["PUBLISHED", "DRAFT"]).execute().get(
-            "courseWorkMaterial", []):
-        if material.get("title") == SYLLABUS_TITLE:
-            print(f"Skip (already exists): {SYLLABUS_TITLE}")
-            return
-
-    classroom.courses().courseWorkMaterials().create(
-        courseId=course_id,
-        body={
-            "title": SYLLABUS_TITLE,
-            "description": "Course overview, time commitment, grading, "
-                           "accounts and devices. Read this first.",
-            "state": state,
-            "topicId": topic_id,
-            "materials": [{"driveFile": {"driveFile": {"id": doc_id},
-                                         "shareMode": "VIEW"}}],
-        },
-    ).execute()
-    print(f"Created ({state}) material: {SYLLABUS_TITLE}  -> topic '{INFO_TOPIC_NAME}'")
+            body={
+                "title": title,
+                "description": description,
+                "state": state,
+                "topicId": topic_id,
+                "materials": [{"driveFile": {"driveFile": {"id": file_id},
+                                             "shareMode": "VIEW"}}],
+            },
+        ).execute()
+        print(f"Created ({state}) material: {title}  -> topic '{INFO_TOPIC_NAME}'")
 
 
 def questions_for_week(handouts_dir: Path, week: int):
@@ -325,8 +367,9 @@ def main():
     state = "PUBLISHED" if args.publish else "DRAFT"
 
     if args.syllabus:
-        sync_syllabus(classroom, drive, args.course_id, args.folder_name,
-                      topics.get(INFO_TOPIC_NAME), state, args.dry_run)
+        sync_info_materials(classroom, drive, args.course_id, args.folder_name,
+                            topics.get(INFO_TOPIC_NAME), state, args.dry_run,
+                            args.refresh)
     existing = {} if args.dry_run else existing_coursework(classroom, args.course_id)
 
     for week in weeks:
