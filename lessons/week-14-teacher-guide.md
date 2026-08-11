@@ -39,7 +39,7 @@ From this week on, hand out the AP pseudocode bridge sheet and use two of its tr
 
 - Tape the sorting network. Lay six parallel lanes running left to right, about 60 cm apart, each about 3 m long. Then tape short rungs between adjacent lanes in a brick pattern: column 1 has rungs joining lanes 1 and 2, lanes 3 and 4, and lanes 5 and 6; column 2 has rungs joining lanes 2 and 3 and lanes 4 and 5; and so on alternating for six columns in total. Number the lanes 1 to 6 at the entry end. (20 min)
 - Walk the network once yourself with six numbered slips of paper, moving them by hand, to confirm the layout sorts. (10 min)
-- Write and test the search-race program and the sort-comparison program on the demo machine, and note the actual timings you get, since they vary by machine and students will ask. (20 min)
+- Write and test the search-race program and the sort-comparison program on the demo machine, and note the actual timings you get, since they vary by machine and students will ask. Put the sort-comparison program in the shared folder as a starter file; it is demonstrated rather than typed. (20 min)
 - Rehearse the halting-problem argument out loud once. It is fifteen minutes of pure reasoning with no props, and it only lands if the delivery is tight. (10 min)
 - Print homework handouts and bridge sheets. (10 min)
 
@@ -87,15 +87,20 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
 
 ### Segment 4: Stretch (0:50 to 0:55)
 
+- A short break. Collect the number cards and clear the sorting-network lanes so nobody trips on the tape for the rest of the session.
+
 ### Segment 5: The search race and the sort visualization (0:55 to 1:20), Coding strand
 
-- **You do:** Build the race at the projector. Make the list large enough that the difference is unmissable:
+**Budget this segment before you start it, because it is the one most likely to overrun.** Roughly eight minutes to build the two searches at the projector, ten for students to run the size table, three for the shuffle-and-fail, and the last four for the sort race as a demonstration. The searches are the objective here; the sort race is the payoff and is the first thing to shorten.
+
+- **You do:** Build the race at the projector. Make the list large enough that the difference is unmissable, and pull the size out into its own variable, because students change it in a moment and the target has to move with it:
 
   ```python
   import time
 
-  data = list(range(1, 1000001))
-  target = 999999
+  size = 1000000
+  data = list(range(1, size + 1))
+  target = size
 
   start = time.time()
   found = -1
@@ -125,9 +130,9 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
   print("binary:", time.time() - start, "seconds, in", steps, "steps")
   ```
 - **You do:** Read the step count out loud. About twenty steps for a million items, and never more than twenty. Point back at the board where they wrote 20 for a million during Guess My Number and say: same algorithm, you invented it an hour ago.
-- **Students do:** Run both, then change the list size to 100, 10000, and 1000000 and record the timings in a table. They will see linear search's time grow in step with the list and binary search's barely move.
+- **Students do:** Run both, then change `size` to 100, 10000, and 1000000 and record the timings in a table. One number changes each time, which is the reason `target` was written as `size` rather than a literal. They will see linear search's time grow in step with the list and binary search's barely move.
 - **You do:** Break binary search on purpose. Shuffle the list with `random.shuffle(data)` and run the binary search again. It fails to find the target. Ask why. This is the precondition from Segment 1, now proven in code.
-- **Students do:** Time bubble sort against Python's built-in sort:
+- **You do:** Run the sort race at the projector, with students following on their own machines from a starter file you put in the shared folder before class. Do not have them type it. Nothing in this week's objectives asks a student to write a timing harness, they wrote the nested loop that makes bubble sort slow back in Week 9, and typing twenty lines here is what pushes the segment past its budget. What they need is to watch the two numbers and to see what happens when the input doubles.
 
   ```python
   import random
@@ -154,7 +159,7 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
   copy.sort()
   print("built-in:", time.time() - start)
   ```
-- **You do:** Have them double the 2000 to 4000 and run again. Bubble sort takes roughly four times as long; the built-in barely notices. Say the professional lesson plainly: you learn to write bubble sort so you understand what sorting costs, and then you call the built-in sort for the rest of your life.
+- **You do:** Double the 2000 to 4000 and run again. Bubble sort takes roughly four times as long; the built-in barely notices. Say the professional lesson plainly: you learn to write bubble sort so you understand what sorting costs, and then you call the built-in sort for the rest of your life.
 
 ### Segment 6: Big-O, conceptually (1:20 to 1:35), Systems strand
 
@@ -206,7 +211,7 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
 - **Linear versus binary search:** "Looking for a name in the phone book by starting at page one, versus opening the middle. Both work. One of them ends before lunch."
 - **The precondition:** "Binary search buys its speed with an assumption. If the list is not sorted, 'higher' and 'lower' are lies, and the algorithm walks confidently to the wrong place."
 - **On logarithms without saying logarithm:** "Every time you double the data, binary search costs you one more step. One. That is the whole reason computers can search things the size of the internet."
-- **n squared:** "Eight students took about 28 comparisons. A thousand students take about half a million. You did not make the problem 125 times bigger; you made the work 15,000 times bigger."
+- **n squared:** "Eight students took about 28 comparisons. A thousand students take about half a million. You made the problem 125 times bigger and the work almost 18,000 times bigger."
 - **Big-O ignores constants:** "Big-O is not a stopwatch. It is a prediction about what happens when the data grows. It answers 'will this still work next year when we have a hundred times more users.'"
 - **Why write bubble sort at all:** "So that you know what you are buying when you call `.sort()`. Professionals do not write sorting algorithms. Professionals know what sorting costs."
 - **The halting problem:** "This is not a gap in our knowledge that a smarter person will close. It is a proof that the thing cannot exist. Computing has a hard edge, and Turing found it before the first computer was built."
