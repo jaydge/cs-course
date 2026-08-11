@@ -54,10 +54,18 @@ COURSE_NAME = "Computer Science"
 SYLLABUS_SOURCE = "syllabus/parent-syllabus.md"
 SYLLABUS_TITLE = "Course Syllabus"
 
-# The parent one-pager is a self-contained web page whose layout is CSS,
-# so it is uploaded as-is rather than converted to a Doc, which would
-# flatten the swim lanes it depends on.
-ONEPAGER_SOURCE = "syllabus/course-vs-ap-at-a-glance.html"
+# The parent one-pager is a CSS layout, so it is never converted to a Doc,
+# which would flatten the swim lanes it is built from. The PDF is preferred
+# because Classroom previews a PDF inline, while an HTML attachment has to
+# be downloaded and opened before it renders at all. Regenerate it with:
+#   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+#     --headless --no-pdf-header-footer \
+#     --print-to-pdf=syllabus/course-vs-ap-at-a-glance.pdf \
+#     file://$PWD/syllabus/course-vs-ap-at-a-glance.html
+ONEPAGER_SOURCES = [
+    ("syllabus/course-vs-ap-at-a-glance.pdf", "application/pdf"),
+    ("syllabus/course-vs-ap-at-a-glance.html", "text/html"),
+]
 ONEPAGER_TITLE = "Course vs AP at a Glance"
 
 # Sections whose heading matches this get the "optional/bonus" palette
@@ -620,10 +628,15 @@ def upload_raw_file(drive, folder_id: str, title: str, data: bytes,
     """
     media = MediaInMemoryUpload(data, mimetype=mimetype, resumable=True)
     if existing_id:
-        drive.files().update(fileId=existing_id, media_body=media).execute()
+        # mimeType has to be restated: an update replaces the bytes but
+        # leaves the recorded type alone, so swapping HTML for PDF would
+        # otherwise leave a PDF still labelled text/html.
+        drive.files().update(
+            fileId=existing_id, body={"mimeType": mimetype}, media_body=media
+        ).execute()
         return existing_id
     return drive.files().create(
-        body={"name": title, "parents": [folder_id]},
+        body={"name": title, "parents": [folder_id], "mimeType": mimetype},
         media_body=media,
         fields="id",
     ).execute()["id"]
@@ -717,17 +730,21 @@ def main():
             print(f"{'Updated' if existing_id else 'Created'}: {SYLLABUS_TITLE}  "
                   f"(fileId {doc_id})")
 
-        onepager = Path(args.repo) / ONEPAGER_SOURCE
-        if not onepager.is_file():
-            print(f"WARNING: no one-pager at {onepager}. Skipping.")
+        onepager, mimetype = next(
+            ((Path(args.repo) / rel, mime) for rel, mime in ONEPAGER_SOURCES
+             if (Path(args.repo) / rel).is_file()),
+            (None, None),
+        )
+        if onepager is None:
+            print(f"WARNING: no one-pager found in {args.repo}/syllabus. Skipping.")
         elif args.dry_run:
-            print(f"[dry run] would upload file: {ONEPAGER_TITLE}")
+            print(f"[dry run] would upload file: {ONEPAGER_TITLE} ({mimetype})")
         else:
             existing_id = find_existing_file(drive, folder_id, ONEPAGER_TITLE)
             file_id = upload_raw_file(drive, folder_id, ONEPAGER_TITLE,
-                                      onepager.read_bytes(), "text/html", existing_id)
+                                      onepager.read_bytes(), mimetype, existing_id)
             print(f"{'Updated' if existing_id else 'Created'}: {ONEPAGER_TITLE}  "
-                  f"(fileId {file_id})")
+                  f"({mimetype}, fileId {file_id})")
 
     print("\nDone. Run sync_classroom.py next to attach these to assignments.")
 

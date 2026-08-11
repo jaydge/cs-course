@@ -215,8 +215,8 @@ INFO_MATERIALS = [
      "Course overview, time commitment, grading, accounts and devices. "
      "Read this first."),
     (ONEPAGER_TITLE,
-     "One-page visual for parents: what the course covers against the AP CSP "
-     "core, unit by unit. Download and open in any browser; prints to letter."),
+     "A visual for parents: what the course covers against the AP CSP core, "
+     "unit by unit. Two pages; prints to letter."),
 ]
 
 
