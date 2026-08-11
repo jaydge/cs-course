@@ -73,7 +73,7 @@ Unit 4 opens next week with operating systems and the terminal, and the systems 
 
 ### Segment 3: Build the text adventure (0:20 to 1:00), Coding strand part 2
 
-- **You do:** Give them the `Player` class as a starting point and read it aloud once:
+- **You do:** Give them the `Player` class with `move` written and `take` left for them, and read it aloud once. Handing over the whole class is the Section 8 accommodation for students who need it, so do not give it to the room by default; `take` is two lines and they have had `.append` since Week 7.
 
   ```python
   class Player:
@@ -89,8 +89,8 @@ Unit 4 opens next week with operating systems and the terminal, and the systems 
           return False
 
       def take(self, item):
-          self.bag.append(item)
-          return "You picked up the " + item + "."
+          # Yours to write. Put the item in the bag and
+          # return a sentence saying what was picked up.
   ```
 
   Point out that `move` returns True or False rather than printing. That is the Week 5 distinction, still earning its keep: the game loop decides what to say, and the class decides what is legal.
@@ -116,7 +116,11 @@ Unit 4 opens next week with operating systems and the terminal, and the systems 
 
 ### Segment 4: Stretch (1:00 to 1:05)
 
+- A short break. Leave the room map on the board; the builds are still open and students will keep glancing at it.
+
 ### Segment 5: Simulation (1:05 to 1:25), Coding strand part 3
+
+**Budget this segment.** Steps 1 through 4 are yours and take about six minutes. Step 5 takes four. Step 6, the random walk, is the only place students write a simulation themselves, so it needs a full six, which leaves four for steps 7 and 8. If step 6 is going to be cut for time, cut steps 5 and 8 instead and keep it; the objective says write a simulation, not run one.
 
 1. **Ask the question first.** Roll two dice and add them. Which total comes up most often, and how much more often? Take predictions and write three of them on the board. Many students say all totals are equally likely.
 2. **Say why we would simulate rather than calculate.** You could work it out with probability. You could also roll dice ten thousand times, which nobody wants to do by hand. A simulation is the third option: build a small model of the thing and let the computer do the tedious part.
@@ -125,16 +129,21 @@ Unit 4 opens next week with operating systems and the terminal, and the systems 
    ```python
    import random
 
+   trials = 1000
+   bar = 10
+
    counts = {}
-   for trial in range(1000):
+   for trial in range(trials):
        total = random.randint(1, 6) + random.randint(1, 6)
        counts[total] = counts.get(total, 0) + 1
 
    for total in range(2, 13):
-       print(total, "*" * (counts.get(total, 0) // 10))
+       print(total, "*" * (counts.get(total, 0) // bar))
    ```
+
+   The two variables at the top exist because of step 5. `bar` is how many rolls one asterisk stands for, and it has to grow with `trials` or the picture breaks: leave it at 10 and a hundred trials draws almost no asterisks at all, while a hundred thousand draws over a thousand of them and wraps around the screen.
 4. **Read the output as a shape.** The asterisks form a triangle peaking at 7. Ask why 7 and not 2. Get them to count the ways: there are six ways to make 7 and one way to make 2.
-5. **Students do:** Run it at 100 trials, then 1000, then 100000. The shape gets cleaner as the trials increase. Name that plainly: more trials means less noise, and a simulation run once tells you almost nothing.
+5. **Students do:** Run it at 100 trials, then 1000, then 100000, changing `bar` to 1, 10, and 1000 to match. The shape gets cleaner as the trials increase. Name that plainly: more trials means less noise, and a simulation run once tells you almost nothing.
 6. **Students do, second variant:** A random walk, which is the same idea with a different question:
 
    ```python
@@ -146,7 +155,7 @@ Unit 4 opens next week with operating systems and the terminal, and the systems 
    print("Ended at", position)
    ```
 
-   Have them wrap that in an outer loop of 1000 walks and count how many end further than 20 steps from the start.
+   Have them wrap that in an outer loop of 1000 walks and count how many end further than 20 steps from the start, in either direction. They need a way to say "distance from zero, ignoring the sign," and nothing in the course has given them one, so introduce `abs()` at the projector before they start: `abs(-7)` and `abs(7)` are both 7, so the test is `if abs(position) > 20`. One line, said once, or half the room will write only `position > 20` and quietly count half the walks.
 7. **Land the AP framing in three sentences.** A simulation is a program that models something real. It always simplifies, leaving out details that do not matter for the question being asked, and that simplification is a feature rather than a flaw. We use one when the real experiment would be too slow, too expensive, too dangerous, or simply impossible, and the price we pay is that the answer is only as good as the model.
 8. **Ask for the limits.** What does the dice model leave out? Everything: the table, the throw, tiny weight differences in the dice. Ask when that would matter. If you were testing whether a specific casino's dice were loaded, this model would be worthless.
 

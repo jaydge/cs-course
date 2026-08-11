@@ -20,6 +20,8 @@ Save it into your CS Class folder.
 
 Take the dice simulation from class. Run it three times with different trial counts: 100, 1,000, and 100,000.
 
+Change `bar` along with `trials`, to 1, 10, and 1000 in that order. `bar` is how many rolls one asterisk stands for. If you leave it at 10 for all three runs, the 100-trial run draws almost nothing and the 100,000-trial run draws over a thousand asterisks per line and wraps around your screen. The counts underneath are still correct either way; it is only the picture that breaks.
+
 Answer these in a sentence or two each:
 
 1. Which total came up most often at 100,000 trials? Why that one?
