@@ -57,7 +57,7 @@ The important part: this is opt-in per student and completely exam-free for ever
 
 ## The course at a glance, visually
 
-A one-page companion to this syllabus, `course-vs-ap-at-a-glance.html` in this folder, shows the whole year in two side-by-side lanes: the complete AP CSP core on one side and everything this course adds on top of it on the other. It is the fastest way to see what makes this course different. Open it in any browser or ask the instructor for a printed copy.
+A two-page companion to this syllabus, "Course vs AP at a Glance," shows the whole year in two side-by-side lanes: the complete AP CSP core on one side and everything this course adds on top of it on the other. It is the fastest way to see what makes this course different. It is posted in Google Classroom under Course Information, and the instructor can provide a printed copy.
 
 ## Questions
 

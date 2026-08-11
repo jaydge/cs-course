@@ -26,7 +26,15 @@ Start with the curriculum. Everything else is a companion it references.
 
 ### syllabus/
 - **parent-syllabus.md** — the parent-facing syllabus: course overview, time commitment, unit schedule, grading, accounts and consent, devices, optional prep, and the opt-in AP track in plain language.
-- **course-vs-ap-at-a-glance.html** — a printable one-page visual for parents: two swim lanes showing the complete AP CSP core on the left and everything the course layers on top of it on the right, unit by unit, with the real-local-machine differentiator called out. Open in any browser; prints to letter.
+- **course-vs-ap-at-a-glance.html** — a printable visual for parents: two swim lanes showing the complete AP CSP core on the left and everything the course layers on top of it on the right, unit by unit, with the real-local-machine differentiator called out. Open in any browser; prints to letter across two pages. This HTML file is the source of record; edit it here.
+- **course-vs-ap-at-a-glance.pdf** — the same visual rendered to PDF, and the copy attached in Google Classroom, since Classroom previews a PDF inline while an HTML attachment has to be downloaded before it renders. It is generated from the HTML, so regenerate it after any edit rather than editing it directly:
+
+```
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --no-pdf-header-footer \
+  --print-to-pdf=syllabus/course-vs-ap-at-a-glance.pdf \
+  file://$PWD/syllabus/course-vs-ap-at-a-glance.html
+```
 
 ### lessons/
 - Per-week in-depth teacher guides. **week-01-teacher-guide.md** is the format prototype; the remaining weeks follow its structure.
