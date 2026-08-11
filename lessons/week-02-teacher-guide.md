@@ -89,8 +89,9 @@ Full steps below; the related canonical activity is in Section 13.
 ### Segment 6: Numbers vs text in Python (1:35 to 1:55), Coding strand part 2
 
 - **You do:** Live-code the classic trap: `age = input("Age? ")` then `print(age + 1)`. It crashes. Read the error together: `input` always hands you a string. Fix it with `int(age)`.
-- **Students do:** Write a tiny program: ask for a number, print that number doubled and that number plus 10. Then the guided build: a five-bit binary converter that uses the card method in code, five repetitive blocks of "is it at least 16? then subtract" logic scaffolded on the board with `//` and `%`. Provide the skeleton; students fill in the numbers. No loops yet; the repetition is the point, because when loops arrive in Week 4 this program is the one they will shorten.
-- **Purpose:** Integers, strings, arithmetic, and conversion, anchored to the morning's cards. The converter connects the two strands of the day into one artifact.
+- **Students do:** Write a tiny program: ask for a number, print that number doubled and that number plus 10. That is the core outcome for this segment; every student should reach it.
+- **Extension, for anyone who finishes with time left:** a five-bit binary converter that uses the card method in code, five repetitive blocks of "is it at least 16? then subtract" logic scaffolded on the board with `//` and `%`. Provide the skeleton; students fill in the numbers. No loops yet; the repetition is the point, because when loops arrive in Week 4 this program is the one they will shorten. See Section 8 for who this is aimed at and how far to take it.
+- **Purpose:** Integers, strings, arithmetic, and conversion, anchored to the morning's cards. The converter, for students who reach it, connects the two strands of the day into one artifact.
 
 ### Segment 7: Wrap and homework (1:55 to 2:00)
 
@@ -108,12 +109,12 @@ Full steps below; the related canonical activity is in Section 13.
 
 ## 8. Differentiation
 
-- **Younger or newer students:** Use the place-value alternate from the curriculum's Section 11: give them a printed conversion table (16, 8, 4, 2, 1 with checkboxes) and focus on reading binary and checking answers with the cards rather than multi-step mental arithmetic. Pair them for Segment 6 and let the pair share one converter program. It is fine if their converter handles only three bits.
-- **Extensions for advanced or AP-track students:** Spell their whole name in ASCII binary; extend the converter to eight bits; try `bin(n)` in the Thonny shell and compare with their own output. Point them at the Extra Credit AP Track section of this week's handout, which is squarely on topic for this session.
+- **Younger or newer students:** Use the place-value alternate from the curriculum's Section 11: give them a printed conversion table (16, 8, 4, 2, 1 with checkboxes) and focus on reading binary and checking answers with the cards rather than multi-step mental arithmetic. The doubling program in Segment 6 is their full outcome; the converter extension is not expected of them.
+- **Extensions for advanced or AP-track students, in order:** first, the five-bit binary converter from Segment 6, which is the main extension for this week and the one to offer first. Students who finish that with time left can spell their whole name in ASCII binary, extend the converter to eight bits, or try `bin(n)` in the Thonny shell and compare with their own output. Point them at the Extra Credit AP Track section of this week's handout, which is squarely on topic for this session.
 
 ## 9. Common pitfalls
 
-- **The double load runs long.** If you must cut, cut Segment 5 short (compression can compress) and protect Segment 3, the Python ramp. Do not let students leave a second week without having written a variables-and-input program.
+- **The double load runs long.** If you must cut, cut Segment 5 short (compression can compress) and protect Segment 3, the Python ramp. Do not let students leave a second week without having written a variables-and-input program. The Segment 6 converter is already an extension rather than a core deliverable, so a tight session simply means fewer students reach it; that is expected, not a failure to cut.
 - **Binary arithmetic anxiety.** Keep the cards on the table all session. A student who can set cards to make 13 understands binary; speed at mental conversion is not the objective and is explicitly scaffolded away for younger students.
 - **Cards drift out of order.** If a pair lays their cards smallest-first, their binary will read backwards and nothing will match the board. Check the left-to-right order as you circulate.
 - **`input` plus arithmetic crashes.** This is planned (Segment 6). Do not pre-empt it; the crash is the lesson.
