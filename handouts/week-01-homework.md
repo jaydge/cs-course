@@ -31,11 +31,11 @@ You will need a couple of accounts for class. Do this part with a parent, becaus
 
 ## 5. Quick reflection
 
-- Write two or three sentences: what felt different about using a laptop compared to an iPad or a phone? Save it as a file in your "CS Class" folder, which also gives you extra practice from step 1.
+- Write two or three sentences: what are some things you are hoping to be able to do by the end of this class? Save it as a file in your "CS Class" folder, which also gives you extra practice from step 1.
 
 {{writing-space}}
 
-{{question: What felt different about using a laptop compared to an iPad or a phone? Write two or three sentences.}}
+{{question: What are some things you are hoping to be able to do by the end of this class?}}
 
 > A note on getting help: do all of this yourself. Please do not use AI helpers like ChatGPT for any of it. We will learn how to use those later in the course, on purpose, once you have the basics down yourself. If you get stuck, that is completely normal. Try for a few minutes, write down your question, and ask at the start of next class.
 

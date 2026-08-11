@@ -99,7 +99,7 @@ Note on accounts: this session does not create student accounts in class. Accoun
 
 ## 10. Homework
 
-Light and confidence-building, appropriate for true beginners. Full details are in the student handout at `handouts/week-01-homework.md`. In summary: practice creating a folder and saving and finding a file; set up the class accounts with a parent; optional typing practice; an optional short video; and a two-to-three sentence reflection comparing the laptop to an iPad.
+Light and confidence-building, appropriate for true beginners. Full details are in the student handout at `handouts/week-01-homework.md`. In summary: practice creating a folder and saving and finding a file; set up the class accounts with a parent; optional typing practice; an optional short video; and a two-to-three sentence reflection on what they are hoping to be able to do by the end of the class.
 
 ## 11. Assessment
 
