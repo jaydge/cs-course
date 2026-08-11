@@ -32,7 +32,8 @@ The Human Robot Maze returns at its functions stage, and today it doubles as a b
 - The taped floor maze. Retape a 6 by 6 grid with a start, a goal, and three or four walls if it came up.
 - Index cards for maze programs, several per team.
 - Each student's laptop with Thonny; projector for live coding.
-- Whiteboard with the theme question written large, and space for the error-type list, which stays up all session.
+- Whiteboard with the theme question written large.
+- The error-type table from Segment 3, printed as a poster before class and posted where it stays visible all session.
 - Printed Week 15 homework handout, one per student.
 - Printed copies of three prepared broken programs, one per pair. See the prep checklist.
 - Two AP pseudocode trace problems written on the board before students arrive.
@@ -44,7 +45,7 @@ The Human Robot Maze returns at its functions stage, and today it doubles as a b
 - Write and test the Tic-Tac-Toe skeleton and its three tests in the exact form you will hand out, and decide how much of the game loop students get. (25 min)
 - Confirm the maze layout and pick the one deliberate bug you will plant in the swapped programs. (10 min)
 - Refresh yourself on Thonny's debugger: Control-F5 to start stepping, F6 for a big step, F7 for a small step. (5 min)
-- Print homework handouts and broken programs. (10 min)
+- Print homework handouts, the broken programs, and the error-type poster. (10 min)
 
 ## 6. Minute-by-minute class flow
 
@@ -81,6 +82,8 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
 
 ### Segment 3: Reading a traceback properly (0:30 to 0:50), Coding strand part 1
 
+**Budget this segment.** Steps 1 through 7 are yours and should take ten minutes together, which means the traceback reading is unhurried and the Thonny walkthrough really is ninety seconds. Step 8 is the students' and needs the remaining ten. If you find yourself at 0:45 still talking, skip step 7 and go straight to the pairs; the debugger is a Week 5 reminder and the pair debugging is the objective.
+
 1. **Run the crashing program at the projector.** Use one with two functions so the traceback has two frames:
 
    ```python
@@ -95,7 +98,7 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
 2. **Read the traceback out loud, bottom up.** The last line names the error type and gives the message: `ZeroDivisionError: division by zero`. The lines above are the call stack, printed oldest first. Point at each frame and say who called whom: the module called `report`, `report` called `average`, and `average` is where it died.
 3. **Connect it to Week 13.** That call stack is a stack, the same last-in-first-out pile of plates. Python prints it from the bottom of the pile upward, which is why the line you care about is usually last.
 4. **Say the thing students most need to hear.** The line Python reports is where the problem was *noticed*, not always where the mistake was *made*. Here the mistake is at `report([])`, three lines away from the reported crash.
-5. **Build the error-type list on the board** and leave it up:
+5. **Put the error-type list up** and leave it there all session. Print it as a poster before class rather than writing it out live; seven rows costs three or four minutes at the whiteboard and this segment does not have them. Read it aloud instead, one row at a time, which is where the value is:
 
    | Error | What it usually means |
    |---|---|
@@ -107,12 +110,14 @@ Run this from the steps below. The canonical source is in Section 13 for prep.
    | `KeyError` | Dictionary key that is not there |
    | `AttributeError` | Asked an object for something it does not have |
 
-   Note that the last three are new since Week 5 and are direct products of Units 3's dictionaries, lists, and classes.
+   Note that the last three are new since Week 5 and are direct products of Unit 3's dictionaries, lists, and classes. Expect someone to point out that the crash you just demonstrated, `ZeroDivisionError`, is not on the list. Say why: these seven are the ones they will meet constantly and should recognize on sight, and Python has dozens more that all read the same way once you know where to look on the traceback. Recognizing the shape matters more than memorizing the catalogue.
 6. **Show the silent bug.** Run a program that produces a wrong answer with no traceback at all. Ask where it goes wrong; nobody can say. Add prints on every variable, run again, and watch where reality diverges from expectation. Name the tactic: when the program lies, make it show its work.
 7. **Step through the same program with Thonny's debugger.** Control-F5, then F6 and F7, watching the variables panel. Ninety seconds is enough; they saw this in Week 5 and need the reminder, not the tour.
 8. **Students do, in pairs:** Each pair takes one of the three prepared broken programs, names the error type, identifies the actual mistake as opposed to the reported line, and fixes it.
 
 ### Segment 4: Stretch (0:50 to 0:55)
+
+- A short break. Collect the maze cards and the broken-program printouts, and leave the error-type poster up.
 
 ### Segment 5: Writing tests (0:55 to 1:20), Coding strand part 2
 
