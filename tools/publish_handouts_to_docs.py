@@ -82,6 +82,10 @@ WRITING_SPACE_LINES = 6
 # this tool skips it.
 QUESTION_RE = re.compile(r"^\{\{\s*question:\s*(.+?)\s*\}\}$")
 
+# Markdown's own "- [ ] " checkbox prefix, stripped because the checkbox
+# column renders a real one.
+TASK_MARKER_RE = re.compile(r"^\[[ xX]\]\s*")
+
 THEMES = {
     "default": {
         "border": "#b8cce4",
@@ -205,7 +209,10 @@ def _parse_blocks(md_text: str):
 
         item = re.match(r"^[-*]\s+(.*)$", line)
         if item:
-            emit(("task", item.group(1)))
+            # "- [ ] thing" is markdown's own checkbox syntax. The checkbox
+            # column already draws a real one, so drop the literal marker
+            # rather than showing a box next to a "[ ]".
+            emit(("task", TASK_MARKER_RE.sub("", item.group(1))))
             continue
 
         # "1. ", "2. " ... are numbered questions to work through. They get
