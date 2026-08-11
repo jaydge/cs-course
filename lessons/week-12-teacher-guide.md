@@ -76,7 +76,7 @@ Run this from the steps below. Canonical source is in Section 13 for prep.
    ```
 
    Ask which is safer if you do not know how far away the goal is. Let them argue for thirty seconds; the answer is the second, and they will get there.
-4. **Round 1.** Each team writes a program that is a single `REPEAT UNTIL` wrapped around a single conditional block. That is four or five written lines total, replacing last week's forty. Run two teams' programs.
+4. **Round 1.** Each team writes a program that is a single `REPEAT UNTIL` wrapped around a single conditional block. That is about ten written lines, replacing the ninety-odd they copied out last week. Say the ratio out loud; the shrink is the whole point of the segment. Run two teams' programs.
 5. **Move a wall and re-run the same card, unedited.** It still works. Say the payoff out loud: the program got shorter and more general at the same time, which almost never happens by accident.
 6. **Round 2, the failure case.** Give one team a maze where turning right forever traps the robot in a corner, or simply ask what happens if the goal is unreachable. Run it and let the robot spin. Name it: an infinite loop. Tell them to remember that spinning robot, because in two weeks they will meet a famous question about whether you can ever detect it in advance.
 7. **Debrief in one line.** A loop plus a conditional is a program that handles a whole family of mazes rather than one maze.
@@ -128,6 +128,8 @@ Run this from the steps below. Canonical source is in Section 13 for prep.
 - **Students do:** Type the `Pet` class exactly, make two pets, feed one, and print both hungers.
 
 ### Segment 4: Stretch (0:50 to 0:55)
+
+- A short break. Leave the blueprint drawing up on the board; the rest of the session refers back to it.
 
 ### Segment 5: Methods that carry state (0:55 to 1:20), Coding strand part 2
 
