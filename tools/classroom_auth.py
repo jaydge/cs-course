@@ -24,6 +24,10 @@ SCOPES = [
     "https://www.googleapis.com/auth/classroom.courses.readonly",
     "https://www.googleapis.com/auth/classroom.topics",
     "https://www.googleapis.com/auth/classroom.coursework.students",
+    # Materials (the syllabus) are a separate resource from coursework and
+    # need their own scope. Adding a scope invalidates any cached token,
+    # so the next run re-opens the browser once.
+    "https://www.googleapis.com/auth/classroom.courseworkmaterials",
     "https://www.googleapis.com/auth/drive.file",
 ]
 

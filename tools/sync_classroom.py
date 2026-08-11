@@ -43,7 +43,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from classroom_auth import get_services
-from publish_handouts_to_docs import QUESTION_RE, handout_intro
+from publish_handouts_to_docs import QUESTION_RE, SYLLABUS_TITLE, handout_intro
 
 # Matches the rubric shorthand in the curriculum (4 = works and can
 # explain, 3 = works, 2 = partly, ...), so the Classroom grade is the
@@ -70,6 +70,7 @@ UNITS = [
     (27, 32, "Unit 6: The Future of Computing"),
 ]
 AP_TOPIC_NAME = "AP Extra Credit Track"
+INFO_TOPIC_NAME = "Course Information"
 
 WEEK_FILE_RE = re.compile(r"week-(\d{2})-homework\.md$")
 
@@ -100,12 +101,12 @@ def list_courses(classroom):
         print(f"  {c['id']}  {c['name']}  ({c.get('courseState', '?')})")
 
 
-def get_or_create_topics(classroom, course_id: str, dry_run: bool) -> dict:
+def get_or_create_topics(classroom, course_id: str, dry_run: bool, extra=()) -> dict:
     """Returns {topic_name: topic_id}, creating any topic that doesn't exist yet."""
     existing = classroom.courses().topics().list(courseId=course_id).execute().get("topic", [])
     by_name = {t["name"]: t["topicId"] for t in existing}
 
-    wanted = [name for _, _, name in UNITS] + [AP_TOPIC_NAME]
+    wanted = list(extra) + [name for _, _, name in UNITS] + [AP_TOPIC_NAME]
     for name in wanted:
         if name in by_name:
             continue
@@ -193,6 +194,49 @@ def assignment_description(handouts_dir: Path, week: int) -> str:
     return f"{intro}\n\n{TURN_IN_NOTE}".strip()
 
 
+def sync_syllabus(classroom, drive, course_id: str, folder_name: str,
+                  topic_id: str, state: str, dry_run: bool):
+    """
+    Attach the syllabus Doc as a Classroom Material.
+
+    A Material, not coursework: there is nothing to hand in or grade. It
+    is shared read-only (shareMode VIEW) rather than copied per student,
+    so that editing the one Doc updates what everyone sees.
+    """
+    if dry_run:
+        print(f"[dry run] would add material: {SYLLABUS_TITLE}  "
+              f"(topic: {INFO_TOPIC_NAME}, state: {state})")
+        return
+
+    doc_id = find_doc_id(drive, folder_name, SYLLABUS_TITLE)
+    if not doc_id:
+        print(f"WARNING: no '{SYLLABUS_TITLE}' Doc in '{folder_name}'. "
+              f"Run publish_handouts_to_docs.py --syllabus first. Skipping.")
+        return
+
+    for material in classroom.courses().courseWorkMaterials().list(
+            courseId=course_id,
+            courseWorkMaterialStates=["PUBLISHED", "DRAFT"]).execute().get(
+            "courseWorkMaterial", []):
+        if material.get("title") == SYLLABUS_TITLE:
+            print(f"Skip (already exists): {SYLLABUS_TITLE}")
+            return
+
+    classroom.courses().courseWorkMaterials().create(
+        courseId=course_id,
+        body={
+            "title": SYLLABUS_TITLE,
+            "description": "Course overview, time commitment, grading, "
+                           "accounts and devices. Read this first.",
+            "state": state,
+            "topicId": topic_id,
+            "materials": [{"driveFile": {"driveFile": {"id": doc_id},
+                                         "shareMode": "VIEW"}}],
+        },
+    ).execute()
+    print(f"Created ({state}) material: {SYLLABUS_TITLE}  -> topic '{INFO_TOPIC_NAME}'")
+
+
 def questions_for_week(handouts_dir: Path, week: int):
     """Reflection prompts marked with {{question: ...}} in the week's handout."""
     path = handouts_dir / f"week-{week:02d}-homework.md"
@@ -228,6 +272,12 @@ def main():
         action="store_true",
         help="Create highest week first. Classroom sorts each topic newest-first and "
              "exposes no ordering field, so creating in reverse is what puts Week 01 on top.",
+    )
+    parser.add_argument(
+        "--syllabus",
+        action="store_true",
+        help=f"Create the '{INFO_TOPIC_NAME}' topic and add the syllabus Doc to it "
+             "as a Material (nothing to turn in).",
     )
     parser.add_argument(
         "--start-date",
@@ -269,8 +319,14 @@ def main():
 
     start_date = date.fromisoformat(args.start_date) if args.start_date else None
 
-    topics = get_or_create_topics(classroom, args.course_id, args.dry_run)
+    topics = get_or_create_topics(
+        classroom, args.course_id, args.dry_run,
+        extra=[INFO_TOPIC_NAME] if args.syllabus else [])
     state = "PUBLISHED" if args.publish else "DRAFT"
+
+    if args.syllabus:
+        sync_syllabus(classroom, drive, args.course_id, args.folder_name,
+                      topics.get(INFO_TOPIC_NAME), state, args.dry_run)
     existing = {} if args.dry_run else existing_coursework(classroom, args.course_id)
 
     for week in weeks:

@@ -49,6 +49,11 @@ BULLET_INDENT_START_PT = 18.0
 # Course name used in the document's own title line.
 COURSE_NAME = "Computer Science"
 
+# The syllabus is reference material rather than a handout, so it is
+# opt-in (--syllabus) and rendered without the checkbox tables.
+SYLLABUS_SOURCE = "syllabus/parent-syllabus.md"
+SYLLABUS_TITLE = "Course Syllabus"
+
 # Sections whose heading matches this get the "optional/bonus" palette
 # instead of the default one, so the AP work reads as clearly separate.
 EXTRA_CREDIT_RE = re.compile(r"extra credit|ap track", re.IGNORECASE)
@@ -248,6 +253,38 @@ def _render_mdtable(rows) -> str:
     return "".join(out)
 
 
+def _render_section_plain(section: dict) -> str:
+    """
+    A section as an ordinary document: heading, paragraphs, bullet list.
+
+    Reference material like the syllabus has nothing to tick off, so it
+    gets none of the checkbox-table treatment handouts use.
+    """
+    out = [f'<h3>{_inline(section["heading"])}</h3>']
+    in_list = False
+    for kind, text in section["rows"]:
+        if kind == "task":
+            if not in_list:
+                out.append("<ul>")
+                in_list = True
+            out.append(f"<li>{_inline(text)}</li>")
+            continue
+        if in_list:
+            out.append("</ul>")
+            in_list = False
+        if kind == "prose":
+            out.append(f'<p><span style="color:{BODY_FG};">{_inline(text)}</span></p>')
+        elif kind == "code":
+            out.append(f'<p>{_code_html(text)}</p>')
+        elif kind == "mdtable":
+            out.append(_render_mdtable(text))
+        elif kind == "space":
+            out.append("<p>" + "&nbsp;" + "<br>" * WRITING_SPACE_LINES + "</p>")
+    if in_list:
+        out.append("</ul>")
+    return "".join(out)
+
+
 def handout_intro(md_text: str) -> str:
     """
     The handout's opening paragraph -- the text between the title and the
@@ -322,12 +359,15 @@ def _render_section(section: dict) -> str:
     return "".join(out)
 
 
-def markdown_to_minimal_html(md_text: str) -> str:
+def markdown_to_minimal_html(md_text: str, checklist: bool = True) -> str:
     """
     Dependency-free markdown-to-HTML pass, tuned for the handout structure
     we actually use. Each "## " section becomes a checkbox table; "> " lines
     become a callout box; {{writing-space}} becomes blank writing room.
     Drive's import step turns this into a real formatted Google Doc.
+
+    checklist=False renders sections as ordinary headings and lists, for
+    reference documents like the syllabus that have nothing to tick off.
 
     Blank lines in the source are not meaningful here: spacing between
     blocks is emitted deliberately, because Docs collapses whatever it
@@ -336,7 +376,9 @@ def markdown_to_minimal_html(md_text: str) -> str:
     parts = []
 
     for kind, payload in _parse_blocks(md_text):
-        if kind == "title":
+        if kind == "title" and not checklist:
+            parts.append(f"<h2>{_inline(payload)}</h2>")
+        elif kind == "title":
             # "Week 1 Homework: Getting Comfortable With Your Laptop" becomes
             # a course-and-week line over a descriptive subtitle.
             lead, _, subtitle = payload.partition(":")
@@ -363,6 +405,8 @@ def markdown_to_minimal_html(md_text: str) -> str:
             parts.append(SPACER)
         elif kind == "space":
             parts.append("<p>" + "&nbsp;" + "<br>" * WRITING_SPACE_LINES + "</p>")
+        elif kind == "section" and not checklist:
+            parts.append(_render_section_plain(payload))
         elif kind == "section":
             # One blank line before every table: it separates the tables
             # from each other and from the intro paragraph above the first
@@ -579,6 +623,12 @@ def main():
         help="Drive folder to hold the generated Docs (created if missing)",
     )
     parser.add_argument("--weeks", default="", help="Range to act on, e.g. 1-5. Default: all weeks found.")
+    parser.add_argument(
+        "--syllabus",
+        action="store_true",
+        help=f"Also publish {SYLLABUS_SOURCE} as the '{SYLLABUS_TITLE}' Doc, "
+             "rendered as a plain document rather than a checklist.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="List what would happen, change nothing")
     args = parser.parse_args()
 
@@ -619,6 +669,21 @@ def main():
         boxes = apply_doc_formatting(docs, doc_id)
         action = "Updated" if existing_id else "Created"
         print(f"{action}: {title}  ({boxes} checkboxes, fileId {doc_id})")
+
+    if args.syllabus:
+        source = Path(args.repo) / SYLLABUS_SOURCE
+        if not source.is_file():
+            sys.exit(f"No syllabus found at {source}")
+        if args.dry_run:
+            print(f"[dry run] would create/update Doc: {SYLLABUS_TITLE}")
+        else:
+            html = markdown_to_minimal_html(source.read_text(encoding="utf-8"),
+                                            checklist=False)
+            existing_id = find_existing_doc(drive, folder_id, SYLLABUS_TITLE)
+            doc_id = upload_doc(drive, folder_id, SYLLABUS_TITLE, html, existing_id)
+            apply_doc_formatting(docs, doc_id)
+            print(f"{'Updated' if existing_id else 'Created'}: {SYLLABUS_TITLE}  "
+                  f"(fileId {doc_id})")
 
     print("\nDone. Run sync_classroom.py next to attach these to assignments.")
 
