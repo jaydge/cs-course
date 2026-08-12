@@ -173,7 +173,7 @@ Goal: the course starts feeling "real." Transition students from Thonny to the t
 - **W18:** The shell. Lab: terminal-only challenges (create, move, search files; pipes; write a tiny shell script). Coding: run Python from the command line; file read/write.
 - **W19:** Networking foundations: IP (v4/v6), MAC, DNS, DHCP, routers, switches, NAT. Lab: build the physical network with your switch and router; `ping`, `traceroute`.
 - **W20:** TCP/UDP, HTTP/HTTPS, TLS. Lab: capture packets with Wireshark; watch a page load. Coding: serve a folder with Python `http.server`; write a minimal request with `requests`.
-- **W21: "What happens when you open google.com?"** Trace it end to end. Lab: SSH into the MacBook class server; `git clone` from it. **Unit 4 checkpoint and mid-year "trace the button press" milestone.**
+- **W21: "What happens when you open google.com?"** Trace it end to end. Lab: SSH into the Raspberry Pi class server; `git clone` from it. **Unit 4 checkpoint and mid-year "trace the button press" milestone.**
 
 ### Unit 5: Building Modern Software (Weeks 22 to 26)
 Goal: connect everything into a working web app. Move to VS Code.
@@ -231,8 +231,8 @@ The classroom is **Mac-primary with some Windows**. That mix is an asset, not a 
 
 ### Already on hand
 - Instructor MacBook Pro (teaching machine)
-- Spare MacBooks: one as the always-on class server, the others for student use
-- Raspberry Pi (CanaKit, ~2023): IoT/embedded station
+- Spare MacBooks: for student use
+- Raspberry Pi (CanaKit, ~2023): the IoT/embedded station in Weeks 9 and 10, then repurposed to run headless as the always-on class server for Weeks 21, 23, and 29. RAM and storage on a 2023-era Pi are not a real constraint for that job: it is SSH plus a couple of small bare Git repositories and one lightweight Flask demo, for at most five students at a time.
 - Apple IIe with dot matrix printer and floppies: the "computing museum" and Day 1 demo
 - Networking kit: gigabit switch, old Wi-Fi router, ethernet cables
 - An old desktop PC to disassemble (easy to source cheaply)
@@ -254,10 +254,9 @@ The classroom is **Mac-primary with some Windows**. That mix is an asset, not a 
 Verify current laptop pricing and NextDNS plan details at purchase time; these ranges are approximate.
 
 ### Station layout (the classroom as a small tech company)
-- MacBook server: the "company server"
 - Switch: the "office network"
 - Router: the "internet gateway"
-- Raspberry Pi: the "IoT device"
+- Raspberry Pi: the "IoT device" in Weeks 9 and 10, the "company server" from Week 21 onward
 - Apple IIe: the "computing museum"
 - Disassembled PC and motherboard: the "hardware lab"
 

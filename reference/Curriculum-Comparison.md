@@ -60,7 +60,7 @@ The paid programs are explicitly designed so a parent without a CS background ca
 For balance, the things our course does that the paid and free platforms generally do not:
 
 - A single systems narrative from transistors to cloud AI, rather than a topic checklist.
-- Real hardware: the Apple IIe, a disassembled PC, the Raspberry Pi, a physical network, and a class server.
+- Real hardware: the Apple IIe, a disassembled PC, a physical network, and the Raspberry Pi, which doubles as the class server later in the year.
 - Unplugged, offline logic activities woven through the year.
 - The build-the-stack arc (logic gates to a CPU to a tiny language) via Turing Complete and nand2tetris.
 - A deliberate no-AI-until-taught policy so student work is genuinely theirs.
