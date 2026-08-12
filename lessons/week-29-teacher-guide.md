@@ -29,7 +29,7 @@ AP 4.3 Parallel and Distributed Computing is the one genuinely tested topic in t
 ## 4. Materials and setup
 
 - Projector and instructor machine with a browser.
-- The class MacBook server reachable over SSH, and the deployed Flask app from Unit 5 still live.
+- The Raspberry Pi class server reachable over SSH, and the Unit 5 Flask app running locally, ready to demo.
 - Docker installed on the instructor machine if you intend to run the container demo. It is optional; the segment works from the board.
 - Whiteboard with the theme question written large, and space for the abstraction ladder, which stays up all session.
 - Three composition notebooks or clipboards labeled Node A, Node B, Node C, for the Three Notebooks activity.
@@ -41,7 +41,7 @@ AP 4.3 Parallel and Distributed Computing is the one genuinely tested topic in t
 ## 5. Pre-class prep checklist
 
 - Decide whether you are running the Docker demo live. If yes, pull a small image and run it once beforehand so nothing downloads in front of the class. If no, the board version in Segment 3 is complete and you lose nothing. (15 min, or 0)
-- Have the Unit 5 Flask app running and its URL ready, plus an SSH session to the class server open in a second terminal tab. You will use both as the "one server" baseline. (10 min)
+- Have the Unit 5 Flask app running locally and its URL ready, plus an SSH session to the class server open in a second terminal tab. You will use both as the "one server" baseline. (10 min)
 - Work the three speedup problems in Segment 6 yourself and write the answer key. Getting one wrong on the board in front of the class is the fastest way to lose the AP topic of the week. (10 min)
 - Rehearse the Three Notebooks activity by walking through the message sequence alone. It has a specific ordering that produces the disagreement, and improvising it produces a muddle. (15 min)
 - Pre-rule the six blockchain pages. (5 min)
@@ -56,7 +56,7 @@ AP 4.3 Parallel and Distributed Computing is the one genuinely tested topic in t
 
 ### Segment 2: Servers, data centers, and virtualization (0:08 to 0:28), Systems strand
 
-1. **Start with the server they already have.** SSH into the class MacBook on the projector. Say plainly: this is a server. It is a computer that is on, has an address, and answers requests. There is nothing else to the definition. A server is a role, not a kind of hardware.
+1. **Start with the server they already have.** SSH into the class server, the same Raspberry Pi from Week 9, on the projector. Say plainly: this is a server. It is a computer that is on, has an address, and answers requests. There is nothing else to the definition. A server is a role, not a kind of hardware.
 2. **Scale it up in three steps and ask what breaks at each one.** One laptop serving your class. One rack serving a school. A hundred thousand machines serving a country. Take answers on what breaks: power, heat, network, the fact that machines fail.
 3. **Describe a data center as the answer to those four problems.** Redundant power feeds and generators and batteries. Enormous cooling, because a rack of servers is a space heater. Redundant network connections, often to multiple providers. And the design assumption that hardware fails constantly, so nothing important lives on one machine. Show the photograph if you have one.
 4. **Add the geography.** Regions and availability zones exist because a whole building can lose power, and because the speed of light is finite, so a server in Virginia answers a user in Virginia faster than one in Oregon. Tie back to Week 20's latency observations.
