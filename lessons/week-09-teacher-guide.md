@@ -27,6 +27,8 @@ This session also serves as the unit's Mystery Day. "Which part actually thinks?
 
 On the coding side, nested loops are the last new control structure before Unit 3. They are the piece students most often fake their way through, so the segment is built around predicting iteration counts out loud before running anything.
 
+This Pi has a second life after today. Once this week's demo is done, set it up to run headless and it becomes the always-on class server for Weeks 21, 23, and 29, so do not wipe or reimage the microSD card afterward. Setup steps for that role are in Week 21, Section 5.
+
 ## 4. Materials and setup
 
 - The dead or spare motherboard, plus the parts removed during last week's teardown if you left them out.
