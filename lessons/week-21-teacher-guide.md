@@ -32,7 +32,7 @@ The SSH lab is the practical send-off for Unit 4 and the bridge to Unit 5. It is
 ## 4. Materials and setup
 
 - The classroom network from Weeks 19 and 20, rebuilt and working: switch, router, cables, everyone connected.
-- **The MacBook class server**, powered, plugged into the switch, with Remote Login enabled and the seeded repository in place. Full setup steps are in Section 5.
+- **The Raspberry Pi class server**, the same Pi from Week 9 now running headless, powered, plugged into the switch, with SSH enabled and the seeded repository in place. Full setup steps are in Section 5.
 - The class server's hostname and IP address written on the board.
 - Whiteboard, and this is the one week where board space genuinely matters. You need the Week 19 network diagram and the Week 20 four-layer stack still visible, plus a long clear run of board for the trace itself. If you photographed the Week 10 stack board as that guide suggested, print it and pin it up.
 - Sticky notes or index cards for the trace build, roughly 30, plus markers.
@@ -44,9 +44,9 @@ The SSH lab is the practical send-off for Unit 4 and the bridge to Unit 5. It is
 ## 5. Pre-class prep checklist
 
 - **Set up the class server for SSH. Do this several days ahead, not the night before.** (45 min the first time)
-  1. On the MacBook acting as the server, log in as an administrator and open System Settings, General, Sharing, and turn on Remote Login. Note the line it displays telling you how to connect, which includes the machine's hostname, typically something ending in `.local`.
-  2. Decide on accounts. One account per student is better, because it makes the permissions lesson real and lets you show `who` with several people logged in. A single shared account is acceptable if time is short. Create the accounts as standard, non-admin users with simple passwords you will write on the board; nothing sensitive lives on this machine.
-  3. Under Remote Login's settings, confirm which users are allowed to connect and that your student accounts are included.
+  1. On the Raspberry Pi, run `sudo raspi-config`. Under Interface Options, enable SSH. Under System Options, set the hostname to `csserver`, so it resolves as `csserver.local` exactly as written below; Raspberry Pi OS ships with Avahi enabled by default, which is what makes the `.local` name work, the same as Bonjour did on a Mac. Reboot after changing the hostname.
+  2. Decide on accounts. One account per student is better, because it makes the permissions lesson real and lets you show `who` with several people logged in. A single shared account is acceptable if time is short. Create the accounts as standard users, not the default `pi` account, with simple passwords you will write on the board: `sudo adduser studentname`, once per student. Nothing sensitive lives on this machine.
+  3. No allow-list step is needed the way macOS Sharing has one; once SSH is enabled, any local account can connect. If you want to restrict that later, it is the `AllowUsers` line in `/etc/ssh/sshd_config`, but for a classroom on its own network the default is fine.
   4. From your own machine, on the same network, test the connection before class: `ssh studentname@csserver.local`. If the `.local` name does not resolve, use the IP address instead and write that on the board rather than the name.
 - **Set the default branch name on the server before you create anything.** Git's own default was `master` for years and is `main` in current versions, but the setting is per machine and an older installation or an inherited config will still say `master`. If the clone in the next step lands on `master` and you then push `main`, the push fails with "src refspec main does not match any" and you will lose ten minutes of prep to it. Set it explicitly:
 
@@ -57,9 +57,19 @@ The SSH lab is the practical send-off for Unit 4 and the bridge to Unit 5. It is
   The second line should print `main`. (2 min)
 - **Create and seed the class Git repository on the server.** (20 min)
 
+  The first time only, create the shared folder and make it your own so you are not fighting root ownership all year:
+
   ```bash
-  mkdir -p /Users/Shared/repos/hello-class.git
-  cd /Users/Shared/repos/hello-class.git
+  sudo mkdir -p /srv/repos
+  sudo chown "$USER":"$USER" /srv/repos
+  chmod 755 /srv/repos
+  ```
+
+  Then create the repository:
+
+  ```bash
+  mkdir -p /srv/repos/hello-class.git
+  cd /srv/repos/hello-class.git
   git init --bare -b main
   ```
 
@@ -67,7 +77,7 @@ The SSH lab is the practical send-off for Unit 4 and the bridge to Unit 5. It is
 
   ```bash
   cd /tmp
-  git clone /Users/Shared/repos/hello-class.git seed
+  git clone /srv/repos/hello-class.git seed
   cd seed
   echo "# Hello from the class server" > README.md
   mkdir puzzles
@@ -88,7 +98,7 @@ The SSH lab is the practical send-off for Unit 4 and the bridge to Unit 5. It is
   Then make sure students can read it:
 
   ```bash
-  chmod -R a+rX /Users/Shared/repos
+  chmod -R a+rX /srv/repos
   ```
 
   Verify by cloning it from a different machine as a student user before class. Note that `git init -b` also requires a reasonably current Git; if your version rejects the flag, drop it, then use `git branch --show-current` and the rename above to get to `main`.
@@ -169,7 +179,7 @@ Run this from the steps below. The server addresses and the account names should
 
    ```bash
    cd ~/Documents/"CS Class"/sandbox
-   git clone yourname@csserver.local:/Users/Shared/repos/hello-class.git
+   git clone yourname@csserver.local:/srv/repos/hello-class.git
    cd hello-class
    ls
    ```
@@ -378,8 +388,8 @@ Nothing here is required of non-AP students.
 ## 13. Resources used this week
 
 - The trace build, the assessment, and the rubric: Segments 2 and 5 and Section 11 are complete on their own. **Read the Section 7 trace aloud once during prep**; it is the one thing in this guide that you need at your fingertips rather than on the page.
-- The SSH and clone lab: Segment 3 is complete on its own, provided the Section 5 server setup is done in advance. The one model-specific thing to confirm is where Remote Login lives in your macOS version's System Settings, since Apple reorganizes that pane regularly.
-- Apple's documentation on Remote Login and SSH access to a Mac, worth checking against your current macOS version during prep: `https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac`
+- The SSH and clone lab: Segment 3 is complete on its own, provided the Section 5 server setup is done in advance. The one thing worth confirming during prep is that SSH is actually enabled and the hostname resolves; `raspi-config`'s menu layout shifts between Raspberry Pi OS releases.
+- Raspberry Pi documentation on enabling SSH, worth checking against your current OS version during prep: `https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh`
 - Git documentation for `git clone` and `git init --bare`, for your reference while setting up the server repository: `https://git-scm.com/docs`
 - Crash Course Computer Science, Episode 30 ("The World Wide Web"), optional homework viewing and the last new episode of the unit. It draws the internet-versus-web distinction the AP exam tests, which is exactly the distinction the trace makes concrete. Episodes 28 and 29 were assigned in Weeks 19 and 20; a student preparing for the oral may find them useful again, but say plainly that those are a re-watch and not new work. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - CodeAI CSP Unit 2, The Internet (AP-track reinforcement, completed this week): `https://studio.code.org/courses/csp-2025/units/2`
