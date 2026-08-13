@@ -119,6 +119,8 @@ Students do the plugging. You narrate. Keep the whiteboard diagram from Segment 
 
 ### Segment 4: Stretch (1:05 to 1:10)
 
+A short break. Leave the address column on the board and the network built; hand out the acronym cards as students sit back down, ready for Segment 5.
+
 ### Segment 5: Names, addresses, and the trip out (1:10 to 1:35), Systems strand
 
 Hand out the acronym cards at the start of this segment.
