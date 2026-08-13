@@ -152,6 +152,8 @@ Everyone keeps their `http.server` running. Restate the rule from Segment 1 befo
 
 ### Segment 5: Stretch (1:20 to 1:25)
 
+A short break. Leave Wireshark open; Segment 6 starts a new capture immediately, this time on an outside `https://` site rather than a student's own server.
+
 ### Segment 6: What TLS hides (1:25 to 1:45), Systems strand
 
 This is the reveal the whole session was built for. Do not spoil it early.
