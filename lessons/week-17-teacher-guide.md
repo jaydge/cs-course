@@ -124,6 +124,8 @@ This is the protected segment of the day. Go slowly and let nobody fall behind.
 
 ### Segment 4: Stretch (1:00 to 1:05)
 
+A short break. Leave terminals open at the prompt; Segment 5 starts from exactly where students are sitting, in the same window.
+
 ### Segment 5: One folder, three views, and who is allowed (1:05 to 1:25), Systems strand
 
 1. **Name the folder they already have, in terminal terms.** Do this before opening anything. Say it plainly: the `CS Class` folder they have been saving work into since Week 1 is the folder the terminal calls `~/Documents/CS Class`. Not a copy of it, not a second folder that looks like it. Finder shows it as an icon with a name; the terminal shows it as a path; there is one folder on the disk. Have them prove it themselves rather than take it from you:
