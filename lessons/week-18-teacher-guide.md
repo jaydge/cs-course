@@ -131,6 +131,8 @@ Return to the theme question at the end: the "find every file mentioning binary"
 
 ### Segment 4: Stretch (1:00 to 1:05)
 
+A short break. Leave the sandbox and today's `report.txt` as they are; Segment 5 continues in the same terminal, the same folder, and the same pipeline habit of thought.
+
 ### Segment 5: Write a tiny shell script (1:05 to 1:25), Systems strand
 
 1. **Motivate it in one sentence.** They just typed a four-stage pipeline. Nobody wants to type that twice. A script is a file full of commands, and running the file runs the commands.
