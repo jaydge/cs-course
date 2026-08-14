@@ -246,7 +246,6 @@ The classroom is **Mac-primary with some Windows**. That mix is an asset, not a 
 | Breadboard + logic kit (transistors, LEDs, resistors, switches, jumper wires) | Build real AND/OR/NOT gates in W6 | $20 to $40 |
 | Multimeter (basic) | Demonstrate voltage/signal in the electricity lesson | $15 to $30 |
 | USB-to-SATA adapter | Storage labs; read a bare drive | $10 to $20 |
-| Antistatic wrist strap | Safe PC teardown | Under $10 |
 | Recovery USB drives (one per laptop) | Imaging and recovery | $5 to $10 each |
 | Optional: Arduino starter kit | Hardware extra-credit track | $25 to $40 |
 | NextDNS subscription | DNS filtering across all devices | Low annual cost |

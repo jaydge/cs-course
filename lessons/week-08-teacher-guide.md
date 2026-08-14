@@ -16,7 +16,7 @@ By the end of the session, each student can:
 - Order the memory hierarchy from fastest to slowest (registers, cache, RAM, SSD, hard drive) and say what gets bigger as it gets slower.
 - State the difference between RAM and storage in terms of what survives a power cut.
 - Physically identify the CPU, heatsink, RAM, storage drive, power supply, GPU, and motherboard in a real desktop PC.
-- Follow the six teardown safety rules: the machine stays unplugged, drain the residual charge with the power button, wear the antistatic strap clipped to bare metal, hold boards by their edges, watch for sharp case edges, and never open the power supply.
+- Follow the six teardown safety rules: the machine stays unplugged, drain the residual charge with the power button, touch bare grounded metal on the case before touching any board or chip, hold boards by their edges, watch for sharp case edges, and never open the power supply.
 - Index and slice a Python string, get its length, and loop over its characters.
 - Use `.upper()`, `.lower()`, `.split()`, and `in` on strings, and explain why strings cannot be changed in place.
 
@@ -30,7 +30,6 @@ On the coding side, strings as sequences is the natural sequel to lists, since t
 
 - The old desktop PC for disassembly, with its case screws already loosened if they are stiff, plus a Phillips screwdriver per pair and a small parts tray or muffin tin for screws.
 - The dead or spare motherboard, for the pairs not currently inside the PC.
-- Antistatic wrist strap, with a metal point in the room to clip it to.
 - A spare SSD and a spare mechanical hard drive if you have both. A hard drive with its lid removed, so the platters and head arm are visible, is the single best prop of the day.
 - USB-to-SATA adapter if you plan to show a bare drive mounting on a laptop.
 - Optional: a discrete graphics card, even a very old one, for comparison against integrated graphics.
@@ -69,7 +68,7 @@ On the coding side, strings as sequences is the natural sequel to lists, since t
 
 Safety briefing first, then work in pairs, rotating through the machine while others study the dead motherboard.
 
-1. **Safety, out loud, before a screwdriver is touched.** Read these and write them on the board. The machine is unplugged from the wall and stays unplugged; confirm the cable is on the table, not in the outlet. Hold the power button down for ten seconds with the cable out to drain residual charge, and do this in front of them. Everyone handling parts wears the antistatic wrist strap clipped to bare metal on the case, because a static shock you cannot even feel can kill a chip. Handle circuit boards by their edges, never by the pins or the gold contacts. Case edges and the metal drive cage are genuinely sharp, so no reaching blindly into the case. The power supply, the sealed metal box with the fan, is never opened by anyone, including you.
+1. **Safety, out loud, before a screwdriver is touched.** Read these and write them on the board. The machine is unplugged from the wall and stays unplugged; confirm the cable is on the table, not in the outlet. Hold the power button down for ten seconds with the cable out to drain residual charge, and do this in front of them. Everyone handling parts touches bare grounded metal on the case, an unpainted edge of the chassis works, before touching any board or chip, and again anytime they have been away from the machine for a while. Handle circuit boards by their edges, never by the pins or the gold contacts. Case edges and the metal drive cage are genuinely sharp, so no reaching blindly into the case. The power supply, the sealed metal box with the fan, is never opened by anyone, including you.
 2. **Remove the side panel.** Usually two thumbscrews at the back, then slide the panel back and lift it off. Set the screws in the tray.
 3. **Look before touching.** Give the group two full minutes just to look inside and name anything they recognize. Do not narrate over this; the disorientation is productive and the naming that follows is more memorable when they asked for it.
 4. **Find the CPU by finding its cooler.** The largest heatsink, usually with a fan on top, near the center of the board. Ask why the biggest cooling apparatus in the case sits on the smallest part in the case, and use their answer to make the point that computation produces heat because switching billions of transistors takes energy.
@@ -187,7 +186,7 @@ Nothing here is required of non-AP students.
 ## 13. Resources used this week
 
 - Teardown procedure: Segment 3 is complete on its own. If you want photographs of a specific machine's internals, iFixit's device guides are the best free reference, at `https://www.ifixit.com`, and their ESD safety page is worth reading once during prep. Do this in prep, not in class.
-- Lab equipment list, including the antistatic strap, the USB-to-SATA adapter, and the dead motherboard: Section 7 of `curriculum/CS-Curriculum-and-Setup.md`. Costs there are approximate and should be verified at purchase time.
+- Lab equipment list, including the USB-to-SATA adapter and the dead motherboard: Section 7 of `curriculum/CS-Curriculum-and-Setup.md`. Costs there are approximate and should be verified at purchase time.
 - Classroom machine specifications: on macOS, the Apple menu, About This Mac, then System Report; on Windows, Settings, System, About, plus Task Manager's Performance tab. Collect these during prep so Segment 2 uses real numbers from machines students actually use.
 - Crash Course Computer Science, Episode 9 ("Advanced CPU Designs") and Episode 19 ("Memory and Storage"), assigned as optional homework viewing. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - Python string methods, for your own reference: `https://docs.python.org/3/library/stdtypes.html#string-methods`
