@@ -30,7 +30,8 @@ On the coding side, strings as sequences is the natural sequel to lists, since t
 
 - The old desktop PC for disassembly, with its case screws already loosened if they are stiff, plus a Phillips screwdriver per pair and a small parts tray or muffin tin for screws.
 - The dead or spare motherboard, for the pairs not currently inside the PC.
-- A spare SSD and a spare mechanical hard drive if you have both. A hard drive with its lid removed, so the platters and head arm are visible, is the single best prop of the day.
+- A spare mechanical hard drive if you have one. A hard drive with its lid removed, so the platters and head arm are visible, is the single best prop of the day.
+- The SSD teardown video queued up and ready to play on the projector for the mechanical-vs-solid-state comparison (see Section 13 for the link).
 - USB-to-SATA adapter if you plan to show a bare drive mounting on a laptop.
 - Optional: a discrete graphics card, even a very old one, for comparison against integrated graphics.
 - Whiteboard with the theme question and space for the memory-hierarchy pyramid.
@@ -88,7 +89,7 @@ Safety briefing first, then work in pairs, rotating through the machine while ot
 
 1. **RAM versus storage, settled once.** Hold up the RAM stick and the drive together. RAM is volatile: pull the power and it is empty. Storage is not: pull the power and it is exactly as you left it. Then give the reason both exist, which is the memory hierarchy from Segment 2. If RAM kept its contents and cost the same as a drive per gigabyte, we would not have drives.
 2. **Open the hard drive.** Pass around the opened mechanical drive. Spinning metal platters, a head arm that swings across them like a record player's tone arm, and a physical delay every single time the data you want is not under the head right now. Say the number: a few thousand revolutions per minute, versus a CPU running at billions of cycles per second.
-3. **Compare with the SSD.** No moving parts, just flash memory chips and a controller. Ask what that means for speed, for noise, for a laptop that gets dropped, and for battery life. Let them list the advantages before you do.
+3. **Compare with the SSD, on video.** Play the short clip on the projector (Section 13 has the link): no moving parts, just flash memory chips and a controller. Ask what that means for speed, for noise, for a laptop that gets dropped, and for battery life. Let them list the advantages before you do.
 4. **Say what is not free about an SSD.** Flash cells wear out after a large but finite number of writes, and cost per gigabyte is still higher than for a mechanical drive. This is a genuine tradeoff, not a strictly better product, which is why big archival storage is still spinning metal.
 5. **The GPU.** Hold up the graphics card if you have one. Contrast the two designs: a CPU has a few very capable cores that can do anything, and a GPU has thousands of simple cores that all do the same operation to different data at once. Screens are millions of pixels needing the same math, so that shape fits. Then note where else that shape fits, which is machine learning, and flag that Week 27 comes back to this.
 
@@ -186,6 +187,7 @@ Nothing here is required of non-AP students.
 ## 13. Resources used this week
 
 - Teardown procedure: Segment 3 is complete on its own. If you want photographs of a specific machine's internals, iFixit's device guides are the best free reference, at `https://www.ifixit.com`, and their ESD safety page is worth reading once during prep. Do this in prep, not in class.
+- SSD teardown video for Segment 5 step 3, in place of a physical spare SSD prop: `https://www.youtube.com/watch?v=w5deZs8PdTY` (about 1:15 long). Queue it up during prep so it is ready to play without searching for it live.
 - Lab equipment list, including the USB-to-SATA adapter and the dead motherboard: Section 7 of `curriculum/CS-Curriculum-and-Setup.md`. Costs there are approximate and should be verified at purchase time.
 - Classroom machine specifications: on macOS, the Apple menu, About This Mac, then System Report; on Windows, Settings, System, About, plus Task Manager's Performance tab. Collect these during prep so Segment 2 uses real numbers from machines students actually use.
 - Crash Course Computer Science, Episode 9 ("Advanced CPU Designs") and Episode 19 ("Memory and Storage"), assigned as optional homework viewing. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
