@@ -44,7 +44,7 @@ from zoneinfo import ZoneInfo
 
 from classroom_auth import get_services
 from publish_handouts_to_docs import (
-    ONEPAGER_TITLE, QUESTION_RE, SYLLABUS_TITLE, handout_intro,
+    COMPARISON_TITLE, ONEPAGER_TITLE, QUESTION_RE, SYLLABUS_TITLE, handout_intro,
 )
 
 # Matches the rubric shorthand in the curriculum (4 = works and can
@@ -217,6 +217,10 @@ INFO_MATERIALS = [
     (ONEPAGER_TITLE,
      "A visual for parents: what the course covers against the AP CSP core, "
      "unit by unit. Two pages; prints to letter."),
+    (COMPARISON_TITLE,
+     "How this course compares to the paid and free high school CS programs, "
+     "with syllabus links and an honest account of what they include that we "
+     "do not. Prices and course editions change; verify before relying on them."),
 ]
 
 

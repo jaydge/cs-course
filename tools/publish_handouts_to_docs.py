@@ -62,11 +62,23 @@ SYLLABUS_TITLE = "Course Syllabus"
 #     --headless --no-pdf-header-footer \
 #     --print-to-pdf=syllabus/course-vs-ap-at-a-glance.pdf \
 #     file://$PWD/syllabus/course-vs-ap-at-a-glance.html
-ONEPAGER_SOURCES = [
-    ("syllabus/course-vs-ap-at-a-glance.pdf", "application/pdf"),
-    ("syllabus/course-vs-ap-at-a-glance.html", "text/html"),
-]
 ONEPAGER_TITLE = "Course vs AP at a Glance"
+COMPARISON_TITLE = "Curriculum Comparison"
+
+# Course Information files uploaded as-is rather than converted. Each entry
+# lists its sources best-first; the first one present on disk wins, so a PDF
+# export is preferred over the format it was rendered from. PDFs are
+# preferred because Classroom previews them inline, and because both of
+# these are wide layouts that a Doc conversion would crush.
+INFO_FILES = [
+    (ONEPAGER_TITLE, [
+        ("syllabus/course-vs-ap-at-a-glance.pdf", "application/pdf"),
+        ("syllabus/course-vs-ap-at-a-glance.html", "text/html"),
+    ]),
+    (COMPARISON_TITLE, [
+        ("reference/Curriculum-Comparison.pdf", "application/pdf"),
+    ]),
+]
 
 # Sections whose heading matches this get the "optional/bonus" palette
 # instead of the default one, so the AP work reads as clearly separate.
@@ -737,21 +749,22 @@ def main():
             print(f"{'Updated' if existing_id else 'Created'}: {SYLLABUS_TITLE}  "
                   f"(fileId {doc_id})")
 
-        onepager, mimetype = next(
-            ((Path(args.repo) / rel, mime) for rel, mime in ONEPAGER_SOURCES
-             if (Path(args.repo) / rel).is_file()),
-            (None, None),
-        )
-        if onepager is None:
-            print(f"WARNING: no one-pager found in {args.repo}/syllabus. Skipping.")
-        elif args.dry_run:
-            print(f"[dry run] would upload file: {ONEPAGER_TITLE} ({mimetype})")
-        else:
-            existing_id = find_existing_file(drive, folder_id, ONEPAGER_TITLE)
-            file_id = upload_raw_file(drive, folder_id, ONEPAGER_TITLE,
-                                      onepager.read_bytes(), mimetype, existing_id)
-            print(f"{'Updated' if existing_id else 'Created'}: {ONEPAGER_TITLE}  "
-                  f"({mimetype}, fileId {file_id})")
+        for title, sources in INFO_FILES:
+            path, mimetype = next(
+                ((Path(args.repo) / rel, mime) for rel, mime in sources
+                 if (Path(args.repo) / rel).is_file()),
+                (None, None),
+            )
+            if path is None:
+                print(f"WARNING: no source file found for '{title}'. Skipping.")
+            elif args.dry_run:
+                print(f"[dry run] would upload file: {title} ({mimetype})")
+            else:
+                existing_id = find_existing_file(drive, folder_id, title)
+                file_id = upload_raw_file(drive, folder_id, title,
+                                          path.read_bytes(), mimetype, existing_id)
+                print(f"{'Updated' if existing_id else 'Created'}: {title}  "
+                      f"({mimetype}, fileId {file_id})")
 
     print("\nDone. Run sync_classroom.py next to attach these to assignments.")
 
