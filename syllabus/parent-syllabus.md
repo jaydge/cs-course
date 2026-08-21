@@ -4,6 +4,8 @@ A plain-language guide to the course for parents. It covers what the course is, 
 
 ## What the course is
 
+This course follows the outline of AP Computer Science Principles but is not a race to exam depth. It's built around our students, not a test: the pace and difficulty are set for this class's ability level, and class time goes toward real hardware, offline logic activities, and a substantial final project that the AP course doesn't include. The AP exam itself is entirely optional, taken only by students who choose that track.
+
 This is a 32-week, full-year high school computer science course for our co-op, taught in person, one 2-hour class per week. The whole year is organized around one question: how does a button press become something useful? By June, students can trace what happens from a mouse click all the way through the computer, the operating system, and the internet to the picture on the screen.
 
 Students learn real programming in Python, and they learn it deeply: the course writes code every single week, all year. Around that core, they open up every layer of the machine: they build logic circuits on a breadboard, take apart a real PC, set up a physical network, use the terminal, build a small web app, and finish with a substantial final project of their own design. There are also regular offline logic games (no computer involved) that teach the ideas physically before students meet them on screen.
