@@ -15,6 +15,7 @@ directory above this file, or set CLASSROOM_CREDENTIALS_PATH.
 import os
 from pathlib import Path
 
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -44,9 +45,21 @@ def get_credentials():
         creds = Credentials.from_authorized_user_file(str(TOKEN_PATH), SCOPES)
 
     if not creds or not creds.valid:
+        refreshed = False
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+                refreshed = True
+            except RefreshError:
+                # Expected roughly weekly: while the OAuth consent screen is
+                # in "Testing" mode Google expires refresh tokens after seven
+                # days. Falling through to a fresh browser flow is the whole
+                # remedy, so it is not worth a traceback.
+                print("Cached token has expired or been revoked. Re-authorizing.")
+                TOKEN_PATH.unlink(missing_ok=True)
+                creds = None
+
+        if not refreshed:
             if not creds_path.exists():
                 raise FileNotFoundError(
                     f"OAuth client file not found at {creds_path}. "
