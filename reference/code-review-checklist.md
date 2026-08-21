@@ -57,9 +57,9 @@ Written down so the work can continue from this file alone, on a different machi
 
 ## Week 2: Why only 1s and 0s?
 
-- [ ] W2-1: greeting program with `input` and a variable, extended with a second question (lessons/week-02-teacher-guide.md, Segment 3; handouts/week-02-homework.md, item 2). Variables and input.
-- [ ] W2-2: the `input` returns a string trap and the `int()` fix, then double a number (lessons/week-02-teacher-guide.md, Segment 6; handouts/week-02-homework.md, item 2). Types and conversion.
-- [ ] W2-3: five-bit binary converter skeleton, no loops (lessons/week-02-teacher-guide.md, Segment 6 extension). Place value in code, deliberately repetitive.
+- [x] W2-1: greeting program with `input` and a variable, extended with a second question (lessons/week-02-teacher-guide.md, Segment 3; handouts/week-02-homework.md, item 2). Variables and input.
+- [x] W2-2: the `input` returns a string trap and the `int()` fix, then double a number (lessons/week-02-teacher-guide.md, Segment 6; handouts/week-02-homework.md, item 2). Types and conversion.
+- [x] W2-3: five-bit binary converter skeleton, no loops (lessons/week-02-teacher-guide.md, Segment 6 extension). Place value in code, deliberately repetitive.
 
 ## Week 3: How do we tell a computer what to do?
 
