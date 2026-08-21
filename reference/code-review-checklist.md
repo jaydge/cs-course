@@ -52,8 +52,8 @@ Written down so the work can continue from this file alone, on a different machi
 
 ## Week 1: What is a computer?
 
-- [ ] W1-1: Apple IIe BASIC `10 PRINT "HELLO" / 20 GOTO 10 / RUN` (lessons/week-01-teacher-guide.md, Segment 1) **[hw]**. A typed command becomes machine action.
-- [ ] W1-2: first `print("hello")` in Thonny, then edit the string and rerun (lessons/week-01-teacher-guide.md, Segment 4). Running and saving a first program.
+- [x] W1-1: Apple IIe BASIC `10 PRINT "HELLO" / 20 GOTO 10 / RUN` (lessons/week-01-teacher-guide.md, Segment 1) **[hw]**. A typed command becomes machine action.
+- [x] W1-2: first `print("hello")` in Thonny, then edit the string and rerun (lessons/week-01-teacher-guide.md, Segment 4). Running and saving a first program.
 
 ## Week 2: Why only 1s and 0s?
 
