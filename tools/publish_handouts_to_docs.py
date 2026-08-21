@@ -750,11 +750,19 @@ def main():
                   f"(fileId {doc_id})")
 
         for title, sources in INFO_FILES:
-            path, mimetype = next(
-                ((Path(args.repo) / rel, mime) for rel, mime in sources
-                 if (Path(args.repo) / rel).is_file()),
-                (None, None),
-            )
+            present = [(Path(args.repo) / rel, mime) for rel, mime in sources
+                       if (Path(args.repo) / rel).is_file()]
+            path, mimetype = present[0] if present else (None, None)
+
+            # An export is only as current as the file it was rendered from.
+            # Uploading a stale one looks like a successful sync while
+            # publishing the previous version, so say so loudly.
+            for older, _ in present[1:]:
+                if path and older.stat().st_mtime > path.stat().st_mtime:
+                    print(f"WARNING: '{title}' is being published from {path.name}, "
+                          f"but {older.name} is NEWER. The export is stale -- "
+                          f"regenerate it, or this publishes the previous version.")
+
             if path is None:
                 print(f"WARNING: no source file found for '{title}'. Skipping.")
             elif args.dry_run:
