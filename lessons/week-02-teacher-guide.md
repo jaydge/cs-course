@@ -123,7 +123,7 @@ Full steps below; the related canonical activity is in Section 13.
 
 ## 10. Homework
 
-Full details in `handouts/week-02-homework.md`. In summary: convert six numbers between decimal and binary using the card method; extend the greeting program with one more question and a number-doubling line, then save it; optional Crash Course episodes on binary and ASCII; optional 15 minutes of typing practice; finish account setup with a parent if not done. The handout closes with an Extra Credit AP Track section carrying this week's AP self-study slice.
+Full details in `handouts/week-02-homework.md`. In summary: convert six numbers between decimal and binary using the card method; extend the greeting program with one more question and lines that double a number and add 10 to it, then save it; optional Crash Course episodes on binary and ASCII; optional 15 minutes of typing practice; finish account setup with a parent if not done. The handout closes with an Extra Credit AP Track section carrying this week's AP self-study slice.
 
 ## 11. Assessment
 

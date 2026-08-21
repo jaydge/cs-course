@@ -14,7 +14,7 @@ Write your answers on paper or in a file saved to your CS Class folder.
 
 ## 2. Extend your greeting program
 
-Open the greeting program you saved in class. Add one more question (anything you like) and use the answer in the final printed sentence. Then add one line that asks for a number and prints that number doubled. Remember what happens with `input` and numbers, and what fixes it.
+Open the greeting program you saved in class. Add one more question (anything you like) and use the answer in the final printed sentence. Then add lines that ask for a number and print that number doubled and that number plus 10. Remember what happens with `input` and numbers, and what fixes it.
 
 Save it into your CS Class folder. Run it one last time to make sure it works.
 
