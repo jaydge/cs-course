@@ -34,7 +34,7 @@ Note on accounts: this session does not create student accounts in class. Accoun
 
 ## 5. Pre-class prep checklist
 
-- Confirm the Apple IIe boots to BASIC and test the `10 PRINT "HELLO" / 20 GOTO 10 / RUN` program. (15 min)
+- Confirm the Apple IIe boots to BASIC and test the `10 PRINT "HELLO" / 20 GOTO 10 / RUN` program. With no disk in the drive, the Autostart ROM boots straight to the Applesoft BASIC `]` prompt within a few seconds; nothing needs to be typed. If a disk is in the drive, the machine tries to boot from it instead and can sit there working, so eject any disk first. (15 min)
 - On each student laptop, confirm it powers on, logs in, and Thonny opens cleanly. (about 5 min per laptop)
 - Print the readiness diagnostics and homework handouts, one per student. (10 min)
 - On the demo machine, create a sample folder and file so you can model saving quickly. (5 min)
@@ -47,6 +47,7 @@ Note on accounts: this session does not create student accounts in class. Accoun
 
 - **You do:** Welcome students. Point to the theme question on the board and frame the whole year around it (see Scripts). Then gather everyone at the Apple IIe.
 - **You do:** Boot it, and let every student type `10 PRINT "HELLO" / 20 GOTO 10 / RUN` and watch the screen fill.
+- **You do:** Once everyone has seen it fill the screen, press Control-Reset to stop the loop and return to the `]` prompt. This interrupts the program without erasing it.
 - **Students do:** Take turns at the keyboard; watch a 40-year-old computer run their command.
 - **Purpose:** A low-tech, high-wonder hook that needs no laptop skill, so every student succeeds in the first ten minutes. It plants the idea that a typed command becomes something the machine does, which is the whole course in miniature.
 
@@ -96,6 +97,7 @@ Note on accounts: this session does not create student accounts in class. Accoun
 - **Trackpad and right-click confusion.** Expect this from iPad-only students. Demonstrate slowly and have them mirror you rather than telling them steps verbally.
 - **A student "loses" a saved file.** This is a teachable moment, not a failure. Walk them through finding it in Finder or with Spotlight. The recovery is the lesson.
 - **A laptop will not open Thonny.** Use the spare or pair the student up, and troubleshoot after class rather than holding up the room.
+- **The Apple IIe seems stuck instead of showing the `]` prompt.** This almost always means a disk is in the drive and it is trying to boot from it. Eject the disk; with the drive empty, the Autostart ROM drops to Applesoft BASIC on its own. If it is still unresponsive, Control-Open-Apple-Reset forces a full reboot.
 
 ## 10. Homework
 
