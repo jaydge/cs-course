@@ -30,6 +30,8 @@ About 15 minutes at `typing.com` or `keybr.com`.
 
 Finish setting up the class accounts with a parent (the ones from the Week 1 handout). We will start needing them soon.
 
+{{question: What was most interesting to you about learning a different way to count through the binary number system?}}
+
 ---
 
 A reminder on getting help: do this yourself, without AI helpers like ChatGPT. We will learn to use those tools properly later in the course. If you get stuck, try for a few minutes, write down your question, and bring it to class. Stuck is normal; it is where the learning is.
