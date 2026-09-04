@@ -7,6 +7,10 @@ Only files under handouts/ are ever touched. Teacher guides under
 lessons/ are never uploaded anywhere by this tool set; they are your
 prep material, not student-facing.
 
+Reference material that is not a weekly handout (the syllabus, the Python
+quick reference) is opt-in behind its own flag and is rendered as a plain
+document rather than a checklist, since there is nothing on it to tick off.
+
 Usage:
     python publish_handouts_to_docs.py --repo /path/to/cs-course \
         --folder-name "CS Course - Student Handouts"
@@ -53,6 +57,14 @@ COURSE_NAME = "Computer Science"
 # opt-in (--syllabus) and rendered without the checkbox tables.
 SYLLABUS_SOURCE = "syllabus/parent-syllabus.md"
 SYLLABUS_TITLE = "Course Syllabus"
+
+# The Python quick reference lives in handouts/ but is not a weekly handout,
+# so the week-NN glob does not pick it up. It is reference material students
+# keep bookmarked all year rather than work through once, which is why it is
+# opt-in (--reference) and rendered without the checkbox tables: a checkbox
+# beside "When something goes wrong" would be nonsense.
+REFERENCE_SOURCE = "handouts/python-quick-reference.md"
+REFERENCE_TITLE = "Python Quick Reference"
 
 # The parent one-pager is a CSS layout, so it is never converted to a Doc,
 # which would flatten the swim lanes it is built from. The PDF is preferred
@@ -693,6 +705,12 @@ def main():
         help=f"Also publish {SYLLABUS_SOURCE} as the '{SYLLABUS_TITLE}' Doc, "
              "rendered as a plain document rather than a checklist.",
     )
+    parser.add_argument(
+        "--reference",
+        action="store_true",
+        help=f"Also publish {REFERENCE_SOURCE} as the '{REFERENCE_TITLE}' Doc, "
+             "rendered as a plain document rather than a checklist.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="List what would happen, change nothing")
     args = parser.parse_args()
 
@@ -773,6 +791,21 @@ def main():
                                           path.read_bytes(), mimetype, existing_id)
                 print(f"{'Updated' if existing_id else 'Created'}: {title}  "
                       f"({mimetype}, fileId {file_id})")
+
+    if args.reference:
+        source = Path(args.repo) / REFERENCE_SOURCE
+        if not source.is_file():
+            sys.exit(f"No Python quick reference found at {source}")
+        if args.dry_run:
+            print(f"[dry run] would create/update Doc: {REFERENCE_TITLE}")
+        else:
+            html = markdown_to_minimal_html(source.read_text(encoding="utf-8"),
+                                            checklist=False)
+            existing_id = find_existing_doc(drive, folder_id, REFERENCE_TITLE)
+            doc_id = upload_doc(drive, folder_id, REFERENCE_TITLE, html, existing_id)
+            apply_doc_formatting(docs, doc_id)
+            print(f"{'Updated' if existing_id else 'Created'}: {REFERENCE_TITLE}  "
+                  f"(fileId {doc_id})")
 
     print("\nDone. Run sync_classroom.py next to attach these to assignments.")
 

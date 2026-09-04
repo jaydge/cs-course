@@ -92,7 +92,7 @@ Run from these steps; the canonical version and its teacher video are in Section
 ### Segment 6: Build the number-guessing game (1:30 to 1:55)
 
 - **You do:** Frame the build. The computer picks a number, the player guesses, the program says too high, too low, or correct.
-- **Students do:** Build it with a fixed secret number (say 7) and exactly three guesses written out one after another, since loops do not arrive until next week. The repetition is deliberate and will make Week 4 land.
+- **Students do:** Build it with a fixed secret number (say 7) and exactly three guesses written out one after another, since loops do not arrive until next week. The repetition is deliberate and will make Week 4 land. The block below is one guess: students write it three times, changing only the prompt text so they can tell the attempts apart. The complete three-guess version is in Section 14.
 
   ```python
   secret = 7
@@ -160,3 +160,117 @@ Nothing here is required of non-AP students.
 - Full activity descriptions and the year's maze progression: `teaching-activities/Unplugged-Logic-Activities.md`.
 - Crash Course Computer Science, Episode 11 ("Programming Languages") or Episode 12 ("Programming Basics: Statements and Functions"), optional homework viewing. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
 - CodeAI CSP Unit 4 (AP-track reinforcement): `https://studio.code.org/courses/csp-2025/units/4`
+
+## 14. Complete working code
+
+Every program from this week's coding segments, including the extensions, in a form that runs as printed. This is instructor reference, not a handout: students still build these from the pattern rather than receiving the finished code. The purpose is that if a live-coded program will not run, you have a known-good version to fall back on instead of debugging in front of the room. Each program below was run before being added here.
+
+### Segment 5: the age check
+
+The first fork, the one you build at the projector.
+
+```python
+age = int(input("How old are you? "))
+if age >= 13:
+    print("You can sign up.")
+else:
+    print("You need a parent to sign up.")
+```
+
+Adding the `elif` branch. Order matters here: because Python takes the first true branch and stops, the 18 test has to come before the 13 test or nobody ever reaches it. That is worth saying out loud, because it is the bug students write next week.
+
+```python
+age = int(input("How old are you? "))
+if age >= 18:
+    print("You can sign up on your own.")
+elif age >= 13:
+    print("You can sign up with a parent's permission.")
+else:
+    print("You are too young to sign up.")
+```
+
+### Segment 5: positive, negative, or zero
+
+The three-branch program students write themselves.
+
+```python
+number = int(input("Give me a number: "))
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")
+```
+
+### Segment 5: the single digit extension
+
+The `and` version, after the truth table goes on the board. This is a second, separate `if` rather than another branch of the first one, because a number can be both positive and single digit and both lines should print.
+
+```python
+number = int(input("Give me a number: "))
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")
+
+if number >= 0 and number <= 9:
+    print("Single digit")
+```
+
+Entering 7 prints both `Positive` and `Single digit`. Entering 42 prints only `Positive`. Entering 0 prints `Zero` and `Single digit`.
+
+### Segment 6: the number-guessing game
+
+Note that the snippet in Segment 6 above shows a single guess, while the exercise as described is three guesses written out one after another. This is the full version students build. The repetition is deliberate and is exactly what Week 4's loop replaces.
+
+```python
+secret = 7
+
+guess = int(input("Guess 1. Pick a number from 1 to 10: "))
+if guess == secret:
+    print("Correct!")
+elif guess > secret:
+    print("Too high.")
+else:
+    print("Too low.")
+
+guess = int(input("Guess 2. Pick a number from 1 to 10: "))
+if guess == secret:
+    print("Correct!")
+elif guess > secret:
+    print("Too high.")
+else:
+    print("Too low.")
+
+guess = int(input("Guess 3. Pick a number from 1 to 10: "))
+if guess == secret:
+    print("Correct!")
+elif guess > secret:
+    print("Too high.")
+else:
+    print("Too low.")
+```
+
+### Section 8 extensions: nested conditionals and input validation
+
+Both extensions from Section 8 land in the same program. The range check has to happen before the guess is compared, which forces the nesting, and the nesting is the thing being taught. Without loops there is no way to ask again, so a rejected guess simply ends that turn, and students noticing that limitation is a good thing to hear next week.
+
+```python
+secret = 7
+
+guess = int(input("Pick a number from 1 to 10: "))
+if guess < 1 or guess > 10:
+    print("That is not between 1 and 10.")
+else:
+    if guess == secret:
+        print("Correct!")
+    elif guess > secret:
+        print("Too high.")
+    else:
+        print("Too low.")
+```
+
+Entering 99 or 0 gives the rejection message. Entering 3 gives `Too low.` and entering 7 gives `Correct!`.

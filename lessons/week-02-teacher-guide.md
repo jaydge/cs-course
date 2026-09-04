@@ -148,3 +148,83 @@ Nothing here is required of non-AP students. Verify the Project STEM unit number
 - CodeAI CSP Unit 1, Digital Information (AP-track reinforcement): `https://studio.code.org/courses/csp-2025/units/1`
 - Younger-student binary alternate: Section 11 of `curriculum/CS-Curriculum-and-Setup.md`.
 - Full activity descriptions and the canonical link list: `teaching-activities/Unplugged-Logic-Activities.md`.
+
+## 14. Complete working code
+
+Every program from this week's coding segments, including the extension, in a form that runs as printed. This is instructor reference, not a handout: students still build these from the pattern rather than receiving the finished code. The purpose is that if a live-coded program will not run, you have a known-good version to fall back on instead of debugging in front of the room. Each program below was run before being added here.
+
+### Segment 3: the greeting program
+
+The version you build at the projector, one line at a time.
+
+```python
+name = input("What is your name? ")
+print("Hello, " + name)
+```
+
+The extended version students write, with a second question and both variables used in the closing sentence.
+
+```python
+name = input("What is your name? ")
+food = input("What is your favorite food? ")
+print("Hello, " + name + ". I hear you like " + food + ".")
+```
+
+### Segment 6: the input and arithmetic crash
+
+This one is supposed to fail. Run it as printed so the class sees the error before you fix anything.
+
+```python
+age = input("Age? ")
+print(age + 1)
+```
+
+Entering 14 ends with this line, which is the one to read aloud:
+
+```
+TypeError: can only concatenate str (not "int") to str
+```
+
+The fix, which is the point of the segment.
+
+```python
+age = input("Age? ")
+age = int(age)
+print(age + 1)
+```
+
+### Segment 6: the doubling program
+
+The core outcome for the segment. Every student should reach this one.
+
+```python
+number = int(input("Give me a number: "))
+print("Doubled:", number * 2)
+print("Plus ten:", number + 10)
+```
+
+### Segment 6 extension: the five-bit binary converter
+
+The converter from Section 8, written the way the board scaffold describes it: five repeated blocks using `//` and `%`, no loops, because loops do not arrive until Week 4. Give students the first block and let them write the other four; the repetition is what makes Week 4 land.
+
+```python
+number = int(input("Enter a number from 0 to 31: "))
+
+bit16 = number // 16
+number = number % 16
+
+bit8 = number // 8
+number = number % 8
+
+bit4 = number // 4
+number = number % 4
+
+bit2 = number // 2
+number = number % 2
+
+bit1 = number
+
+print(bit16, bit8, bit4, bit2, bit1)
+```
+
+Checked against the card method: 13 prints `0 1 1 0 1`, 20 prints `1 0 1 0 0`, 31 prints `1 1 1 1 1`, and 0 prints `0 0 0 0 0`. A student who then tries `bin(13)` in the shell gets `0b1101`, the same bits with the leading zero dropped and a `0b` marker on the front, which is the question the handout asks them.
