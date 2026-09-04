@@ -8,6 +8,13 @@ A note on the help rule: this page and the official Python documentation are alw
 
 ## How to look something up
 
+Two cheat sheets are worth keeping open beside this page. They are faster than the official documentation when you already know what you want and only need reminding of the syntax.
+
+- [Python Crash Course cheat sheets](https://ehmatthes.github.io/pcc_3e/cheat_sheets/), by Eric Matthes, free to download and print. There is one sheet per topic and they line up closely with our order: lists, dictionaries, if statements and while loops, functions, classes, files and exceptions, and testing. Print the sheet for whatever we are covering and keep it next to your laptop.
+- [Python operators cheat sheet](https://learnpython.com/blog/python-operators-cheat-sheet/), from LearnPython, which puts every operator in one place: arithmetic, assignment, comparison, logical, identity, membership, and bitwise, along with the order they are applied in. Useful the moment you stop being sure whether `//` or `%` is the one you want.
+
+Reach for those when you need the shape of something you have already met. Reach for the official documentation, below, when you need to know exactly what something does, including the awkward cases a cheat sheet leaves out.
+
 The official documentation lives at [docs.python.org/3](https://docs.python.org/3/). Two pages cover most of what you will want:
 
 - [Built-in Functions](https://docs.python.org/3/library/functions.html) is the alphabetical list of everything you can call without importing anything: `print`, `input`, `int`, `len`, `abs`, `range`, and the rest.
