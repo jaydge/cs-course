@@ -44,7 +44,8 @@ from zoneinfo import ZoneInfo
 
 from classroom_auth import get_services
 from publish_handouts_to_docs import (
-    COMPARISON_TITLE, ONEPAGER_TITLE, QUESTION_RE, SYLLABUS_TITLE, handout_intro,
+    COMPARISON_TITLE, ONEPAGER_TITLE, QUESTION_RE, REFERENCE_TITLE, SYLLABUS_TITLE,
+    handout_intro,
 )
 
 # Matches the rubric shorthand in the curriculum (4 = works and can
@@ -221,6 +222,10 @@ INFO_MATERIALS = [
      "How this course compares to the paid and free high school CS programs, "
      "with syllabus links and an honest account of what they include that we "
      "do not. Prices and course editions change; verify before relying on them."),
+    (REFERENCE_TITLE,
+     "Python syntax, error messages and documentation links, in the order we "
+     "cover them. Keep it bookmarked and use it during class and homework. "
+     "Looking something up is part of the work, not cheating."),
 ]
 
 
@@ -266,7 +271,8 @@ def sync_info_materials(classroom, drive, course_id: str, folder_name: str,
         file_id = find_file_id(drive, folder_name, title)
         if not file_id:
             print(f"WARNING: no '{title}' in '{folder_name}'. "
-                  f"Run publish_handouts_to_docs.py --syllabus first. Skipping.")
+                  f"Run publish_handouts_to_docs.py with --syllabus and "
+                  f"--reference first. Skipping.")
             continue
 
         classroom.courses().courseWorkMaterials().create(
@@ -322,8 +328,10 @@ def main():
     parser.add_argument(
         "--syllabus",
         action="store_true",
-        help=f"Create the '{INFO_TOPIC_NAME}' topic and add the syllabus Doc to it "
-             "as a Material (nothing to turn in).",
+        help=f"Create the '{INFO_TOPIC_NAME}' topic and add the Course "
+             "Information materials to it (syllabus, parent one-pager, "
+             "curriculum comparison, Python quick reference) as Materials, "
+             "with nothing to turn in.",
     )
     parser.add_argument(
         "--start-date",
