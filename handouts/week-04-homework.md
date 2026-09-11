@@ -1,6 +1,6 @@
 # Week 4 Homework: Loops and Borrowed Code
 
-This week your programs learned to repeat themselves, and you used code somebody else wrote for the first time. Plan on about 30 to 45 minutes.
+This week your programs learned to repeat themselves, and you used code somebody else wrote for the first time. Plan on about 40 to 60 minutes.
 
 ## 1. Finish your build
 
@@ -37,9 +37,9 @@ while count > 0:
 
 In two or three sentences: why do programming languages exist at all, if the computer only understands numbers? Write it in your own words and save it as a file in your CS Class folder.
 
-## 4. Watch, if you want (optional)
+## 4. Watch
 
-Crash Course Computer Science, Episode 11, "Programming Languages," goes with today's Mystery Day question: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 11, "The First Programming Languages." It goes with today's Mystery Day question. [Watch it here](https://www.youtube.com/watch?v=RU1u-js7db8).
 
 ## 5. Typing practice (optional)
 
