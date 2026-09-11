@@ -1,6 +1,6 @@
 # Week 5 Homework: Functions and Finding Bugs
 
-This week you learned to name a block of code and reuse it, and you learned three ways to hunt down a bug. That finishes Unit 1. Plan on about 40 minutes.
+This week you learned to name a block of code and reuse it, and you learned three ways to hunt down a bug. That finishes Unit 1. Plan on about 50 to 55 minutes.
 
 ## 1. Finish Hangman
 
@@ -46,9 +46,9 @@ while n > 0:
     n = n - 1
 ```
 
-## 4. Watch, if you want (optional)
+## 4. Watch
 
-Crash Course Computer Science, Episode 12, covers statements and functions: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 12, which covers statements and functions. [Watch it here](https://www.youtube.com/watch?v=l26oaHV7D40).
 
 ## 5. Typing practice (optional)
 

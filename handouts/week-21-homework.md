@@ -2,7 +2,7 @@
 
 That is Unit 4 finished, and the first half of the course with it. You wrote the trace, you took the concept check, and you have a five-minute oral coming up on the slip you were handed.
 
-This homework is deliberately short. Plan on about 35 minutes.
+This homework is deliberately short. Plan on about 45 to 50 minutes.
 
 ## 1. Prepare for your oral by telling it to someone
 
@@ -37,9 +37,9 @@ Write a short reflection, five or six sentences. Not a summary of what we covere
 
 Then name one thing that is still fuzzy. That one is genuinely useful to me, so be honest.
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 30, "The World Wide Web," is the new one this week, and it makes the point that the internet and the web are not the same thing. If you want more revision for the oral, Episodes 28 and 29 from the last two weeks are worth a second look, but that is a re-watch and not new homework: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 30, "The World Wide Web." It makes the point that the internet and the web are not the same thing. [Watch it here](https://www.youtube.com/watch?v=guvsH5OFizE). If you want more revision for the oral, Episodes 28 and 29 from the last two weeks are worth a second look, but that is a re-watch and not new homework: [Episode 28](https://www.youtube.com/watch?v=3QhU9jd03a0), [Episode 29](https://www.youtube.com/watch?v=AEaKrq3SpW8).
 
 ## What is coming
 

@@ -1,6 +1,6 @@
 # Week 19 Homework: Finding One Machine Out of Billions
 
-This week the room became a network. You passed packets by hand, plugged the real thing together, and found out what all those acronyms actually name. Keep your acronym card next to you. Plan on about 45 minutes.
+This week the room became a network. You passed packets by hand, plugged the real thing together, and found out what all those acronyms actually name. Keep your acronym card next to you. Plan on about 55 to 60 minutes.
 
 Everything below runs on your home network, which is a different network from the classroom one. That is the point of several of the questions.
 
@@ -53,9 +53,9 @@ Four or five sentences, no jargon you cannot explain.
 
 You send a message across the internet. No single computer along the way knows the whole route to the destination. Explain how it gets there anyway, and explain why the message still arrives if one of the machines along the way stops working partway through.
 
-## 6. Watch, if you want (optional)
+## 6. Watch
 
-Crash Course Computer Science, Episode 28, "Computer Networks," is about ten minutes and covers exactly this week. Episode 29 is next week's, so save it: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 28, "Computer Networks." It is about ten minutes and covers exactly this week. [Watch it here](https://www.youtube.com/watch?v=3QhU9jd03a0). Episode 29 is next week's.
 
 ---
 

@@ -27,7 +27,7 @@ You will need a couple of accounts for class. Do this part with a parent, becaus
 
 ## 4. Watch, if you want (optional)
 
-- Crash Course Computer Science, Episode 1, is a fun twelve-minute tour of where computers came from. [Watch it here](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo).
+- Crash Course Computer Science, Episode 1, is a fun twelve-minute tour of where computers came from. [Watch it here](https://www.youtube.com/watch?v=O5nskjZ_GoI).
 
 ## 5. Quick reflection
 

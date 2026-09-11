@@ -1,6 +1,6 @@
 # Week 7 Homework: From Gates to a Machine, and Lists That Change
 
-This week you built an adder out of nothing but NAND gates, and you learned how to add things to a list, take things out, and walk through it. Plan on about 40 minutes.
+This week you built an adder out of nothing but NAND gates, and you learned how to add things to a list, take things out, and walk through it. Plan on about 50 to 55 minutes.
 
 ## 1. Finish the adder (or prove you understood it)
 
@@ -43,9 +43,9 @@ readings = [12, 45, 7, 88, 23, 61]
 
 Write a loop that finds the largest number and prints it. Do not use `max()`. The trick is to keep a variable holding the best value you have seen so far, and update it whenever you find something bigger. When it works, change the numbers and run it again to be sure it was not a fluke.
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 5 ("How Computers Calculate: the ALU"), Episode 6 ("Registers and RAM"), and Episode 7 ("The Central Processing Unit"). Episode 5 covers the adder you built today. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 5 ("How Computers Calculate: the ALU"), which covers the adder you built today. [Watch it here](https://www.youtube.com/watch?v=1I5ZMmrOfnA). If you want more, Episode 6 ("Registers and RAM") and Episode 7 ("The Central Processing Unit") are optional: [Episode 6](https://www.youtube.com/watch?v=fpnE6UAfbtU), [Episode 7](https://www.youtube.com/watch?v=FZGugFqdr60).
 
 ---
 

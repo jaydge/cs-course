@@ -1,6 +1,6 @@
 # Week 28 Homework: Locks, Hashes, and Your Own Front Door
 
-This week you broke a cipher, exchanged a secret in public, found a flipped card you never saw flip, and traced the actual defenses on the classroom network. Now do the same trace at home. Plan on about 45 minutes.
+This week you broke a cipher, exchanged a secret in public, found a flipped card you never saw flip, and traced the actual defenses on the classroom network. Now do the same trace at home. Plan on about 55 to 60 minutes.
 
 ## 1. Crack this
 
@@ -50,9 +50,9 @@ Never write a real password in a homework file.
 
 Your proposal came back with a scope note. Do the thing it says. If it said "too big," cut it down this week and write two sentences describing the smaller version. If it said "right," start writing code.
 
-## 6. Watch, if you want (optional)
+## 6. Watch
 
-Crash Course Computer Science, Episodes 31, 32, and 33, cover cybersecurity, cyber attacks, and cryptography. Episode 33 is the one that matches the cipher and key-exchange work directly: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 33, which covers cryptography and matches the cipher and key-exchange work directly. [Watch it here](https://www.youtube.com/watch?v=jhXCTbFnK8o). If you want more, Episodes 31 and 32 cover cybersecurity and cyber attacks, and are optional: [Episode 31](https://www.youtube.com/watch?v=bPVaOlJ6ln0), [Episode 32](https://www.youtube.com/watch?v=_GzE99AmAQU).
 
 ---
 

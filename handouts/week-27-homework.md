@@ -1,6 +1,6 @@
 # Week 27 Homework: A Machine That Learns, and a New Rule
 
-This week you built something that taught itself, and the class rule about AI changed for the first time all year. Read the help policy at the bottom carefully; it is different from every other handout you have been given. Plan on about 75 minutes, most of it on the proposal, plus another 20 if you do the optional item 4.
+This week you built something that taught itself, and the class rule about AI changed for the first time all year. Read the help policy at the bottom carefully; it is different from every other handout you have been given. Plan on about 85 to 90 minutes, most of it on the proposal, plus another 20 if you do the optional item 4.
 
 ## 1. Finish the perceptron
 
@@ -48,9 +48,9 @@ Ask an AI assistant to write a short Python function for something you already k
 
 Either way, bring what you found to class.
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episodes 34 and 36, cover machine learning and natural language processing: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 36, which covers natural language processing. [Watch it here](https://www.youtube.com/watch?v=fOvTtapxa9c). If you want more, Episode 34 covers machine learning, and is optional: [Episode 34](https://www.youtube.com/watch?v=z-EtmaFJieY).
 
 ---
 

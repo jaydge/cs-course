@@ -1,6 +1,6 @@
 # Week 12 Homework: Classes and Objects
 
-This week your data learned to do things. A dictionary holds facts; a class holds facts plus the operations that belong to them. Plan on about 40 minutes.
+This week your data learned to do things. A dictionary holds facts; a class holds facts plus the operations that belong to them. Plan on about 50 to 55 minutes.
 
 ## 1. Finish your class
 
@@ -74,9 +74,9 @@ print(lamp.on)
 ```
 (This one runs with no error and still does the wrong thing. Find the bug and fix it.)
 
-## 4. Watch, if you want (optional)
+## 4. Watch
 
-Crash Course Computer Science, Episode 16, on software engineering, covers why big programs get organized into objects and named pieces: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 16, on software engineering, which covers why big programs get organized into objects and named pieces. [Watch it here](https://www.youtube.com/watch?v=O753uuutqH8).
 
 ---
 

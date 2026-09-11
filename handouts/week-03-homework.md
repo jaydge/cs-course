@@ -1,6 +1,6 @@
 # Week 3 Homework: Instructions and Decisions
 
-This week your programs learned to make decisions. The homework practices writing precise instructions and reading code in your head. Plan on about 30 to 45 minutes.
+This week your programs learned to make decisions. The homework practices writing precise instructions and reading code in your head. Plan on about 40 to 60 minutes.
 
 ## 1. Write instructions a robot could follow
 
@@ -53,9 +53,9 @@ Open the number-guessing game you built in class. Make two changes:
 
 Save it into your CS Class folder.
 
-## 4. Watch, if you want (optional)
+## 4. Watch
 
-Crash Course Computer Science, Episode 12, covers statements and functions in about eleven minutes: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 12, which covers statements and functions in about eleven minutes. [Watch it here](https://www.youtube.com/watch?v=l26oaHV7D40).
 
 ## 5. Typing practice (optional)
 

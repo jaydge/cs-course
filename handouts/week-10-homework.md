@@ -1,6 +1,6 @@
 # Week 10 Homework: From a Key Press to a Pixel
 
-Unit 2 is finished. You started five weeks ago with one transistor and ended with the whole machine. This homework is lighter than usual because the checkpoint was in class. Plan on about 30 minutes.
+Unit 2 is finished. You started five weeks ago with one transistor and ended with the whole machine. This homework is lighter than usual because the checkpoint was in class. Plan on about 40 to 45 minutes.
 
 ## 1. Write the path
 
@@ -34,9 +34,9 @@ In Segment 3 we counted twelve stages between your finger and the pixel, and not
 
 Write three or four sentences on this: what does it mean for each layer to hide the one underneath it, and why would software be impossible to build if that were not true? Use the word "abstraction" at least once and make sure it is doing real work in the sentence.
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 8 ("Instructions and Programs"), Episode 22 ("Keyboards and Command Line Interfaces"), and Episode 23 ("Screens and 2D Graphics"). The first half of Episode 22 covers today directly; its command-line half comes back in Week 18. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 22 ("Keyboards and Command Line Interfaces"). The first half covers today directly; its command-line half comes back in Week 18. [Watch it here](https://www.youtube.com/watch?v=4RPtJ9UyHS0). If you want more, Episode 8 ("Instructions and Programs") and Episode 23 ("Screens and 2D Graphics") are optional: [Episode 8](https://www.youtube.com/watch?v=zltgXvg6r3k), [Episode 23](https://www.youtube.com/watch?v=7Jr0SFMQ4Rs).
 
 ## 6. Looking ahead
 

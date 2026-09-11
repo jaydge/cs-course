@@ -1,6 +1,6 @@
 # Week 6 Homework: Gates and Lists
 
-This week you built three logic gates out of real parts and met your first data structure. The homework practices both halves. Plan on about 35 to 45 minutes.
+This week you built three logic gates out of real parts and met your first data structure. The homework practices both halves. Plan on about 45 to 60 minutes.
 
 ## 1. Truth tables on paper
 
@@ -64,9 +64,9 @@ Finish it so it also prints the OR result and the NOT result for input A. You wi
 
 When it works, answer this in a comment at the top of the file: why does `a * 2 + b` give the right row number?
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 2 ("Electronic Computing") and Episode 3 ("Boolean Logic and Logic Gates"). Episode 3 is the one that matches today exactly. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 3 ("Boolean Logic and Logic Gates"), which matches today exactly. [Watch it here](https://www.youtube.com/watch?v=gI-qXk7XojA). If you want more, Episode 2 ("Electronic Computing") is optional: [Episode 2](https://www.youtube.com/watch?v=LN0ucKNX0hc).
 
 ---
 

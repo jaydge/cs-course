@@ -20,7 +20,7 @@ Save it into your CS Class folder. Run it one last time to make sure it works.
 
 ## 3. Watch, if you want (optional)
 
-Crash Course Computer Science, Episode 4, "Binary: Representing Numbers and Letters," explains binary in about ten minutes. Episode 21, "Compression," covers the second half of today's class. Find them in the series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episode 4, "Binary: Representing Numbers and Letters," explains binary in about ten minutes. Episode 21, "Compression," covers the second half of today's class. Watch them here: [Episode 4](https://www.youtube.com/watch?v=1GSjbWt0c9M), [Episode 21](https://www.youtube.com/watch?v=OtDxDvCpPL4).
 
 ## 4. Typing practice (optional but keeps paying off)
 

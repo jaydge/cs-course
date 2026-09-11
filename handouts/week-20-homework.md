@@ -1,6 +1,6 @@
 # Week 20 Homework: Reading the Wire
 
-This week you became a web server, read a real HTTP request byte by byte, and then found out you could not read the next one because it was encrypted. Plan on about 45 minutes.
+This week you became a web server, read a real HTTP request byte by byte, and then found out you could not read the next one because it was encrypted. Plan on about 55 to 60 minutes.
 
 **One thing that is deliberately not in this homework: Wireshark.** Packet capture stays in class, on the classroom network, with the rules we agreed on. Do not run captures at home, on anyone else's network, or on traffic that is not yours. Everything below works without it.
 
@@ -47,9 +47,9 @@ Someone tells you: "The padlock means nobody can see anything I do on that site.
 
 Write four or five sentences correcting them. Be specific. Say what is genuinely hidden, name at least two things that are still visible to someone watching the network, and say what the padlock does and does not tell you about the site itself.
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 29, "The Internet." Episode 30 is next week's, so save it: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 29, "The Internet." [Watch it here](https://www.youtube.com/watch?v=AEaKrq3SpW8). Episode 30 is next week's.
 
 ## Looking ahead to next week
 

@@ -1,6 +1,6 @@
 # Week 18 Homework: Living in the Shell
 
-This week you did real work at the prompt: making and finding files, piping tools together, and running Python without pressing a Run button. The homework practices all of it. Plan on about 45 minutes.
+This week you did real work at the prompt: making and finding files, piping tools together, and running Python without pressing a Run button. The homework practices all of it. Plan on about 55 to 60 minutes.
 
 Everything below happens inside `~/Documents/"CS Class"/sandbox`. Stay in the sandbox, and remember the rule: `rm` does not use the Trash. Remember the quotation marks too, or use Tab completion, which puts them in for you.
 
@@ -49,9 +49,9 @@ A hint if you get stuck on step 2: every line you read from a file still has its
 
 Two or three sentences. You now know two ways to work with files: the Finder or File Explorer, and the shell. Name one job where the graphical one is clearly better, and one job where the shell is clearly better. Say why for each.
 
-## 6. Watch, if you want (optional)
+## 6. Watch
 
-Crash Course Computer Science, Episode 22, is about keyboards and command line interfaces, and explains why the prompt exists at all: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 22, which is about keyboards and command line interfaces and explains why the prompt exists at all. [Watch it here](https://www.youtube.com/watch?v=4RPtJ9UyHS0).
 
 ---
 

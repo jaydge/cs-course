@@ -1,6 +1,6 @@
 # Week 9 Homework: The Board, the Boot, and Loops Inside Loops
 
-This week you saw how the parts are wired together, what wakes a computer up before the operating system exists, and how to put a loop inside a loop. Plan on about 40 minutes.
+This week you saw how the parts are wired together, what wakes a computer up before the operating system exists, and how to put a loop inside a loop. Plan on about 50 to 55 minutes.
 
 **Heads up: next week has the Unit 2 checkpoint.** It is short, low-stakes, and diagnostic, and it is written to cover exactly what we did in Weeks 6 through 10. What is on it is listed at the bottom of this handout, above the extra credit section. Nothing to cram; just read the list.
 
@@ -73,9 +73,9 @@ Get all three working and save them in your CS Class folder:
 
 In your own words, three or four sentences: which part of the computer actually thinks? Say what the CPU is really doing, and say where the understanding in a computer actually comes from.
 
-## 7. Watch, if you want (optional)
+## 7. Watch
 
-Crash Course Computer Science, Episode 17 ("Integrated Circuits and Moore's Law"), which explains how all of this ended up small enough to fit on one board. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 17 ("Integrated Circuits and Moore's Law"), which explains how all of this ended up small enough to fit on one board. [Watch it here](https://www.youtube.com/watch?v=6-tKOHICqrI).
 
 ---
 

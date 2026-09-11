@@ -64,7 +64,7 @@ Not required, not graded, just good.
 
 ## 6. Two last episodes, if you want them
 
-Crash Course Computer Science, Episodes 39 ("Educational Technology") and 40 ("The Singularity, Skynet, and the Future of Computing"), close out the series. They are a send-off rather than an assignment, and they are the last two you have not been set: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Crash Course Computer Science, Episodes 39 ("Educational Technology") and 40 ("The Singularity, Skynet, and the Future of Computing"), close out the series. They are a send-off rather than an assignment, and they are the last two you have not been set: [Episode 39](https://www.youtube.com/watch?v=zTi3_l5h5PQ), [Episode 40](https://www.youtube.com/watch?v=5TNAz1HYg18).
 
 ---
 

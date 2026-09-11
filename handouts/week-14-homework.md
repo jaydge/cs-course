@@ -1,6 +1,6 @@
 # Week 14 Homework: Searching, Sorting, and What Cannot Be Done
 
-This week you measured how much work an algorithm does, and you met a problem that no program can ever solve. Plan on about 45 minutes.
+This week you measured how much work an algorithm does, and you met a problem that no program can ever solve. Plan on about 55 to 60 minutes.
 
 ## 1. Run the search race and write up the numbers
 
@@ -48,9 +48,9 @@ In one short paragraph, four or five sentences, explain the halting problem to s
 
 Do not look it up. Write what you understood in class. A clear, honest paragraph in your own words is worth far more here than a correct-sounding one you copied.
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 13 covers algorithms including searching and sorting, and Episode 15 is about Alan Turing and includes the halting problem: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 15, which is about Alan Turing and includes the halting problem. [Watch it here](https://www.youtube.com/watch?v=7TycxwFmdB0). If you want more, Episode 13 covers algorithms including searching and sorting, and is optional: [Episode 13](https://www.youtube.com/watch?v=rL8X2mlNHPM).
 
 ---
 

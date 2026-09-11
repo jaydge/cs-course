@@ -1,6 +1,6 @@
 # Week 8 Homework: Inside the Case, and Text as Data
 
-This week you took a computer apart and learned what makes one faster than another, and you found out that a string is really a list of characters. Plan on about 40 minutes.
+This week you took a computer apart and learned what makes one faster than another, and you found out that a string is really a list of characters. Plan on about 50 to 55 minutes.
 
 ## 1. Two written answers
 
@@ -55,9 +55,9 @@ Careful with capital letters. "Racecar" should still count.
 
 Save it into your CS Class folder.
 
-## 6. Watch, if you want (optional)
+## 6. Watch
 
-Crash Course Computer Science, Episode 9 ("Advanced CPU Designs") and Episode 19 ("Memory and Storage"). Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 19 ("Memory and Storage"), which goes with the memory questions in this homework. [Watch it here](https://www.youtube.com/watch?v=TQCr9RV7twk). If you want more, Episode 9 ("Advanced CPU Designs") is optional: [Episode 9](https://www.youtube.com/watch?v=rtAlC5J1U40).
 
 ---
 

@@ -1,6 +1,6 @@
 # Week 17 Homework: The Machine Underneath
 
-This week you met the operating system and opened a terminal for the first time. None of the ideas are hard; the terminal is just picky about spelling. Keep your command card next to you. Plan on about 45 minutes.
+This week you met the operating system and opened a terminal for the first time. None of the ideas are hard; the terminal is just picky about spelling. Keep your command card next to you. Plan on about 55 to 60 minutes.
 
 ## 1. Navigate, and write down what you see
 
@@ -68,9 +68,9 @@ Save it into your CS Class folder as `list_folder.py`.
 
 Open Activity Monitor on a Mac, or Task Manager on Windows, and look at how many processes are running. Then, in your own words, three or four sentences: what is a process, and why can your computer appear to run all of those at once when it only has a handful of cores?
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 18 covers operating systems and Episode 20 covers files and file systems. Series playlist: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 18, which covers operating systems. [Watch it here](https://www.youtube.com/watch?v=26QPDBe-NB8). If you want more, Episode 20 covers files and file systems, and is optional: [Episode 20](https://www.youtube.com/watch?v=KN8YgJnShPM).
 
 ## A safety note, and it is a real one
 

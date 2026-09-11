@@ -1,6 +1,6 @@
 # Week 13 Homework: Stacks, Queues, and the Shape of Data
 
-This week was about containers and the rules that come with them. A stack, a queue, and a linked list are all just ways of agreeing where you are allowed to add things and where you are allowed to take them out. Plan on about 40 minutes.
+This week was about containers and the rules that come with them. A stack, a queue, and a linked list are all just ways of agreeing where you are allowed to add things and where you are allowed to take them out. Plan on about 50 to 55 minutes.
 
 ## 1. Finish the to-do stack and the print queue
 
@@ -47,9 +47,9 @@ Given `letters = ["a", "b", "c", "d", "e"]`:
 
 Question 5 is worth doing even if you never touch the AP exam. Python counts from 0, some other languages and notations count from 1, and mixing them up is the most common off-by-one bug there is.
 
-## 5. Watch, if you want (optional)
+## 5. Watch
 
-Crash Course Computer Science, Episode 14, covers arrays, stacks, queues, and linked lists in about eleven minutes: `https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo`
+Watch Crash Course Computer Science, Episode 14, which covers arrays, stacks, queues, and linked lists in about eleven minutes. [Watch it here](https://www.youtube.com/watch?v=DuDz6B4cqVc).
 
 ---
 
