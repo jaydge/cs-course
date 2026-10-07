@@ -1,22 +1,8 @@
 # Week 5 Homework: Functions and Finding Bugs
 
-This week you learned to name a block of code and reuse it, and you learned three ways to hunt down a bug. That finishes Unit 1. Plan on about 50 to 55 minutes.
+This week you learned to name a block of code and reuse it, and you learned three ways to hunt down a bug. That finishes Unit 1. Plan on about 25 to 30 minutes.
 
-## 1. Finish Hangman
-
-Get your game working end to end: it picks a word, shows blanks, accepts letters, reveals correct guesses, and ends when the player wins or runs out of tries.
-
-It must use at least two functions. If yours currently works but has no functions, that counts as not done; pull two pieces out into functions and call them.
-
-Save it into your CS Class folder.
-
-## 2. Refactor something older
-
-Open your Rock Paper Scissors game or your calculator from Week 4. Find a chunk of code that does one identifiable job and pull it out into a function with a good name.
-
-Write one sentence at the top of the file, as a comment starting with `#`, saying what you moved and why. Then run it to be sure it still works.
-
-## 3. Debug these
+## 1. Debug these
 
 Each program below has one bug. Write down the error type if there is one, the line, and the fix.
 
@@ -46,11 +32,11 @@ while n > 0:
     n = n - 1
 ```
 
-## 4. Watch
+## 2. Watch
 
 Watch Crash Course Computer Science, Episode 12, which covers statements and functions. [Watch it here](https://www.youtube.com/watch?v=l26oaHV7D40).
 
-## 5. Typing practice (optional)
+## 3. Typing practice (optional)
 
 About 15 minutes at `typing.com` or `keybr.com`.
 

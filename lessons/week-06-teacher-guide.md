@@ -47,6 +47,24 @@ On the coding side, lists are the first data structure of the course and the rea
 
 ## 6. Minute-by-minute class flow
 
+**Catch-up note for this run of Week 6.** Weeks 1 to 3 were covered in full. Week 4's calculator and Rock Paper Scissors builds were skipped, and they have been assigned as homework instead; see the Week 5 add-on assignment in Classroom. Week 5's class work, meaning functions, debugging, and the Hangman build, did not happen. That session went to regular expressions, installing VS Code, connecting students to their Python folders, importing a word list from a dictionary file, and planning a choose-your-own-adventure game. Run Week 5's material first today, compressed, then take Week 6 as far as time allows. Students have already met functions informally, including one hand-coded live on screen, so the recap can move faster than Week 5's guide allows.
+
+Revised flow for this session only:
+
+| Time | Segment |
+| --- | --- |
+| 0:00 to 0:05 | Warm-up and homework check, shortened |
+| 0:05 to 0:25 | Functions in Python, compressed from Week 5 Segment 2 |
+| 0:25 to 0:35 | Debugging, the three techniques, compressed from Week 5 Segment 3 |
+| 0:35 to 0:55 | Build Hangman, compressed from Week 5 Segment 5 |
+| 0:55 to 1:10 | Electricity and the transistor, Segment 3 below |
+| 1:10 to 1:35 | Breadboard gate lab, Segment 4 below, trimmed by 5 minutes |
+| 1:35 to 1:40 | Stretch |
+| 1:40 to 1:58 | Lists and indexing, Segment 6 below, trimmed by 12 minutes |
+| 1:58 to 2:00 | Wrap and homework |
+
+**What that costs.** Segment 2, Human Logic Gates unplugged, is cut. The breadboard lab covers the same three gates with hardware in students' hands, but the unplugged activity is where the truth tables are normally introduced, so draw AND, OR, and NOT on the board during the transistor segment and fill them in with the class. The Unit 1 checkpoint from Week 5 Segment 6 is still outstanding and is not in this plan; the Week 7 warm-up is the obvious place for it. The segment timings below are the original plan and are left unchanged for future years.
+
 ### Segment 1: Warm-up and homework check (0:00 to 0:10)
 
 - **You do:** Quick check that Hangman runs and uses at least two functions. Note who is behind; do not fix code now.
